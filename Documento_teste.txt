@@ -1,0 +1,6 @@
+Este é um exemplo de documento txt para inclusão no diretório de TCC 
+025.
+
+#TESTE de markdown
+
+Este arquivo é apenas um teste. Por favor, desconsidere.
