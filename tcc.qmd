@@ -8,46 +8,19 @@ advisor: "Prof. Dr. Marcelo Ventura Freire"
 date: today
 format:
   pdf:
+    include-before-body: capa.tex
     toc: true
     toc-depth: 4
     number-sections: true
     fig-cap-location: bottom
     cite-method: biblatex
 bibliography: tcc.bib
-lang: pt-BR
+lang: pt
 ---
-
-\newpage
-\thispagestyle{empty}
-
-\begin{center}
-\textbf{\LARGE{<nome do tcc>}}
-
-\vspace{2cm}
-
-\Large{<nome de um de vocês> \\
-<nome do outro>}
-
-\vspace{1cm}
-
-\large{Trabalho de Conclusão de Curso apresentado à \\
-Escola de Artes, Ciências e Humanidades da Universidade de São Paulo \\
-como parte dos requisitos para a obtenção do grau de Bacharel em Marketing.}
-
-\vspace{1cm}
-
-\large{Orientador: Prof. Dr. Marcelo Ventura Freire}
-
-\vfill
-
-\large{São Paulo \\
-<bota a data aqui>}
-\end{center}
 
 \newpage
 
 # ATENÇÃO
-
 
 \begin{center}
 
