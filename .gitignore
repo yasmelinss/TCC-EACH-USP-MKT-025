@@ -1,4 +1,17 @@
+# arquivos do RStudio a ignorar
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
+
+
+# arquivos temporários do latex a ignorar
+*.aux
+*.bcf
+*.log
+*.tex
+*.toc
+*.run.xml
+
+# arquivos de output
+*.pdf
