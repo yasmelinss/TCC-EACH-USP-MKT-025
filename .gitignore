@@ -8,10 +8,15 @@
 # arquivos temporários do latex a ignorar
 *.aux
 *.bcf
+*.bbl
+*.blg
 *.log
 *.tex
 *.toc
 *.run.xml
+
+# este é exceção
+!capa.tex
 
 # arquivos de output
 *.pdf
