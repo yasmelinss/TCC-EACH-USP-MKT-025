@@ -1,28 +1,268 @@
-\newpage
-\thispagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% capa externa
+
+\pagenumbering{gobble} % Desativa numeração
 
 \begin{center}
-\textbf{\LARGE{<nome do tcc>}}
 
-\vspace{2cm}
+\large
 
-\Large{<nome de um de vocês> \\
-<nome do outro>}
-
-\vspace{1cm}
-
-\large{Trabalho de Conclusão de Curso apresentado à \\
-Escola de Artes, Ciências e Humanidades da Universidade de São Paulo \\
-como parte dos requisitos para a obtenção do grau de Bacharel em Marketing.}
-
-\vspace{1cm}
-
-\large{Orientador: Prof. Dr. Marcelo Ventura Freire}
+UNIVERSIDADE DE SÃO PAULO\\
+ESCOLA DE ARTES, CIÊNCIAS E HUMANIDADES
 
 \vfill
 
-\large{São Paulo \\
-<bota a data aqui>}
+{{< meta autores.nome1.longo >}} \\
+{{< meta autores.nome2.longo >}}
+
+\vfill
+
+\textbf{ {{< meta titulo >}} }
+
+\vfill
+
+\quad
+
+\vfill
+
+São Paulo\\
+{{< meta date >}}
+
 \end{center}
 
 \newpage
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % folha de rosto
+%
+% \begin{center}
+%
+% \large
+%
+% {{< meta autores.nome1.longo >}} \\
+% {{< meta autores.nome2.longo >}}
+%
+% \vfill
+%
+% \textbf{ {{< meta titulo >}} }
+%
+% \vfill
+%
+% \textbf{ Versão {{< meta versao >}} }
+%
+% \vfill
+%
+% Trabalho de Conclusão de Curso apresentado
+% à Escola de Artes, Ciências e Humanidades
+% da Universidade de São Paulo
+% para a obtenção do título de Bacharel em Marketing.
+%
+% \vspace{3em}
+%
+% Orientador: {{< meta orientador >}}
+%
+% \vfill
+%
+% \quad
+%
+% \vfill
+%
+% São Paulo\\
+% {{< meta date >}}
+%
+% \end{center}
+%
+%
+% \newpage
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % verso da folha de rosto
+%
+% Autorizo a reprodução e divulgação total ou parcial deste trabalho,
+% por qualquer meio convencional ou eletrônico, para fins de estudo e pesquisa,
+% desde que citada a fonte ou logotipo do Creative Commons.
+%
+% \vfill
+%
+% \begin{center}
+% Catalogação na publicação Biblioteca
+%
+% Escola de Artes, Ciências e Humanidades
+% \end{center}
+%
+% \vspace{5em}
+%
+% \fbox{
+% \parbox{\textwidth}{
+% aqui vai entrar a catalogação que o pessoal da biblioteca vai fazer
+%
+% aqui vai entrar a catalogação que o pessoal da biblioteca vai fazer
+%
+% aqui vai entrar a catalogação que o pessoal da biblioteca vai fazer
+%
+% aqui vai entrar a catalogação que o pessoal da biblioteca vai fazer
+% }
+% }
+%
+% \newpage
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % folha de avaliação
+%
+% Nomes:
+% {{< meta autores.nome1.longo >}} e
+% {{< meta autores.nome2.longo >}}\\[1em]
+%
+% Título: {{< meta titulo >}}\\[1em]
+%
+% Trabalho de conclusão de curso apresentado
+% à Escola de Artes, Ciências e Humanidades
+% da Universidade de São Paulo
+% para a obtenção do título de bacharel em Marketing.
+%
+% \vspace{3em}
+%
+% Aprovado em:
+%
+% \vspace{3em}
+%
+% \begin{center}
+% \begin{tabular}{lcc}
+%     & & Banca Examinadora \\[2em]
+% & &\\[2em]
+% Prof. Dr.: & & \underline{\hspace{30em}}\\[2em]
+% Instituição: & & \underline{\hspace{30em}}\\[2em]
+% Julgamento: & & \underline{\hspace{30em}}\\[2em]
+% & &\\[2em]
+% Prof. Dr.: & & \underline{\hspace{30em}}\\[2em]
+% Instituição: & & \underline{\hspace{30em}}\\[2em]
+% Julgamento: & & \underline{\hspace{30em}}\\[2em]
+% & &\\[2em]
+% Prof. Dr.: & & \underline{\hspace{30em}}\\[2em]
+% Instituição: & & \underline{\hspace{30em}}\\[2em]
+% Julgamento: & & \underline{\hspace{30em}}\\[2em]
+% \end{tabular}
+% \end{center}
+%
+% \newpage
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % folha de dedicatória
+%
+% \quad
+%
+% \vfill
+%
+% \quad
+%
+% \vfill
+%
+% {{< meta dedicatoria1 >}}
+%
+% \vspace{5em}
+%
+% {{< meta dedicatoria2 >}}
+%
+% \vfill
+%
+% \quad
+%
+% \newpage
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % folha de agradecimento
+%
+% \quad
+%
+% \vfill
+%
+% \begin{center}
+% \textbf{AGRADECIMENTOS}
+% \end{center}
+%
+% \vspace{5em}
+%
+% {{< meta agradecimento1 >}}
+%
+% \vspace{5em}
+%
+% {{< meta agradecimento2 >}}
+%
+% \vfill
+%
+% \quad
+%
+% \newpage
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % folha de resumo em português
+%
+% \quad
+%
+% \vfill
+%
+% \begin{center}
+% \textbf{RESUMO}
+% \end{center}
+%
+% \vspace{5em}
+%
+% {{< meta autores.nome1.curto >}} \& {{< meta autores.nome2.curto >}}.
+% \textbf{ {{< meta titulo >}}. }
+% {{< meta date >}}.
+% Trabalho de conclusão de curso (Bacharelado em Marketing) --
+% Escola de Artes, Ciência e Humanidades,
+% Universidade de São Paulo,
+% {{< meta date >}}.
+%
+% \vspace{5em}
+%
+% {{< meta resumo >}}
+%
+% \vspace{5em}
+%
+% Palavras-chave: {{< meta palavraschave >}}
+%
+% \vfill
+%
+% \quad
+%
+% \newpage
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % folha de resumo em inglês
+%
+% \quad
+%
+% \vfill
+%
+% \begin{center}
+% \textbf{ABSTRACT}
+% \end{center}
+%
+% \vspace{5em}
+%
+% {{< meta autores.nome1.curto >}} \& {{< meta autores.nome2.curto >}}.
+% \textbf{ {{< meta tituloingles >}}. }
+% {{< meta date >}}.
+% Trabalho de conclusão de curso (Bacharelado em Marketing) --
+% Escola de Artes, Ciência e Humanidades,
+% Universidade de São Paulo,
+% {{< meta date >}}.
+%
+% \vspace{5em}
+%
+% {{< meta resumo >}}
+%
+% \vspace{5em}
+%
+% Keywords: {{< meta palavraschaveingles >}}
+%
+% \vfill
+%
+% \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% agora, segue o texto do tcc no arqiuvo principal
+
+\pagenumbering{arabic} % Desativa numeração
