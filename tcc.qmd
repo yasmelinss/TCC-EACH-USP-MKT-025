@@ -1,8 +1,8 @@
 ---
 title: "<botem aqui o título do TCC>"
 author: 
-  - name: "<o nome de um de vocês>"
-  - name: "<o nome do outro>"
+  - name: "Yasmin Messias Lins"
+  - name: "Thales de Fante Romão"
 institute: "Escola de Artes, Ciências e Humanidades (EACH) -- Universidade de São Paulo (USP)"
 advisor: "Prof. Dr. Marcelo Ventura Freire"
 date: today
