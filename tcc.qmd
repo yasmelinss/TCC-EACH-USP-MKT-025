@@ -45,7 +45,8 @@ format:
     toc-depth: 4
     number-sections: true
     fig-cap-location: bottom
-    cite-method: biblatex
+    cite-method: citeproc
+    csl: abnt.csl
 geometry:
   - paper=a4paper
   - top=3cm
