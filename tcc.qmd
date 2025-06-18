@@ -7,10 +7,6 @@ autores:
   nome2:
     longo: "Thales de Fante Romão"
     curto: "Romão, T. F."
-autor1: "Yasmin Messias Lins"
-autorcurto1: "Lins, Y. M."
-autor2: "Thales de Fante Romão"
-autorcurto2: "Romão, T. F."
 orientador: "Prof. Dr. Marcelo Ventura Freire"
 date: last-modified
 date-format: "YYYY"
