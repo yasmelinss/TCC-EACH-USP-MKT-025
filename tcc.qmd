@@ -1,4 +1,4 @@
-s---
+---
 titulo: "botem aqui o título do TCC"
 autores: 
   nome1: 
