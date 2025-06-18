@@ -8,14 +8,8 @@ Professor orientador: Marcelo Ventura
 
 Falta fazer:
 
-- [ ] Instalar e aprender Pandocs/TinyTex
 - [ ] Teste de raspagem de dados no BlueSky
 - [ ] Call com a Branca (21/06/2025)
-- [ ] Introdução
-- [ ] Abstract
-- [ ] Revisão Bibliográfica
-- [ ] Metodologia
-
 
 Concluído:
 
