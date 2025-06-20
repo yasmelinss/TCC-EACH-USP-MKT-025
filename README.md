@@ -8,11 +8,13 @@ Professor orientador: Marcelo Ventura
 
 Falta fazer:
 
-- ???
-- ???
-
+- [ ] Teste de raspagem de dados no BlueSky
+- [ ] Call com a Branca (21/06/2025)
 
 Concluído:
 
-- ???
-    - concluído em ??/??/????
+- [X] Criação do repositório e familiarização com Git/GitHub
+    - concluído em 18/06/2025
+- [X] Definição do novo tema
+    - concluído em 18/06/2025
+
