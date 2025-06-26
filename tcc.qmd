@@ -126,6 +126,15 @@ Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (19
 
 # Metodologia
 
+## Tecnologias Utilizadas
+
+### Ambiente Computacional Estatístico R
+
+### Raspagem de Dados 
+
+### Análise de Dados em Rede
+
+
 # Resultados
 
 # Discussão
