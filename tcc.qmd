@@ -116,6 +116,11 @@ Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (19
 
 ## Problema de pesquisa
 
+- Caracterizar o fenômeno
+  - Bloqueio do Twitter no Brasil numa data específica (XX/XX/XXXX) 
+  - Transferência parcial do fluxo de postagens sobre E-Sports (qual?) para o BlueSky
+  - O que mais???
+
 ## Objetivos
 
 ## Justificativa
@@ -130,10 +135,23 @@ Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (19
 
 ### Ambiente Computacional Estatístico R
 
+- Achar alguma bibliografia pertinente como espécie de introdução
+
 ### Raspagem de Dados 
+
+- Achar alguma bibliografia pertinente como espécie de introdução
+- Mencionar bibliotecas do R
 
 ### Análise de Dados em Rede
 
+- Achar alguma bibliografia pertinente como espécie de introdução
+- Mencionar bibliotecas do R
+
+## Fonte dos Dados
+
+- Mencionar BlueSky
+- Caracterizar período
+- Fundamentar porquê do período
 
 # Resultados
 
