@@ -80,10 +80,19 @@ NÃO PREENCHAM AGORA
 # Introdução
 
 ## Revisão Bibliográfica
+- Redação provisória em bullet points
+
+### Indústria de Games enquanto Indústria Criativa
+
+- Pedir bibliografia introdutória para a Jane
+
+### Indústria de *E-Sports*
+
+- Pedir referências para a Branca
+- Ver se ela conhece alguém que estude o tópico
+- Procurar alguém que estude
 
 ### Marketing de Redes Sociais
-
-@Kaplan2010 (@Kaplan2010)
 
 De acordo com @Kaplan2010, redes sociais são um grupo de aplicativos baseados na Internet que se baseiam nos fundamentos ideológicos e tecnológicos da Web 2.0 e que permitem a criação e o intercâmbio de conteúdo gerado pelo usuário. Sendo assim, as redes sociais digitais se destacam como um mecanismo de comunicação que permite um maior alcance de informações e interações do que aqueles possíveis em canais tradicionais, mudando a forma em que consumidores interagem entre si e com marcas. Em particular, a natureza interativa desses canais transformou os consumidores de observadores passivos de conteúdo em participantes ativos que agora criam grandes quantidades de conteúdo por meio de suas conversas, interações e comportamentos on-line [@Malthouse2013]. Outro elemento central desta mudança de paradigma é o engajamento do consumidor como co-criador de valor, que [@Bijmolt2010] define como o desejo e o compromisso do cliente de contribuir para o aumento do valor da empresa.
   
@@ -100,6 +109,10 @@ O acesso rápido e amplo aos consumidores-alvo, até mesmo a nível internaciona
 De acordo com @Forbes2016, o marketing de influência pode ser definido como uma forma de marketing em que o foco é colocado em indivíduos-chave específicos, em vez de no mercado-alvo como um todo. Tradicionalmente, isso se dava através da contratação de celebridades para endossar produtos em comerciais de televisão, outdoors ou outras ativações. No entanto, com o advento das redes sociais surgem os influenciadores de redes sociais (SMIs), que representam um novo tipo de endossante independente de terceiros que moldam as atitudes do público por meio de blogs, postagens e do uso de outras mídias sociais [@Freberg2011]. Atuando como pseudo-celebridades altamente segmentadas, estes influenciadores digitais representam para o marketing de influência uma ferramenta de relações públicas bem-sucedida que permite que as marcas e os consumidores se conectem em um nível mais pessoal [@Glucksman2017]. Cada vez mais, os consumidores valorizam a opinião de outros consumidores na tomada de decisão de compra.
   
 Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (1956), descrevem vínculos unilaterais com figuras da mídia. Na atualidade e através das redes sociais, esses relacionamentos são cada vez mais comuns, com o número de seguidores e a autoridade percebida dessas personalidades ampliando o impacto das mensagens emocionais propagadas por estes. [@Giles2002]
+
+
+### Ciência de Dados
+
 
 ## Problema de pesquisa
 
