@@ -8,8 +8,8 @@ Professor orientador: Marcelo Ventura
 
 Falta fazer:
 
-- [ ] Teste de raspagem de dados no BlueSky
-- [ ] Call com a Branca (21/06/2025)
+- [X] Teste de raspagem de dados no BlueSky
+- [X] Call com a Branca (21/06/2025)
 
 Concluído:
 
