@@ -84,6 +84,8 @@ NÃO PREENCHAM AGORA
 
 ### Indústria de Games enquanto Indústria Criativa
 
+Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvida pela Go Gamers e SX Group em parceria com a ESPM e com a Blend New Research, aplicado em 6 países da América Latina como Argentina, Chile, Colômbia, México e Peru, 82,8%  dos participantes relataram ter o costume de jogar algum tipo de jogo digital, um crescimento de 8,9 p.p em relação à edição anterior. Além disso, a demografia do jogador brasileiro se demonstra interessante, constatando que 53,2% - a maioria - das pessoas que jogam são mulheres.
+
 - Pedir bibliografia introdutória para a Jane
 
 ### Indústria de *E-Sports*
@@ -91,6 +93,23 @@ NÃO PREENCHAM AGORA
 - Pedir referências para a Branca
 - Ver se ela conhece alguém que estude o tópico
 - Procurar alguém que estude
+
+Existe uma longa discussão sobre a diferenciação ou a semelhança dos *E-sports* com os esportes. Entretanto, este trabalho não busca adentrar na discussão da diferenciação ou não dos *E-sports* como “esporte”, mas já carrega tal premissa e busca expandir os horizontes da aplicação do cenário a partir disso. Encontra-se então a definição de que *E-sports* referem-se a partidas competitivas (amadoras ou profissionais) de vídeo games que podem ser coordenadas por instituições que realizam torneios, onde os *Players* ou *Pró-prayers* costumeiramente pertencem a times que podem ser patrocinados por outras instituições, gerando assim, um negócio.[@W2111506874]
+
+A principal forma de disseminação dos E-sports se dá através das transmissões online (*streaming*) e eventos híbridos (campeonatos com torcida que são também transmitidos de forma online). 
+
+- citação direta
+“Os esportes estão se tornando cada vez mais uma forma de mídia mediada por computadores e tecnologia da informação, o que pode acarretar novas maneiras de uso da tecnologia da informação.” 
+
+A midiatização dos *E-sports* ocorre porque não apenas o jogo é veiculado através de transmissões computadorizadas, mas toda a atividade esportiva (pré, durante e pós) é mediada por computador. Isso nos dá dados das manifestações de telespectadores e de players. [@W2111506874]
+
+Segundo @@W2111506874, a interação social que é construída através dos E-sports está positivamente associada à frequência de assistir *E-sports*. Isso deve-se à satisfação gerada a novidades da mídia esportiva e ao prazer e a empolgação de ver novos jogadores, equipes e campeonatos no cenário esportivo, além do prazer relacionado à interação e socialização com outras pessoas assistindo ao jogo. (trail e James, 2001). Com o amadurecimento e crescimento dos *E-sports*, o senso e a criação de comunidade também cresceu, e é refletido principalmente pelo crescimento de fãs de determinados jogos, times e jogadores, expressados nos números das redes sociais, plataformas de streaming e mercado cultural.
+
+Segundo dados apresentados pelo site TwitchTracker.com, a plataforma Twitch obteve no primeiro semestre de 2025 mais de 10 bilhões de horas de conteúdo assistido, 2,5% a menos comparado com o mesmo período do ano passado. Das views, 33,5% da audiência da Twitch é impulsionada pelos 5 Games mais assistidos pelos usuários. São eles: Just Chatting - 15,9% (categoria de streamers que comentam ou reagem a partidas de jogos ou assuntos variados relacionados); League of Legends - 5,5%; Grand Theft Auto V - 3,7%; Counter-Strike - 3,7%; Dota 2 - 3,1%; e Valorant - 3,1%.
+
+#### League of Legends
+
+
 
 ### Marketing de Redes Sociais
 
