@@ -98,8 +98,7 @@ Existe uma longa discussão sobre a diferenciação ou a semelhança dos *E-spor
 
 A principal forma de disseminação dos E-sports se dá através das transmissões online (*streaming*) e eventos híbridos (campeonatos com torcida que são também transmitidos de forma online). 
 
-- citação direta
-“Os esportes estão se tornando cada vez mais uma forma de mídia mediada por computadores e tecnologia da informação, o que pode acarretar novas maneiras de uso da tecnologia da informação.” 
+>Os esportes estão se tornando cada vez mais uma forma de mídia mediada por computadores e tecnologia da informação, o que pode acarretar novas maneiras de uso da tecnologia da informação. [@Juho2017, pg. XX-XX]
 
 A midiatização dos *E-sports* ocorre porque não apenas o jogo é veiculado através de transmissões computadorizadas, mas toda a atividade esportiva (pré, durante e pós) é mediada por computador. Isso nos dá dados das manifestações de telespectadores e de players. [@Juho2017]
 
