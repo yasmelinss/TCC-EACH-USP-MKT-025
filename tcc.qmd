@@ -94,7 +94,7 @@ Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvida pela G
 - Ver se ela conhece alguém que estude o tópico
 - Procurar alguém que estude
 
-Existe uma longa discussão sobre a diferenciação ou a semelhança dos *E-sports* com os esportes. Entretanto, este trabalho não busca adentrar na discussão da diferenciação ou não dos *E-sports* como “esporte”, mas já carrega tal premissa e busca expandir os horizontes da aplicação do cenário a partir disso. Encontra-se então a definição de que *E-sports* referem-se a partidas competitivas (amadoras ou profissionais) de vídeo games que podem ser coordenadas por instituições que realizam torneios, onde os *Players* ou *Pró-prayers* costumeiramente pertencem a times que podem ser patrocinados por outras instituições, gerando assim, um negócio. [@Juho2017]
+Existe uma longa discussão sobre a diferenciação ou a semelhança dos *E-sports* com os esportes. Entretanto, este trabalho não busca adentrar na discussão da diferenciação ou não dos *E-sports* como “esporte”, mas já carrega tal premissa e busca expandir os horizontes da aplicação do cenário a partir disso. Encontra-se então a definição de que *E-sports* referem-se a partidas competitivas (amadoras ou profissionais) de vídeo games que podem ser coordenadas por instituições que realizam torneios, onde os *Players* ou *Pro-players* costumeiramente pertencem a times que podem ser patrocinados por outras instituições, gerando assim, um negócio. [@Juho2017]
 
 A principal forma de disseminação dos E-sports se dá através das transmissões online (*streaming*) e eventos híbridos (campeonatos com torcida que são também transmitidos de forma online). 
 
