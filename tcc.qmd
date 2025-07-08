@@ -145,6 +145,10 @@ Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (19
 
 ## Problema de pesquisa
 
+- Desenvolvido em 2019 pela Bluesky Social como um produto do Twitter, Bluesky é uma rede social de microblogues descentralizada que se tornou independente em 2021. O serviço foi liderado por Jack Donsey, ex-CEO do Twitter, do lançamento até 2024. [@Bluesky2023]
+- A rede teve um grande aumento de usuários quando em 30 de agosto de 2024, a *X Brasil Internet Ltda.* (antigo Twitter), assim como outras empresas relacionadas ao Elon Musk, teve seu funcionamento integralmente suspenso em todo o Brasil, decisão determinada por Alexandre de Moraes, ministro do Supremo Tribunal Federal. [@G12024]
+- A suspensão do X no Brasil durou cerca de 40 dias, encerrando em 8 de outubro de 2024 após o cumprimento das ordens judiciais pela rede e uma multa de 28,6 milhões de reais. [@G12024]
+- Em 31 agosto de 2024, o Bluesky anunciou que havia batido mais de 1 milhão de novos usuários nos últimos 3 dias e que brasileiros estavam estabelecendo novos recordes de atividade na plataforma.
 
 <!-- - Caracterizar o fenômeno -->
 <!--   - Bloqueio do Twitter no Brasil numa data específica (XX/XX/XXXX)  -->
