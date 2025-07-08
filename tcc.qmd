@@ -13,7 +13,7 @@ date-format: "YYYY"
 # # introduzir isto na versão final
 # versao: "Original"
 # # versao: "Corrigida"
-# tituloingles: "place title here"
+# tituloingles: "Análise de Redes Sociais: Um Estudo de Caso da Geração de Conteúdo no Bluesky sobre League of Legends durante a Crise do Twitter"
 # dedicatoria1: |
 #   dedicatoria 1 \\
 #   dedicatoria 1 \\
@@ -145,6 +145,7 @@ Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (19
 
 ## Problema de pesquisa
 
+
 <!-- - Caracterizar o fenômeno -->
 <!--   - Bloqueio do Twitter no Brasil numa data específica (XX/XX/XXXX)  -->
 <!--   - Transferência parcial do fluxo de postagens sobre E-Sports (qual?) para o BlueSky -->
@@ -176,6 +177,7 @@ Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvida pela G
 <!-- - Mencionar bibliotecas do R -->
 
 ### Análise de Dados em Rede
+
 
 <!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
 <!-- - Mencionar bibliotecas do R -->
