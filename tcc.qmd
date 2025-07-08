@@ -13,7 +13,7 @@ date-format: "YYYY"
 # # introduzir isto na versão final
 # versao: "Original"
 # # versao: "Corrigida"
-# tituloingles: "Análise de Redes Sociais: Um Estudo de Caso da Geração de Conteúdo no Bluesky sobre League of Legends durante a Crise do Twitter"
+# tituloingles: "place title here"
 # dedicatoria1: |
 #   dedicatoria 1 \\
 #   dedicatoria 1 \\
