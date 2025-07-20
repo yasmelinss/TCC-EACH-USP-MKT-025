@@ -18,3 +18,5 @@ Concluído:
 - [X] Definição do novo tema
     - concluído em 18/06/2025
 
+# Links Úteis
+[Comandos em Markdown](https://docs.pipz.com/central-de-ajuda/learning-center/guia-basico-de-markdown#open)
