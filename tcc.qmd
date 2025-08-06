@@ -84,46 +84,17 @@ NÃO PREENCHAM AGORA
 
 ### Indústria de Games enquanto Indústria Criativa
 
-Segundo @Wainberg_2024, os termos *industria cultural*, *industria criativa* ou *economia cultural* têm sido utilizados para descrver o stor de 14 profissões. São elas: arquitetura  e  engenharia, artes, artes cênicas, biotecnologia, design, expressões culturais, filme & vídeo, mercado  editorial,  moda,  música,  pesquisa  e  desenvolvimento,  publicidade, software,  computação  e  telecomunicação  e mídia -televisão e  rádio.
+Segundo @Wainberg_2024, os termos *industria cultural*, *industria criativa* ou *economia cultural* têm sido utilizados para descrever o setor de 14 profissões. São elas: arquitetura  e  engenharia, artes, artes cênicas, biotecnologia, design, expressões culturais, filme & vídeo, mercado  editorial,  moda,  música,  pesquisa  e  desenvolvimento,  publicidade, software,  computação  e  telecomunicação  e mídia -televisão e  rádio.
 
 O enfoque sociológico elabora sobre o conceito de induscria cultural e seus efeitos. Pensadores Críticos como Walter Benjamin e Theodor Adorno são vínculados a Escola de Frankfurt apontam os efeitos malignos da indústria cultural, e o olhar otimista que apresenta a criatividade e a inovação como fontes de prosperidade chegou anos depois, em 2014, com Edmund Phelps, ganhador do Prêmio Nobel de Ecomonia em 2014. [@Wainberg_2024]
 
+- bibliografia do Edmund Phelps
+
 <!-- - Pedir bibliografia introdutória para a Jane -->
-
-### Indústria de *E-Sports*
-
-<!-- - Pedir referências para a Branca -->
-<!-- - Ver se ela conhece alguém que estude o tópico -->
-<!-- - Procurar alguém que estude -->
-
-Existe uma longa discussão sobre a diferenciação ou a semelhança dos *E-sports* com os esportes. Entretanto, este trabalho não busca adentrar na discussão da diferenciação ou não dos *E-sports* como “esporte”, mas já carrega tal premissa e busca expandir os horizontes da aplicação do cenário a partir disso. Encontra-se então a definição de que *E-sports* referem-se a partidas competitivas (amadoras ou profissionais) de vídeo games que podem ser coordenadas por instituições que realizam torneios, onde os *Players* ou *Pro-players* costumeiramente pertencem a times que podem ser patrocinados por outras instituições, gerando assim, um negócio. [@Juho2017]
-
-A principal forma de disseminação dos E-sports se dá através das transmissões online (*streaming*) e eventos híbridos (campeonatos com torcida que são também transmitidos de forma online). 
-
->Os esportes estão se tornando cada vez mais uma forma de mídia mediada por computadores e tecnologia da informação, o que pode acarretar novas maneiras de uso da tecnologia da informação. [@Juho2017, pg. XX-XX]
-
-A midiatização dos *E-sports* ocorre porque não apenas o jogo é veiculado através de transmissões computadorizadas, mas toda a atividade esportiva (pré, durante e pós) é mediada por computador. Isso nos dá dados das manifestações de telespectadores e de players. [@Juho2017]
-
-Segundo @Juho2017, a interação social que é construída através dos E-sports está positivamente associada à frequência de assistir *E-sports*. Isso deve-se à satisfação gerada a novidades da mídia esportiva e ao prazer e a empolgação de ver novos jogadores, equipes e campeonatos no cenário esportivo, além do prazer relacionado à interação e socialização com outras pessoas assistindo ao jogo. (trail e James, 2001). Com o amadurecimento e crescimento dos *E-sports*, o senso e a criação de comunidade também cresceu, e é refletido principalmente pelo crescimento de fãs de determinados jogos, times e jogadores, expressados nos números das redes sociais, plataformas de streaming e mercado cultural.
-
-A partir de dados apresentados pelo site TwitchTracker.com, a plataforma Twitch obteve no primeiro semestre de 2025 mais de 10 bilhões de horas de conteúdo assistido, 2,5% a menos comparado com o mesmo período do ano passado. Das views, 33,5% da audiência da Twitch é impulsionada pelos 5 Games mais assistidos pelos usuários. São eles: Just Chatting - 15,9% (categoria de streamers que comentam ou reagem a partidas de jogos ou assuntos variados relacionados); League of Legends - 5,5%; Grand Theft Auto V - 3,7%; Counter-Strike - 3,7%; Dota 2 - 3,1%; e Valorant - 3,1%.
-
-#### League of Legends
-
-League of Legends (LoL) é um jogo do tipo MOBA (Multiplayer Online Battle Arena), que foi lançado pela empresa RIOT em 2009.o jogo é composto por duas equipes de 5 jogadores cada, oned o objetivo principal da equipe é conquistar o "Nexus" (Torre) do inimigo em um mapa. [@Cauteruccio2023]
-
-
-Um grande cenário competitivo vem crescendo ao redor do jogo ao passar dos anos. De acordo com @Cauteruccio2023 Os principais eventos de e-sports sobre o LoL são o MSI e o LoL World Championship (Worlds), onde as melhores equipes do mundo participam e disputam os campeonatos competindo por prêmios multimilionários.Cauteruccio2023 No cenário competitivo, temos algumas ligas atualmente consideradas MAJOR (regiões com mais vitórias e melhores jogadores): Liga da Coréia (LCK); Liga da China (LPL); Liga da Europa (LEC); e regiões MINOR (consideradas mais fracas competitivamente): LTA SUL e LTA NORTE. 
-
-Apesar do Brasil e américa Latina estarem enquadrados na região MINOR, o engajamento dos *fãs* e os números das *lives* demonstram um expressão significativa mundialemente. Foi criado o canal de trasmissão *Ilha das Lendas*, onde um grupo de ex-jogadores fazem *co-stream* dos jogos oficiais de LOL em geral, de todas as ligas. As lives IDL (Ilha das Lendas) chegam a alcançar 150 mil pessoas simultaneamentente, enquanto as lives oficiais chegam a 20 mil. 
-
-As lives geralmente são transmitidas por diferentes serviços *streamings* como Twitch e Youtube, e o número de *viwers* (pessoas assistindo as partidas) são expressivos. Durante a final do Words de 2018, mais de 99 milhões de views foram contabilizadas. [@Cauteruccio2023]
-
-
 
 ### Marketing de Redes Sociais
 
-De acordo com @Kaplan2010, redes sociais são um grupo de aplicativos baseados na Internet que se baseiam nos fundamentos ideológicos e tecnológicos da Web 2.0 e que permitem a criação e o intercâmbio de conteúdo gerado pelo usuário. Sendo assim, as redes sociais digitais se destacam como um mecanismo de comunicação que permite um maior alcance de informações e interações do que aqueles possíveis em canais tradicionais, mudando a forma em que consumidores interagem entre si e com marcas. Em particular, a natureza interativa desses canais transformou os consumidores de observadores passivos de conteúdo em participantes ativos que agora criam grandes quantidades de conteúdo por meio de suas conversas, interações e comportamentos on-line [@Malthouse2013]. Outro elemento central desta mudança de paradigma é o engajamento do consumidor como co-criador de valor, que [@Bijmolt2010] define como o desejo e o compromisso do cliente de contribuir para o aumento do valor da empresa.
+De acordo com @Kaplan2010, redes sociais são um grupo de aplicativos hospedados na Internet que se baseiam nos fundamentos ideológicos e tecnológicos da Web 2.0 e que permitem a criação e o intercâmbio de conteúdo gerado pelo usuário. Sendo assim, as redes sociais digitais se destacam como um mecanismo de comunicação que permite um maior alcance de informações e interações do que aqueles possíveis em canais tradicionais, mudando a forma em que consumidores interagem entre si e com marcas. Em particular, a natureza interativa desses canais transformou os consumidores de observadores passivos de conteúdo em participantes ativos que agora criam grandes quantidades de conteúdo por meio de suas conversas, interações e comportamentos on-line [@Malthouse2013]. Outro elemento central desta mudança de paradigma é o engajamento do consumidor como co-criador de valor, que [@Bijmolt2010] define como o desejo e o compromisso do cliente de contribuir para o aumento do valor da empresa.
   
 O acesso rápido e amplo aos consumidores-alvo, até mesmo a nível internacional, é uma das grandes vantagens do marketing de redes sociais [@Ravi2021], com campanhas promocionais digitais estando entre as estratégias mais comuns para agências e empresas de publicidade ou comunicação. Estas estratégias, chamadas de Social Media Marketing (SMM), têm como principal atrativo o retorno rápido ao mesmo tempo que permitem informar consumidores da marca, construir posicionamento e adquirir feedback a custos mais baixos que através de canais físicos.
   
@@ -131,13 +102,44 @@ O acesso rápido e amplo aos consumidores-alvo, até mesmo a nível internaciona
   
 >It isn’t enough to interrupt the consumer experience and steal a few moments of attention. With social media marketing, the ability for consumers to interact and engage with brands is greatly enhanced. Social media channels give consumers unparalleled access. Consumers discuss, contribute, collaborate, and share—with brands and with each other. The culture of marketing has shifted to an informal one focused on the belief that customers are in control. Marketing guru Peter Drucker once famously said, “The purpose of a business is to create a customer.” With the reach and community influence of social media, we can expand this definition: the purpose of a business is to create customers who create other customers. That participation in the process is the new fifth P of marketing. [@Tuten2015, p. 21].
 
-@Gronroos2004 define o marketing de relacionamentos como a noção de que, além do valor percebido de produtos ou serviços, existe um relacionamento entre as partes gera valor adicional para o consumidor e para a empresa. Adicionalmente, o autor destaca que consumidores num contexto relacional podem demonstrar padrão de comportamento ativo ou passivo. Consumidores de comportamento ativo buscam contato com a marca ativamente, enquanto que os de comportamento passivo estão satisfeitos em saber que a marca pode ser contatada e os auxiliaria se necessário [@Gronroos2004]. Este fenômeno ganha nova importância com a popularização das redes sociais, onde o alto grau de interatividade facilita na construção e manutenção desses relacionamentos.
+@Gronroos2004 define o marketing de relacionamentos como a noção de que, além do valor percebido de produtos ou serviços, existe um relacionamento entre as partes que gera valor adicional para o consumidor e para a empresa. Adicionalmente, o autor destaca que consumidores num contexto relacional podem demonstrar padrão de comportamento ativo ou passivo. Consumidores de comportamento ativo buscam contato com a marca ativamente, enquanto que os de comportamento passivo estão satisfeitos em saber que a marca pode ser contatada e os auxiliaria se necessário [@Gronroos2004]. Este fenômeno ganha nova importância com a popularização das redes sociais, onde o alto grau de interatividade facilita na construção e manutenção desses relacionamentos.
 
-### Influenciadores digitais ou Social Media Influencers
+#### Influenciadores digitais ou Social Media Influencers
 
 De acordo com @Forbes2016, o marketing de influência pode ser definido como uma forma de marketing em que o foco é colocado em indivíduos-chave específicos, em vez de no mercado-alvo como um todo. Tradicionalmente, isso se dava através da contratação de celebridades para endossar produtos em comerciais de televisão, outdoors ou outras ativações. No entanto, com o advento das redes sociais surgem os influenciadores de redes sociais (SMIs), que representam um novo tipo de endossante independente de terceiros que moldam as atitudes do público por meio de blogs, postagens e do uso de outras mídias sociais [@Freberg2011]. Atuando como pseudo-celebridades altamente segmentadas, estes influenciadores digitais representam para o marketing de influência uma ferramenta de relações públicas bem-sucedida que permite que as marcas e os consumidores se conectem em um nível mais pessoal [@Glucksman2017]. Cada vez mais, os consumidores valorizam a opinião de outros consumidores na tomada de decisão de compra.
   
-Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (1956), descrevem vínculos unilaterais com figuras da mídia. Na atualidade e através das redes sociais, esses relacionamentos são cada vez mais comuns, com o número de seguidores e a autoridade percebida dessas personalidades ampliando o impacto das mensagens emocionais propagadas por estes. [@Giles2002]
+Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (1956), descrevem vínculos unilaterais com figuras da mídia. Na atualidade e através das redes sociais, esses relacionamentos são cada vez mais comuns, com o número de seguidores e a autoridade percebida dessas personalidades ampliando o impacto das mensagens emocionais propagadas por estes. [@Giles2002]  
+
+### Indústria de *E-Sports*
+
+<!-- - Pedir referências para a Branca -->
+<!-- - Ver se ela conhece alguém que estude o tópico -->
+<!-- - Procurar alguém que estude -->
+
+Existe uma longa discussão sobre a diferenciação ou a semelhança dos *E-sports* com os esportes. Entretanto, este trabalho não busca adentrar na discussão da diferenciação ou não dos *E-sports* como “esporte”, mas sim, já carrega tal premissa, e busca expandir os horizontes da aplicação do cenário a partir disso. Encontra-se então a definição de que *E-sports* referem-se a partidas competitivas (amadoras ou profissionais) de vídeo games que podem ser coordenadas por instituições que realizam torneios, onde os *Players* ou *Pró-players* costumeiramente pertencem a times que podem ser patrocinados por outras instituições, gerando assim, um negócio. [@Juho2017]
+
+A principal forma de disseminação dos E-sports se dá através das transmissões online (*streaming*) e eventos híbridos (campeonatos com torcida que são também transmitidos de forma online). 
+
+>Os esportes estão se tornando cada vez mais uma forma de mídia mediada por computadores e tecnologia da informação, o que pode acarretar novas maneiras de uso da tecnologia da informação. [@Juho2017, pg. XX-XX]
+
+A midiatização dos *E-sports* ocorre porque não apenas o jogo é veiculado através de transmissões computadorizadas, mas toda a atividade esportiva (pré, durante e pós) é mediada por computador. Isso nos dá dados das manifestações de telespectadores e dos players. [@Juho2017]
+
+Segundo @Juho2017, a interação social que é construída através dos E-sports está positivamente associada à frequência de assistir *E-sports*. Isso deve-se à satisfação gerada a novidades da mídia esportiva e ao prazer e a empolgação de ver novos jogadores, equipes e campeonatos no cenário esportivo, além do prazer relacionado à interação e socialização com outras pessoas assistindo ao jogo. (trail e James, 2001). Com o amadurecimento e crescimento dos *E-sports*, o senso e a criação de comunidade também cresceu, e é refletido principalmente pelo crescimento de fãs de determinados jogos, times e jogadores, expressados nos números das redes sociais, plataformas de streaming e mercado cultural.
+
+A partir de dados apresentados pelo site TwitchTracker.com, a plataforma Twitch obteve no primeiro semestre de 2025 mais de 10 bilhões de horas de conteúdo assistido, 2,5% a menos comparado com o mesmo período do ano passado. Das views, 33,5% da audiência da Twitch é impulsionada pelos 5 Games mais assistidos pelos usuários. São eles: Just Chatting - 15,9% (categoria de streamers que comentam ou reagem a partidas de jogos ou assuntos variados relacionados); League of Legends - 5,5%; Grand Theft Auto V - 3,7%; Counter-Strike - 3,7%; Dota 2 - 3,1%; e Valorant - 3,1%.
+
+#### League of Legends
+
+League of Legends (LoL) é um jogo do tipo MOBA (Multiplayer Online Battle Arena), que foi lançado pela empresa RIOT em 2009. O jogo é composto por duas equipes de 5 jogadores cada, oned o objetivo principal da equipe é conquistar o "Nexus" (Torre) do inimigo em um mapa. [@Cauteruccio2023]
+
+
+Um grande cenário competitivo vem crescendo ao redor do jogo ao passar dos anos. De acordo com @Cauteruccio2023 Os principais eventos de e-sports sobre o LoL são o MSI e o LoL World Championship (Worlds), onde as melhores equipes do mundo participam e disputam os campeonatos competindo por prêmios multimilionários. No cenário competitivo, temos algumas ligas atualmente consideradas MAJOR (regiões com mais vitórias e melhores jogadores): Liga da Coréia (LCK); Liga da China (LPL); Liga da Europa (LEC); e regiões MINOR (consideradas mais fracas competitivamente): LTA SUL e LTA NORTE. 
+
+Apesar do Brasil e américa Latina estarem enquadrados na região MINOR, o engajamento dos *fãs* e os números das *lives* demonstram um expressão significativa mundialemente. Foi criado o canal de trasmissão *Ilha das Lendas*, onde um grupo de ex-jogadores fazem *co-stream* dos jogos oficiais de LOL em geral, de todas as ligas. As lives IDL (Ilha das Lendas) chegam a alcançar 150 mil pessoas simultaneamentente, enquanto as lives oficiais chegam a 20 mil. 
+
+As lives geralmente são transmitidas por diferentes serviços *streamings* como Twitch e Youtube, e o número de *viwers* (pessoas assistindo as partidas) são expressivos. Durante a final do Words de 2018, mais de 99 milhões de views foram contabilizadas. [@Cauteruccio2023]
+
+
 
 
 ### Ciência de Dados
