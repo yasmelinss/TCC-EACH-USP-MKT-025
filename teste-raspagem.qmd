@@ -1,0 +1,202 @@
+---
+title: "Primeiro Teste de Raspagem no Bluesky"
+author: "Thales de Fante Romão"
+lang: pt-br
+format: html
+---
+
+```{r}
+#| label: setup
+
+library(tidyverse)
+library(bskyr)
+```
+
+
+```{r}
+auth <- bs_auth(user = "seuusuario.bsky.social", pass = "seu_app_password")
+library(bskyr)
+auth <- bs_auth(user = "ennoe.bsky.social", pass = "omp6-axyy-kme6-i4gm")
+posts <- bs_search_posts(
+query = "league of legends since:2024-08-30 until:2024-10-08",
+limit = 500,
+auth = auth
+)
+print(posts)
+library(bskyr)
+auth <- bs_auth(user = "ennoe.bsky.social", pass = "omp6-axyy-kme6-i4gm")
+posts <- bs_search_posts(
+query = "league of legends since:2024-08-30 until:2024-10-08",
+limit = 500,
+auth = auth
+)
+print(posts)
+outfile <- "bluesky_rstats.csv"
+old <- if (file.exists(outfile)) readr::read_csv(outfile, show_col_types = FALSE) else tibble::tibble()
+new <- posts
+combined <- bind_rows(new, old) %>%
+distinct(uri, .keep_all = TRUE) %>%        # deduplica pelo URI
+arrange(desc(createdAt))
+library(bskyr)
+auth <- bs_auth(user = "ennoe.bsky.social", pass = "omp6-axyy-kme6-i4gm")
+posts <- bs_search_posts(
+query = "league of legends since:2024-08-30 until:2024-10-08",
+limit = 500,
+auth = auth
+)
+print(posts)
+outfile <- TCC-EACH-USP-MKT-025/bluesky_league_of_legends.csv"
+keep_cols <- c("uri", "cid", "author", "text", "createdAt")
+new_posts_small <- new_posts %>% select(any_of(keep_cols))
+install.packages("dplyr")
+library(dplyr)
+install.packages("dplyr")
+library(dplyr)
+keep_cols <- c("uri", "cid", "author", "text", "createdAt")
+new_posts_small <- new_posts %>% select(any_of(keep_cols))
+keep_cols <- c("uri", "cid", "author", "text", "createdAt")
+new_posts_small <- posts %>% select(any_of(keep_cols))
+# --- 4. Definir caminho do arquivo e carregar dados antigos ---
+outfile <- "bluesky_league_of_legends.csv"
+if (file.exists(outfile)) {
+old_posts <- read_csv(outfile, show_col_types = FALSE)
+} else {
+old_posts <- tibble()
+}
+# --- 5. Combinar, remover duplicados e ordenar ---
+combined <- bind_rows(posts_small, old_posts) %>%
+distinct(uri, .keep_all = TRUE) %>%
+arrange(desc(createdAt))
+keep_cols <- c("uri", "cid", "author", "text", "createdAt")
+new_posts_small <- posts %>% select(any_of(keep_cols))
+# --- 4. Definir caminho do arquivo e carregar dados antigos ---
+outfile <- "bluesky_league_of_legends.csv"
+if (file.exists(outfile)) {
+old_posts <- read_csv(outfile, show_col_types = FALSE)
+} else {
+old_posts <- tibble()
+}
+# --- 5. Combinar, remover duplicados e ordenar ---
+combined <- bind_rows(new_posts_small, old_posts) %>%
+distinct(uri, .keep_all = TRUE) %>%
+arrange(desc(createdAt))
+keep_cols <- c("uri", "cid", "author", "text", "createdAt")
+posts_small <- posts %>% select(any_of(keep_cols))
+outfile <- "bluesky_league_of_legends.csv"
+if (file.exists(outfile)) {
+old_posts <- read_csv(outfile, show_col_types = FALSE)
+} else {
+old_posts <- tibble()
+}
+combined <- bind_rows(posts_small, old_posts) %>%
+distinct(uri, .keep_all = TRUE) %>%
+arrange(desc(createdAt))
+library(bskyr)
+auth <- bs_auth(user = "ennoe.bsky.social", pass = "omp6-axyy-kme6-i4gm")
+posts <- bs_search_posts(
+query = "league of legends since:2024-08-30 until:2024-10-08",
+limit = 500,
+auth = auth
+)
+print(posts)
+library(bskyr)
+auth <- bs_auth(user = "ennoe.bsky.social", pass = "omp6-axyy-kme6-i4gm")
+posts <- bs_search_posts(
+query = "league of legends since:2024-08-30 until:2024-10-08",
+limit = 500,
+auth = auth
+)
+print(posts)
+outfile <- raspagem bsky.csv
+outfile <- raspagem_bsky.csv
+outfile <- bsky_posts.csv
+outfile <- "bsky_posts.csv"
+write_csv(]df, outfile)
+outfile <- "bsky_posts.csv"
+write_csv(df, outfile)
+library (readr)
+outfile <- "bsky_posts.csv"
+write_csv(df, outfile)
+library(bskyr)
+auth <- bs_auth(user = "ennoe.bsky.social", pass = "omp6-axyy-kme6-i4gm")
+posts <- bs_search_posts(
+query = "league of legends since:2024-08-30 until:2024-10-08",
+limit = 500,
+auth = auth
+)
+print(posts)
+outfile <- "bsky_posts.csv"
+write_csv(df, outfile)
+library(dplyr)
+# Suponha que posts_raw é o resultado bruto da busca
+posts <- posts_raw %>%
+dplyr::bind_rows()  # Se for lista de listas
+library(dplyr)
+# Suponha que posts_raw é o resultado bruto da busca
+posts_df <- posts %>%
+dplyr::bind_rows()  # Se for lista de listas
+outfile <- "bsky_posts.csv"
+write_csv(df, outfile)
+library(bskyr)
+auth <- bs_auth(user = "ennoe.bsky.social", pass = "omp6-axyy-kme6-i4gm")
+posts <- bs_search_posts(
+query = "league of legends since:2024-08-30 until:2024-10-08",
+limit = 500,
+auth = auth
+)
+print(posts)
+print(n=500)
+print(n = 500)
+library(bskyr)
+auth <- bs_auth(user = "ennoe.bsky.social", pass = "omp6-axyy-kme6-i4gm")
+posts <- bs_search_posts(
+query = "league of legends since:2024-08-30 until:2024-10-08",
+limit = 500,
+auth = auth
+)
+print(posts)
+library(bskyr)
+auth <- bs_auth(user = "ennoe.bsky.social", pass = "omp6-axyy-kme6-i4gm")
+posts <- bs_search_posts(
+query = "league of legends since:2024-08-30 until:2024-10-08",
+limit = 500,
+auth = auth
+)
+print(posts)
+library(readr)  # certifique que o pacote está instalado e carregado
+write_csv(posts, "posts_league_of_legends.csv")
+install.packages("writexl")
+library(writexl)
+library(bskyr)
+auth <- bs_auth(user = "ennoe.bsky.social", pass = "omp6-axyy-kme6-i4gm")
+posts <- bs_search_posts(
+query = "league of legends since:2024-08-30 until:2024-10-08",
+limit = 500,
+auth = auth
+)
+print(posts)
+library(readr)  # certifique que o pacote está instalado e carregado
+write_xlsx(posts, path = "posts_lol.xlsx")
+uris <- posts$uri  # se for dataframe, acessa a coluna uri
+print(uris)
+convert_uri_to_url <- function(uri) {
+# Remove 'at://'
+clean <- sub("^at://", "", uri)
+# Divide em partes pelo último '/'
+parts <- strsplit(clean, "/")[[1]]
+did <- parts[1]
+post_id <- parts[length(parts)]
+paste0("https://bsky.app/profile/", did, "/post/", post_id)
+}
+# Exemplo:
+uris <- c("at://did:plc:oglvjy2a3inh5o5xt33nylip/app.bsky.feed.post/3l5xhu7yu7d2x")
+urls <- sapply(uris, convert_uri_to_url)
+print(urls)
+uris <- posts$uri
+urls <- sapply(uris, convert_uri_to_url)
+# Agora você pode salvar as URLs num arquivo
+writeLines(urls, "bluesky_urls.txt")
+savehistory("C:/Users/thale/OneDrive/Desktop/console de quando eu tava raspando dados.Rhistory")
+
+```
+
