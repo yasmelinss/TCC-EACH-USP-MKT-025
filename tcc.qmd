@@ -178,11 +178,13 @@ Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvida pela G
 <!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
 
 ### Raspagem de Dados 
+#### Pacote Blueskyer (documentação da biblioteca)
 
 <!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
 <!-- - Mencionar bibliotecas do R -->
 
 ### Análise de Dados em Rede
+
 
 
 <!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
