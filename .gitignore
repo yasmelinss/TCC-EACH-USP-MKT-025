@@ -4,6 +4,8 @@
 .RData
 .Ruserdata
 
+# arquivos temporários do html a ignorar
+*_files/
 
 # arquivos temporários do latex a ignorar
 *.aux
@@ -20,3 +22,4 @@
 
 # arquivos de output
 *.pdf
+*.html
