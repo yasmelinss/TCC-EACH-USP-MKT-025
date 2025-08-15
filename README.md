@@ -6,14 +6,25 @@ Professor orientador: Marcelo Ventura
 
 # TO-DO List
 
-Falta fazer:
+Sprint da semana:
 
-- [ ] Ler, interpretar e documentar a estrutura de raspagem
-- [ ] Escrever a respeito do bskyr em Metodologia
+- [ ] Verficar se não estamos esquecendo de incluir alguma etapa
+    - Yas e Thales
 - [ ] Descrever propriamente problema de pesquisa
+    - Thales
+- [ ] Escrever a respeito do bskyr em Metodologia
+    - Yas
+- [ ] Ler, interpretar e documentar a estrutura de raspagem
+    - Yas
 - [ ] Teste de seguidores em comum
+    - Yas e Thales
+
+Backlog:
+
 - [ ] Pedir bibliografia para Jane
+    - Thales
 - [ ] Mandar e-mail para PGB (talvez mais pra frente)
+    - Thales
 
 Concluído:
 
