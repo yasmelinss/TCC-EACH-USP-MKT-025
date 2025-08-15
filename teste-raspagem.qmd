@@ -95,8 +95,10 @@ print(uris)
 
 
 ```{r}
+#| label: exemplo-sub-dataframe
+
 posts |>
-  select(uri, cid, author, text) |> 
+  select(uri, cid, author) |> 
   filter(author == "zé das couves") |> 
   summarize()
 ```
