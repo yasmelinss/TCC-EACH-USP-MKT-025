@@ -7,7 +7,7 @@ format: html
 
 ```{r}
 #| label: setup
-
+library(bskyr)
 library(tidyverse)
 library(bskyr)
 library(readr)
@@ -16,7 +16,7 @@ library(readr)
 
 
 ```{r}
-library(bskyr)
+
 auth <- bs_auth(user = "ennoe.bsky.social", pass = "omp6-axyy-kme6-i4gm")
 posts <- bs_search_posts(
 query = "league of legends since:2024-08-30 until:2024-10-08",
@@ -28,13 +28,10 @@ print(posts)
 
 
 ```{r}
-
-
-```
 #Salvar um data frame chamado posts em um arquivo Excel chamado posts_lol.xlsx, usando a função write_xlsx().
 write_xlsx(posts, path = "teste_raspagem_urls.xlsx") 
 
-# acessa a coluna uri do dataframe posts
+#acessa a coluna uri do dataframe posts
 uris <- posts$uri  
 print(uris)
 
@@ -50,6 +47,9 @@ paste0("https://bsky.app/profile/", did, "/post/", post_id)
 
 # Agora você pode salvar as URLs num arquivo
 writeLines(urls, "bluesky_teste_raspagem_urls.txt")
+
+```
+
 
 ```{r}
 auth <- bs_auth(user = "seuusuario.bsky.social", pass = "seu_app_password")
