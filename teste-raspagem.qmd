@@ -28,6 +28,8 @@ auth <-
   )
 ```
 
+[Explicação do Bluesky sobre os app passwords](https://blueskyfeeds.com/faq-app-password)
+
 ## raspando páginas à procura da string `"league of legends"`
 
 Raspagem de teste
