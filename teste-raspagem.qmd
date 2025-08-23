@@ -127,4 +127,28 @@ follows_suggestions <- bs_get_follow_suggestions(
 print(follows_suggestions)
 
 ```
+```{r}
+#| label: testando-lista-autor
+
+  lista_ator <- bs_get_actor_lists(
+  actor = 'chriskenny.bsky.social',
+  cursor = NULL,
+  limit = NULL,
+  user = user,
+  pass = pass,
+  auth = auth,
+  clean = TRUE
+)
+
+print(lista_ator)
+
+```
+
+```{r}
+#| label: testando-record-key
+
+key <- bs_extract_record_key('https://bsky.app/profile/chriskenny.bsky.social/post/3lc5d6zspys2c')
+
+print(key)
+```
 
