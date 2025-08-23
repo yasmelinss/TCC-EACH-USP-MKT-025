@@ -79,7 +79,7 @@ write_xlsx(posts, path = "teste_raspagem_urls.xlsx")
 
 ```{r}
 
-#| label: transformando em URLs
+#| label: transformando-em-URLs
 #acessa a coluna uri do dataframe posts
 uris <- posts$uri  
 print(uris)
@@ -111,5 +111,20 @@ posts |>
   select(uri, cid, author) |> 
   filter(author == "zé das couves") |> 
   summarize()
+```
+
+```{r}
+#| label: testando-sugestões-seguidores
+
+follows_suggestions <- bs_get_follow_suggestions(
+  actor,
+  user = user,
+  pass = pass,
+  auth = auth,
+
+)
+
+print(follows_suggestions)
+
 ```
 
