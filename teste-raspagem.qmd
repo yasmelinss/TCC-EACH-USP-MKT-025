@@ -106,7 +106,7 @@ print(urls)
 
 ```{r}
 #| label: exemplo-sub-dataframe
-
+#| eval: false
 posts |>
   select(uri, cid, author) |> 
   filter(author == "zé das couves") |> 
@@ -115,7 +115,7 @@ posts |>
 
 ```{r}
 #| label: testando-sugestões-seguidores
-
+#| eval: false
 follows_suggestions <- bs_get_follow_suggestions(
   actor,
   user = user,
@@ -129,7 +129,7 @@ print(follows_suggestions)
 ```
 ```{r}
 #| label: testando-lista-autor
-
+#| eval: false
   lista_ator <- bs_get_actor_lists(
   actor = 'chriskenny.bsky.social',
   cursor = NULL,
@@ -146,7 +146,7 @@ print(lista_ator)
 
 ```{r}
 #| label: testando-record-key
-
+#| eval: false
 key <- bs_extract_record_key('https://bsky.app/profile/chriskenny.bsky.social/post/3lc5d6zspys2c')
 
 print(key)
