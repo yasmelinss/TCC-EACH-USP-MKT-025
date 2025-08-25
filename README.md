@@ -12,9 +12,9 @@ Sprint da semana:
     - Yas e Thales
 - [ ] Descrever propriamente problema de pesquisa
     - Thales
-- [ ] Escrever a respeito do bskyr em Metodologia
+- [x] Escrever a respeito do bskyr em Metodologia
     - Yas
-- [ ] Ler, interpretar e documentar a estrutura de raspagem
+- [x] Ler, interpretar e documentar a estrutura de raspagem
     - Yas
 - [ ] Teste de seguidores em comum
     - Yas e Thales
