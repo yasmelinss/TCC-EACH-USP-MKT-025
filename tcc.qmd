@@ -184,7 +184,35 @@ Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvida pela G
 <!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
 
 ### Raspagem de Dados 
+
 #### Pacote Blueskyer (documentação da biblioteca)
+
+O Pacote "bskyr" teve sua versão 0.3.0 disponibilizada em 22 de julho de 2025. Esse pacote é responsável por coletar dados e fazer posts no '*Bluesky*' com API (Programming Interface) via HTTP (Hypertext Transfer Protocol). [@Manual] Essas APIs permitem que um cliente (software) envie uma solicitação a um servidor (outro software) e receba uma resposta.
+
+HTTP APIs são comuns para solicitações cliente-servidor e usam um conjunto de convensões chamadas XRPC (eXtensible Remote Procedure Call). Os nomes de caminho do *endpoint* (um endereço da web que representa uma função específica da API) incluem um NSID (Namespace Identifier) que indica o Léxico que específica os esquemas de solicitação-resposta, comumente em JSON (JavaScript Object Notation). [@Manual]. São comuns em redes descentralizadas e abertas como o *Bluesky*, garantindo que cliente e servidor falem a "mesma língua".
+
+O conteúdo da biblioteca está em sua documentação. [@Manual]. A seguir, algumas das funções que pretendemos utilizar:
+
+bs_auth (autentica um usuário)
+bs_get_actor_lists (obtém uma lista de listas que pertencem a um ator)
+bs_get_feed
+bs_get_followers
+bs_get_follow_suggestions
+bs_get_likes
+bs_get_posts_likes
+bs_get_reposts
+bs_search_posts (encontra posts específicos dentro de um critério de pesquisa)
+
+
+-Os dois tipos de requisições que podem ser expressos em Léxicos são "consulta" (HTTP GET) e "procedimento" (HTTP POST). Seguindo a semântica HTTP REST, as consultas (GET) podem ser armazenadas em cache e não devem alterar o estado do recurso. Os procedimentos não podem ser armazenados em cache e podem alterar o estado.[Protocolo usado no API HTTP (XRPC)](https://atproto.com/pt/specs/xrpc)
+
+Lista de NSID importantes:
+
+
+#### App Paswords
+
+No processo de raspagem de dados, foi solicitado o *App Pasword*, uma prática mais segura para reduzir riscos quando *logamos* como clientes em partes terceiras e em aplicações web. São usadas como a chave de acesso assim como a senha, mas concede permissões restritas, inpedindo ações destrutivas. [Protocolo usado no API HTTP (XRPC)](https://atproto.com/pt/specs/xrpc)
+
 
 <!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
 <!-- - Mencionar bibliotecas do R -->
@@ -204,6 +232,52 @@ Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvida pela G
 
 # Resultados
 
+## bs_search_posts
+
+A função *bs_search_posts* serve para encontrar posts que seguem um critério pré escolhido. Assim, foi realizada a escolha da string "League of Legends" como parâmetro para a extração de 50 amostras de *posts* testes.
+
+O resultado obtido, após o comando *str(posts[1, ])* - que acessa a primeira linha do data frame *posts* e específica quais são as variáveis (colunas) que estão sendo puxadas, com seus respectivos tipos - foi:
+
+tibble [1 × 13] (S3: tbl_df/tbl/data.frame)
+
+<!-- - Não sei se eu escrevo tudo ou só os mais importantes, e não sei se precisa do caminho que eles fazem -->
+
+
+  > $uri - código do post
+  > $cid - código do post
+  > $author > $did - código do post
+          > $handle - nome do *user*
+          > $displayName - nome escolhido pelo usuário
+          > $avatar - foto de perfil
+          > $associated > $chat > $allowIncoming (chr "followers")
+                        > $activitySubscription > > $allowSubscriptions (chr "followers")
+          > $viewer > $muted - mutado (false)
+                    > $blockedBy - bloqueado (false)
+          > $labels - lista vazia 
+          > $createdAt - data de criação do usuário
+  $record > $list > $type - app.bsky.feed.post
+                  > $createdAt - data de criação do post
+                  > $embed > $type > $external> $description - conteúdo do post
+                  
+                  <!-- Vou colocar só o que importa -->
+          
+          > $title - primeiras linhas do post se ele tiver um título
+          > $uri - um link colocado pelo usuário
+          > $type: chr "app.bsky.richtext.facet#tag" -  inicia a busca por #
+          > $tag - a # usada. ele também puxa os bytes da #
+          > $type: chr "app.bsky.richtext.facet#link" - inicia a busca pelo link colocado
+          > $text - conteúdo do post em si
+          > $embed > $ > $type   : chr "app.bsky.embed.external#view"> external > -  RESUMO DO POST com $uri, $title, $description, $thumb - display do link
+          
+          > $reply_count - quantidade de comentários
+          > $reposts_count - quantidade de compartilhamento "repost"
+          > $like_count - quantidade de curtidas
+          > $quote_count - deve ser quantidade de menções
+          > $indexed_at - data do post
+          
+          
+          
+          
 # Discussão
 
 # Conclusão
