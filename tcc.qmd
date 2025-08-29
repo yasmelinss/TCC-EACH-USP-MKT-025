@@ -38,7 +38,10 @@ date-format: "YYYY"
 # palavraschaveingles: Keyword 1. Keyword 2.
 # #
 format:
-  html
+  html:
+    toc: true
+    toc-depth: 4
+    number-sections: true
   # pdf:
   #   documentclass: report
   #   include-before-body: capa.tex
