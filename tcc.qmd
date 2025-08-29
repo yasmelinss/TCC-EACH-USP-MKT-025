@@ -195,9 +195,8 @@ O conteúdo da biblioteca está em sua documentação. [@Manual]. A seguir, algu
 
 - `bs_auth()`: autentica um usuário
 - `bs_get_actor_lists()`: obtém uma lista de listas que pertencem a um ator
-
-bs_get_feed
-bs_get_followers
+- `bs_get_feed()`: 
+- `bs_get_followers`:
 bs_get_follow_suggestions
 bs_get_likes
 bs_get_posts_likes
