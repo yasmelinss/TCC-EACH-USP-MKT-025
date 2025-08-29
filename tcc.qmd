@@ -38,18 +38,19 @@ date-format: "YYYY"
 # palavraschaveingles: Keyword 1. Keyword 2.
 # #
 format:
-  pdf:
-    documentclass: report
-    include-before-body: capa.tex
-    cite-method: biblatex
-    biblatexoptions:
-      - style=authoryear
-      - backend=biber
-      - natbib=false
-    toc: true
-    toc-depth: 4
-    number-sections: true
-    fig-cap-location: bottom
+  html
+  # pdf:
+  #   documentclass: report
+  #   include-before-body: capa.tex
+  #   cite-method: biblatex
+  #   biblatexoptions:
+  #     - style=authoryear
+  #     - backend=biber
+  #     - natbib=false
+  #   toc: true
+  #   toc-depth: 4
+  #   number-sections: true
+  #   fig-cap-location: bottom
 geometry:
   - paper=a4paper
   - top=3cm
