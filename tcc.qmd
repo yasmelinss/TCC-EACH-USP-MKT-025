@@ -187,7 +187,7 @@ Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvida pela G
 
 #### Pacote Blueskyer (documentação da biblioteca)
 
-O Pacote `{bskyr}` teve sua versão 0.3.0 disponibilizada em 22 de julho de 2025. Esse pacote é responsável por coletar dados e fazer posts no '*Bluesky*' com API (application programming interface) via HTTP (hypertext transfer protocol). [@Manual] Essas APIs permitem que um cliente (software) envie uma solicitação a um servidor (outro software) e receba uma resposta.
+O Pacote `{bskyr}` teve sua versão 0.3.0 disponibilizada em 22 de julho de 2025. Esse pacote é responsável por coletar dados e fazer *posts* no *Bluesky* com API (application programming interface) via HTTP (hypertext transfer protocol). [@Manual] Essas APIs permitem que um cliente (software) envie uma solicitação a um servidor (outro software) e receba uma resposta.
 
 HTTP APIs são comuns para solicitações cliente-servidor e usam um conjunto de convensões chamadas XRPC (eXtensible Remote Procedure Call). Os nomes de caminho do *endpoint* (um endereço da web que representa uma função específica da API) incluem um NSID (Namespace Identifier) que indica o Léxico que específica os esquemas de solicitação-resposta, comumente em JSON (JavaScript Object Notation). [@Manual]. São comuns em redes descentralizadas e abertas como o *Bluesky*, garantindo que cliente e servidor falem a "mesma língua".
 
