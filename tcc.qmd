@@ -208,10 +208,12 @@ Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvida pela G
 
 # Metodologia
 
-- definir ciência de dados como área interdisciplinar (estatística, computação, conhecimento de domínio)
-- objetivo: transformar dados em informação útil para apoiar decisões
-- qual é a relação com marketing? uso de dados digitais para compreender comportamento do consumidor, segmentação, monitoramento de marcas etc.
-- usar [Özsu, 2023](https://arxiv.org/abs/2301.13761) e [Cao, 2020](https://arxiv.org/abs/2007.03606) para isso
+- técnicas utilizadas neste trabalho
+    - raspagem de dados: obtenção automatizada de mensagens
+    - pré-processamento de texto: tokenização, remoção de stopwords, normalização
+    - análise de frequência e exploratória: contagem de palavras, bigramas, visualização
+    - análise de conectividade: análise de índices de conexão, de centralidade
+    - análise de sentimentos (???)
 
 
 
