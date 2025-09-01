@@ -148,20 +148,20 @@ As lives geralmente são transmitidas por diferentes serviços *streamings* como
 AQUI!!!! 
 
 - apresentar ciência de dados como campo interdisciplinar que estuda os dados 
-- definir ciência de dados como área interdisciplinar (estatística, computação, conhecimento de domínio)
-- objetivo: transformar dados em informação útil para apoiar decisões
+    - definir ciência de dados como área interdisciplinar (estatística, computação, conhecimento de domínio)
+    - objetivo: transformar dados em informação útil para apoiar decisões
 - qual é a relação com marketing? uso de dados digitais para compreender comportamento do consumidor, segmentação, monitoramento de marcas etc.
-- usar
-    - [Zhu & Xiong, 2015](https://arxiv.org/abs/1501.05039) 
-    - [Brodie, 2023](https://arxiv.org/abs/2306.16177)
-    - [Özsu, 2023](https://arxiv.org/abs/2301.13761)
-    - [Cao, 2020](https://arxiv.org/abs/2007.03606)
 - etapas do processo de ciência de dados
     - coleta de dados: introduz raspagem como método específico
     - preparação e limpeza dos dados: tratamento de dados não estruturados  (texto com gírias, emojis, abreviações)
     - análise exploratória: estatísticas descritivas, frequências, nuvens de palavras
     - modelagem e outras técnicas de análise: análise de sentimentos, análise de conectividade, classificação, clustering, modelagem de tópicos
     - comunicação dos resultados: visualizações e interpretação para não especialistas
+- usar
+    - [Zhu & Xiong, 2015](https://arxiv.org/abs/1501.05039) 
+    - [Brodie, 2023](https://arxiv.org/abs/2306.16177)
+    - [Özsu, 2023](https://arxiv.org/abs/2301.13761)
+    - [Cao, 2020](https://arxiv.org/abs/2007.03606)
 
 
 
