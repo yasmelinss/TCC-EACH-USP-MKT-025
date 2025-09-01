@@ -38,10 +38,7 @@ date-format: "YYYY"
 # palavraschaveingles: Keyword 1. Keyword 2.
 # #
 format:
-  html:
-    toc: true
-    toc-depth: 4
-    number-sections: true
+  html
   # pdf:
   #   documentclass: report
   #   include-before-body: capa.tex
@@ -216,12 +213,12 @@ O conteúdo da biblioteca está em sua documentação. [@Manual]. A seguir, algu
 - `bs_auth()`: autentica um usuário
 - `bs_get_actor_lists()`: obtém uma lista de listas que pertencem a um ator
 - `bs_get_feed()`: 
-- `bs_get_followers`:
-bs_get_follow_suggestions
-bs_get_likes
-bs_get_posts_likes
-bs_get_reposts
-bs_search_posts (encontra posts específicos dentro de um critério de pesquisa)
+- `bs_get_followers()`:
+-`bs_get_follow_suggestions`:
+-`bs_get_likes`:
+-`bs_get_posts_likes`:
+-`bs_get_reposts`:
+-`bs_search_posts`: (encontra posts específicos dentro de um critério de pesquisa)
 
 
 Os dois tipos de requisições que podem ser expressos em Léxicos são "consulta" (HTTP GET) e "procedimento" (HTTP POST). Seguindo a semântica HTTP REST, as consultas (GET) podem ser armazenadas em cache e não devem alterar o estado do recurso. Os procedimentos não podem ser armazenados em cache e podem alterar o estado.[Protocolo usado no API HTTP (XRPC)](https://atproto.com/pt/specs/xrpc)
