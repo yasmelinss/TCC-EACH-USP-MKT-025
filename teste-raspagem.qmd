@@ -55,6 +55,7 @@ print(posts)
 # print(posts2)
 ```
 
+
 [Página de documentação do bluesky](https://bsky.social/about/blog/05-31-2024-search)
 com mais campos (keywords) que podem ser usadas nas queries
 
@@ -63,6 +64,7 @@ com mais campos (keywords) que podem ser usadas nas queries
 
 ```{r}
 #| label: olhando-estrutura
+#|output
 
 str(posts[1, ])
 ```
