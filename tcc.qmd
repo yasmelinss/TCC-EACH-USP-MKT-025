@@ -148,6 +148,12 @@ As lives geralmente são transmitidas por diferentes serviços *streamings* como
 
 ### Ciência de Dados
 
+AQUI!!!! 
+
+- apresentar ciência de dados como campo interdisciplinar que estuda os dados a partir de [Zhu & Xiong, 2015](https://arxiv.org/abs/1501.05039) e de [Brodie, 2023](https://arxiv.org/abs/2306.16177)
+
+
+
 
 ## Problema de pesquisa
 
