@@ -317,8 +317,6 @@ tibble [1 × 13] (S3: tbl_df/tbl/data.frame)
           > $indexed_at - data do post
           
           
-          
-          
 # Discussão
 
 # Conclusão

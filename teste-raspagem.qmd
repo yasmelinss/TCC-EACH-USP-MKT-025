@@ -70,6 +70,12 @@ str(posts[1, ])
 ```
 
 
+
+
+
+
+
+
 ```{r}
 #| label: exportando-xlsx
 #| eval: false
