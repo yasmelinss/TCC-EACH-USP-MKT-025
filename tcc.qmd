@@ -280,41 +280,6 @@ A função *bs_search_posts* serve para encontrar posts que seguem um critério 
 O resultado obtido, após o comando *str(posts[1, ])* - que acessa a primeira linha do data frame *posts* e específica quais são as variáveis (colunas) que estão sendo puxadas, com seus respectivos tipos - foi:
 
 tibble [1 × 13] (S3: tbl_df/tbl/data.frame)
-
-<!-- - Não sei se eu escrevo tudo ou só os mais importantes, e não sei se precisa do caminho que eles fazem -->
-
-
-  > $uri - código do post
-  > $cid - código do post
-  > $author > $did - código do post
-          > $handle - nome do *user*
-          > $displayName - nome escolhido pelo usuário
-          > $avatar - foto de perfil
-          > $associated > $chat > $allowIncoming (chr "followers")
-                        > $activitySubscription > > $allowSubscriptions (chr "followers")
-          > $viewer > $muted - mutado (false)
-                    > $blockedBy - bloqueado (false)
-          > $labels - lista vazia 
-          > $createdAt - data de criação do usuário
-  $record > $list > $type - app.bsky.feed.post
-                  > $createdAt - data de criação do post
-                  > $embed > $type > $external> $description - conteúdo do post
-                  
-                  <!-- Vou colocar só o que importa -->
-          
-          > $title - primeiras linhas do post se ele tiver um título
-          > $uri - um link colocado pelo usuário
-          > $type: chr "app.bsky.richtext.facet#tag" -  inicia a busca por #
-          > $tag - a # usada. ele também puxa os bytes da #
-          > $type: chr "app.bsky.richtext.facet#link" - inicia a busca pelo link colocado
-          > $text - conteúdo do post em si
-          > $embed > $ > $type   : chr "app.bsky.embed.external#view"> external > -  RESUMO DO POST com $uri, $title, $description, $thumb - display do link
-          
-          > $reply_count - quantidade de comentários
-          > $reposts_count - quantidade de compartilhamento "repost"
-          > $like_count - quantidade de curtidas
-          > $quote_count - deve ser quantidade de menções
-          > $indexed_at - data do post
           
           
 # Discussão
