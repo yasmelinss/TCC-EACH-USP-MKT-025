@@ -141,7 +141,7 @@ posts |>
 ```
 
 ```{r}
-#| label: testando-sugestões-seguidores
+#| label: testando-follows-suggestions
 #| eval: true
 follows_suggestions <- bs_get_follow_suggestions(
   actor,
@@ -154,6 +154,44 @@ follows_suggestions <- bs_get_follow_suggestions(
 print(follows_suggestions)
 
 ```
+
+```{r}
+#| label: testando-get-followers
+#| eval: true
+
+# retorna os perfis que seguem um determinado ator (usuário)
+
+seguidores <-
+  bs_get_followers(
+    actor,
+    cursor = NULL,
+    limit = 1,
+    auth = auth,
+    clean = FALSE
+  )    
+
+print(seguidores)
+```
+Creio que funciona e as mesmas inforemações padrões
+
+```{r}
+#| label: testando-get-follows
+#| eval: true
+
+# retorna os perfis que seguem um determinado ator (usuário)
+
+seguindo <-
+  bs_get_follows(
+    actor,
+    cursor = NULL,
+    limit = 1,
+    auth = auth,
+    clean = FALSE
+  )    
+
+print(seguindo)
+```
+
 
 ```{r}
 #| label: testando-lista-autor
@@ -289,4 +327,28 @@ retornapostmaisrecente <-
 print(retornapostmaisrecente)
 
 ```
+Acho que essa função é mais para a criação de BOTS
+
+```{r}
+#| label: testando-get-list
+#| eval: true
+
+# No Bluesky, listas são coleções personalizadas de perfis, criadas para agrupar e organizar pessoas que você segue ou outras contas.
+
+gerandolista <-
+  bs_get_list(
+  list = 'at://did:plc:ragtjsm2j2vknwkz3zp4oxrd/app.bsky.graph.list/3kmokjyuflk2g',        
+  cursor = NULL,  
+  limit = 1,  
+  auth = auth,
+  clean = FALSE
+)
+
+print(gerandolista)
+```
+Quando usar?
+
+- Para consultar e analisar o conteúdo de listas específicas no Bluesky
+- Para mostrar a composição de uma lista em dashboards ou relatórios
+- Para gerenciar listas e seus membros via programação
 
