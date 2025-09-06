@@ -234,5 +234,59 @@ bs_get_actor_starter_packs(
 )
 
 ```
+```{r}
+#|label: testando-get-actor-suggest
+#|eval: true
 
+# obter uma lista de perfis (atores) sugeridos para você seguir no Bluesky, com base nas recomendações do sistema da plataforma.
+
+atorsugestao <-
+  bs_get_actor_suggestions(
+  cursor = NULL,
+  limit = 10,    # Quantidade de sugestões (acima de 100 = múltiplas requisições)
+  auth = auth,  # Objeto de autenticação
+  clean = FALSE
+  )
+print (atorsugestao)
+```
+
+O resultado desse chunk me intriga... Ele puxa campos como
+- $did
+- $handle: nome do usuário
+- $displayName: nome escolhido pelo usuário
+- $description: descrição ou bio do usuário
+- $avatar: foto de perfil
+
+```{r}
+#| label: testando-feed-generator
+#| eval: false
+
+# Busca os posts de um feed personalizado, com base em um feed generator criado no Bluesky
+#Para consumir feeds temáticos curados por terceiros
+#Para análises sociais ou de conteúdo
+# construir dashboards com categorias de conteúdo personalizadas
+
+listafeedsdisponiveis <- 
+  bs_get_feeds(
+  actor, 
+  cursor = NULL,
+  limit = NULL,
+  auth = auth,
+  clean = FALSE
+)
+
+print(listafeedsdisponiveis)
+
+retornapostmaisrecente <- 
+  bs_get_feed(
+  'https://bsky.app/profile/chriskenny.bsky.social/post/3lc5d6zspys2c',          # URI do feed generator
+  cursor = NULL, #Para paginação (caso tenha muitos posts)
+  limit = 1,  #Número máximo de posts (padrão depende do servidor; se > 100, faz múltiplas chamadas)
+  auth = auth,
+  clean = FALSE
+)
+
+print(retornapostmaisrecente)
+
+```
 
