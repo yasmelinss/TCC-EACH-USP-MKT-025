@@ -21,6 +21,8 @@ Usando o login do Thales
 ```{r}
 #| label: usuário-autenticação
 
+actor <- 'ennoe.bsky.social'
+
 auth <- 
   bs_auth(
     user = "ennoe.bsky.social", 
@@ -35,13 +37,15 @@ auth <-
 Raspagem de teste
 
 ```{r}
+
+#| label: extração de posts por palavra-chave
 posts <- 
   bs_search_posts(
     query = '"league of legends" since:2024-08-30 until:2024-10-08',
     limit = 10,
     auth = auth,
-    
-  )
+    )
+
 print(posts)
 ####  AQUI: descobrir como fazer isso ----
 # posts2 <- 
@@ -105,6 +109,7 @@ write_xlsx(posts, path = "teste_raspagem_urls.xlsx")
 ```{r}
 
 #| label: transformando-em-URLs
+#| eval: false
 #acessa a coluna uri do dataframe posts
 uris <- posts$uri  
 print(uris)
@@ -126,9 +131,6 @@ print(urls)
 
 ```
 
-
-
-
 ```{r}
 #| label: exemplo-sub-dataframe
 #| eval: false
@@ -140,7 +142,7 @@ posts |>
 
 ```{r}
 #| label: testando-sugestões-seguidores
-#| eval: false
+#| eval: true
 follows_suggestions <- bs_get_follow_suggestions(
   actor,
   user = user,
@@ -152,28 +154,85 @@ follows_suggestions <- bs_get_follow_suggestions(
 print(follows_suggestions)
 
 ```
+
 ```{r}
 #| label: testando-lista-autor
 #| eval: false
-  lista_ator <- bs_get_actor_lists(
-  actor = 'chriskenny.bsky.social',
-  cursor = NULL,
-  limit = NULL,
-  user = user,
-  pass = pass,
-  auth = auth,
-  clean = TRUE
-)
+  lista_ator <- 
+    bs_get_actor_lists(
+    actor = 'chriskenny.bsky.social',
+    cursor = NULL,
+    limit = NULL,
+    user = user,
+    pass = pass,
+    auth = auth,
+    clean = TRUE
+  )
 
 print(lista_ator)
 
 ```
 
 ```{r}
-#| label: testando-record-key
+
+#| label: testando-create-record
 #| eval: false
-key <- bs_extract_record_key('https://bsky.app/profile/chriskenny.bsky.social/post/3lc5d6zspys2c')
+
+# Ela envia um novo registro (como um post, like, repost, etc.) para o servidor da Bluesky, dentro de uma coleção específica (como app.bsky.feed.post ou app.bsky.feed.like)
+
+bs_create_record(
+  
+collection,
+record,
+user = user,
+pass = pass,
+auth = auth,
+clean = TRUE
+)
+```
+
+```{r}
+#| label: testando-extract-record-key
+#| eval: false
+key <-
+  bs_extract_record_key(
+    'https://bsky.app/profile/chriskenny.bsky.social/post/3lc5d6zspys2c'
+    )
 
 print(key)
 ```
+
+```{r}
+#| label: testando-puxar-listas
+#| eval: true
+# Retorna todas as listas públicas associadas a um determinado usuário (ator) do Bluesky
+
+puxarlista <- 
+  bs_get_actor_lists(
+  'ennoe.bsky.social',# Ex: 'usuario.bsky.social' ou 'did:plc:...'
+  cursor = NULL,  # Para paginação de resultados
+  limit = NULL,   # Número de listas a buscar (padrão: todas disponíveis)
+  auth = auth,  # Objeto de autenticação
+  clean = FALSE # Retorna um tibble limpo
+)
+
+print(puxarlista)
+  
+```
+
+```{r}
+#|label: testanto-actor-starter-packs
+#|eval: true
+# Starter packs são listas públicas de contas sugeridas para seguir — normalmente usadas para ajudar novos usuários a encontrar contas interessantes, confiáveis ou relevantes com base em temas (como “jornalismo”, “arte”, “ciência”, etc.).
+
+bs_get_actor_starter_packs(
+  actor,       
+  cursor = NULL, 
+  limit = NULL,   
+  auth = auth,
+  clean = FALSE                 
+)
+
+```
+
 
