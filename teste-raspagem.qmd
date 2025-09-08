@@ -586,6 +586,16 @@ print(procurandoperfis)
 
 #| label: testando-grafico
 
+
+# Buscar dados
+rel <-
+bs_get_relationships (
+  actor = 'chriskenny.bsky.social',
+  others = 'bskyr.bsky.social',
+  auth = auth
+)
+  
+
 edges <- rel %>%
   filter(following) %>%
   transmute(from = actor, to = handle)
