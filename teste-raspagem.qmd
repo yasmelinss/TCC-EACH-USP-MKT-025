@@ -7,6 +7,7 @@ format: html
 
 ```{r}
 #| label: setup
+#| eval: true
 #| warning: false
 
 library(bskyr)
@@ -38,7 +39,9 @@ Raspagem de teste
 
 ```{r}
 
-#| label: extração de posts por palavra-chave
+#| label: testando-search-posts
+# busca por post com uma palavra chave
+
 posts <- 
   bs_search_posts(
     query = '"league of legends" since:2024-08-30 until:2024-10-08',
@@ -47,16 +50,6 @@ posts <-
     )
 
 print(posts)
-####  AQUI: descobrir como fazer isso ----
-# posts2 <- 
-#   bs_search_posts(
-#     query = '"league of legends"', 
-#     since = "2024-08-30", 
-#     until = "2024-10-08",
-#     limit = 10,
-#     auth = auth
-#   )
-# print(posts2)
 ```
 
 
@@ -194,7 +187,7 @@ print(seguindo)
 
 
 ```{r}
-#| label: testando-lista-autor
+#| label: testando-get-actor-lists
 #| eval: false
   lista_ator <- 
     bs_get_actor_lists(
@@ -241,7 +234,7 @@ print(key)
 ```
 
 ```{r}
-#| label: testando-puxar-listas
+#| label: testando-actor-lists
 #| eval: true
 # Retorna todas as listas públicas associadas a um determinado usuário (ator) do Bluesky
 
@@ -351,4 +344,176 @@ Quando usar?
 - Para consultar e analisar o conteúdo de listas específicas no Bluesky
 - Para mostrar a composição de uma lista em dashboards ou relatórios
 - Para gerenciar listas e seus membros via programação
+
+```{r}
+#| label: testando-get-likes
+#| eval: false
+
+# recupera postagens curtidas por um ator
+
+pegarcurtidas <- 
+  bs_get_likes(
+  'ennoe.bsky.social',
+  cursor = NULL,
+  limit = 10,
+  auth = auth,
+  clean = FALSE
+)
+
+print(pegarcurtidas)
+
+```
+```{r}
+
+#| label: testando-get-posts
+#| eval: false
+
+# busca um ou mais posts diretamente pela URL ou URI interna, e retorna seus conteúdos como uma tabela
+
+bs_get_posts(
+  'https://bsky.app/profile/chriskenny.bsky.social/post/3lc5d6zspys2c',
+  auth = auth,
+  clean = FALSE
+  )
+
+```
+```{r}
+
+#| label: testando-get-profile
+#| eval: true
+
+# obter as informações de perfil de um ou mais usuários (atores) do Bluesky.
+
+bs_get_profile(
+  'ennoe.bsky.social',
+  auth = auth,
+  clean = FALSE
+)
+```
+```{r}
+
+#| label: testando-get-record 
+```
+🧾 O que é um “registro” (record)?
+
+Na arquitetura descentralizada do AT Protocol, tudo publicado é um registro em um repositório pessoal. Por exemplo:
+
+Posts → coleção app.bsky.feed.post
+
+Likes → coleção app.bsky.feed.like
+
+Reposts → coleção app.bsky.feed.repost
+
+Listas → coleção app.bsky.graph.list
+
+Você precisa saber os 3 elementos: repo, collection, e rkey.
+
+bs_get_record(
+  repo = "bskyr.bsky.social",
+  collection = "app.bsky.feed.post",
+  rkey = "3kf2577exva2x"
+)
+Obs: Esse exemplo está "disfarçado" no formato de URL no manual:
+https://bsky.app/profile/bskyr.bsky.social/post/3kf2577exva2x
+
+A estrutura é:
+repo = bskyr.bsky.social
+collection = app.bsky.feed.post
+rkey = 3kf2577exva2x
+
+Essa função é mais baixa nível que bs_get_posts() (que já lida com essas partes para você).
+
+```{r}
+#| label: testando-get-relationships
+#| eval: true
+
+# A função bs_get_relationships() da biblioteca blskyr permite verificar os relacionamentos entre um usuário (ator) e outros usuários no Bluesky, como:
+#Quem segue quem
+#Quem foi bloqueado
+#Quem foi silenciado
+
+
+relacoes <-
+  bs_get_relationships(
+    actor = 'ennoe.bsky.social',
+    others = c('bskyr.bsky.social', 'simko.bsky.social', 'otheruser.bsky.social'),
+    auth = auth,
+    clean = FALSE
+)
+print(relacoes)
+
+```
+```{r}
+#| label: nao-testando-get-repost
+#| eval: false
+# resposta um post
+```
+
+```{r}
+
+#| label: nao-testando-get-timeline
+#| eval: false
+# retorna os posts mais recentes das contas que o usuário segue, da mesma forma que aparecem no app do Bluesky.
+```
+
+```{r}
+#| label: nao-testando-new-embed-external
+#| eval: false
+# cria um "preview" de um link externo (com título, descrição e thumbnail), para ser incluído dentro de um post via bs_post().
+```
+
+```{r}
+
+#| label: nao-testando-new-list
+#| eval: false
+# bs_new_list() cria uma lista personalizada que pode servir para moderar, curar conteúdos ou como referência, com nome, propósito, descrição e avatar.
+#pode ser útil AINDA
+
+```
+
+```{r}
+
+#| label: nao-testando-post
+#| eval: false
+
+# bs_post Make a post on Bluesky Social
+
+bs_post(
+text,
+images,
+images_alt,
+video,
+video_alt,
+langs,
+reply,
+quote,
+embed = TRUE,
+emoji = TRUE,
+max_tries,
+created_at = bs_created_at(),
+user = get_bluesky_user(),
+pass = get_bluesky_pass(),
+auth = bs_auth(user, pass),
+clean = TRUE
+
+```
+
+
+```{r}
+#| label: nao-testando-resolve-handle
+#| eval: false
+
+#bs_resolve_handle() pega um handle do Bluesky e retorna o DID correspondente, que é um identificador único global usado para identificar contas de forma descentralizada.
+
+```
+
+```{r}
+
+#| label: testando-search-actors
+#| eval: true
+
+# bs_search_actors() permite procurar perfis no Bluesky com base em uma consulta textual, retornando uma lista de contas que combinam com a busca. 
+
+
+```
 
