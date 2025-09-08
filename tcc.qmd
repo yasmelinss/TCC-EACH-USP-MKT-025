@@ -131,14 +131,14 @@ A partir de dados apresentados pelo site TwitchTracker.com, a plataforma Twitch 
 
 #### League of Legends
 
-League of Legends (LoL) é um jogo do tipo MOBA (Multiplayer Online Battle Arena), que foi lançado pela empresa RIOT em 2009. O jogo é composto por duas equipes de 5 jogadores cada, oned o objetivo principal da equipe é conquistar o "Nexus" (Torre) do inimigo em um mapa. [@Cauteruccio2023]
+League of Legends (LoL) é um jogo do tipo MOBA (Multiplayer Online Battle Arena), que foi lançado pela empresa Riot em 2009. O jogo é composto por duas equipes de 5 jogadores cada, onde o objetivo principal da equipe é conquistar o "Nexus" (Torre) do inimigo em um mapa. [@Cauteruccio2023]
 
 
 Um grande cenário competitivo vem crescendo ao redor do jogo ao passar dos anos. De acordo com @Cauteruccio2023 Os principais eventos de e-sports sobre o LoL são o MSI e o LoL World Championship (Worlds), onde as melhores equipes do mundo participam e disputam os campeonatos competindo por prêmios multimilionários. No cenário competitivo, temos algumas ligas atualmente consideradas MAJOR (regiões com mais vitórias e melhores jogadores): Liga da Coréia (LCK); Liga da China (LPL); Liga da Europa (LEC); e regiões MINOR (consideradas mais fracas competitivamente): LTA SUL e LTA NORTE. 
 
 Apesar do Brasil e américa Latina estarem enquadrados na região MINOR, o engajamento dos *fãs* e os números das *lives* demonstram um expressão significativa mundialemente. Foi criado o canal de trasmissão *Ilha das Lendas*, onde um grupo de ex-jogadores fazem *co-stream* dos jogos oficiais de LOL em geral, de todas as ligas. As lives IDL (Ilha das Lendas) chegam a alcançar 150 mil pessoas simultaneamentente, enquanto as lives oficiais chegam a 20 mil. 
 
-As lives geralmente são transmitidas por diferentes serviços *streamings* como Twitch e Youtube, e o número de *viwers* (pessoas assistindo as partidas) são expressivos. Durante a final do Words de 2018, mais de 99 milhões de views foram contabilizadas. [@Cauteruccio2023]
+As lives geralmente são transmitidas por diferentes serviços *streamings* como Twitch e Youtube, e o número de *viwers* (pessoas assistindo as partidas) são expressivos. Durante a final do Worlds de 2018, mais de 99 milhões de views foram contabilizadas. [@Cauteruccio2023]
 
 
 
