@@ -570,4 +570,15 @@ procurandoperfis <-
 print(procurandoperfis)
 
 ```
+```{r}
+#| label: nao-testando-has-bluesky-user
+#| eval: false
+
+#As funções has_bluesky_user() e get_bluesky_user() da biblioteca blskyr são utilitários para verificar e obter o nome de usuário (handle) usado para se autenticar no Bluesky, geralmente de forma automatizada (como via variável de ambiente ou configuração interna).
+
+#Essas funções geralmente pegam o valor de uma variável de ambiente configurada previamente, como:
+#Sys.setenv(BLUESKY_USER = "seunome.bsky.social") 
+#Sys.setenv(BLUESKY_PASS = "seu_app_password")
+#Depois disso, funções como get_bluesky_user() podem acessar automaticamente esses dados sem você precisar informar manualmente toda vez.
+```
 
