@@ -151,6 +151,23 @@ print(urls)
 ```
 
 ```{r}
+
+#| label: testando-convert-uri-to-url-sem-gpt
+#| eval: true
+
+bs_uri_to_url(
+  'at://did:plc:ic6zqvuw5ulmfpjiwnhsr2ns/app.bsky.feed.post/3k7qmjev5lr2s')
+  auth = auth
+
+bs_url_to_uri(
+  'https://bsky.app/profile/ennoe.bsky.social')
+  auth = auth
+
+
+```
+
+
+```{r}
 #| label: exemplo-sub-dataframe
 #| eval: false
 posts |>
