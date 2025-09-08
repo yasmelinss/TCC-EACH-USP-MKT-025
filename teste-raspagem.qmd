@@ -20,8 +20,7 @@ library(readr)
 Usando o login do Thales
 
 ```{r}
-#| label: usuário-autenticação
-
+#| label: usuario-autenticação
 actor <- 'ennoe.bsky.social'
 
 auth <- 
@@ -46,10 +45,11 @@ posts <-
   bs_search_posts(
     query = '"league of legends" since:2024-08-30 until:2024-10-08',
     limit = 10,
-    auth = auth,
+    auth = auth
     )
 
 print(posts)
+
 ```
 
 Arguments
