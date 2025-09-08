@@ -161,27 +161,22 @@ AQUI!!!!
     - [Zhu & Xiong, 2015](https://arxiv.org/abs/1501.05039) 
     - [Brodie, 2023](https://arxiv.org/abs/2306.16177)
     - [Özsu, 2023](https://arxiv.org/abs/2301.13761)
-    - [Cao, 2020](https://arxiv.org/abs/2007.03606)
-
-
+    - [Cao, 2020](https://arxiv.org/abs/2007.03606) -->
 
 
 ## Problema de pesquisa
 
-Anunciado em 2019 pelo Twitter como um novo projeto, o Bluesky surgiu como um projeto de rede social de microblogues descentralizada e que se tornou independente em 2021. O serviço foi inicialmente projetado por Jack Donsey, ex-CEO do Twitter, que escolheu Jay Graber como líder da inciativa. Em 2022, após a aquisição de Elon Musk, Twitter cessou todas relações de serviço com o Bluesky, o qual seguiu com sua missão inicial de desenvolver e impulsionar a adoção em larga escala de tecnologias para conversas públicas abertas e descentralizadas. [@Bluesky2023]
+Tendo início em 2019 como uma iniciativa de pesquisa do Twitter, o Bluesky surgiu como um projeto de rede social de microblogues descentralizada e que se tornou independente em 2021. O serviço foi inicialmente projetado por Jack Donsey, o então CEO do Twitter, que escolheu Jay Graber como líder da inciativa. Em 2022, após a aquisição do Twitter pelo Elon Musk, a rede cessou todas relações de serviço com o Bluesky, que seguiu com sua missão inicial de desenvolver e impulsionar a adoção em larga escala de tecnologias para conversas públicas abertas e descentralizadas. [@Bluesky2023]
 
-A rede teve um grande aumento de usuários em 30 de agosto de 2024, quando a *X Brasil Internet Ltda.* (antigo Twitter), assim como outras empresas relacionadas à Elon Musk, teve seu funcionamento integralmente suspenso em todo o Brasil, decisão determinada por Alexandre de Moraes, ministro do Supremo Tribunal Federal. O motivo da suspensão foi o desobedecimento de ordens judiciais brasileiras na não nomeação de um representante legal dentro do prazo estipulado pelo ministro, após intimação. 
+A rede teve um grande aumento de usuários em 30 de agosto de 2024, quando a *X Brasil Internet Ltda.* (antigo Twitter), assim como outras empresas relacionadas à Elon Musk, teve seu funcionamento integralmente suspenso em todo o Brasil, decisão determinada por Alexandre de Moraes, ministro do Supremo Tribunal Federal. O motivo da suspensão foi o desobedecimento de ordens judiciais brasileiras na não nomeação de um representante legal dentro do prazo estipulado pelo ministro, após intimação. [@G12024]
 
-A suspensão do X no Brasil durou cerca de 40 dias, encerrando em 8 de outubro de 2024 após o cumprimento das ordens judiciais pela rede e uma multa de 28,6 milhões de reais. [@G12024]
+A suspensão do X no Brasil durou cerca de 40 dias, encerrando em 8 de outubro de 2024 após o cumprimento das ordens judiciais pela rede e uma multa de 28,6 milhões de reais. Durante este período, a migração de usuários brasileiros para alternativas como o Bluesky foi impulsionada significativamente. Em 31 agosto de 2024, o Bluesky anunciou que havia batido mais de 1 milhão de novos usuários nos últimos 3 dias e que brasileiros estavam estabelecendo novos recordes de atividade na plataforma. [@G12024]
 
-Durante o período de suspensão do Twitter, a migração de usuários brasileiros para alternativas como o Bluesky foi impulsionada significativamente. Em 31 agosto de 2024, o Bluesky anunciou que havia batido mais de 1 milhão de novos usuários nos últimos 3 dias e que brasileiros estavam estabelecendo novos recordes de atividade na plataforma. (#REF)
-
-O Campeonato Brasileiro de League of Legends ou CBLOL é um torneio competitivo de e-sports de League of Legends no Brasil, organizado anualmente pela Riot Games. Em 2024, o evento teve sua primeira etapa entre 20 de janeiro e 20 de abril e sua segunda etapa entre 1 de junho e 7 de setembro. Com partidas gerando um grande número de engajamento nas redes sociais, a produção de conteúdo por espectadores durante a segunda etapa do CBLOL 2024 foi diretamente impactada pela suspensão do X no Brasil, que ocorreu próxima às finais do campeonato e foi desfeita somente depois que ele havia encerrado. (#REF)
-
+O Campeonato Brasileiro de League of Legends ou CBLOL é um torneio competitivo de e-sports de League of Legends no Brasil, organizado anualmente pela Riot Games. Em 2024, o evento teve sua primeira etapa entre 20 de janeiro e 20 de abril e sua segunda etapa entre 1 de junho e 7 de setembro. Com partidas gerando um grande número de engajamento nas redes sociais, a produção de conteúdo por espectadores durante a segunda etapa do CBLOL 2024 foi diretamente impactada pela suspensão do X no Brasil, que ocorreu próxima às finais do campeonato e foi desfeita somente depois que ele havia encerrado. (@CBLOL2024)
 
 Diante disso, levanta-se a seguinte questão central:
 
-> De que maneira a queda do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre League of Legends na rede social Bluesky, e quais implicações esse processo traz para estratégias de marketing digital e comunicação em e-sports?
+> De que maneira a queda do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre e-sports de League of Legends na rede social Bluesky?
 
 
 
@@ -192,9 +187,15 @@ Diante disso, levanta-se a seguinte questão central:
 
 ## Objetivos
 
-- Mensurar a flutuação no número de postagens sobre League of Legends antes, durante e após a suspensão do X no Brasil
-- Elaborar grafos que expliquem dinâmicas de seguidores e influência dentro do tópico de League of Legends.
-- Analisar como a suspensão do X no Brasil afetou estratégias de marketing e comunicação digital acerca do CBLOL 2024. (?)
+### Objetivo Geral
+
+- Responder de que maneira a queda do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre e-sports de League of Legends na rede social Bluesky
+
+### Objetivos Específicos
+
+- Mensurar a flutuação no volume de postagens sobre League of Legends antes, durante e após a suspensão do X no Brasil
+- Elaborar grafos que expliquem dinâmicas de seguidores e influência dentro do tópico de League of Legends de forma a identificar usuários influenciadores.
+- Analisar como a suspensão do X no Brasil afetou estratégias de marketing e comunicação digital acerca do CBLOL 2024.
 
 ## Justificativa
 
