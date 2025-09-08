@@ -52,6 +52,32 @@ posts <-
 print(posts)
 ```
 
+Arguments
+query Character vector, length 1. character. Search query, Lucene query syntax is
+recommended.
+sort character. Order or results. Either 'top' or 'latest'
+since character. Filter results for posts on or after the indicated datetime or ISO date
+(YYYY-MM-DD).
+until character. Filter results for posts before the indicated datetime or ISO date
+(YYYY-MM-DD).
+mentions character. Filter to posts which mention the given account.
+author character. Filter to posts by the given account.
+lang character. Filter to posts in the given language.
+domain character. Filter to posts with URLs (facet links or embeds) linking to the given
+domain (hostname). Server may apply hostname normalization.
+url character. Filter to posts with links (facet links or embeds) pointing to this URL.
+Server may apply URL normalization or fuzzy matching.
+tag character. Filter to posts with the given tag (hashtag), based on rich-text facet or
+tag field. Do not include the hash (#) prefix. Multiple tags can be specified, with
+’AND’ matching.
+cursor Character, length 1. A cursor property from a prior response. Default: NULL.
+limit Integer. Number of records to request. If over 100, multiple requests are made.
+user Character. User name to log in with. Defaults to get_bluesky_user().
+pass Character. App password to log in with. Defaults to get_bluesky_pass().
+auth Authentication information. Defaults to bs_auth(user, pass).
+clean Logical. Should output be cleaned into a tibble? Default: TRUE.
+
+RESULTADO
 
 [Página de documentação do bluesky](https://bsky.social/about/blog/05-31-2024-search)
 com mais campos (keywords) que podem ser usadas nas queries
@@ -514,6 +540,17 @@ clean = TRUE
 
 # bs_search_actors() permite procurar perfis no Bluesky com base em uma consulta textual, retornando uma lista de contas que combinam com a busca. 
 
+procurandoperfis <- 
+  bs_search_actors(
+    'league of legend', #query == texto da busca
+    typeahead = FALSE, #se TRUE, faz uma busca tipo "sugestão enquanto digita" (autocomplete). Padrão: FALSE.
+    cursor = NULL, #paginação a parti de uma resposta anterior
+    limit = 2,
+    auth = auth,
+    clean = FALSE
+)
+
+print(procurandoperfis)
 
 ```
 
