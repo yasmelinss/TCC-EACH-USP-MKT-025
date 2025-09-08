@@ -582,3 +582,27 @@ print(procurandoperfis)
 #Depois disso, funções como get_bluesky_user() podem acessar automaticamente esses dados sem você precisar informar manualmente toda vez.
 ```
 
+```{r}
+
+#| label: testando-grafico
+
+edges <- rel %>%
+  filter(following) %>%
+  transmute(from = actor, to = handle)
+
+# Criar grafo
+g <- graph_from_data_frame(edges, directed = TRUE)
+
+# Plot básico
+plot(g, vertex.label.color = "black", vertex.size = 30, edge.arrow.size = 0.5)
+
+ggraph(g, layout = "fr") +
+  geom_edge_link(arrow = arrow(length = unit(4, 'mm')), end_cap = circle(3, 'mm')) +
+  geom_node_point(size = 5, color = "steelblue") +
+  geom_node_text(aes(label = name), repel = TRUE) +
+  theme_void()
+```
+
+
+
+
