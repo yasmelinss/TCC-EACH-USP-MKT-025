@@ -145,12 +145,19 @@ As lives geralmente são transmitidas por diferentes serviços *streamings* como
 
 ### Ciência de Dados
 
-AQUI!!!! 
+Com o advento da internet, informações de todos os tipos são coletadas e transportadas em volumes e velocidades cada vez maiores. O valor destes dados são reconhecidos globalmente, com muitas organizações adotando estratégias orientadas por dados de forma a fazer decisões melhor informadas. 
 
-- apresentar ciência de dados como campo interdisciplinar que estuda os dados 
+A necessidade de estudar dados como uma ciência à parte e não apenas através de suas aplicações em pesquisa e indústria leva ao surgimento da ciência de dados, que recebeu diversas definições ao longo dos anos. @Zhu2015 consolidam as várias diferentes explicações ao definir ciência de dados como a teoria, o método e a tecnologia de estudar a natureza dos dados, tendo dois componentes principais. O primeiro componente é o estudo dos padrões e regras dos próprios dados, explorando a natureza dos dados sem necessariamente levar em consideração seu significado no mundo real. O segundo componente é o estudo das leis do mundo natural refletidas nos dados, de forma a inferir informações sobre a realidade através do estudo de dados.
+
+A ciência de dados é por natureza um campo interdisciplinar, tendo aplicações comuns em diversas ciências pela forma que transforma dados desordenados em informações úteis que apoiam ou guiam decisões. De acordo com @Ozsu2024, o sucesso da ciência de dados é evidente em campos como as ciências da saúde, onde a análise de teias sociais permite o rastreamento de epidemias; em sistemas financeiros, em que a análise de grandes volumes de dados podem guiar investimentos e até mesmo para a indústria de atendimento ao consumidor, na qual o avanço de chatterbots auxilia no atendimento.
+
+Para estudos de marketing, a ciência de dados aplicada a Big Data é capaz de perfilar os clientes mais promissores de forma a melhor guiar esforços de propaganda através da análise dos históricos de navegação e hábitos online de um grande volume de pessoas. Além disso, é possível identificar alternativas atraentes para um produto do ponto de vista do consumidor com embasamento estatístico, bem como refinar algoritmos de recomendação para melhor prever o que um consumidor estaria mais propenso a adquirir com base em suas compras anteriores. Através da análise de redes sociais e monitorando as conexões entre usuários, é possível até mesmo avaliar associações de marca como o quão sustentável ela aparenta ser do ponto de vista de um consumidor médio, facilitando ações de marca reativas ou preditivas. [@Chintagunta2016]
+
+<!--- apresentar ciência de dados como campo interdisciplinar que estuda os dados 
     - definir ciência de dados como área interdisciplinar (estatística, computação, conhecimento de domínio)
     - objetivo: transformar dados em informação útil para apoiar decisões
-- qual é a relação com marketing? uso de dados digitais para compreender comportamento do consumidor, segmentação, monitoramento de marcas etc.
+- qual é a relação com marketing? uso de dados digitais para compreender comportamento do consumidor, segmentação, monitoramento de marcas etc.-->
+
 - etapas do processo de ciência de dados
     - coleta de dados: introduz raspagem como método específico
     - preparação e limpeza dos dados: tratamento de dados não estruturados  (texto com gírias, emojis, abreviações)
@@ -161,7 +168,7 @@ AQUI!!!!
     - [Zhu & Xiong, 2015](https://arxiv.org/abs/1501.05039) 
     - [Brodie, 2023](https://arxiv.org/abs/2306.16177)
     - [Özsu, 2023](https://arxiv.org/abs/2301.13761)
-    - [Cao, 2020](https://arxiv.org/abs/2007.03606) -->
+    - [Cao, 2020](https://arxiv.org/abs/2007.03606) 
 
 
 ## Problema de pesquisa
@@ -189,11 +196,11 @@ Diante disso, levanta-se a seguinte questão central:
 
 ### Objetivo Geral
 
-- Responder de que maneira a queda do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre e-sports de League of Legends na rede social Bluesky
+- Responder de que maneira a queda do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre e-sports de League of Legends na rede social Bluesky.
 
 ### Objetivos Específicos
 
-- Mensurar a flutuação no volume de postagens sobre League of Legends antes, durante e após a suspensão do X no Brasil
+- Mensurar a flutuação no volume de postagens sobre League of Legends antes, durante e após a suspensão do X no Brasil.
 - Elaborar grafos que expliquem dinâmicas de seguidores e influência dentro do tópico de League of Legends de forma a identificar usuários influenciadores.
 - Analisar como a suspensão do X no Brasil afetou estratégias de marketing e comunicação digital acerca do CBLOL 2024.
 
