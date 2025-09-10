@@ -161,8 +161,9 @@ De acordo com @Tabani2020, embora a análise de marketing seja um tópico altame
     - objetivo: transformar dados em informação útil para apoiar decisões
 - qual é a relação com marketing? uso de dados digitais para compreender comportamento do consumidor, segmentação, monitoramento de marcas etc.-->
 
-- etapas do processo de ciência de dados
-    - coleta de dados: introduz raspagem como método específico
+- workflow de projetos pontuais em ciência de dados
+    - entendimento do problema de negócios
+    - coleta de dados: introduz raspagem em linhas gerais
     - preparação e limpeza dos dados: tratamento de dados não estruturados  (texto com gírias, emojis, abreviações)
     - análise exploratória: estatísticas descritivas, frequências, nuvens de palavras
     - modelagem e outras técnicas de análise: análise de sentimentos, análise de conectividade, classificação, clustering, modelagem de tópicos
