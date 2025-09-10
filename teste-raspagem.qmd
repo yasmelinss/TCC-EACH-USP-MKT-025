@@ -156,12 +156,16 @@ print(urls)
 #| eval: false
 
 bs_uri_to_url(
-  'at://did:plc:ic6zqvuw5ulmfpjiwnhsr2ns/app.bsky.feed.post/3k7qmjev5lr2s')
-  auth = auth
+  'at://did:plc:ic6zqvuw5ulmfpjiwnhsr2ns/app.bsky.feed.post/3k7qmjev5lr2s'
+
+  )
+  
 
 bs_url_to_uri(
-  'https://bsky.app/profile/ennoe.bsky.social')
-  auth = auth
+  'https://bsky.app/profile/ennoe.bsky.social',
+    auth = auth
+  )
+
 
 
 ```
@@ -254,15 +258,15 @@ print(lista_ator)
 
 # Ela envia um novo registro (como um post, like, repost, etc.) para o servidor da Bluesky, dentro de uma coleção específica (como app.bsky.feed.post ou app.bsky.feed.like)
 
-bs_create_record(
+#bs_create_record(
   
-collection,
-record,
-user = user,
-pass = pass,
-auth = auth,
-clean = TRUE
-)
+#collection,
+#record,
+#user = user,
+#pass = pass,
+#auth = auth,
+#clean = TRUE
+#)
 ```
 
 ```{r}
@@ -486,6 +490,7 @@ relacoes <-
 print(relacoes)
 
 ```
+
 ```{r}
 #| label: nao-testando-get-repost
 #| eval: false
@@ -521,24 +526,24 @@ print(relacoes)
 
 # bs_post Make a post on Bluesky Social
 
-bs_post(
-text,
-images,
-images_alt,
-video,
-video_alt,
-langs,
-reply,
-quote,
-embed = TRUE,
-emoji = TRUE,
-max_tries,
-created_at = bs_created_at(),
-user = get_bluesky_user(),
-pass = get_bluesky_pass(),
-auth = bs_auth(user, pass),
-clean = TRUE
-
+#bs_post(
+#text,
+#images,
+#images_alt,
+#video,
+#video_alt,
+#langs,
+#reply,
+#quote,
+#embed = TRUE,
+#emoji = TRUE,
+#max_tries,
+#created_at = bs_created_at(),
+#user = get_bluesky_user(),
+#pass = get_bluesky_pass(),
+#auth = bs_auth(user, pass),
+#clean = TRUE
+#)
 ```
 
 
@@ -596,21 +601,21 @@ bs_get_relationships (
 )
   
 
-edges <- rel %>%
-  filter(following) %>%
-  transmute(from = actor, to = handle)
+#edges <- rel %>%
+#  filter(following) %>%
+#  transmute(from = actor, to = handle)
 
 # Criar grafo
-g <- graph_from_data_frame(edges, directed = TRUE)
+#g <- graph_from_data_frame(edges, directed = TRUE)
 
 # Plot básico
-plot(g, vertex.label.color = "black", vertex.size = 30, edge.arrow.size = 0.5)
+#plot(g, vertex.label.color = "black", vertex.size = 30, edge.arrow.size = 0.5)
 
-ggraph(g, layout = "fr") +
-  geom_edge_link(arrow = arrow(length = unit(4, 'mm')), end_cap = circle(3, 'mm')) +
-  geom_node_point(size = 5, color = "steelblue") +
-  geom_node_text(aes(label = name), repel = TRUE) +
-  theme_void()
+#ggraph(g, layout = "fr") +
+#  geom_edge_link(arrow = arrow(length = unit(4, 'mm')), end_cap = circle(3, 'mm')) +
+#  geom_node_point(size = 5, color = "steelblue") +
+#  geom_node_text(aes(label = name), repel = TRUE) +
+#  theme_void()
 ```
 
 
