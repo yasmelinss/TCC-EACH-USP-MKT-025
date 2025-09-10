@@ -133,7 +133,6 @@ A partir de dados apresentados pelo site TwitchTracker.com, a plataforma Twitch 
 
 League of Legends (LoL) é um jogo do tipo MOBA (Multiplayer Online Battle Arena), que foi lançado pela empresa Riot em 2009. O jogo é composto por duas equipes de 5 jogadores cada, onde o objetivo principal da equipe é conquistar o "Nexus" (Torre) do inimigo em um mapa. [@Cauteruccio2023]
 
-
 Um grande cenário competitivo vem crescendo ao redor do jogo ao passar dos anos. De acordo com @Cauteruccio2023 Os principais eventos de e-sports sobre o LoL são o MSI e o LoL World Championship (Worlds), onde as melhores equipes do mundo participam e disputam os campeonatos competindo por prêmios multimilionários. No cenário competitivo, temos algumas ligas atualmente consideradas MAJOR (regiões com mais vitórias e melhores jogadores): Liga da Coréia (LCK); Liga da China (LPL); Liga da Europa (LEC); e regiões MINOR (consideradas mais fracas competitivamente): LTA SUL e LTA NORTE. 
 
 Apesar do Brasil e américa Latina estarem enquadrados na região MINOR, o engajamento dos *fãs* e os números das *lives* demonstram um expressão significativa mundialemente. Foi criado o canal de trasmissão *Ilha das Lendas*, onde um grupo de ex-jogadores fazem *co-stream* dos jogos oficiais de LOL em geral, de todas as ligas. As lives IDL (Ilha das Lendas) chegam a alcançar 150 mil pessoas simultaneamentente, enquanto as lives oficiais chegam a 20 mil. 
@@ -151,7 +150,11 @@ A necessidade de estudar dados como uma ciência à parte e não apenas através
 
 A ciência de dados é por natureza um campo interdisciplinar, tendo aplicações comuns em diversas ciências pela forma que transforma dados desordenados em informações úteis que apoiam ou guiam decisões. De acordo com @Ozsu2024, o sucesso da ciência de dados é evidente em campos como as ciências da saúde, onde a análise de teias sociais permite o rastreamento de epidemias; em sistemas financeiros, em que a análise de grandes volumes de dados podem guiar investimentos e até mesmo para a indústria de atendimento ao consumidor, na qual o avanço de chatterbots auxilia no atendimento.
 
-Para estudos de marketing, a ciência de dados aplicada a Big Data é capaz de perfilar os clientes mais promissores de forma a melhor guiar esforços de propaganda através da análise dos históricos de navegação e hábitos online de um grande volume de pessoas. Além disso, é possível identificar alternativas atraentes para um produto do ponto de vista do consumidor com embasamento estatístico, bem como refinar algoritmos de recomendação para melhor prever o que um consumidor estaria mais propenso a adquirir com base em suas compras anteriores. Através da análise de redes sociais e monitorando as conexões entre usuários, é possível até mesmo avaliar associações de marca como o quão sustentável ela aparenta ser do ponto de vista de um consumidor médio, facilitando ações de marca reativas ou preditivas. [@Chintagunta2016]
+Para estudos de análise de marketing, a ciência de dados aplicada a Big Data é capaz de perfilar os clientes mais promissores de forma a melhor guiar esforços de propaganda através da análise dos históricos de navegação e hábitos online de um grande volume de pessoas. Além disso, é possível identificar alternativas atraentes para um produto do ponto de vista do consumidor com embasamento estatístico, bem como refinar algoritmos de recomendação para melhor prever o que um consumidor estaria mais propenso a adquirir com base em suas compras anteriores. Através da análise de redes sociais e monitorando as conexões entre usuários, é possível até mesmo avaliar associações de marca como o quão sustentável ela aparenta ser do ponto de vista de um consumidor médio, facilitando ações de marca reativas ou preditivas. [@Chintagunta2016]
+
+Para alcançar entendimentos práticos e aplicáveis para o marketing, é o papel do analista de dados minerar, analisar, interpretar e apresentar a informação de forma a convertê-lá em inteligência acionável, de forma a acompanhar, segmentar e modelar o 'DNA informático' do consumidor. Neste contexto, é evidente que as informações em si não são tão úteis para organizações quanto a inteligência de mercado requerida para analisá-las. [@Hauser2007] 
+
+De acordo com @Tabani2020, embora a análise de marketing seja um tópico altamente relevante em virtude do crescente volume e complexidade de dados disponíveis através das redes sociais, ferramentas digitais e aplicações de software, o potencial desta análise em negócios reais ainda não é totalmente realizado. O artigo aponta que barreiras na adoção desta abordagem incluem a falta de estratégias abrangentes, expertise, recursos e dados de qualidade, dentre outros fatores.
 
 <!--- apresentar ciência de dados como campo interdisciplinar que estuda os dados 
     - definir ciência de dados como área interdisciplinar (estatística, computação, conhecimento de domínio)
@@ -177,7 +180,7 @@ Para estudos de marketing, a ciência de dados aplicada a Big Data é capaz de p
 
 --- AQUI!!! ---
 
-
+@Wedel2016 FALTA ACESSO
 
 
 
