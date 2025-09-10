@@ -13,6 +13,7 @@ format: html
 library(bskyr)
 library(tidyverse)
 library(readr)
+library(jsonlite)
 ```
 
 ## dados da autenticação do usuário para a raspagem
@@ -35,23 +36,25 @@ auth <-
 ## raspando páginas à procura da string `"league of legends"`
 
 Raspagem de teste
+- busca por post com uma palavra chave
 
 ```{r}
-
 #| label: testando-search-posts
-# busca por post com uma palavra chave
 
 posts <- 
   bs_search_posts(
     query = '"league of legends" since:2024-08-30 until:2024-10-08',
     limit = 10,
     auth = auth
-    )
+  ) 
 
-print(posts)
-
+posts |> 
+  toJSON(pretty = TRUE)
 ```
 
+texto da documentação da biblioteca `{blskyr}` que deixei aqui para encontrar mais fácil `r 2+2`
+
+```
 Arguments
 query Character vector, length 1. character. Search query, Lucene query syntax is
 recommended.
@@ -77,8 +80,12 @@ pass Character. App password to log in with. Defaults to get_bluesky_pass().
 auth Authentication information. Defaults to bs_auth(user, pass).
 clean Logical. Should output be cleaned into a tibble? Default: TRUE.
 
+```
+
 RESULTADO
 
+
+```
 [Página de documentação do bluesky](https://bsky.social/about/blog/05-31-2024-search)
 com mais campos (keywords) que podem ser usadas nas queries
 
@@ -115,6 +122,7 @@ com mais campos (keywords) que podem ser usadas nas queries
 - $quote_count - deve ser quantidade de menções
 - $indexed_at - data do post
 
+```
 
 ```{r}
 #| label: exportando-xlsx
@@ -153,7 +161,7 @@ print(urls)
 ```{r}
 
 #| label: testando-convert-uri-to-url-sem-gpt
-#| eval: false
+#| eval: true
 
 bs_uri_to_url(
   'at://did:plc:ic6zqvuw5ulmfpjiwnhsr2ns/app.bsky.feed.post/3k7qmjev5lr2s'
@@ -167,7 +175,7 @@ bs_url_to_uri(
   )
 
 
-View()
+
 ```
 
 
@@ -183,13 +191,15 @@ posts |>
 ```{r}
 #| label: testando-follows-suggestions
 #| eval: true
-follows_suggestions <- bs_get_follow_suggestions(
-  actor,
-  user = user,
-  pass = pass,
-  auth = auth,
 
-)
+follows_suggestions <- 
+  bs_get_follow_suggestions(
+    actor,
+    user = user,
+    pass = pass,
+    auth = auth,
+    
+  )
 
 print(follows_suggestions)
 
@@ -205,7 +215,7 @@ seguidores <-
   bs_get_followers(
     actor,
     cursor = NULL,
-    limit = 1,
+    limit = 10,
     auth = auth,
     clean = FALSE
   )    
@@ -470,25 +480,25 @@ rkey = 3kf2577exva2x
 
 Essa função é mais baixa nível que bs_get_posts() (que já lida com essas partes para você).
 
+
+A função bs_get_relationships() da biblioteca blskyr permite verificar os relacionamentos entre um usuário (ator) e outros usuários no Bluesky, como:
+
+- Quem segue quem
+- Quem foi bloqueado
+- Quem foi silenciado
+
+
 ```{r}
 #| label: testando-get-relationships
 #| eval: true
 
-# A função bs_get_relationships() da biblioteca blskyr permite verificar os relacionamentos entre um usuário (ator) e outros usuários no Bluesky, como:
-#Quem segue quem
-#Quem foi bloqueado
-#Quem foi silenciado
-
-
-relacoes <-
-  bs_get_relationships(
-    actor = 'ennoe.bsky.social',
-    others = c('bskyr.bsky.social', 'simko.bsky.social', 'otheruser.bsky.social'),
-    auth = auth,
-    clean = FALSE
-)
-print(relacoes)
-
+bs_get_relationships(
+  actor = 'ennoe.bsky.social',
+  others = c('bskyr.bsky.social', 'simko.bsky.social', 'yasmelins.bsky.social'),
+  auth = auth,
+  clean = FALSE
+)|> 
+toJSON(pretty = TRUE)
 ```
 
 ```{r}
