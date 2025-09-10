@@ -171,6 +171,16 @@ Para estudos de marketing, a ciência de dados aplicada a Big Data é capaz de p
     - [Cao, 2020](https://arxiv.org/abs/2007.03606) 
 
 
+
+
+### Carreiras de Dados em Negócios
+
+--- AQUI!!! ---
+
+
+
+
+
 ## Problema de pesquisa
 
 Tendo início em 2019 como uma iniciativa de pesquisa do Twitter, o Bluesky surgiu como um projeto de rede social de microblogues descentralizada e que se tornou independente em 2021. O serviço foi inicialmente projetado por Jack Donsey, o então CEO do Twitter, que escolheu Jay Graber como líder da inciativa. Em 2022, após a aquisição do Twitter pelo Elon Musk, a rede cessou todas relações de serviço com o Bluesky, que seguiu com sua missão inicial de desenvolver e impulsionar a adoção em larga escala de tecnologias para conversas públicas abertas e descentralizadas. [@Bluesky2023]
