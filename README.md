@@ -16,15 +16,15 @@ Sprint da semana:
   - Thales
 - [ ] Metodologia - ler artigos e escrever dentro dos tópicos
   - Thales
-- [ ] Refinar e mudar de local o output (raspagem.qmd)
+- [ x ] Refinar e mudar de local o output (raspagem.qmd)
   - Yas
-- [ ] Testar outras funções da biblioteca e documentar os outputs
+- [ x ] Testar outras funções da biblioteca e documentar os outputs
   - Yas
 
 
 Backlog:
 
-- [ ] Teste de seguidores em comum e documentação
+- [ x ] Teste de seguidores em comum e documentação
   - Yas e Thales
 - [ ] Descobrir como plotar uma rede e conectar as pessoas
   - Yas e Thales

@@ -153,7 +153,7 @@ print(urls)
 ```{r}
 
 #| label: testando-convert-uri-to-url-sem-gpt
-#| eval: true
+#| eval: false
 
 bs_uri_to_url(
   'at://did:plc:ic6zqvuw5ulmfpjiwnhsr2ns/app.bsky.feed.post/3k7qmjev5lr2s')
