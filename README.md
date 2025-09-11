@@ -11,18 +11,24 @@ Sprint da semana:
 - [ ] Revisão Bibliográfica - Workflow de ciência de dados
   - Thales
 - [ ] Revisar todo o teste-raspagem.qmd
+  - [ ] indentar o código
+  - [ ] colocar json onde precisa
+  - [ ] passar o comentário de dentro pra fora
+  - [ ] corrigir os unnamed chunks
+  - [ ] corrigir os markdowns ao longo do texto
   - Yas
-
+- [ ] Analisar e documentar o output de cada função
+  - Yas
+- [ ] Fundamentação teórica - Buscar Jane
+  - Thales
+- [ ] Metodologia - ler artigos e escrever dentro dos tópicos
+  - Thales
 
 Backlog:
 
 - [ ] Descobrir como plotar uma rede e conectar as pessoas
   - Yas e Thales
 - [ ] Mandar e-mail para PGB (talvez mais pra frente)
-  - Thales
-- [ ] Fundamentação teórica - Buscar Jane
-  - Thales
-- [ ] Metodologia - ler artigos e escrever dentro dos tópicos
   - Thales
 
 
