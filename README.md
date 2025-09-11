@@ -8,30 +8,23 @@ Professor orientador: Marcelo Ventura
 
 Sprint da semana:
 
-- [ ] Verficar se não estamos esquecendo de incluir alguma etapa
-  - Yas e Thales
-- [ ] Revisão Bibliográfica - ciência de dados - ler artigos
+- [ ] Revisão Bibliográfica - Workflow de ciência de dados
   - Thales
-- [ ] Problema de Pesquisa - refinar e definir objetivos
-  - Thales
-- [ ] Metodologia - ler artigos e escrever dentro dos tópicos
-  - Thales
-- [ x ] Refinar e mudar de local o output (raspagem.qmd)
-  - Yas
-- [ x ] Testar outras funções da biblioteca e documentar os outputs
+- [ ] Revisar todo o teste-raspagem.qmd
   - Yas
 
 
 Backlog:
 
-- [ x ] Teste de seguidores em comum e documentação
-  - Yas e Thales
 - [ ] Descobrir como plotar uma rede e conectar as pessoas
   - Yas e Thales
 - [ ] Mandar e-mail para PGB (talvez mais pra frente)
   - Thales
 - [ ] Fundamentação teórica - Buscar Jane
   - Thales
+- [ ] Metodologia - ler artigos e escrever dentro dos tópicos
+  - Thales
+
 
 Concluído:
 
@@ -51,6 +44,28 @@ Concluído:
 - [X] Descrever propriamente problema de pesquisa
     - Thales 
     - concluído em 01/09
+- [X] Problema de Pesquisa - refinar e definir objetivos
+    - Thales
+    - concluído em 10/09
+- [X] Teste de seguidores em comum e documentação
+    - Yas e Thales
+    - concluído em 09/09
+- [X] Refinar e mudar de local o output (raspagem.qmd)
+    - Yas
+    - concluído em 10/09
+- [X] Testar outras funções da biblioteca e documentar os outputs
+    - Yas
+    - concluído em 10/09
+- [X] Revisão Bibliográfica - ciência de dados - ler artigos   
+    - Thales
+    - concluído em 10/09
+- [X] Verificar se não estamos esquecendo de incluir alguma etapa
+    - Yas e Thales
+    - concluído em 10/09
+
+
+
+
 
 # Links Úteis
 [Comandos em Markdown](https://docs.pipz.com/central-de-ajuda/learning-center/guia-basico-de-markdown#open)
