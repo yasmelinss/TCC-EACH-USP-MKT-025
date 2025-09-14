@@ -52,6 +52,9 @@ posts |>
   toJSON(pretty = TRUE)
 ```
 
+
+
+
 texto da documentação da biblioteca `{blskyr}` que deixei aqui para encontrar mais fácil `r 2+2`
 
 ```
@@ -84,31 +87,29 @@ clean Logical. Should output be cleaned into a tibble? Default: TRUE.
 
 RESULTADO
 
-
-```
 [Página de documentação do bluesky](https://bsky.social/about/blog/05-31-2024-search)
 com mais campos (keywords) que podem ser usadas nas queries
 
 
-## descobrindo as informações que a raspagem traz
+descobrindo as informações que a raspagem traz
 
-<!-- Não sei de a formatação está correta -->
+Não sei de a formatação está correta
 
 
-- $uri - código do post
-- $cid - código do post
+- `$uri` - código do post
+- `$cid`` - código do post
 - $author - código do post
 - $handle - nome do *user*
 - $displayName - nome escolhido pelo usuário
 - $avatar - foto de perfil
-  $associated > $chat > $allowIncoming (chr "followers")
-  $activitySubscription > > $allowSubscriptions (chr "followers")
+- `$associated` > `$chat` > `$allowIncoming` (chr "followers")
+- $activitySubscription > > $allowSubscriptions (chr "followers")
 - $muted - mutado (false)
 - $blockedBy - bloqueado (false)
 - $createdAt - data de criação do usuário
 - $type - app.bsky.feed.post
 - $createdAt - data de criação do post
-- > $embed > $type > $external> $description - conteúdo do post
+- $embed > $type > $external> $description - conteúdo do post
 - $title - primeiras linhas do post se ele tiver um título
 - $uri - um link colocado pelo usuário
 - $type: chr "app.bsky.richtext.facet#tag" -  inicia a busca por #
@@ -122,7 +123,6 @@ com mais campos (keywords) que podem ser usadas nas queries
 - $quote_count - deve ser quantidade de menções
 - $indexed_at - data do post
 
-```
 
 ```{r}
 #| label: exportando-xlsx
@@ -262,7 +262,6 @@ print(lista_ator)
 ```
 
 ```{r}
-
 #| label: testando-create-record
 #| eval: false
 
@@ -305,7 +304,6 @@ puxarlista <-
 )
 
 print(puxarlista)
-  
 ```
 
 ```{r}
@@ -320,8 +318,9 @@ bs_get_actor_starter_packs(
   auth = auth,
   clean = FALSE                 
 )
-
 ```
+
+
 ```{r}
 #|label: testando-get-actor-suggest
 #|eval: true
@@ -375,7 +374,6 @@ retornapostmaisrecente <-
 )
 
 print(retornapostmaisrecente)
-
 ```
 Acho que essa função é mais para a criação de BOTS
 
@@ -418,10 +416,10 @@ pegarcurtidas <-
 )
 
 print(pegarcurtidas)
-
 ```
-```{r}
 
+
+```{r}
 #| label: testando-get-posts
 #| eval: false
 
@@ -432,10 +430,10 @@ bs_get_posts(
   auth = auth,
   clean = FALSE
   )
-
 ```
-```{r}
 
+
+```{r}
 #| label: testando-get-profile
 #| eval: true
 
@@ -447,8 +445,9 @@ bs_get_profile(
   clean = FALSE
 )
 ```
-```{r}
 
+
+```{r}
 #| label: testando-get-record 
 ```
 🧾 O que é um “registro” (record)?
@@ -508,7 +507,6 @@ toJSON(pretty = TRUE)
 ```
 
 ```{r}
-
 #| label: nao-testando-get-timeline
 #| eval: false
 # retorna os posts mais recentes das contas que o usuário segue, da mesma forma que aparecem no app do Bluesky.
@@ -521,7 +519,6 @@ toJSON(pretty = TRUE)
 ```
 
 ```{r}
-
 #| label: nao-testando-new-list
 #| eval: false
 # bs_new_list() cria uma lista personalizada que pode servir para moderar, curar conteúdos ou como referência, com nome, propósito, descrição e avatar.
@@ -530,7 +527,6 @@ toJSON(pretty = TRUE)
 ```
 
 ```{r}
-
 #| label: nao-testando-post
 #| eval: false
 
@@ -566,7 +562,6 @@ toJSON(pretty = TRUE)
 ```
 
 ```{r}
-
 #| label: testando-search-actors
 #| eval: true
 
@@ -585,6 +580,7 @@ procurandoperfis <-
 print(procurandoperfis)
 
 ```
+
 ```{r}
 #| label: nao-testando-has-bluesky-user
 #| eval: false
