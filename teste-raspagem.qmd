@@ -154,30 +154,30 @@ follows_suggestions <-
 print(follows_suggestions)
 ```
 
+
+retorna os perfis que seguem um determinado ator (usuário)
+
 ```{r}
 #| label: testando-get-followers
 #| eval: true
-
-# retorna os perfis que seguem um determinado ator (usuário)
 
 seguidores <-
   bs_get_followers(
     actor,
     cursor = NULL,
-    limit = 10,
+    limit = 2,
     auth = auth,
     clean = FALSE
   )    
 
 print(seguidores)
 ```
-Creio que funciona e as mesmas inforemações padrões
+
+retorna os perfis que seguem um determinado ator (usuário)
 
 ```{r}
 #| label: testando-get-follows
 #| eval: true
-
-# retorna os perfis que seguem um determinado ator (usuário)
 
 seguindo <-
   bs_get_follows(
@@ -191,7 +191,6 @@ seguindo <-
 print(seguindo)
 ```
 
-
 ```{r}
 #| label: testando-get-actor-lists
 #| eval: false
@@ -201,10 +200,8 @@ lista_ator <-
     actor = 'chriskenny.bsky.social',
     cursor = NULL,
     limit = NULL,
-    user = user,
-    pass = pass,
     auth = auth,
-    clean = TRUE
+    clean = FALSE
   )
 
 print(lista_ator)
@@ -231,63 +228,55 @@ print(lista_ator)
 ```{r}
 #| label: testando-extract-record-key
 #| eval: false
+
 key <-
-  bs_extract_record_key(
-    'https://bsky.app/profile/chriskenny.bsky.social/post/3lc5d6zspys2c'
-    )
+  bs_extract_record_key('https://bsky.app/profile/chriskenny.bsky.social/post/3lc5d6zspys2c')
 
 print(key)
 ```
 
+Retorna todas as listas públicas associadas a um determinado usuário (ator) do Bluesky
+
 ```{r}
 #| label: testando-actor-lists
 #| eval: true
-# Retorna todas as listas públicas associadas a um determinado usuário (ator) do Bluesky
 
 puxarlista <- 
   bs_get_actor_lists(
-  'ennoe.bsky.social',# Ex: 'usuario.bsky.social' ou 'did:plc:...'
-  cursor = NULL,  # Para paginação de resultados
-  limit = NULL,   # Número de listas a buscar (padrão: todas disponíveis)
-  auth = auth,  # Objeto de autenticação
-  clean = FALSE # Retorna um tibble limpo
-)
+    'ennoe.bsky.social',# Ex: 'usuario.bsky.social' ou 'did:plc:...'
+    cursor = NULL,  # Para paginação de resultados
+    limit = NULL,   # Número de listas a buscar (padrão: todas disponíveis)
+    auth = auth,  # Objeto de autenticação
+    clean = FALSE # Retorna um tibble limpo
+  )
 
-print(puxarlista)
+puxarlista |> 
+  toJSON(pretty = TRUE)
+
 ```
+Starter packs são listas públicas de contas sugeridas para seguir — normalmente usadas para ajudar novos usuários a encontrar contas interessantes, confiáveis ou relevantes com base em temas (como “jornalismo”, “arte”, “ciência”, etc.).
 
 ```{r}
 #|label: testanto-actor-starter-packs
 #|eval: true
-# Starter packs são listas públicas de contas sugeridas para seguir — normalmente usadas para ajudar novos usuários a encontrar contas interessantes, confiáveis ou relevantes com base em temas (como “jornalismo”, “arte”, “ciência”, etc.).
 
-bs_get_actor_starter_packs(
-  actor,       
-  cursor = NULL, 
-  limit = NULL,   
-  auth = auth,
-  clean = FALSE                 
-)
-```
-
-
-```{r}
-#|label: testando-get-actor-suggest
-#|eval: true
-
-# obter uma lista de perfis (atores) sugeridos para você seguir no Bluesky, com base nas recomendações do sistema da plataforma.
-
-atorsugestao <-
-  bs_get_actor_suggestions(
-  cursor = NULL,
-  limit = 10,    # Quantidade de sugestões (acima de 100 = múltiplas requisições)
-  auth = auth,  # Objeto de autenticação
-  clean = FALSE
+starterpacks <- 
+  bs_get_actor_starter_packs(
+    actor,       
+    cursor = NULL, 
+    limit = NULL,   
+    auth = auth,
+    clean = FALSE                 
   )
-print (atorsugestao)
+
+starterpacks |> 
+  toJSON(pretty = TRUE)
 ```
+
+Obter uma lista de perfis (atores) sugeridos para você seguir no Bluesky, com base nas recomendações do sistema da plataforma.
 
 O resultado desse chunk me intriga... Ele puxa campos como
+
 - $did
 - $handle: nome do usuário
 - $displayName: nome escolhido pelo usuário
@@ -295,13 +284,32 @@ O resultado desse chunk me intriga... Ele puxa campos como
 - $avatar: foto de perfil
 
 ```{r}
+#|label: testando-get-actor-suggest
+#|eval: true
+
+atorsugestao <-
+  bs_get_actor_suggestions(
+    cursor = NULL,
+    limit = 10,    # Quantidade de sugestões (acima de 100 = múltiplas requisições)
+    auth = auth,  # Objeto de autenticação
+    clean = FALSE
+  )
+
+atorsugestao |> 
+  toJSON(pretty = TRUE)
+
+```
+
+Busca os posts de um feed personalizado, com base em um feed generator criado no Bluesky
+- Para consumir feeds temáticos curados por terceiros
+- Para análises sociais ou de conteúdo
+- construir dashboards com categorias de conteúdo personalizadas
+
+Acho que essa função é mais para a criação de BOTS
+
+```{r}
 #| label: testando-feed-generator
 #| eval: false
-
-# Busca os posts de um feed personalizado, com base em um feed generator criado no Bluesky
-#Para consumir feeds temáticos curados por terceiros
-#Para análises sociais ou de conteúdo
-# construir dashboards com categorias de conteúdo personalizadas
 
 listafeedsdisponiveis <- 
   bs_get_feeds(
@@ -325,69 +333,69 @@ retornapostmaisrecente <-
 
 print(retornapostmaisrecente)
 ```
-Acho que essa função é mais para a criação de BOTS
 
-```{r}
-#| label: testando-get-list
-#| eval: true
+No Bluesky, listas são coleções personalizadas de perfis, criadas para agrupar e organizar pessoas que você segue ou outras contas.
 
-# No Bluesky, listas são coleções personalizadas de perfis, criadas para agrupar e organizar pessoas que você segue ou outras contas.
-
-gerandolista <-
-  bs_get_list(
-  list = 'at://did:plc:ragtjsm2j2vknwkz3zp4oxrd/app.bsky.graph.list/3kmokjyuflk2g',        
-  cursor = NULL,  
-  limit = 1,  
-  auth = auth,
-  clean = FALSE
-)
-
-print(gerandolista)
-```
 Quando usar?
 
 - Para consultar e analisar o conteúdo de listas específicas no Bluesky
 - Para mostrar a composição de uma lista em dashboards ou relatórios
 - Para gerenciar listas e seus membros via programação
 
+
+```{r}
+#| label: testando-get-list
+#| eval: true
+
+gerandolista <-
+  bs_get_list(
+    list = 'at://did:plc:ragtjsm2j2vknwkz3zp4oxrd/app.bsky.graph.list/3kmokjyuflk2g',        
+    cursor = NULL,  
+    limit = 1,  
+    auth = auth,
+    clean = FALSE
+  )
+
+print(gerandolista)
+```
+
+recupera postagens curtidas por um ator
+
 ```{r}
 #| label: testando-get-likes
 #| eval: false
 
-# recupera postagens curtidas por um ator
-
 pegarcurtidas <- 
   bs_get_likes(
-  'ennoe.bsky.social',
-  cursor = NULL,
-  limit = 10,
-  auth = auth,
-  clean = FALSE
-)
+    'ennoe.bsky.social',
+    cursor = NULL,
+    limit = 10,
+    auth = auth,
+    clean = FALSE
+  )
 
 print(pegarcurtidas)
 ```
 
+busca um ou mais posts diretamente pela URL ou URI interna, e retorna seus conteúdos como uma tabela
 
 ```{r}
 #| label: testando-get-posts
 #| eval: false
 
-# busca um ou mais posts diretamente pela URL ou URI interna, e retorna seus conteúdos como uma tabela
-
 bs_get_posts(
   'https://bsky.app/profile/chriskenny.bsky.social/post/3lc5d6zspys2c',
   auth = auth,
   clean = FALSE
-  )
+)
+  
 ```
 
+obter as informações de perfil de um ou mais usuários (atores) do Bluesky.
 
 ```{r}
 #| label: testando-get-profile
 #| eval: true
-
-# obter as informações de perfil de um ou mais usuários (atores) do Bluesky.
 
 bs_get_profile(
   'ennoe.bsky.social',
@@ -395,12 +403,7 @@ bs_get_profile(
   clean = FALSE
 )
 ```
-
-
-```{r}
-#| label: testando-get-record 
-```
-🧾 O que é um “registro” (record)?
+ O que é um “registro” (record)?
 
 Na arquitetura descentralizada do AT Protocol, tudo publicado é um registro em um repositório pessoal. Por exemplo:
 
@@ -438,17 +441,27 @@ A função bs_get_relationships() da biblioteca blskyr permite verificar os rela
 
 
 ```{r}
+#| label: testando-get-record 
+```
+🧾
+
+```{r}
 #| label: testando-get-relationships
 #| eval: true
 
-bs_get_relationships(
-  actor = 'ennoe.bsky.social',
-  others = c('bskyr.bsky.social', 'simko.bsky.social', 'yasmelins.bsky.social'),
-  auth = auth,
-  clean = FALSE
-)|> 
-toJSON(pretty = TRUE)
+relacoes <- 
+  bs_get_relationships(
+    actor = 'ennoe.bsky.social',
+    others = c('bskyr.bsky.social', 'simko.bsky.social', 'yasmelins.bsky.social'),
+    auth = auth,
+    clean = FALSE
+  )
+
+relacoes |> 
+  toJSON(pretty = TRUE)
 ```
+
+
 
 ```{r}
 #| label: nao-testando-get-repost
@@ -511,11 +524,11 @@ toJSON(pretty = TRUE)
 
 ```
 
+bs_search_actors() permite procurar perfis no Bluesky com base em uma consulta textual, retornando uma lista de contas que combinam com a busca. 
+
 ```{r}
 #| label: testando-search-actors
 #| eval: true
-
-# bs_search_actors() permite procurar perfis no Bluesky com base em uma consulta textual, retornando uma lista de contas que combinam com a busca. 
 
 procurandoperfis <- 
   bs_search_actors(
@@ -528,6 +541,10 @@ procurandoperfis <-
 )
 
 print(procurandoperfis)
+
+
+procurandoperfis |> 
+  toJSON(pretty = TRUE)
 
 ```
 
