@@ -134,7 +134,6 @@ write_xlsx(posts, path = "teste_raspagem_urls.xlsx")
 
 
 ```{r}
-
 #| label: transformando-em-URLs
 #| eval: false
 #acessa a coluna uri do dataframe posts
@@ -159,7 +158,6 @@ print(urls)
 ```
 
 ```{r}
-
 #| label: testando-convert-uri-to-url-sem-gpt
 #| eval: true
 
@@ -594,7 +592,6 @@ print(procurandoperfis)
 ```
 
 ```{r}
-
 #| label: testando-grafico
 
 
