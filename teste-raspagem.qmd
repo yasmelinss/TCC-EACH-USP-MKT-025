@@ -53,7 +53,7 @@ posts |>
 
 
 
-texto da documentação da biblioteca `{blskyr}` que deixei aqui para encontrar mais fácil `r 2+2`
+texto da documentação da biblioteca `{blskyr}` `(bs_x)` que deixei aqui para encontrar mais fácil `r 2+2`
 
 ```
 Arguments
@@ -85,41 +85,35 @@ clean Logical. Should output be cleaned into a tibble? Default: TRUE.
 
 RESULTADO
 
-[Página de documentação do bluesky](https://bsky.social/about/blog/05-31-2024-search)
-com mais campos (keywords) que podem ser usadas nas queries
-
-
-descobrindo as informações que a raspagem traz
-
-Não sei de a formatação está correta
+- descobrindo as informações que a raspagem traz
 
 
 - `$uri` - código do post
 - `$cid`` - código do post
-- $author - código do post
-- $handle - nome do *user*
-- $displayName - nome escolhido pelo usuário
-- $avatar - foto de perfil
+- `$author` - código do post
+- `$handle` - nome do *user*
+- `$displayName`` - nome escolhido pelo usuário
+- `$avatar`` - foto de perfil
 - `$associated` > `$chat` > `$allowIncoming` (chr "followers")
-- $activitySubscription > > $allowSubscriptions (chr "followers")
-- $muted - mutado (false)
-- $blockedBy - bloqueado (false)
-- $createdAt - data de criação do usuário
-- $type - app.bsky.feed.post
-- $createdAt - data de criação do post
-- $embed > $type > $external> $description - conteúdo do post
-- $title - primeiras linhas do post se ele tiver um título
-- $uri - um link colocado pelo usuário
-- $type: chr "app.bsky.richtext.facet#tag" -  inicia a busca por #
-- $tag - a # usada. ele também puxa os bytes da #
-- $type: chr "app.bsky.richtext.facet#link" - inicia a busca pelo link colocado
-- $text - conteúdo do post em si
-- > $embed > $ > $type   : chr "app.bsky.embed.external#view"> external > -  RESUMO DO POST com $uri, $title, $description, $thumb - display do link
-- $reply_count - quantidade de comentários
-- $reposts_count - quantidade de compartilhamento "repost"
-- $like_count - quantidade de curtidas
-- $quote_count - deve ser quantidade de menções
-- $indexed_at - data do post
+- `$activitySubscription` > `$allowSubscriptions` (chr "followers")
+- `$muted` - mutado (false)
+- `$blockedBy` - bloqueado (false)
+- `$createdAt` - data de criação do usuário
+- `$type` - app.bsky.feed.post
+- `$createdAt` - data de criação do post
+- `$embed` > `$type` > `$external` >` $description` - conteúdo do post
+- `$title` - primeiras linhas do post se ele tiver um título
+- `$uri` - um link colocado pelo usuário
+- `$type`: chr "`app.bsky.richtext.facet#tag`" -  inicia a busca por #
+- `$tag` - a # usada. ele também puxa os bytes da #
+- `$type`: chr "`app.bsky.richtext.facet#link`" - inicia a busca pelo link colocado
+- `$text` - conteúdo do post em si
+- `$embed` > `$type`: chr "`app.bsky.embed.external#view`"> external > -  RESUMO DO POST com `$uri`, `$title`, `$description`, `$thumb`- display do link
+- `$reply_count`- quantidade de comentários
+- `$reposts_count`- quantidade de compartilhamento "repost"
+- `$like_count`- quantidade de curtidas
+- `$quote_count`- deve ser quantidade de menções
+- `$indexed_at` data do post
 
 
 ```{r}

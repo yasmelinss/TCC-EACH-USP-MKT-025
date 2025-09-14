@@ -15,7 +15,7 @@ Sprint da semana:
   - [ ] colocar json onde precisa
   - [ ] passar o comentário de dentro pra fora
   - [x] corrigir os unnamed chunks
-  - [ ] corrigir os markdowns ao longo do texto
+  - [x] corrigir os markdowns ao longo do texto
   - Yas
 - [ ] Analisar e documentar o output de cada função
   - Yas
