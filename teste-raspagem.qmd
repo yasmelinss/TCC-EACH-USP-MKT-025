@@ -35,8 +35,6 @@ auth <-
 
 ## raspando páginas à procura da string `"league of legends"`
 
-Raspagem de teste
-- busca por post com uma palavra chave
 
 ```{r}
 #| label: testando-search-posts
@@ -161,19 +159,9 @@ print(urls)
 #| label: testando-convert-uri-to-url-sem-gpt
 #| eval: true
 
-bs_uri_to_url(
-  'at://did:plc:ic6zqvuw5ulmfpjiwnhsr2ns/app.bsky.feed.post/3k7qmjev5lr2s'
+bs_uri_to_url('at://did:plc:ic6zqvuw5ulmfpjiwnhsr2ns/app.bsky.feed.post/3k7qmjev5lr2s')
 
-  )
-  
-
-bs_url_to_uri(
-  'https://bsky.app/profile/ennoe.bsky.social',
-    auth = auth
-  )
-
-
-
+bs_url_to_uri('https://bsky.app/profile/ennoe.bsky.social', auth = auth)
 ```
 
 
@@ -193,14 +181,10 @@ posts |>
 follows_suggestions <- 
   bs_get_follow_suggestions(
     actor,
-    user = user,
-    pass = pass,
-    auth = auth,
-    
+    auth = auth
   )
 
 print(follows_suggestions)
-
 ```
 
 ```{r}
@@ -244,8 +228,9 @@ print(seguindo)
 ```{r}
 #| label: testando-get-actor-lists
 #| eval: false
-  lista_ator <- 
-    bs_get_actor_lists(
+
+lista_ator <- 
+  bs_get_actor_lists(
     actor = 'chriskenny.bsky.social',
     cursor = NULL,
     limit = NULL,
