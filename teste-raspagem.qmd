@@ -358,6 +358,30 @@ gerandolista <-
 print(gerandolista)
 ```
 
+bs_search_actors() permite procurar perfis no Bluesky com base em uma consulta textual, retornando uma lista de contas que combinam com a busca. 
+
+```{r}
+#| label: testando-search-actors
+#| eval: true
+
+procurandoperfis <- 
+  bs_search_actors(
+    'league of legend', #query == texto da busca
+    typeahead = FALSE, #se TRUE, faz uma busca tipo "sugestão enquanto digita" (autocomplete). Padrão: FALSE.
+    cursor = NULL, #paginação a parti de uma resposta anterior
+    limit = 2,
+    auth = auth,
+    clean = FALSE
+)
+
+print(procurandoperfis)
+
+
+procurandoperfis |> 
+  toJSON(pretty = TRUE)
+
+```
+
 Exporta XLXS
 
 ```{r}
@@ -572,30 +596,6 @@ print(follows_suggestions)
 #| eval: false
 
 #bs_resolve_handle() pega um handle do Bluesky e retorna o DID correspondente, que é um identificador único global usado para identificar contas de forma descentralizada.
-
-```
-
-bs_search_actors() permite procurar perfis no Bluesky com base em uma consulta textual, retornando uma lista de contas que combinam com a busca. 
-
-```{r}
-#| label: testando-search-actors
-#| eval: true
-
-procurandoperfis <- 
-  bs_search_actors(
-    'league of legend', #query == texto da busca
-    typeahead = FALSE, #se TRUE, faz uma busca tipo "sugestão enquanto digita" (autocomplete). Padrão: FALSE.
-    cursor = NULL, #paginação a parti de uma resposta anterior
-    limit = 2,
-    auth = auth,
-    clean = FALSE
-)
-
-print(procurandoperfis)
-
-
-procurandoperfis |> 
-  toJSON(pretty = TRUE)
 
 ```
 
