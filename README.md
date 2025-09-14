@@ -14,7 +14,7 @@ Sprint da semana:
   - [ ] indentar o código
   - [ ] colocar json onde precisa
   - [ ] passar o comentário de dentro pra fora
-  - [ ] corrigir os unnamed chunks
+  - [x] corrigir os unnamed chunks
   - [ ] corrigir os markdowns ao longo do texto
   - Yas
 - [ ] Analisar e documentar o output de cada função
