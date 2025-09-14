@@ -114,15 +114,70 @@ clean Logical. Should output be cleaned into a tibble? Default: TRUE.
 - `$quote_count`- deve ser quantidade de menções
 - `$indexed_at` data do post
 
+#NOVA SEÇÃO
+
+busca um ou mais posts diretamente pela URL ou URI interna, e retorna seus conteúdos como uma tabela
 
 ```{r}
-#| label: nao-exportando-xlsx
+#| label: testando-get-posts
 #| eval: false
 
-#Salvar um data frame chamado posts em um arquivo Excel chamado teste_raspagem_urls.xlsx, usando a função write_xlsx().
-write_xlsx(posts, path = "teste_raspagem_urls.xlsx")
+bs_get_posts(
+  'https://bsky.app/profile/chriskenny.bsky.social/post/3lc5d6zspys2c',
+  auth = auth,
+  clean = FALSE
+)
+  
 ```
 
+O que é um “registro” (record)?
+
+Na arquitetura descentralizada do AT Protocol, tudo publicado é um registro em um repositório pessoal. Por exemplo:
+
+Posts → coleção app.bsky.feed.post
+
+Likes → coleção app.bsky.feed.like
+
+Reposts → coleção app.bsky.feed.repost
+
+Listas → coleção app.bsky.graph.list
+
+Você precisa saber os 3 elementos: repo, collection, e rkey.
+
+bs_get_record(
+  repo = "bskyr.bsky.social",
+  collection = "app.bsky.feed.post",
+  rkey = "3kf2577exva2x"
+)
+Obs: Esse exemplo está "disfarçado" no formato de URL no manual:
+https://bsky.app/profile/bskyr.bsky.social/post/3kf2577exva2x
+
+A estrutura é:
+repo = bskyr.bsky.social
+collection = app.bsky.feed.post
+rkey = 3kf2577exva2x
+
+Essa função é mais baixa nível que bs_get_posts() (que já lida com essas partes para você).
+
+
+```{r}
+#| label: testando-get-record 
+```
+
+obter as informações de perfil de um ou mais usuários (atores) do Bluesky.
+
+```{r}
+#| label: testando-get-profile
+#| eval: true
+
+bs_get_profile(
+  'ennoe.bsky.social',
+  auth = auth,
+  clean = FALSE
+)
+```
+
+converte URI - URL
 
 ```{r}
 #| label: testando-convert-uri-to-url-to-uri
@@ -138,7 +193,8 @@ bs_url_to_uri('https://bsky.app/profile/yasmelinss.bsky.social', auth = auth)
 
 bs_url_to_uri('https://bsky.app/profile/chriskenny.bsky.social/post/3lc5d6zspys2c', auth = auth)
 ```
-Pega apenas o vaelor do Record Key do usuário
+
+Pega apenas o valor do Record Key do usuário
 
 ```{r}
 #| label: testando-extract-record-key
@@ -186,46 +242,54 @@ seguindo <-
 print(seguindo)
 ```
 
-```{r}
-#| label: testando-create-record
-#| eval: false
-
-# Ela envia um novo registro (como um post, like, repost, etc.) para o servidor da Bluesky, dentro de uma coleção específica (como app.bsky.feed.post ou app.bsky.feed.like)
-
-#bs_create_record(
-  
-#collection,
-#record,
-#user = user,
-#pass = pass,
-#auth = auth,
-#clean = TRUE
-#)
-```
-
-Retorna todas as listas públicas associadas a um determinado usuário (ator) do Bluesky
+recupera postagens curtidas por um ator
 
 ```{r}
-#| label: testando-actor-lists
+#| label: testando-get-likes
 #| eval: true
 
-puxarlista <- 
-  bs_get_actor_lists(
-    'ennoe.bsky.social',# Ex: 'usuario.bsky.social' ou 'did:plc:...'
-    cursor = NULL,  # Para paginação de resultados
-    limit = NULL,   # Número de listas a buscar (padrão: todas disponíveis)
-    auth = auth,  # Objeto de autenticação
-    clean = FALSE # Retorna um tibble limpo
+pegarcurtidas <- 
+  bs_get_likes(
+    'ennoe.bsky.social',
+    cursor = NULL,
+    limit = 10,
+    auth = auth,
+    clean = FALSE
   )
 
-puxarlista |> 
-  toJSON(pretty = TRUE)
-
+print(pegarcurtidas)
 ```
-Starter packs são listas públicas de contas sugeridas para seguir — normalmente usadas para ajudar novos usuários a encontrar contas interessantes, confiáveis ou relevantes com base em temas (como “jornalismo”, “arte”, “ciência”, etc.).
+
+A função bs_get_relationships() da biblioteca blskyr permite verificar os relacionamentos entre um usuário (ator) e outros usuários no Bluesky, como:
+
+- Quem segue quem
+- Quem foi bloqueado
+- Quem foi silenciado
 
 ```{r}
-#|label: testanto-actor-starter-packs
+#| label: testando-get-relationships
+#| eval: true
+
+relacoes <- 
+  bs_get_relationships(
+    actor = 'ennoe.bsky.social',
+    others = c('bskyr.bsky.social', 'simko.bsky.social', 'yasmelins.bsky.social'),
+    auth = auth,
+    clean = FALSE
+  )
+
+relacoes |> 
+  toJSON(pretty = TRUE)
+```
+
+Starter packs são listas públicas de contas sugeridas para seguir — normalmente usadas para ajudar novos usuários a encontrar contas interessantes, confiáveis ou relevantes com base em temas (como “jornalismo”, “arte”, “ciência”, etc.).
+
+Starter packs no Bluesky são coleções curadas de perfis — um tipo de lista pública usada para recomendar pessoas a seguir.
+
+Por exemplo, alguém pode criar um starter pack chamado "Estatísticos no R" contendo 15 perfis que falam sobre estatística e R.
+
+```{r}
+#|label: testanto-get-actor-starter-packs
 #|eval: true
 
 starterpacks <- 
@@ -268,39 +332,6 @@ atorsugestao |>
 
 ```
 
-Busca os posts de um feed personalizado, com base em um feed generator criado no Bluesky
-- Para consumir feeds temáticos curados por terceiros
-- Para análises sociais ou de conteúdo
-- construir dashboards com categorias de conteúdo personalizadas
-
-Acho que essa função é mais para a criação de BOTS
-
-```{r}
-#| label: testando-feed-generator
-#| eval: false
-
-listafeedsdisponiveis <- 
-  bs_get_feeds(
-  actor, 
-  cursor = NULL,
-  limit = NULL,
-  auth = auth,
-  clean = FALSE
-)
-
-print(listafeedsdisponiveis)
-
-retornapostmaisrecente <- 
-  bs_get_feed(
-  'https://bsky.app/profile/chriskenny.bsky.social/post/3lc5d6zspys2c',          # URI do feed generator
-  cursor = NULL, #Para paginação (caso tenha muitos posts)
-  limit = 1,  #Número máximo de posts (padrão depende do servidor; se > 100, faz múltiplas chamadas)
-  auth = auth,
-  clean = FALSE
-)
-
-print(retornapostmaisrecente)
-```
 
 No Bluesky, listas são coleções personalizadas de perfis, criadas para agrupar e organizar pessoas que você segue ou outras contas.
 
@@ -327,108 +358,151 @@ gerandolista <-
 print(gerandolista)
 ```
 
-recupera postagens curtidas por um ator
+Exporta XLXS
 
 ```{r}
-#| label: testando-get-likes
+#| label: nao-exportando-xlsx
 #| eval: false
 
-pegarcurtidas <- 
-  bs_get_likes(
-    'ennoe.bsky.social',
-    cursor = NULL,
-    limit = 10,
-    auth = auth,
-    clean = FALSE
-  )
-
-print(pegarcurtidas)
+#Salvar um data frame chamado posts em um arquivo Excel chamado teste_raspagem_urls.xlsx, usando a função write_xlsx().
+write_xlsx(posts, path = "teste_raspagem_urls.xlsx")
 ```
 
-busca um ou mais posts diretamente pela URL ou URI interna, e retorna seus conteúdos como uma tabela
+Busca os posts de um feed personalizado, com base em um feed generator criado no Bluesky
+- Para consumir feeds temáticos curados por terceiros
+- Para análises sociais ou de conteúdo
+- construir dashboards com categorias de conteúdo personalizadas
+
+Acho que essa função é mais para a criação de BOTS
 
 ```{r}
-#| label: testando-get-posts
+#| label: nao-testando-feed-generator
 #| eval: false
 
-bs_get_posts(
-  'https://bsky.app/profile/chriskenny.bsky.social/post/3lc5d6zspys2c',
+listafeedsdisponiveis <- 
+  bs_get_feeds(
+  actor, 
+  cursor = NULL,
+  limit = NULL,
   auth = auth,
   clean = FALSE
 )
-  
-```
 
-obter as informações de perfil de um ou mais usuários (atores) do Bluesky.
+print(listafeedsdisponiveis)
 
-```{r}
-#| label: testando-get-profile
-#| eval: true
-
-bs_get_profile(
-  'ennoe.bsky.social',
+retornapostmaisrecente <- 
+  bs_get_feed(
+  feed = 'https://bsky.app/profile/chriskenny.bsky.social/post/3lc5d6zspys2c',          # URI do feed generator
+  cursor = NULL, #Para paginação (caso tenha muitos posts)
+  limit = 1,  #Número máximo de posts (padrão depende do servidor; se > 100, faz múltiplas chamadas)
   auth = auth,
   clean = FALSE
 )
+
+print(retornapostmaisrecente)
 ```
- O que é um “registro” (record)?
 
-Na arquitetura descentralizada do AT Protocol, tudo publicado é um registro em um repositório pessoal. Por exemplo:
+Essa função cria um "registro" no Bluesky, que pode ser:
 
-Posts → coleção app.bsky.feed.post
+um post (app.bsky.feed.post)
 
-Likes → coleção app.bsky.feed.like
+um like (app.bsky.feed.like)
 
-Reposts → coleção app.bsky.feed.repost
+uma repostagem (app.bsky.feed.repost)
 
-Listas → coleção app.bsky.graph.list
+um item de lista (app.bsky.graph.listitem)
 
-Você precisa saber os 3 elementos: repo, collection, e rkey.
+etc.
 
-bs_get_record(
-  repo = "bskyr.bsky.social",
+```{r}
+#| label: nao-testando-create-record
+#| eval: false
+
+bs_create_record(
+  collection,
+  record,
+  auth = auth,
+  clean = FALSE
+)
+
+#Dando like em um post
+# 1. Obter os dados de um post existente (pego pela URL do Bluesky)
+post_rcd <- bs_get_record('https://bsky.app/profile/bskyr.bsky.social/post/3kf2577exva2x')
+
+# 2. Montar o objeto de like
+like <- list(
+  subject = list(
+    uri = post_rcd$uri,  # identificador do post
+    cid = post_rcd$cid   # content ID (hash do conteúdo)
+  ),
+  createdAt = bs_created_at()  # timestamp atual no formato correto
+)
+
+# 3. Criar o registro de like no seu perfil
+bs_create_record(
+  collection = 'app.bsky.feed.like',  # tipo de registro
+  record = like                       # conteúdo
+)
+
+#Exemplo para criar um POST
+new_post <- list(
+  text = "Este é um post criado via R usando o pacote {bskyr}!",
+  createdAt = bs_created_at()
+)
+
+bs_create_record(
   collection = "app.bsky.feed.post",
-  rkey = "3kf2577exva2x"
+  record = new_post
 )
-Obs: Esse exemplo está "disfarçado" no formato de URL no manual:
-https://bsky.app/profile/bskyr.bsky.social/post/3kf2577exva2x
-
-A estrutura é:
-repo = bskyr.bsky.social
-collection = app.bsky.feed.post
-rkey = 3kf2577exva2x
-
-Essa função é mais baixa nível que bs_get_posts() (que já lida com essas partes para você).
-
-
-A função bs_get_relationships() da biblioteca blskyr permite verificar os relacionamentos entre um usuário (ator) e outros usuários no Bluesky, como:
-
-- Quem segue quem
-- Quem foi bloqueado
-- Quem foi silenciado
-
-
-```{r}
-#| label: testando-get-record 
 ```
-🧾
+
+Faz um post no Bluesky
 
 ```{r}
-#| label: testando-get-relationships
+#| label: nao-testando-post
+#| eval: false
+
+# bs_post Make a post on Bluesky Social
+
+#bs_post(
+#text,
+#images,
+#images_alt,
+#video,
+#video_alt,
+#langs,
+#reply,
+#quote,
+#embed = TRUE,
+#emoji = TRUE,
+#max_tries,
+#created_at = bs_created_at(),
+#user = get_bluesky_user(),
+#pass = get_bluesky_pass(),
+#auth = bs_auth(user, pass),
+#clean = TRUE
+#)
+```
+
+Retorna todas as listas públicas associadas a um determinado usuário (ator) do Bluesky
+
+```{r}
+#| label: nao-testando-actor-lists
 #| eval: true
 
-relacoes <- 
-  bs_get_relationships(
-    actor = 'ennoe.bsky.social',
-    others = c('bskyr.bsky.social', 'simko.bsky.social', 'yasmelins.bsky.social'),
-    auth = auth,
-    clean = FALSE
+puxarlista <- 
+  bs_get_actor_lists(
+    'ennoe.bsky.social',# Ex: 'usuario.bsky.social' ou 'did:plc:...'
+    cursor = NULL,  # Para paginação de resultados
+    limit = NULL,   # Número de listas a buscar (padrão: todas disponíveis)
+    auth = auth,  # Objeto de autenticação
+    clean = FALSE # Retorna um tibble limpo
   )
 
-relacoes |> 
+puxarlista |> 
   toJSON(pretty = TRUE)
-```
 
+```
 
 Um conjunto de perfis (DIDs ou handles) agrupados por um usuário.
 
@@ -490,32 +564,6 @@ print(follows_suggestions)
 # bs_new_list() cria uma lista personalizada que pode servir para moderar, curar conteúdos ou como referência, com nome, propósito, descrição e avatar.
 #pode ser útil AINDA
 
-```
-
-```{r}
-#| label: nao-testando-post
-#| eval: false
-
-# bs_post Make a post on Bluesky Social
-
-#bs_post(
-#text,
-#images,
-#images_alt,
-#video,
-#video_alt,
-#langs,
-#reply,
-#quote,
-#embed = TRUE,
-#emoji = TRUE,
-#max_tries,
-#created_at = bs_created_at(),
-#user = get_bluesky_user(),
-#pass = get_bluesky_pass(),
-#auth = bs_auth(user, pass),
-#clean = TRUE
-#)
 ```
 
 
