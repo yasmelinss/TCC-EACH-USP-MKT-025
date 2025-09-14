@@ -5,6 +5,8 @@ lang: pt-br
 format: html
 ---
 
+#ÚTIL COM CERTEZA
+
 ```{r}
 #| label: setup
 #| eval: true
@@ -82,9 +84,7 @@ clean Logical. Should output be cleaned into a tibble? Default: TRUE.
 
 ```
 
-## RESULTADO
-
-- descobrindo as informações que a raspagem traz
+## descobrindo as informações que a raspagem traz
 
 
 - `$uri` - código do post
@@ -114,7 +114,8 @@ clean Logical. Should output be cleaned into a tibble? Default: TRUE.
 - `$quote_count`- deve ser quantidade de menções
 - `$indexed_at` data do post
 
-#NOVA SEÇÃO
+
+#ACHO QUE SERÁ ÚTIL (falta ajustes ou curadoria)
 
 busca um ou mais posts diretamente pela URL ou URI interna, e retorna seus conteúdos como uma tabela
 
@@ -381,6 +382,8 @@ procurandoperfis |>
   toJSON(pretty = TRUE)
 
 ```
+
+#ACHO QUE NÃO SERÁ ÚTIL (Apenas salvando)
 
 Exporta XLXS
 
