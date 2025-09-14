@@ -10,13 +10,6 @@ Sprint da semana:
 
 - [ ] Revisão Bibliográfica - Workflow de ciência de dados
   - Thales
-- [ ] Revisar todo o teste-raspagem.qmd
-  - [ ] indentar o código
-  - [ ] colocar json onde precisa
-  - [ ] passar o comentário de dentro pra fora
-  - [x] corrigir os unnamed chunks
-  - [x] corrigir os markdowns ao longo do texto
-  - Yas
 - [ ] Analisar e documentar o output de cada função
   - Yas
 - [ ] Fundamentação teórica - Buscar Jane
@@ -68,6 +61,14 @@ Concluído:
 - [X] Verificar se não estamos esquecendo de incluir alguma etapa
     - Yas e Thales
     - concluído em 10/09
+- [x] Revisar todo o teste-raspagem.qmd
+  - [x] indentar o código
+  - [x] colocar json onde precisa
+  - [x] passar o comentário de dentro pra fora
+  - [x] corrigir os unnamed chunks
+  - [x] corrigir os markdowns ao longo do texto
+  - Yas
+  - concluído em 12/09
 
 
 
