@@ -50,9 +50,6 @@ posts |>
   toJSON(pretty = TRUE)
 ```
 
-
-
-
 texto da documentação da biblioteca `{blskyr}` `(bs_x)` que deixei aqui para encontrar mais fácil `r 2+2`
 
 ```
@@ -83,7 +80,7 @@ clean Logical. Should output be cleaned into a tibble? Default: TRUE.
 
 ```
 
-RESULTADO
+## RESULTADO
 
 - descobrindo as informações que a raspagem traz
 
@@ -126,31 +123,7 @@ write_xlsx(posts, path = "teste_raspagem_urls.xlsx")
 
 
 ```{r}
-#| label: transformando-em-URLs
-#| eval: false
-#acessa a coluna uri do dataframe posts
-uris <- posts$uri  
-print(uris)
-
-convert_uri_to_url <- function(uri) {
-   # Remove 'at://'
-   clean <- sub("^at://", "", uri)
-   # Divide em partes pelo último '/'
-   parts <- strsplit(clean, "/")[[1]]
-   did <- parts[1]
-   post_id <- parts[length(parts)]
-   paste0("https://bsky.app/profile/", did, "/post/", post_id)
- }
-
-# Exemplo:
-uris <- c("at://did:plc:kwssn4xujlrl4ybhzm5vt5mg/app.bsky.feed.post/3l5xjaj66js24")
-urls <- sapply(uris, convert_uri_to_url)
-print(urls)
-
-```
-
-```{r}
-#| label: testando-convert-uri-to-url-sem-gpt
+#| label: testando-convert-uri-to-url-to-uri
 #| eval: true
 
 bs_uri_to_url('at://did:plc:ic6zqvuw5ulmfpjiwnhsr2ns/app.bsky.feed.post/3k7qmjev5lr2s')
