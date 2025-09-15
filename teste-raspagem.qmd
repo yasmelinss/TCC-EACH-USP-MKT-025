@@ -46,12 +46,28 @@ auth <-
 posts <- 
   bs_search_posts(
     query = '"league of legends" since:2024-08-30 until:2024-10-08',
-    limit = 10,
+    limit = 1,
     auth = auth
   ) 
 
+str(posts)
+
 posts |> 
   toJSON(pretty = TRUE)
+
+dados_filtrados <- posts %>%
+  transmute(
+    id_do_post = uri,
+    usuario = author$handle,
+    conteudo_post = record$text,
+    data = indexed_at
+  )
+
+dados_filtrados_json <-
+  toJSON(dados_filtrados, pretty = TRUE)
+
+cat(dados_filtrados_json)
+
 ```
 
 texto da documentação da biblioteca `{blskyr}` `(bs_x)` que deixei aqui para encontrar mais fácil `r 2+2`
@@ -117,19 +133,6 @@ clean Logical. Should output be cleaned into a tibble? Default: TRUE.
 
 #ACHO QUE SERÁ ÚTIL (falta ajustes ou curadoria)
 
-busca um ou mais posts diretamente pela URL ou URI interna, e retorna seus conteúdos como uma tabela
-
-```{r}
-#| label: testando-get-posts
-#| eval: false
-
-bs_get_posts(
-  'https://bsky.app/profile/chriskenny.bsky.social/post/3lc5d6zspys2c',
-  auth = auth,
-  clean = FALSE
-)
-  
-```
 
 O que é um “registro” (record)?
 
@@ -163,6 +166,13 @@ Essa função é mais baixa nível que bs_get_posts() (que já lida com essas pa
 
 ```{r}
 #| label: testando-get-record 
+#| eval: false
+
+bs_get_record('https://bsky.app/profile/bskyr.bsky.social/post/3kf2577exva2x',
+  
+
+)
+
 ```
 
 obter as informações de perfil de um ou mais usuários (atores) do Bluesky.
@@ -171,11 +181,40 @@ obter as informações de perfil de um ou mais usuários (atores) do Bluesky.
 #| label: testando-get-profile
 #| eval: true
 
-bs_get_profile(
-  'ennoe.bsky.social',
-  auth = auth,
-  clean = FALSE
-)
+perfil<-
+  bs_get_profile(
+    'ennoe.bsky.social',
+    auth = auth,
+    clean = FALSE
+  )
+
+str(perfil)
+
+perfil |> 
+  toJSON(pretty = TRUE)
+
+dados_filtrados <- perfil %>%
+  tibble(
+    did = perfil$did,
+    usuario = perfil$handle,
+    displayName = perfil$displayName,
+    data = perfil$indexed_at,
+    seguidores = perfil$followersCount,
+    seguindo = perfil$followsCount,
+    quant_posts = perfil$postsCount
+  )
+
+cat("Estes são os dados raspados:\n")
+print(dados_filtrados)
+
+cat("Não está aparecendo nada? ou está na tabela?\n")
+
+dados_filtrados_json <-
+  toJSON(dados_filtrados, pretty = TRUE)
+
+cat(dados_filtrados_json)
+
+
 ```
 
 converte URI - URL
@@ -217,12 +256,20 @@ seguidores <-
   bs_get_followers(
     actor,
     cursor = NULL,
-    limit = 2,
+    limit = 1,
     auth = auth,
     clean = FALSE
-  )    
+  )  
 
+cat("Jeito 1:\n")
 print(seguidores)
+
+cat("Jeito 2:\n")
+str(seguidores)
+
+cat("Jeito 3:\n")
+perfil |> 
+  toJSON(pretty = TRUE)
 ```
 
 retorna os perfis que um determinado ator (usuário) segue
@@ -240,7 +287,16 @@ seguindo <-
     clean = FALSE
   )    
 
+
+cat("Jeito 1:\n")
 print(seguindo)
+
+cat("Jeito 2:\n")
+str(seguindo)
+
+cat("Jeito 3:\n")
+seguindo |> 
+  toJSON(pretty = TRUE)
 ```
 
 recupera postagens curtidas por um ator
@@ -258,7 +314,15 @@ pegarcurtidas <-
     clean = FALSE
   )
 
+cat("Jeito 1:\n")
 print(pegarcurtidas)
+
+cat("Jeito 2:\n")
+str(pegarcurtidas)
+
+cat("Jeito 3:\n")
+pegarcurtidas |> 
+  toJSON(pretty = TRUE)
 ```
 
 A função bs_get_relationships() da biblioteca blskyr permite verificar os relacionamentos entre um usuário (ator) e outros usuários no Bluesky, como:
@@ -279,8 +343,17 @@ relacoes <-
     clean = FALSE
   )
 
+cat("Jeito 1:\n")
+print(relacoes)
+
+cat("Jeito 2:\n")
+str(relacoes)
+
+cat("Jeito 3:\n")
 relacoes |> 
   toJSON(pretty = TRUE)
+
+
 ```
 
 Starter packs são listas públicas de contas sugeridas para seguir — normalmente usadas para ajudar novos usuários a encontrar contas interessantes, confiáveis ou relevantes com base em temas (como “jornalismo”, “arte”, “ciência”, etc.).
@@ -302,33 +375,14 @@ starterpacks <-
     clean = FALSE                 
   )
 
+cat("Jeito 1:\n")
+print(starterpacks)
+
+cat("Jeito 2:\n")
+str(starterpacks)
+
+cat("Jeito 3:\n")
 starterpacks |> 
-  toJSON(pretty = TRUE)
-```
-
-Obter uma lista de perfis (atores) sugeridos para você seguir no Bluesky, com base nas recomendações do sistema da plataforma.
-
-O resultado desse chunk me intriga... Ele puxa campos como
-
-- $did
-- $handle: nome do usuário
-- $displayName: nome escolhido pelo usuário
-- $description: descrição ou bio do usuário
-- $avatar: foto de perfil
-
-```{r}
-#|label: testando-get-actor-suggest
-#|eval: true
-
-atorsugestao <-
-  bs_get_actor_suggestions(
-    cursor = NULL,
-    limit = 10,    # Quantidade de sugestões (acima de 100 = múltiplas requisições)
-    auth = auth,  # Objeto de autenticação
-    clean = FALSE
-  )
-
-atorsugestao |> 
   toJSON(pretty = TRUE)
 
 ```
@@ -356,7 +410,17 @@ gerandolista <-
     clean = FALSE
   )
 
+cat("Jeito 1:\n")
 print(gerandolista)
+
+cat("Jeito 2:\n")
+str(gerandolista)
+
+cat("Jeito 3:\n")
+gerandolista |> 
+  toJSON(pretty = TRUE)
+
+
 ```
 
 bs_search_actors() permite procurar perfis no Bluesky com base em uma consulta textual, retornando uma lista de contas que combinam com a busca. 
@@ -375,9 +439,13 @@ procurandoperfis <-
     clean = FALSE
 )
 
+cat("Jeito 1:\n")
 print(procurandoperfis)
 
+cat("Jeito 2:\n")
+str(procurandoperfis)
 
+cat("Jeito 3:\n")
 procurandoperfis |> 
   toJSON(pretty = TRUE)
 
@@ -393,6 +461,43 @@ Exporta XLXS
 
 #Salvar um data frame chamado posts em um arquivo Excel chamado teste_raspagem_urls.xlsx, usando a função write_xlsx().
 write_xlsx(posts, path = "teste_raspagem_urls.xlsx")
+```
+
+busca um ou mais posts diretamente pela URL ou URI interna, e retorna seus conteúdos como uma tabela
+
+- pega posts de um usuário específico
+
+```{r}
+#| label: nao-testando-get-posts
+#| eval: false
+
+bs_get_posts(
+  'https://bsky.app/profile/chriskenny.bsky.social/post/3lc5d6zspys2c',
+  auth = auth,
+  clean = FALSE
+)
+
+
+  
+```
+
+Obter uma lista de perfis (atores) sugeridos para você seguir no Bluesky, com base nas recomendações do sistema da plataforma.
+
+```{r}
+#|label: nao-testando-get-actor-suggest
+#|eval: false
+
+atorsugestao <-
+  bs_get_actor_suggestions(
+    cursor = NULL,
+    limit = 10,    # Quantidade de sugestões (acima de 100 = múltiplas requisições)
+    auth = auth,  # Objeto de autenticação
+    clean = FALSE
+  )
+
+atorsugestao |> 
+  toJSON(pretty = TRUE)
+
 ```
 
 Busca os posts de um feed personalizado, com base em um feed generator criado no Bluesky
