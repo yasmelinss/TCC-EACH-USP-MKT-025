@@ -119,6 +119,9 @@ De acordo com @Forbes2016, o marketing de influência pode ser definido como uma
   
 Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (1956), descrevem vínculos unilaterais com figuras da mídia. Na atualidade e através das redes sociais, esses relacionamentos são cada vez mais comuns, com o número de seguidores e a autoridade percebida dessas personalidades ampliando o impacto das mensagens emocionais propagadas por estes. [@Giles2002]  
 
+
+
+
 ### Indústria de *E-Sports*
 
 <!-- - Pedir referências para a Branca -->
@@ -136,6 +139,9 @@ A midiatização dos *E-sports* ocorre porque não apenas o jogo é veiculado at
 Segundo @Juho2017, a interação social que é construída através dos E-sports está positivamente associada à frequência de assistir *E-sports*. Isso deve-se à satisfação gerada a novidades da mídia esportiva e ao prazer e a empolgação de ver novos jogadores, equipes e campeonatos no cenário esportivo, além do prazer relacionado à interação e socialização com outras pessoas assistindo ao jogo. (trail e James, 2001). Com o amadurecimento e crescimento dos *E-sports*, o senso e a criação de comunidade também cresceu, e é refletido principalmente pelo crescimento de fãs de determinados jogos, times e jogadores, expressados nos números das redes sociais, plataformas de streaming e mercado cultural.
 
 A partir de dados apresentados pelo site TwitchTracker.com, a plataforma Twitch obteve no primeiro semestre de 2025 mais de 10 bilhões de horas de conteúdo assistido, 2,5% a menos comparado com o mesmo período do ano passado. Das views, 33,5% da audiência da Twitch é impulsionada pelos 5 Games mais assistidos pelos usuários. São eles: Just Chatting - 15,9% (categoria de streamers que comentam ou reagem a partidas de jogos ou assuntos variados relacionados); League of Legends - 5,5%; Grand Theft Auto V - 3,7%; Counter-Strike - 3,7%; Dota 2 - 3,1%; e Valorant - 3,1%.
+
+
+
 
 #### League of Legends
 
@@ -170,14 +176,12 @@ A análise de redes sociais têm emergido como uma ferramente crítica para o en
 
 Para a obtenção dos dados de redes sociais, a mineração é uma tática comumente utilizada para fins de pesquisa amplos. De acordo com @Barbier2011, uma definição de mineração de dados é a identificação de padrões novos e acionáveis nos dados, de forma a extrair novos conhecimentos de conjuntos de dados. Algorítmos supervisionados e não-supervisionados são utilizados para identificar padrões nos dados. Para algorítmos supervisionados, a *classificação* é um método em que um algorítmo é treinado com um conjunto exemplo de dados com rótulos para cada elemento, de forma a aprender a rotular dados semelhantes. Similarmente, *clustering* é um método de agrupamento para mineração não-supervisionada, que identificam semelhanças entre elementos em dados para determinar suas distâncias.
 
-De acordo com @Tabani2020, embora a análise de marketing seja um tópico altamente relevante em virtude do crescente volume e complexidade de dados disponíveis através das redes sociais, ferramentas digitais e aplicações de software, o potencial desta análise em negócios reais ainda não é totalmente realizado. O artigo aponta que barreiras na adoção desta abordagem incluem a falta de estratégias abrangentes, expertise, recursos e dados de qualidade, dentre outros fatores.
 
 <!--- apresentar ciência de dados como campo interdisciplinar que estuda os dados 
     - definir ciência de dados como área interdisciplinar (estatística, computação, conhecimento de domínio)
     - objetivo: transformar dados em informação útil para apoiar decisões
-- qual é a relação com marketing? uso de dados digitais para compreender comportamento do consumidor, segmentação, monitoramento de marcas etc.-->
-
-- workflow de projetos pontuais em ciência de dados
+- qual é a relação com marketing? uso de dados digitais para compreender comportamento do consumidor, segmentação, monitoramento de marcas etc.
+workflow de projetos pontuais em ciência de dados
     - entendimento do problema de negócios
     - coleta de dados: introduz raspagem em linhas gerais
     - preparação e limpeza dos dados: tratamento de dados não estruturados  (texto com gírias, emojis, abreviações)
@@ -188,17 +192,7 @@ De acordo com @Tabani2020, embora a análise de marketing seja um tópico altame
     - [Zhu & Xiong, 2015](https://arxiv.org/abs/1501.05039) 
     - [Brodie, 2023](https://arxiv.org/abs/2306.16177)
     - [Özsu, 2023](https://arxiv.org/abs/2301.13761)
-    - [Cao, 2020](https://arxiv.org/abs/2007.03606) 
-
-
-
-
-### Carreiras de Dados em Negócios
-
---- AQUI!!! ---
-
-@Wedel2016 FALTA ACESSO
-
+    - [Cao, 2020](https://arxiv.org/abs/2007.03606) -->
 
 
 ## Problema de pesquisa
