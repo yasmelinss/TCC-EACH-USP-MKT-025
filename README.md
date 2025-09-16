@@ -8,7 +8,7 @@ Professor orientador: Marcelo Ventura
 
 Sprint da semana:
 
-- [ ] Revisão Bibliográfica - Workflow de ciência de dados
+- [X] Revisão Bibliográfica - Workflow de ciência de dados
   - Thales
 - [ ] Analisar e documentar o output de cada função
   - Yas
