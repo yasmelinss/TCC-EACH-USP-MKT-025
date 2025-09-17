@@ -4,7 +4,7 @@ author: "Thales de Fante Romão"
 lang: pt-br
 format: html
 execute: 
-  cache: true
+  cache: false
 ---
 
 # SETUP
@@ -47,25 +47,6 @@ auth <-
 ## funções para raspar páginas do bluesky
 
 
-
-Então, para pegar apenas os dados que interessam (id, usuário, texto, data), você precisa desaninhar essas listas.
-
-nrow(posts)
-
-posts é um tibble/data.frame com várias linhas (cada linha = 1 post do Bluesky).
-
-nrow(posts) retorna o número de posts raspados.
-
-1:`nrow(posts)` gera um vetor de índices: se tiver 2 posts, vira c(1, 2).
-
-2. `{map_dfr}`(...)
-
-Vem do pacote purrr (já incluso no tidyverse).
-
-Ele aplica uma função para cada elemento de um vetor.
-
-O sufixo _dfr significa: mapear e colar o resultado como linhas de um data.frame/tibble.
-
 ```{r}
 #| label: testando-search-posts
 #| eval: true
@@ -81,12 +62,10 @@ posts <-
 Jeito 1: mostra a raspagem
 
 ```{r}
-#| label: teste
-
 posts
 ```
 
-Jeito 2: abrindo a estrutura
+Jeito 2: mostra a estrutura
 
 ```{r}
 str(posts)
@@ -99,30 +78,33 @@ posts |>
   toJSON(pretty = TRUE)
 ```
 
+Tentativa de filtrar a raspagem para pegar apenas campos específicos
+
+```{r}
+#| label: mostrando-resumo-post-id-usuario-conteudo-data-curtidas-reposts
+#| eval: true
+
+dados <- 
+  posts %>%
+    transmute(
+      id_do_post = uri,
+      usuario = author$handle,
+      conteudo_post = record$text,
+      data = indexed_at
+  )
+```
 
 
 ```{r}
 
-#| label: mostrando-resumo-post-id-usuario-conteudo-data-curtidas-reposts
-#| eval: true
+dados |>
+  toJSON(pretty = TRUE)
+```
 
-dados_filtrados <- posts %>%
-  transmute(
-    id_do_post = uri,
-    usuario = author$handle,
-    conteudo_post = record$text,
-    data = indexed_at
-  )
+Segunda tentativa de filtragem, essa pega todos os campos específicados
 
-dados_filtrados_json <-
-  toJSON(dados_filtrados, pretty = TRUE)
-
-cat("aqui estão os dados filtrados da primera forma\n")
-cat(dados_filtrados_json)
-
-
-
-dados_filtrados_two <- 
+```{r}
+dados2<- 
   map_dfr(1:nrow(posts), function(i){
     tibble(
       id_do_post = posts$uri[i],
@@ -133,17 +115,13 @@ dados_filtrados_two <-
       reposts = posts$repost_count[i]
     )
   })
+```
 
 
-cat("aqui estão os dados filtrados da segunda forma\n")
-print(dados_filtrados_two)
-cat("print não funciona com tibble\n")
 
-cat("aqui estão os dados mas em JSON\n")
-
-dados_filtrados_json_two <- 
-  toJSON(dados_filtrados_two, pretty = TRUE)
-cat(dados_filtrados_json_two)
+```{r}
+dados2 |>
+  toJSON(pretty = TRUE)
 
 ```
 
@@ -211,8 +189,6 @@ clean Logical. Should output be cleaned into a tibble? Default: TRUE.
 
 
 ## Documentando outras funções auxiliares
-
-ACHO QUE SERÁ ÚTIL (falta ajustes ou curadoria)
 
 
 O que é um “registro” (record)?
