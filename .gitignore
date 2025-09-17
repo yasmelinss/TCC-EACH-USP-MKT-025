@@ -7,6 +7,9 @@
 # arquivos temporários do html a ignorar
 *_files/
 
+# arquivos cache a ignorar
+*_cache/
+
 # arquivos temporários do latex a ignorar
 *.aux
 *.bcf
