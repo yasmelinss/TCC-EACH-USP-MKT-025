@@ -8,17 +8,32 @@ Professor orientador: Marcelo Ventura
 
 Sprint da semana:
 
-- [X] Revisão Bibliográfica - Workflow de ciência de dados
+- [ ] colocar os tópicos concluídos de mais recente para mais antigo
+  - Thales
+- [ ] Revisão Bibliográfica 
+    - [X] Workflow de ciência de dados
+    - [ ] ???   <-- Thales, complete o que fazer
   - Thales
 - [ ] Analisar e documentar o output de cada função
   - Yas
-- [ ] Fundamentação teórica - Buscar Jane
-  - Thales
-- [ ] Metodologia - ler artigos e escrever dentro dos tópicos
+- [ ] arrumar o markdown do `teste-raspagem.qmd`
+  - separar os chunks
+  - botar os comentários, os `cat()` e os `print()` como texto em markdown  fora dos chunks
+  - botar nomes descritivos npara as seções
+  - ???  <-- Yas, compĺete o que fazer
+  - Yas
+- [ ] Extrair uma postagem específica e comparar os dados retornados pela função com os dados presentes no bluesky 
+  - ver se falta alguma informação que a função não retorna ou retorna truncada
+  - se sim, descobrir como corrigir isso para trazer a informação completa
+  - extrair os replies individuais, os forward individuais, comentários etc.
+  - Yas
+- [ ] Metodologia -- ler artigos e escrever dentro dos tópicos
   - Thales
 
 Backlog:
 
+- [ ] Fundamentação teórica - Buscar Jane
+  - Thales
 - [ ] Descobrir como plotar uma rede e conectar as pessoas
   - Yas e Thales
 - [ ] Mandar e-mail para PGB (talvez mais pra frente)
