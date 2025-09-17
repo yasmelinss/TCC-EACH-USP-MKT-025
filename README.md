@@ -12,7 +12,7 @@ Sprint da semana:
   - Thales
 - [ ] Revisão Bibliográfica 
     - [X] Workflow de ciência de dados
-    - [ ] ???   <-- Thales, complete o que fazer
+    - [ ] Análise de Sentimentos
   - Thales
 - [ ] Analisar e documentar o output de cada função
   - Yas
