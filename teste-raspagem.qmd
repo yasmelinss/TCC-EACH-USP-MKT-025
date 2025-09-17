@@ -9,7 +9,6 @@ execute:
 
 # SETUP
 
-ÚTIL COM CERTEZA
 
 ```{r}
 #| label: setup
@@ -49,9 +48,7 @@ auth <-
 
 
 
-Então, para pegar apenas os dados que interessam (id, usuário, texto, data), 
-
-você precisa desaninhar essas listas.
+Então, para pegar apenas os dados que interessam (id, usuário, texto, data), você precisa desaninhar essas listas.
 
 nrow(posts)
 
@@ -79,17 +76,35 @@ posts <-
     limit = 2,
     auth = auth
   ) 
+```
 
+Jeito 1: mostra a raspagem
 
-cat("Jeito 1:\n")
-print(posts)
+```{r}
+#| label: teste
 
-cat("Jeito 2:\n")
+posts
+```
+
+Jeito 2: abrindo a estrutura
+
+```{r}
 str(posts)
+```
 
-cat("Jeito 3:\n")
+Jeito 3: mostra a raspagem em JSON
+
+```{r}
 posts |> 
   toJSON(pretty = TRUE)
+```
+
+
+
+```{r}
+
+#| label: mostrando-resumo-post-id-usuario-conteudo-data-curtidas-reposts
+#| eval: true
 
 dados_filtrados <- posts %>%
   transmute(
@@ -237,7 +252,6 @@ bs_get_record('https://bsky.app/profile/bskyr.bsky.social/post/3kf2577exva2x',
   
 
 )
-
 ```
 
 obter as informações de perfil de um ou mais usuários (atores) do Bluesky.
@@ -278,7 +292,6 @@ dados_filtrados_json <-
   toJSON(dados_filtrados, pretty = TRUE)
 
 cat(dados_filtrados_json)
-
 
 ```
 
@@ -835,22 +848,24 @@ posts |>
 ```{r}
 #| label: puxando_postagem_exojuego
 
-dados_filtrados_two <- 
-  map_dfr(1:nrow(posts), function(i){
-    tibble(
-      id_do_post = posts$uri[i],
-      usuario = posts$author[[i]]$handle,
-      conteudo_post = posts$record[[i]]$text,
-      data = posts$record[[i]]$createdAt,
-      curtidas = posts$like_count[i],
-      reposts = posts$repost_count[i]
-    )
-  })
+dados_filtrados <- posts %>%
+  transmute(
+    id_do_post = uri,
+    usuario = author$handle,
+    conteudo_post = record$text,
+    data = indexed_at
+  )
 
+dados_filtrados_json <-
+  toJSON(dados_filtrados, pretty = TRUE)
 
-dados_filtrados_json_two <- 
-  toJSON(dados_filtrados_two, pretty = TRUE)
-cat(dados_filtrados_json_two)
+cat("aqui estão os dados filtrados da primera forma\n")
+cat(dados_filtrados_json)
 
 ```
+
+
+
+# Apenas anotações, por favor, ignorar
+
 
