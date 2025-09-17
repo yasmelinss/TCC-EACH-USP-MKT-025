@@ -62,22 +62,6 @@ bibliography: tcc.bib
 lang: pt
 ---
 
-# ATENÇÃO {.unnumbered}
-
-\begin{center}
-
-\LARGE
-
-ESTE É UM TEMPLATE
-
-PREENCHER AO LONGO DO TRABALHO
-
-NÃO PREENCHAM AGORA
-
-\end{center}
-
-\newpage
-
 # Introdução
 
 ## Revisão Bibliográfica
