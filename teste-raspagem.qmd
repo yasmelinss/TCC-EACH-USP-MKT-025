@@ -78,6 +78,8 @@ posts |>
   toJSON(pretty = TRUE)
 ```
 
+### Melhorando a visibilidade || buscando apenas campos específicos dessa raspagem
+
 Tentativa de filtrar a raspagem para pegar apenas campos específicos
 
 ```{r}
@@ -155,7 +157,7 @@ clean Logical. Should output be cleaned into a tibble? Default: TRUE.
 
 ```
 
-## descobrindo as informações que a raspagem traz
+## interpretando as variáveis que a raspagem traz
 
 
 - `$uri` - código do post
@@ -191,45 +193,7 @@ clean Logical. Should output be cleaned into a tibble? Default: TRUE.
 ## Documentando outras funções auxiliares
 
 
-O que é um “registro” (record)?
 
-Na arquitetura descentralizada do AT Protocol, tudo publicado é um registro em um repositório pessoal. Por exemplo:
-
-Posts → coleção app.bsky.feed.post
-
-Likes → coleção app.bsky.feed.like
-
-Reposts → coleção app.bsky.feed.repost
-
-Listas → coleção app.bsky.graph.list
-
-Você precisa saber os 3 elementos: repo, collection, e rkey.
-
-bs_get_record(
-  repo = "bskyr.bsky.social",
-  collection = "app.bsky.feed.post",
-  rkey = "3kf2577exva2x"
-)
-Obs: Esse exemplo está "disfarçado" no formato de URL no manual:
-https://bsky.app/profile/bskyr.bsky.social/post/3kf2577exva2x
-
-A estrutura é:
-repo = bskyr.bsky.social
-collection = app.bsky.feed.post
-rkey = 3kf2577exva2x
-
-Essa função é mais baixa nível que bs_get_posts() (que já lida com essas partes para você).
-
-
-```{r}
-#| label: testando-get-record 
-#| eval: false
-
-bs_get_record('https://bsky.app/profile/bskyr.bsky.social/post/3kf2577exva2x',
-  
-
-)
-```
 
 obter as informações de perfil de um ou mais usuários (atores) do Bluesky.
 
@@ -507,8 +471,48 @@ procurandoperfis |>
 ```
 ## Outras funções que não serão usadas
 
+(Apenas salvando)
 
-ACHO QUE NÃO SERÁ ÚTIL (Apenas salvando)
+
+
+
+O que é um “registro” (record)?
+
+Na arquitetura descentralizada do AT Protocol, tudo publicado é um registro em um repositório pessoal. Por exemplo:
+
+Posts → coleção app.bsky.feed.post
+
+Likes → coleção app.bsky.feed.like
+
+Reposts → coleção app.bsky.feed.repost
+
+Listas → coleção app.bsky.graph.list
+
+Você precisa saber os 3 elementos: repo, collection, e rkey.
+
+bs_get_record(
+  repo = "bskyr.bsky.social",
+  collection = "app.bsky.feed.post",
+  rkey = "3kf2577exva2x"
+)
+Obs: Esse exemplo está "disfarçado" no formato de URL no manual:
+https://bsky.app/profile/bskyr.bsky.social/post/3kf2577exva2x
+
+A estrutura é:
+repo = bskyr.bsky.social
+collection = app.bsky.feed.post
+rkey = 3kf2577exva2x
+
+Essa função é mais baixa nível que bs_get_posts() (que já lida com essas partes para você).
+
+
+```{r}
+#| label: testando-get-record 
+#| eval: false
+
+bs_get_record('https://bsky.app/profile/bskyr.bsky.social/post/3kf2577exva2x',
+)
+```
 
 Exporta XLXS
 
