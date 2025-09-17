@@ -144,6 +144,7 @@ cat("aqui estão os dados mas em JSON\n")
 dados_filtrados_json_two <- 
   toJSON(dados_filtrados_two, pretty = TRUE)
 cat(dados_filtrados_json_two)
+
 ```
 
 texto da documentação da biblioteca `{blskyr}` `(bs_x)` que deixei aqui para encontrar mais fácil `r 2+2`
