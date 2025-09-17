@@ -207,13 +207,26 @@ perfil<-
     auth = auth,
     clean = FALSE
   )
+```
 
+Mostra a estrutura
+
+```{r}
 str(perfil)
+```
 
+Mostra a estrutura em JSON
+
+```{r}
 perfil |> 
   toJSON(pretty = TRUE)
+```
 
-dados_filtrados <- perfil %>%
+Filtro dos dados (não está filtrando)
+
+```{r}
+
+dados <- perfil %>%
   tibble(
     did = perfil$did,
     usuario = perfil$handle,
@@ -224,15 +237,8 @@ dados_filtrados <- perfil %>%
     quant_posts = perfil$postsCount
   )
 
-cat("Estes são os dados raspados:\n")
-print(dados_filtrados)
-
-cat("Não está aparecendo nada? ou está na tabela?\n")
-
-dados_filtrados_json <-
-  toJSON(dados_filtrados, pretty = TRUE)
-
-cat(dados_filtrados_json)
+dados |>
+  toJSON(pretty = TRUE)
 
 ```
 
