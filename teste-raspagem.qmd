@@ -3,9 +3,13 @@ title: "Primeiro Teste de Raspagem no Bluesky"
 author: "Thales de Fante Romão"
 lang: pt-br
 format: html
+execute: 
+  cache: true
 ---
 
-#ÚTIL COM CERTEZA
+# SETUP
+
+ÚTIL COM CERTEZA
 
 ```{r}
 #| label: setup
@@ -18,9 +22,11 @@ library(readr)
 library(jsonlite)
 ```
 
+
 ## dados da autenticação do usuário para a raspagem
 
 Usando o login do Thales
+[Explicação do Bluesky sobre os app passwords](https://blueskyfeeds.com/faq-app-password)
 
 ```{r}
 #| label: usuario-autenticação
@@ -34,9 +40,15 @@ auth <-
   )
 ```
 
-[Explicação do Bluesky sobre os app passwords](https://blueskyfeeds.com/faq-app-password)
 
-## raspando páginas à procura da string `"league of legends"`
+
+# Documentando funções que extraem os dados do bluesky
+
+
+## funções para raspar páginas do bluesky
+
+
+
 Então, para pegar apenas os dados que interessam (id, usuário, texto, data), 
 
 você precisa desaninhar essas listas.
@@ -47,9 +59,9 @@ posts é um tibble/data.frame com várias linhas (cada linha = 1 post do Bluesky
 
 nrow(posts) retorna o número de posts raspados.
 
-1:nrow(posts) gera um vetor de índices: se tiver 2 posts, vira c(1, 2).
+1:`nrow(posts)` gera um vetor de índices: se tiver 2 posts, vira c(1, 2).
 
-2. map_dfr(...)
+2. `{map_dfr}`(...)
 
 Vem do pacote purrr (já incluso no tidyverse).
 
@@ -180,7 +192,11 @@ clean Logical. Should output be cleaned into a tibble? Default: TRUE.
 - `$indexed_at` data do post
 
 
-#ACHO QUE SERÁ ÚTIL (falta ajustes ou curadoria)
+
+
+## Documentando outras funções auxiliares
+
+ACHO QUE SERÁ ÚTIL (falta ajustes ou curadoria)
 
 
 O que é um “registro” (record)?
@@ -276,13 +292,13 @@ bs_uri_to_url('at://did:plc:ic6zqvuw5ulmfpjiwnhsr2ns/app.bsky.feed.post/3k7qmjev
 
 bs_url_to_uri('https://bsky.app/profile/ennoe.bsky.social', auth = auth)
 
-bs_uri_to_url('at://did:plc:ic6zqvuw5ulmfpjiwnhsr2ns/app.bsky.feed.post/3k7qmjev5lr2s')
+bs_uri_to_url('at://did:plc:kwssn4xujlrl4ybhzm5vt5mg/app.bsky.feed.post/3l5xjaj66js24')
 
 bs_url_to_uri('https://bsky.app/profile/yasmelinss.bsky.social', auth = auth)
 
 bs_url_to_uri('https://bsky.app/profile/chriskenny.bsky.social/post/3lc5d6zspys2c', auth = auth)
 ```
-
+      
 Pega apenas o valor do Record Key do usuário
 
 ```{r}
@@ -499,8 +515,10 @@ procurandoperfis |>
   toJSON(pretty = TRUE)
 
 ```
+## Outras funções que não serão usadas
 
-#ACHO QUE NÃO SERÁ ÚTIL (Apenas salvando)
+
+ACHO QUE NÃO SERÁ ÚTIL (Apenas salvando)
 
 Exporta XLXS
 
@@ -808,4 +826,31 @@ posts |>
   summarize()
 ```
 
+
+
+# Tentando puxar uma postagem específica
+
+![postagem do @exojuego.bsky.social](Imagens/postlol1.png)
+
+```{r}
+#| label: puxando_postagem_exojuego
+
+dados_filtrados_two <- 
+  map_dfr(1:nrow(posts), function(i){
+    tibble(
+      id_do_post = posts$uri[i],
+      usuario = posts$author[[i]]$handle,
+      conteudo_post = posts$record[[i]]$text,
+      data = posts$record[[i]]$createdAt,
+      curtidas = posts$like_count[i],
+      reposts = posts$repost_count[i]
+    )
+  })
+
+
+dados_filtrados_json_two <- 
+  toJSON(dados_filtrados_two, pretty = TRUE)
+cat(dados_filtrados_json_two)
+
+```
 
