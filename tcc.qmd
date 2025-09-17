@@ -10,7 +10,8 @@ autores:
 orientador: "Prof. Dr. Marcelo Ventura Freire"
 date: last-modified
 date-format: "YYYY"
-# # introduzir isto na versão final
+#######################################
+### introduzir isto na versão final
 # versao: "Original"
 # # versao: "Corrigida"
 # tituloingles: "place title here"
@@ -36,12 +37,24 @@ date-format: "YYYY"
 # resumoingles: |
 #   abstract in a long paragraph with 500 to 1500 words
 # palavraschaveingles: Keyword 1. Keyword 2.
-# #
+#######################################
+#
+lang: pt-BR
 format:
+  ### versão para renderiar rápido
   html
+  ### versão para imprimir, quer como rascunho, quer como versão final
   # pdf:
-  #   documentclass: report
-  #   include-before-body: capa.tex
+  #   ### só para a versão para a defesa e para o depósito
+  #   # documentclass: report
+  #   # include-before-body: capa.tex
+  #   ### só para as versões para rascunho e para enviar para a banca
+  #   linestretch: 2
+  #   classoption: 12pt
+  #   ### só para a versão de rascunho
+  #   documentclass: article
+  #   fig-pos: H
+  #   ### para ambas as versões
   #   cite-method: biblatex
   #   biblatexoptions:
   #     - style=authoryear
@@ -51,15 +64,18 @@ format:
   #   toc-depth: 4
   #   number-sections: true
   #   fig-cap-location: bottom
-geometry:
-  - paper=a4paper
-  - top=3cm
-  - left=3cm
-  - bottom=2cm
-  - right=2cm
-  - heightrounded
+  #   geometry:
+  #     - paper=a4paper
+  #     - top=3cm
+  #     - left=3cm
+  #     - bottom=2cm
+  #     - right=2cm
+  #     - heightrounded
+  #   include-in-header:
+  #     text: |
+  #       \usepackage{csquotes}
+  #       \DeclareLanguageMapping{brazil}{brazilian}
 bibliography: tcc.bib
-lang: pt
 ---
 
 # Introdução
@@ -69,7 +85,7 @@ lang: pt
 
 ### Indústria de Games enquanto Indústria Criativa
 
-Segundo @Wainberg_2024, os termos *industria cultural*, *industria criativa* ou *economia cultural* têm sido utilizados para descrever o setor de 14 profissões. São elas: arquitetura  e  engenharia, artes, artes cênicas, biotecnologia, design, expressões culturais, filme & vídeo, mercado  editorial,  moda,  música,  pesquisa  e  desenvolvimento,  publicidade, software,  computação  e  telecomunicação  e mídia -televisão e  rádio.
+Segundo @Wainberg_2024, os termos *industria cultural*, *industria criativa* ou *economia cultural* têm sido utilizados para descrever o setor de 14 profissões. São elas: arquitetura e engenharia, artes, artes cênicas, biotecnologia, design, expressões culturais, filme & vídeo, mercado editorial, moda, música, pesquisa e desenvolvimento, publicidade, software, computação e telecomunicação e mídia -- televisão e rádio.
 
 O enfoque sociológico elabora sobre o conceito de induscria cultural e seus efeitos. Pensadores Críticos como Walter Benjamin e Theodor Adorno são vínculados a Escola de Frankfurt apontam os efeitos malignos da indústria cultural, e o olhar otimista que apresenta a criatividade e a inovação como fontes de prosperidade chegou anos depois, em 2014, com Edmund Phelps, ganhador do Prêmio Nobel de Ecomonia em 2014. [@Wainberg_2024]
 
