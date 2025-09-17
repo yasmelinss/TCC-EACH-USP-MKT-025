@@ -330,9 +330,9 @@ tibble [1 × 13] (S3: tbl_df/tbl/data.frame)
 
 # Apêndices
 
-## Apêndice A – script de raspagem ????
+## Apêndice A -- script de raspagem ????
 
 # Anexos
 
-## Anexo A – Material complementar ????
+## Anexo A -- Material complementar ????
 
