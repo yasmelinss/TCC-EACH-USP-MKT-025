@@ -264,7 +264,7 @@ Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvida pela G
 
 ### Raspagem de Dados 
 
-#### Pacote Blueskyer (documentação da biblioteca)
+#### Pacote `{bskyr}` do R
 
 O Pacote `{bskyr}` teve sua versão 0.3.0 disponibilizada em 22 de julho de 2025. Esse pacote é responsável por coletar dados e fazer *posts* no *Bluesky* com API (application programming interface) via HTTP (hypertext transfer protocol). [@bskyr] Essas APIs permitem que um cliente (software) envie uma solicitação a um servidor (outro software) e receba uma resposta.
 
