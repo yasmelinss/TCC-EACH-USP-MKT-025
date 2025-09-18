@@ -196,10 +196,9 @@ A análise de sentimentos (também conhecida como mineração de opiniões) é o
     - modelagem e outras técnicas de análise: análise de sentimentos, análise de conectividade, classificação, clustering, modelagem de tópicos
     - comunicação dos resultados: visualizações e interpretação para não especialistas
 - usar
-    - [Zhu & Xiong, 2015](https://arxiv.org/abs/1501.05039) 
     - [Brodie, 2023](https://arxiv.org/abs/2306.16177)
-    - [Özsu, 2023](https://arxiv.org/abs/2301.13761)
     - [Cao, 2020](https://arxiv.org/abs/2007.03606) 
+    - [R4DS](https://r4ds.hadley.nz/) para workflow de data science
 
 
 
