@@ -186,8 +186,9 @@ A análise de sentimentos (também conhecida como mineração de opiniões) é o
 <!--- apresentar ciência de dados como campo interdisciplinar que estuda os dados 
     - definir ciência de dados como área interdisciplinar (estatística, computação, conhecimento de domínio)
     - objetivo: transformar dados em informação útil para apoiar decisões
-- qual é a relação com marketing? uso de dados digitais para compreender comportamento do consumidor, segmentação, monitoramento de marcas etc.
-workflow de projetos pontuais em ciência de dados
+- qual é a relação com marketing? uso de dados digitais para compreender comportamento do consumidor, segmentação, monitoramento de marcas etc.-->
+
+- workflow de projetos pontuais em ciência de dados
     - entendimento do problema de negócios
     - coleta de dados: introduz raspagem em linhas gerais
     - preparação e limpeza dos dados: tratamento de dados não estruturados  (texto com gírias, emojis, abreviações)
@@ -198,7 +199,17 @@ workflow de projetos pontuais em ciência de dados
     - [Zhu & Xiong, 2015](https://arxiv.org/abs/1501.05039) 
     - [Brodie, 2023](https://arxiv.org/abs/2306.16177)
     - [Özsu, 2023](https://arxiv.org/abs/2301.13761)
-    - [Cao, 2020](https://arxiv.org/abs/2007.03606) -->
+    - [Cao, 2020](https://arxiv.org/abs/2007.03606) 
+
+
+
+
+### Carreiras de Dados em Negócios
+
+--- AQUI!!! ---
+
+@Wedel2016 FALTA ACESSO
+
 
 
 ## Problema de pesquisa
