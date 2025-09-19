@@ -88,13 +88,16 @@ Tentativa de filtrar a raspagem para pegar apenas campos específicos
 #| eval: true
 
 dados <- 
-  posts %>%
+  posts |>
     transmute(
       id_do_post = uri,
-      usuario = author$handle,
-      conteudo_post = record$text,
+      cid = cid,
+      usuario = map_chr(author, "handle"),
+      conteudo_post = map_chr(record, "text"),
       data = indexed_at
   )
+
+dados
 ```
 
 ```{r}
