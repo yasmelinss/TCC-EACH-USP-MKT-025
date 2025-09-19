@@ -41,6 +41,7 @@ auth <-
 
 
 
+
 # Documentando funções que extraem os dados do bluesky
 
 ## funções para raspar páginas do bluesky
@@ -855,11 +856,23 @@ cat(dados_filtrados_json)
 ```
 
 ```{r}
+#| label: como-puxar-usuário-específico
+#| eval: true
+
+perfil2<-
+  bs_get_profile(
+    'yasmelins.bsky.social',
+    auth = auth,
+    clean = FALSE
+  )
+
 
 ```
 
 ```{r}
 
+perfil2 |>
+  toJSON(pretty = TRUE)
 ```
 
 ```{r}
@@ -869,4 +882,13 @@ cat(dados_filtrados_json)
 
 # Apenas anotações, por favor, ignorar
 
+- como puxar 1 usuário específico
+- como puxar 1 usuário aleatório
+- como puxar 1 usuário de um post LOL
+- como puxar 1 post LOL
+- como puxar os perfis que deram likes de um post
+- como puxar os perfis que deram reply em um post
+- como puxar os perfis que comentaram um post
+- como puxar os comentários de um post
 
+listar outras coisas
