@@ -868,8 +868,6 @@ perfil2<-
     auth = auth,
     clean = FALSE
   )
-
-
 ```
 
 ```{r}
@@ -877,10 +875,57 @@ perfil2<-
 perfil2 |>
   toJSON(pretty = TRUE)
 ```
+```{r}
+str(perfil2)
+```
+
+
+```{r}
+perfil2<- 
+  map_dfr(1:nrow(perfil2), function(i){
+    tibble(
+      id_do_perfil = perfil2$did,
+      usuario = posts$author[[i]]$handle,
+      conteudo_post = posts$record[[i]]$text,
+      data = posts$record[[i]]$createdAt,
+      curtidas = posts$like_count[i],
+      reposts = posts$repost_count[i]
+    )
+  })
+```
 
 ```{r}
 
+perfil2 %>%
+    transmute(
+      id_do_post = profile$did,
+      usuario = author$handle,
+      conteudo_post = record$text,
+      data = indexed_at
+  )
 ```
+```{r}
+perfil2_extracao <- 
+  tibble(
+    did = perfil2$profiles[[1]],
+    usuario = perfil2$handle,
+    nome = perfil2$displayName,
+    bio = perfil2$description,
+    avatar = perfil2$avatar,
+    seguidores = perfil2$followersCount,
+    seguindo = perfil2$followsCount,
+    posts = perfil2$postsCount,
+    data_indexacao = perfil2$indexedAt
+  )
+
+```
+
+
+```{r}
+perfil2_extracao |>
+  toJSON(pretty = TRUE, dtaframe ="rows")
+```
+
 
 
 # Apenas anotações, por favor, ignorar
