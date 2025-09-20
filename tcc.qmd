@@ -52,30 +52,42 @@ format:
   ### versão impressa, quer como rascunho, quer como versão final
   #################################################################
   # pdf:
-  #   ### só para a versão de rascunho
-  #   documentclass: article
-  #   fig-pos: H
-  #   ### para ambas as versões
+  #   ####################
+  #   ### opções comuns para todas as versões
+  #   #################### 
+  #   documentclass: abntex2
   #   cite-method: biblatex
   #   biblatexoptions:
-  #     - style=authoryear
   #     - backend=biber
-  #     - natbib=false
+  #     - style=abnt
+  #     - justify
+  #     - giveninits
+  #     - backref=true
+  #     - backrefstyle=three
+  #     - citecounter=true
   #   toc: true
   #   toc-depth: 4
+  #   toc-title: "Sumário"
   #   number-sections: true
-  #   fig-cap-location: bottom
-  #   geometry:
-  #     - paper=a4paper
-  #     - top=3cm
-  #     - left=3cm
-  #     - bottom=2cm
-  #     - right=2cm
-  #     - heightrounded
-  #   include-in-header:
+  #   # fig-cap-location: bottom
+  #   ####################
+  #   ### opções para a versão rascunho
+  #   #################### 
+  #   classoption: 
+  #     - article
+  #     - a4paper
+  #     - openany
+  #     - oneside
+  #   latex-max-runs: 4
+  #   include-in-header: 
   #     text: |
-  #       \usepackage{csquotes}
-  #       \DeclareLanguageMapping{brazil}{brazilian}
+  #       \setlrmarginsandblock{3cm}{3cm}{*}
+  #       \setulmarginsandblock{3cm}{3cm}{*}
+  #       \checkandfixthelayout
+  #   include-before-body:
+  #     text: |
+  #       \DoubleSpacing
+  #   fig-pos: H
   #   ####################
   #   ### opções para a versão para a banca
   #   #################### 
