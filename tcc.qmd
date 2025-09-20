@@ -40,6 +40,8 @@
 #######################################
 #
 lang: pt-BR
+# referências bibliográficas
+bibliography: tcc.bib
 format:
   ### versão para renderiar rápido
   html
@@ -75,7 +77,6 @@ format:
   #     text: |
   #       \usepackage{csquotes}
   #       \DeclareLanguageMapping{brazil}{brazilian}
-bibliography: tcc.bib
 ---
 
 # Introdução
