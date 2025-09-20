@@ -39,13 +39,13 @@
 # palavraschaveingles: Keyword 1. Keyword 2.
 #######################################
 #
-lang: pt-BR
 # referências bibliográficas
 bibliography: tcc.bib
 format:
   ### versão para renderiar rápido
-  html
   ### versão para imprimir, quer como rascunho, quer como versão final
+  html:
+    lang: pt-BR
   # pdf:
   #   ### só para a versão para a defesa e para o depósito
   #   # documentclass: report
