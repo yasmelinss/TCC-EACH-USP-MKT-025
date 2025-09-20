@@ -41,11 +41,16 @@
 #
 # referências bibliográficas
 bibliography: tcc.bib
+# escolha entre gerar html ou gerar pdf
 format:
-  ### versão para renderiar rápido
-  ### versão para imprimir, quer como rascunho, quer como versão final
+  #################################################################
+  ### versão para renderizar rápido
+  #################################################################
   html:
     lang: pt-BR
+  #################################################################
+  ### versão impressa, quer como rascunho, quer como versão final
+  #################################################################
   # pdf:
   #   ### só para a versão para a defesa e para o depósito
   #   # documentclass: report
