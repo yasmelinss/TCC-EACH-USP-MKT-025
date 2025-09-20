@@ -52,12 +52,6 @@ format:
   ### versão impressa, quer como rascunho, quer como versão final
   #################################################################
   # pdf:
-  #   ### só para a versão para a defesa e para o depósito
-  #   # documentclass: report
-  #   # include-before-body: capa.tex
-  #   ### só para as versões para rascunho e para enviar para a banca
-  #   linestretch: 2
-  #   classoption: 12pt
   #   ### só para a versão de rascunho
   #   documentclass: article
   #   fig-pos: H
@@ -82,6 +76,28 @@ format:
   #     text: |
   #       \usepackage{csquotes}
   #       \DeclareLanguageMapping{brazil}{brazilian}
+  #   ####################
+  #   ### opções para a versão para a banca
+  #   #################### 
+  #   # include-before-body:
+  #   #   file: 
+  #   #     - capa.tex
+  #   #   text: |
+  #   #     \DoubleSpacing
+  #   # lof: true
+  #   # lof-title: "Lista de Figuras"
+  #   # lot: true
+  #   # lot-title: "Lista de Tabelas"
+  #   ####################
+  #   ### opções para a versão para o depósito
+  #   #################### 
+  #   # include-before-body:
+  #   #   file: 
+  #   #     - capa.tex
+  #   # lof: true
+  #   # lof-title: "Lista de Figuras"
+  #   # lot: true
+  #   # lot-title: "Lista de Tabelas"
 ---
 
 # Introdução
