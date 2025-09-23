@@ -991,8 +991,16 @@ print(did)
 
 
 ```{r}
+#| label: extraindo informações do perfil pelo did ou @
+
 #buscando o perfil pelo did (bs_get_profile também funciona com o @ do perfil)
-perfil <- bs_get_profile(did, auth = auth, clean = FALSE)
+perfil <- 
+  bs_get_profile(
+    did, 
+    auth = auth, 
+    clean = FALSE
+  )
+
 print(perfil)
 ```
 
@@ -1017,8 +1025,7 @@ app.bsky.graph.follow → tipo de registro: uma relação de "seguir".
 
 3lqazs263lf2w → ID específico do registro (essa ação de seguir).
 
-Esse campo quer dizer:
-👉 “O usuário autenticado (DID 4bvoxokewgsqfjfefnzsppny) está seguindo o perfil que você acabou de buscar.”
+Esse campo quer dizer: “O usuário autenticado (DID 4bvoxokewgsqfjfefnzsppny) está seguindo o perfil que você acabou de buscar.”
 
 
 `$profiles[[1]]$viewer$knownFollowers` -> informações sobre os seguidores em comum
@@ -1043,7 +1050,6 @@ filtragem <-
       criado_em = perfil$profiles[[1]]$createdAt,
       url_perfil = paste0("https://bsky.app/profile/", handle),
       seguidores_em_comum = perfil$profiles[[1]]$viewer$knownFollowers,
-      
     )
 
 print(filtragem)
