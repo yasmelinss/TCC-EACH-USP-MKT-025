@@ -198,10 +198,11 @@ A necessidade de estudar dados como uma ciência à parte e não apenas através
 
 A Ciência de Dados é por natureza um campo interdisciplinar, tendo aplicações comuns em diversas ciências pela forma que transforma dados desordenados em informações úteis que apoiam ou guiam decisões. De acordo com @Ozsu2024, o sucesso da ciência de dados é evidente em campos como as ciências da saúde, onde a análise de teias sociais permite o rastreamento de epidemias; em sistemas financeiros, em que a análise de grandes volumes de dados podem guiar investimentos e até mesmo para a indústria de atendimento ao consumidor, na qual o avanço de *chatterbots* auxilia no atendimento.
 
-Big Data é um conceito relevante para a ciência de dados, porém definições do termo variam. Os autores @Gandomi2015 destacam três 'V's que surgem em comum ao longo de diferentes conceituações de Big Data: volume, variedade e velocidade. Volume se refere a magnitude dos dados, com a definição do volume mínimo necessário para que dados sejam considerados Big Data variando de acordo com o tempo, em vista que a evolução de capacidades de armazenamento pode fazer com que volumes considerados grandes hoje sejam pequenos no futuro. Variedade se refere a heterogeneidade de um banco de dados, com estes sendo geralmente não-estruturados e altamente variados. Por último, velocidade se refere à rapidez com que os dados são gerados e à velocidade com que devem ser analisados e utilizados, amplificada pela proliferação de dispositivos digitais como *smartphones* e sensores. 
+<!-- Big Data é um conceito relevante para a ciência de dados, porém definições do termo variam. Os autores @Gandomi2015 destacam três 'V's que surgem em comum ao longo de diferentes conceituações de Big Data: volume, variedade e velocidade. Volume se refere a magnitude dos dados, com a definição do volume mínimo necessário para que dados sejam considerados Big Data variando de acordo com o tempo, em vista que a evolução de capacidades de armazenamento pode fazer com que volumes considerados grandes hoje sejam pequenos no futuro. Variedade se refere a heterogeneidade de um banco de dados, com estes sendo geralmente não-estruturados e altamente variados. Por último, velocidade se refere à rapidez com que os dados são gerados e à velocidade com que devem ser analisados e utilizados, amplificada pela proliferação de dispositivos digitais como *smartphones* e sensores. 
 
+- explicar como o parágrafo seguinte não precisa ser aplicado necessariamente a Big Data 
 
-Para estudos de análise de marketing, a Ciência de Dados aplicada a contextos de Big Data é capaz de perfilar os clientes mais promissores de forma a melhor guiar esforços de propaganda através da análise dos históricos de navegação e hábitos *online* de uma grande quantidade de pessoas. Além disso, é possível identificar alternativas atraentes para um produto do ponto de vista do consumidor com embasamento estatístico, bem como refinar algoritmos de recomendação para melhor prever o que um consumidor estaria mais propenso a adquirir com base em suas compras anteriores. Através da análise de redes sociais e do monitoramento das conexões entre usuários, é possível até mesmo avaliar associações de marca como o quão sustentável ela aparenta ser do ponto de vista de um consumidor médio, facilitando ações de marca reativas ou preditivas. [@Chintagunta2016]
+Para estudos de análise de marketing, a Ciência de Dados aplicada a contextos de Big Data é capaz de perfilar os clientes mais promissores de forma a melhor guiar esforços de propaganda através da análise dos históricos de navegação e hábitos *online* de uma grande quantidade de pessoas. Além disso, é possível identificar alternativas atraentes para um produto do ponto de vista do consumidor com embasamento estatístico, bem como refinar algoritmos de recomendação para melhor prever o que um consumidor estaria mais propenso a adquirir com base em suas compras anteriores. Através da análise de redes sociais e do monitoramento das conexões entre usuários, é possível até mesmo avaliar associações de marca como o quão sustentável ela aparenta ser do ponto de vista de um consumidor médio, facilitando ações de marca reativas ou preditivas. [@Chintagunta2016] -->
 
 De acordo com @Tabani2020, o potencial da análise de marketing em negócios reais ainda não é totalmente realizado mesmo esta sendo um tópico altamente relevante na atualidade, em razão do crescente volume e complexidade de dados disponíveis através das redes sociais, ferramentas digitais e aplicações de software. O artigo aponta que barreiras na adoção desta abordagem incluem a falta de estratégias abrangentes, expertise, recursos e dados de qualidade, dentre outros fatores.
 
@@ -217,12 +218,12 @@ Para a obtenção dos dados de redes sociais, a mineração é uma tática comum
 
 A análise de sentimentos (também conhecida como mineração de opiniões) é o processo de analisar computacionalmente e identificar opiniões e julgamentos de um texto linguístico, podendo ser implementada em propósitos diferentes como *baseada em aspectos*, *a nível de documento* e *a nível de frase* [@Chakraborty2023]. A análise de sentimentos *baseada em aspectos* é capaz de classificar textos em aspectos diferentes e determinar sentimentos correspondentes por associação. O módulo *a nível de documento* analisa um documento inteiro, enquanto aquele *a nível de frase* limita-se a sentenças curtas como as de postagens em microblogues, que tendem a ter baixos limites de caracteres. 
 
-@Bian2016 aponta que existem duas abordagens gerais para a análise de sentimentos: a primeira se baseia em um léxico como o Harvard General Inquirer, SentiWordNet ou Linguistic Inquiry, que associam escolhas de palavras a opiniões e atitudes. Esta abordagem visa descobrir a estrutura temática por trás de grandes conjuntos de documentos não-estruturados, através da análise das palavras por um algorítmo estatístico. A segunda abordagem, baseada em classificações, é um método supervisionado que requer conjuntos rotulados para o treinamento de um algorítmo. 
+@Bian2016 apontam que existem duas abordagens gerais para a análise de sentimentos: a primeira se baseia em um léxico como o Harvard General Inquirer, SentiWordNet ou Linguistic Inquiry, que associam escolhas de palavras a opiniões e atitudes. Esta abordagem visa descobrir a estrutura temática por trás de grandes conjuntos de documentos não-estruturados, através da análise das palavras por um algorítmo estatístico. A segunda abordagem, baseada em classificações, é um método supervisionado que requer conjuntos rotulados para o treinamento de um algorítmo. 
 
 <!--- apresentar ciência de dados como campo interdisciplinar que estuda os dados 
     - definir ciência de dados como área interdisciplinar (estatística, computação, conhecimento de domínio)
     - objetivo: transformar dados em informação útil para apoiar decisões
-- qual é a relação com marketing? uso de dados digitais para compreender comportamento do consumidor, segmentação, monitoramento de marcas etc.-->
+- qual é a relação com marketing? uso de dados digitais para compreender comportamento do consumidor, segmentação, monitoramento de marcas etc.
 
 - workflow de projetos pontuais em ciência de dados
     - entendimento do problema de negócios
@@ -235,7 +236,7 @@ A análise de sentimentos (também conhecida como mineração de opiniões) é o
     - [Brodie, 2023](https://arxiv.org/abs/2306.16177)
     - [Cao, 2020](https://arxiv.org/abs/2007.03606) 
     - [R4DS](https://r4ds.hadley.nz/) para workflow de data science
-
+-->
 
 
 
@@ -298,13 +299,13 @@ Levando em consideração que dados obtidos por raspagem geralmente são não-es
 Dada a estruturação de dados raspados de uma rede social, é possível empregar técnicas de análise de redes sociais. Para a detecção de comunidades, @Aggarwal2011 sugere a representação através de nós e arestas, em que nós representam entidades de interesse e arestas imitam as interações ou relações entre elas. Estes nós são então definidos como comunidades distintas se suas conexões internas são mais fortes do que com o resto da rede.
 
 <!-- se formos utilizar análise de sentimentos, falar sobre emojis, erros ortográficos, word cloud:
---->
+
 
 - técnicas utilizadas neste trabalho
     - análise de frequência e exploratória: contagem de palavras, bigramas, visualização
     - análise de conectividade: análise de índices de conexão, de centralidade
     - análise de sentimentos (???)
-
+-->
 
 
 
