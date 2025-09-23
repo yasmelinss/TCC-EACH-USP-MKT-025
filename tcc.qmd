@@ -272,13 +272,12 @@ Diante disso, levanta-se a seguinte questão central:
 
 ### Objetivo Geral
 
-- Responder de que maneira a queda do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre e-sports de League of Legends na rede social Bluesky.
+- Caracterizar como a suspensão das atividades do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre e-sports de League of Legends na rede social Bluesky.
 
 ### Objetivos Específicos
 
 - Mensurar a flutuação no volume de postagens sobre League of Legends antes, durante e após a suspensão do X no Brasil.
-- Elaborar grafos que expliquem dinâmicas de seguidores e influência dentro do tópico de League of Legends de forma a identificar usuários influenciadores.
-- Analisar como a suspensão do X no Brasil afetou estratégias de marketing e comunicação digital acerca do CBLOL 2024.
+- Caracterizar as dinâmicas de seguidores e influência social de usuários dentro de comunidades associadas à League of Legends.
 
 ## Justificativa
 
