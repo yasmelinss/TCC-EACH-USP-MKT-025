@@ -956,6 +956,7 @@ perfil3_extracao |>
 
 Mas o final app.bsky.feed.NA/NA é inválido → significa que não aponta para um post, e sim veio “quebrado” (talvez de um repost, like ou campo incompleto).
 
+
 ```{r}
 #| label: puxando um usuário pela url
 
@@ -966,6 +967,8 @@ bs_url_to_uri('https://bsky.app/profile/yasmelins.bsky.social', auth = auth)
 bs_url_to_uri('https://bsky.app/profile/yasmelins.bsky.social/post/3l6br5zrsda2r', auth = auth)
 
 ```
+
+
 Consigo puxar um post de um usuário específico com uma  URI, mas não o feed de um usuário
 
 
@@ -1006,6 +1009,7 @@ print(perfil)
 
 Se for vários perfis, aí sim precisa de map_dfr() → mas percorrendo a lista de perfis, não nrow(perfil).
 
+`$did` -> did
 `$handle` -> @ do perfil
 `$displayName` -> nome informal que o perfil escolheu
 `$description` -> bio ou descrição do perfil
@@ -1028,9 +1032,9 @@ app.bsky.graph.follow → tipo de registro: uma relação de "seguir".
 Esse campo quer dizer: “O usuário autenticado (DID 4bvoxokewgsqfjfefnzsppny) está seguindo o perfil que você acabou de buscar.”
 
 
-`$profiles[[1]]$viewer$knownFollowers` -> informações sobre os seguidores em comum
+`$viewer$knownFollowers` -> informações sobre os seguidores em comum
 
-`$profiles[[1]]$viewer$knownFollowers$count` -> conta seguidores em comum com o auth
+`$viewer$knownFollowers$count` -> conta seguidores em comum com o auth
 
 
 

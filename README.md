@@ -16,11 +16,10 @@ Sprint da semana:
   - Thales
 - [ ] Analisar e documentar o output de cada função
   - Yas
-- [ ] arrumar o markdown do `teste-raspagem.qmd`
+- [x] arrumar o markdown do `teste-raspagem.qmd`
   - separar os chunks
   - botar os comentários, os `cat()` e os `print()` como texto em markdown  fora dos chunks
-  - botar nomes descritivos npara as seções
-  - ???  <-- Yas, compĺete o que fazer
+  - botar nomes descritivos para as seções
   - Yas
 - [ ] Extrair uma postagem específica e comparar os dados retornados pela função com os dados presentes no bluesky 
   - ver se falta alguma informação que a função não retorna ou retorna truncada
