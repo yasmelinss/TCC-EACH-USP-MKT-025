@@ -16,7 +16,7 @@ Sprint da semana:
   - Thales
 - [ ] Analisar e documentar o output de cada função
   - Yas
-- [x] arrumar o markdown do `teste-raspagem.qmd`
+- [ ] arrumar o markdown do `teste-raspagem.qmd`
   - separar os chunks
   - botar os comentários, os `cat()` e os `print()` como texto em markdown  fora dos chunks
   - botar nomes descritivos para as seções
@@ -41,40 +41,6 @@ Backlog:
 
 Concluído:
 
-- [X] Criação do repositório e familiarização com Git/GitHub
-    - concluído em 18/06/2025
-- [X] Definição do novo tema
-    - concluído em 18/06/2025
-- [X] Teste de raspagem de dados no BlueSky
-    - concluído em 15/08/2025
-- [X] Call com a Branca
-    - concluído em 21/06/2025
-- [x] Escrever a respeito do bskyr em Metodologia
-    - Yas
-- [x] Ler, interpretar e documentar a estrutura de raspagem
-    - Yas
-    - concluído em 01/09
-- [X] Descrever propriamente problema de pesquisa
-    - Thales 
-    - concluído em 01/09
-- [X] Problema de Pesquisa - refinar e definir objetivos
-    - Thales
-    - concluído em 10/09
-- [X] Teste de seguidores em comum e documentação
-    - Yas e Thales
-    - concluído em 09/09
-- [X] Refinar e mudar de local o output (raspagem.qmd)
-    - Yas
-    - concluído em 10/09
-- [X] Testar outras funções da biblioteca e documentar os outputs
-    - Yas
-    - concluído em 10/09
-- [X] Revisão Bibliográfica - ciência de dados - ler artigos   
-    - Thales
-    - concluído em 10/09
-- [X] Verificar se não estamos esquecendo de incluir alguma etapa
-    - Yas e Thales
-    - concluído em 10/09
 - [x] Revisar todo o teste-raspagem.qmd
   - [x] indentar o código
   - [x] colocar json onde precisa
@@ -83,6 +49,40 @@ Concluído:
   - [x] corrigir os markdowns ao longo do texto
   - Yas
   - concluído em 12/09
+- [X] Verificar se não estamos esquecendo de incluir alguma etapa
+    - Yas e Thales
+    - concluído em 10/09
+- [X] Revisão Bibliográfica - ciência de dados - ler artigos   
+    - Thales
+    - concluído em 10/09
+- [X] Testar outras funções da biblioteca e documentar os outputs
+    - Yas
+    - concluído em 10/09
+- [X] Refinar e mudar de local o output (raspagem.qmd)
+    - Yas
+    - concluído em 10/09
+- [X] Problema de Pesquisa - refinar e definir objetivos
+    - Thales
+    - concluído em 10/09
+- [X] Teste de seguidores em comum e documentação
+    - Yas e Thales
+    - concluído em 09/09
+- [X] Descrever propriamente problema de pesquisa
+    - Thales 
+    - concluído em 01/09
+- [x] Ler, interpretar e documentar a estrutura de raspagem
+    - Yas
+    - concluído em 01/09
+- [x] Escrever a respeito do bskyr em Metodologia
+    - Yas
+- [X] Call com a Branca
+    - concluído em 21/06/2025
+- [X] Teste de raspagem de dados no BlueSky
+    - concluído em 15/08/2025
+- [X] Definição do novo tema
+    - concluído em 18/06/2025
+- [X] Criação do repositório e familiarização com Git/GitHub
+    - concluído em 18/06/2025
 
 
 
