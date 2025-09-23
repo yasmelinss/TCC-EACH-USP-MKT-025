@@ -837,11 +837,6 @@ posts |>
 
 # Tentando puxar uma postagem específica
 
-
-
-
-
-
 ![postagem do @exojuego.bsky.social](Imagens/postlol1.png)
 
 ```{r}
@@ -855,24 +850,20 @@ dados_filtrados <- posts %>%
     data = indexed_at
   )
 
+dados_filtrados_json <-
+  toJSON(dados_filtrados, pretty = TRUE)
+
 cat("aqui estão os dados filtrados da primera forma\n")
 cat(dados_filtrados_json)
 
 ```
-
-
-
-
-
-
-
 
 ```{r}
 #| label: puxando dados de um usuário pelo @
 #| eval: true
 
 perfil2<-
-  bs_get_profile(
+  bs_file(
     'yasmelins.bsky.social',
     auth = auth,
     clean = FALSE
@@ -913,7 +904,6 @@ str(perfil2)
 #      data = indexed_at
 #   )
 ```
-
 ```{r}
 perfil2_extracao <- 
   tibble(
@@ -987,66 +977,16 @@ bs_uri_to_url('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zr
 did <- str_extract('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.NA/NA', "did:[^/]+")
 
 print(did)
-```
 
-
-```{r}
 #buscando o perfil pelo did (bs_get_profile também funciona com o @ do perfil)
-perfil <- bs_get_profile(did, auth = auth, clean = FALSE)
-print(perfil)
-```
+bs_get_profile(did, auth = auth, clean = FALSE)
 
-Se for vários perfis, aí sim precisa de map_dfr() → mas percorrendo a lista de perfis, não nrow(perfil).
+handle <-
+  tibble(
+    
+  )
 
-`$handle` -> @ do perfil
-`$displayName` -> nome informal que o perfil escolheu
-`$description` -> bio ou descrição do perfil
-`$followersCount` -> quantidade de seguidores
-`$followsCount` -> quantidade de pessoas que segue
-`$postCount` -> quantidade de posts feitos
-`$created_At` -> data de criação
-
-`$profiles[[1]]$viewer$following`
-[1] "at://did:plc:4bvoxokewgsqfjfefnzsppny/app.bsky.graph.follow/3lqazs263lf2w"
-
-following → significa que você está seguindo esse perfil. (visão do viwer ou auth)
-
-did:plc:4bvoxokewgsqfjfefnzsppny → é o DID (identificador descentralizado) do seu usuário (a conta autenticada).
-
-app.bsky.graph.follow → tipo de registro: uma relação de "seguir".
-
-3lqazs263lf2w → ID específico do registro (essa ação de seguir).
-
-Esse campo quer dizer:
-👉 “O usuário autenticado (DID 4bvoxokewgsqfjfefnzsppny) está seguindo o perfil que você acabou de buscar.”
-
-
-`$profiles[[1]]$viewer$knownFollowers` -> informações sobre os seguidores em comum
-
-`$profiles[[1]]$viewer$knownFollowers$count` -> conta seguidores em comum com o auth
-
-
-
-```{r}
-#| label: filtrando as informações de 1 perfil
-
-handle <- perfil$profiles[[1]]$handle
-
-filtragem <- 
-    tibble(
-      
-      nome_perfil = perfil$profiles[[1]]$displayName,
-      bio = perfil$profiles[[1]]$description,
-      seguidores = perfil$profiles[[1]]$followersCount,
-      seguindo = perfil$profiles[[1]]$followsCount,
-      posts = perfil$profiles[[1]]$postsCount,
-      criado_em = perfil$profiles[[1]]$createdAt,
-      url_perfil = paste0("https://bsky.app/profile/", handle),
-      seguidores_em_comum = perfil$profiles[[1]]$viewer$knownFollowers,
-      
-    )
-
-print(filtragem)
+  
 ```
 
 
@@ -1076,3 +1016,4 @@ $ author: List of 2
 significa que precisa de map_* (map_chr, map_dbl, map_lgl) para extrair o campo desejado.
 
 https://bsky.app/profile/yasmelins.bsky.social
+
