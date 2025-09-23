@@ -1112,7 +1112,34 @@ likes_por_post <- map_dfr(post_uris, function(uri_post) {
 likes_por_post
 ```
 
+```{r}
+#| label: teste2
 
+posts_usuario <- 
+  bs_search_posts(
+      query = NULL,                        # vazio = não filtrar por texto
+      author = "did:plc:vljand5f4megiw7rj4mpmhaw",  # handle do usuário
+      sort = "latest",                   # posts mais recentes
+      limit = 10,                        # quantos posts puxar
+      auth = auth,
+      clean = TRUE
+    )
+
+```
+
+```{r}
+
+likes_por_post <- 
+  purrr::map_dfr(
+    posts_usuario$uri, function(uri_post){
+      bs_get_likes(
+        uri_post, 
+        limit = 10, 
+        auth = auth, 
+        clean = TRUE)
+    }
+  )
+```
 
 
 # Apenas anotações, por favor, ignorar
