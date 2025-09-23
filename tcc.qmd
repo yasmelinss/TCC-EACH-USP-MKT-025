@@ -292,9 +292,16 @@ Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvida pela G
 
 # Metodologia
 
+A raspagem de dados é uma técnica proeminente para a coleta automatizada de dados *online* em que utiliza-se de *scrapers*, *softwares* que permitem baixar automaticamente dados da Web [@Marres2013]. Estes dados podem ser acessados através de uma Interface de programação de aplicações (*API*) própria do site em que são hospedados, porém grandes fontes como Facebook, Google e X têm recentemente limitado ou restringido o acesso gratuito às suas *API*s em virtude do valor comercial dessas informações, dificultando a obtenção de dados reais para fins acadêmicos [@Batrinca2014]. Dentre as redes sociais mais relevantes atualmente, o Bluesky se destaca como uma das únicas que ainda permite acesso irrestrito e gratuito à sua *API*, desde que utilize-se de uma autenticação única atrelada a uma conta na plataforma.
+
+Levando em consideração que dados obtidos por raspagem geralmente são não-estruturados e ruídosos, @Batrinca2014 destacam a necessidade da limpeza de dados, que envolve a remoção de erros tipográficos ou a validação e correção de valores em relação a uma lista conhecida de entidades. Esse processo envolve a regularização da capitalização do texto, correção de datas e horas e organização em colunas e linhas, entre outros.
+
+Dada a estruturação de dados raspados de uma rede social, é possível empregar técnicas de análise de redes sociais. Para a detecção de comunidades, @Aggarwal2011 sugere a representação através de nós e arestas, em que nós representam entidades de interesse e arestas imitam as interações ou relações entre elas. Estes nós são então definidos como comunidades distintas se suas conexões internas são mais fortes do que com o resto da rede.
+
+<!-- se formos utilizar análise de sentimentos, falar sobre emojis, erros ortográficos, word cloud:
+--->
+
 - técnicas utilizadas neste trabalho
-    - raspagem de dados: obtenção automatizada de mensagens
-    - pré-processamento de texto: tokenização, remoção de stopwords, normalização
     - análise de frequência e exploratória: contagem de palavras, bigramas, visualização
     - análise de conectividade: análise de índices de conexão, de centralidade
     - análise de sentimentos (???)
