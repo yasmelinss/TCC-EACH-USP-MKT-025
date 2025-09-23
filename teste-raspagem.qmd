@@ -334,9 +334,11 @@ recupera postagens curtidas por um ator
 #| label: testando-get-likes
 #| eval: true
 
+
+#não estou conseguindo trocar o ACTOR
 pegarcurtidas <- 
   bs_get_likes(
-    'ennoe.bsky.social',
+    actor = "yasmelins.bsky.social",
     cursor = NULL,
     limit = 10,
     auth = auth,
@@ -1015,11 +1017,99 @@ print(dados_filtrados)
 bs_url_to_uri('https://bsky.app/profile/yasmelins.bsky.social/post/3l3qzvznx2k2d', auth = auth)
 
 #puxando um post pela uri 
-bs_uri_to_url('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l3qzvznx2k2d')
+bs_uri_to_url('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3la4uxpqm6u2t')
 
 #puxando um post pelo did
 str_extract('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.NA/NA', "did:[^/]+")
 
+```
+
+
+Puxar os posts do usuário com bs_search_posts() ou bs_get_profile_posts()
+
+Pegar o URI de cada post
+
+Passar o URI do post para bs_get_likes()
+
+
+`$uri` -> uri
+`$cid` -> permite referenciar o post ou arquivo de forma única sem depender de URL
+`$did` -> did
+`$handle` -> @
+`$displayName` -> nome escolhido pelo usuário
+`$text` -> conteúdo do post
+`$following` -> Contém o URI do registro de “seguir” do usuário autenticado em relação a este perfil. Se houver valor ("at://...") → o usuário autenticado segue o perfil. Se NULL → o usuário não segue o perfil.
+
+```{r}
+#| label: puxando o(s) último(s) post(s)
+
+post <- 
+  bs_search_posts(
+    query = paste0('from:', 'yasmelins.bsky.social'),
+    limit = 1,
+    auth = auth
+  )
+str(post)
+
+```
+
+
+
+```{r}
+#| label: tentando pegar curtida de 1 post
+
+bs_get_likes(
+    '',
+    cursor = NULL,
+    limit = 10,
+    auth = auth,
+    clean = FALSE
+  )
+```
+
+
+```{r}
+#| label: tentando pegar quais usuários curtiram os posts de 1
+
+posts <- bs_search_posts(
+  query = paste0('from:', 'yasmelins.bsky.social'),  # busca posts do usuário
+  limit = 10,                        # quantos posts puxar
+  auth = auth
+)
+
+# Extrair os URIs dos posts
+post_uris <- map_chr(posts$posts, ~ .x$uri)  # cada post tem $uri
+
+# --- 2. Para cada post, puxar os likes ---
+likes_por_post <- map_dfr(post_uris, function(uri_post) {
+  
+  likes <- bs_get_likes(uri_post, limit = 10, auth = auth, clean = FALSE)
+  
+  # Extrair dados principais de quem curtiu
+  if(length(likes$likes) > 0){
+    map_dfr(likes$likes, function(l) {
+      tibble(
+        post_uri = uri_post,
+        usuario_curtiu = l$actor$handle,
+        nome_curtiu = l$actor$displayName,
+        avatar_curtiu = l$actor$avatar,
+        created_at = l$createdAt
+      )
+    })
+  } else {
+    # Nenhum like
+    tibble(
+      post_uri = uri_post,
+      usuario_curtiu = NA,
+      nome_curtiu = NA,
+      avatar_curtiu = NA,
+      created_at = NA
+    )
+  }
+})
+
+# --- 3. Visualizar resultado ---
+likes_por_post
 ```
 
 
