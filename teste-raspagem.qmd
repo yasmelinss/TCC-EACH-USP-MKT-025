@@ -835,59 +835,23 @@ posts |>
 
 
 
-# Tentando puxar uma postagem específica
 
 
 
 
-
-
-![postagem do @exojuego.bsky.social](Imagens/postlol1.png)
-
-```{r}
-#| label: puxando_postagem_exojuego
-
-dados_filtrados <- posts %>%
-  transmute(
-    id_do_post = uri,
-    usuario = author$handle,
-    conteudo_post = record$text,
-    data = indexed_at
-  )
-
-cat("aqui estão os dados filtrados da primera forma\n")
-cat(dados_filtrados_json)
-
-```
-
-
-
-
-
-
+# Puxando um perfil específico
 
 
 ```{r}
 #| label: puxando dados de um usuário pelo @
 #| eval: true
 
-perfil2<-
-  bs_get_profile(
-    'yasmelins.bsky.social',
-    auth = auth,
-    clean = FALSE
-  )
+bs_get_profile(
+  'yasmelins.bsky.social',
+  auth = auth,
+  clean = FALSE
+)
 ```
-
-```{r}
-
-perfil2 |>
-  toJSON(pretty = TRUE)
-```
-```{r}
-str(perfil2)
-```
-
 
 ```{r}
 #perfil2<- 
@@ -913,46 +877,6 @@ str(perfil2)
 #      data = indexed_at
 #   )
 ```
-
-```{r}
-perfil2_extracao <- 
-  tibble(
-    did = perfil2$profiles[[1]],
-    usuario = perfil2$handle,
-    nome = perfil2$displayName,
-    bio = perfil2$description,
-    avatar = perfil2$avatar,
-    seguidores = perfil2$followersCount,
-    seguindo = perfil2$followsCount,
-    posts = perfil2$postsCount,
-    data_indexacao = perfil2$indexedAt
-  )
-```
-
-```{r}
-perfil3_extracao <- 
-  tibble(
-    did = perfil2$profiles,
-    usuario = perfil2$handle,
-    nome = perfil2$displayName,
-    bio = perfil2$description,
-    avatar = perfil2$avatar,
-    seguidores = perfil2$followersCount,
-    seguindo = perfil2$followsCount,
-    posts = perfil2$postsCount,
-    data_indexacao = perfil2$indexedAt
-  )
-
-```
-
-
-
-```{r}
-perfil3_extracao |>
-  toJSON(pretty = TRUE, dtaframe ="rows")
-```
-
-
 
 Mas o final app.bsky.feed.NA/NA é inválido → significa que não aponta para um post, e sim veio “quebrado” (talvez de um repost, like ou campo incompleto).
 
@@ -986,7 +910,6 @@ bs_uri_to_url('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zr
 
 
 #pegando só a parte certa da URI
-
 did <- str_extract('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.NA/NA', "did:[^/]+")
 
 print(did)
@@ -1057,6 +980,46 @@ filtragem <-
     )
 
 print(filtragem)
+```
+
+
+
+# TESTES Tentando puxar uma postagem específica
+
+
+![postagem do @exojuego.bsky.social](Imagens/postlol1.png)
+
+```{r}
+#| label: puxando postagem exojuego
+
+
+
+
+dados_filtrados <- posts %>%
+  transmute(
+    id_do_post = uri,
+    usuario = author$handle,
+    conteudo_post = record$text,
+    data = indexed_at
+  )
+
+print(dados_filtrados)
+```
+
+
+
+```{r}
+#| label: puxando um post pela url
+
+#puxando um post pela url 
+bs_url_to_uri('https://bsky.app/profile/yasmelins.bsky.social/post/3l3qzvznx2k2d', auth = auth)
+
+#puxando um post pela uri 
+bs_uri_to_url('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l3qzvznx2k2d')
+
+#puxando um post pelo did
+str_extract('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.NA/NA', "did:[^/]+")
+
 ```
 
 
