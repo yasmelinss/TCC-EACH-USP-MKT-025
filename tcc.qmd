@@ -132,7 +132,7 @@ O enfoque sociológico elabora sobre o conceito de induscria cultural e seus efe
 
 ### Marketing de Redes Sociais
 
-De acordo com @Kaplan2010, redes sociais são um grupo de aplicativos hospedados virtualmente, que se baseiam nos fundamentos ideológicos e tecnológicos da Web 2.0 e que permitem a criação e o intercâmbio de conteúdo gerado pelos usuários. Sendo assim, as redes sociais digitais se destacam como um mecanismo de comunicação que permite um maior alcance de informações e interações do que aqueles possíveis em canais tradicionais como televisão e rádio, mudando a forma com a qual consumidores interagem entre si e com marcas. Em particular, a natureza interativa desses canais transformou os consumidores de observadores passivos de conteúdo em participantes ativos que agora criam grandes quantidades de conteúdo por meio de suas conversas, interações e comportamentos on-line [@Malthouse2013]. Outro elemento central desta mudança de paradigma é o engajamento do consumidor, que [@Bijmolt2010] caracterizam como manifestações comportamentais com um impacto indireto no desempenho da empresa.
+De acordo com @Kaplan2010, redes sociais são um grupo de aplicativos hospedados na Internet, que se baseiam nos fundamentos ideológicos e tecnológicos da Web 2.0 e que permitem a criação e o intercâmbio de conteúdo gerado pelos usuários. Sendo assim, as redes sociais digitais se destacam como um mecanismo de comunicação que permite um maior alcance de informações e interações do que aqueles possíveis em canais tradicionais como televisão e rádio, mudando a forma com a qual consumidores interagem entre si e com marcas. Em particular, a natureza interativa desses canais transformou os consumidores de observadores passivos de conteúdo em participantes ativos que agora criam grandes quantidades de conteúdo por meio de suas conversas, interações e comportamentos on-line [@Malthouse2013]. Outro elemento central desta mudança de paradigma é o engajamento do consumidor, que [@Bijmolt2010] caracterizam como manifestações comportamentais com um impacto indireto no desempenho da empresa.
   
 O acesso rápido e amplo aos consumidores-alvo, até mesmo em nível internacional, é uma das grandes vantagens do marketing de redes sociais [@Ravi2021], com campanhas promocionais digitais estando entre as estratégias mais comuns para agências e empresas de publicidade ou comunicação. Essas estratégias, chamadas de *Social Media Marketing* (SMM), têm como principal atrativo o retorno rápido ao mesmo tempo que permitem informar consumidores da marca, construir posicionamento e adquirir *feedback* a custos mais baixos que através de canais físicos.
   
@@ -143,8 +143,7 @@ O acesso rápido e amplo aos consumidores-alvo, até mesmo em nível internacion
 @Gronroos2004 define o marketing de relacionamentos como a noção de que, além do valor percebido de produtos ou serviços, existe um relacionamento entre as partes que gera valor adicional para o consumidor e para a empresa. Adicionalmente, o autor destaca que consumidores num contexto relacional podem demonstrar padrão de comportamento ativo ou passivo. Consumidores de comportamento ativo buscam contato com a marca ativamente, enquanto que os de comportamento passivo estão satisfeitos em saber que a marca pode ser contatada e que os auxiliaria se necessário [@Gronroos2004]. Este fenômeno ganha nova importância com a popularização das redes sociais, onde o alto grau de interatividade facilita na construção e manutenção desses relacionamentos. 
 
 Os autores definem seis tipos de redes sociais de acordo com a forma em que os processos sociais ocorrem nestas: projetos colaborativos (como Wikipedia), blogs e microblogues (como X e BlueSky), comunidades de conteúdo (como YouTube, Twitch e TikTok), sites de networking social (como Facebook, Instagram e LinkedIn), mundos de jogos virtuais e mundos sociais virtuais (como Second Life) [@Gronroos2004]. Dessas, as mais comumente referidas pelo termo "redes sociais" são os websites de networking social e os blogs, com sites como o X e BlueSky unindo características de ambas categorias em suas funcionalidades.
-
-
+<!-- REVISAR E ESPECIFICAR QUAIS REDES ELE CITOU E QUAIS EU INFERI. COLOCAR CITAÇÃO NO INICIO PRA SABER O ANO -->
 
 
 #### Influenciadores digitais ou *Social Media Influencers*
@@ -193,6 +192,7 @@ As lives geralmente são transmitidas por diferentes serviços *streamings* como
 ### Ciência de Dados
 
 Com o advento da internet, informações de todos os tipos são coletadas e transportadas em volumes e velocidades cada vez maiores. O valor destes dados são reconhecidos globalmente, com muitas organizações adotando estratégias orientadas por dados de forma a fazer decisões melhor informadas. 
+<!-- REFRASEAR -->
 
 A necessidade de estudar dados como uma ciência à parte e não apenas através de suas aplicações em pesquisa e indústria leva ao surgimento da Ciência de Dados, que recebeu diversas definições ao longo dos anos. @Zhu2015 consolidam as várias conceituações ao definir Ciência de Dados como a teoria, o método e a tecnologia de estudar a natureza dos dados, tendo dois componentes principais. O primeiro componente é o estudo dos padrões e regras dos próprios dados, explorando a natureza dos dados sem necessariamente levar em consideração seu significado no mundo real. O segundo componente é o estudo das leis do mundo natural refletidas nos dados, de forma a inferir informações sobre a realidade através do estudo de dados.
 
@@ -200,9 +200,8 @@ A Ciência de Dados é por natureza um campo interdisciplinar, tendo aplicaçõe
 
 <!-- Big Data é um conceito relevante para a ciência de dados, porém definições do termo variam. Os autores @Gandomi2015 destacam três 'V's que surgem em comum ao longo de diferentes conceituações de Big Data: volume, variedade e velocidade. Volume se refere a magnitude dos dados, com a definição do volume mínimo necessário para que dados sejam considerados Big Data variando de acordo com o tempo, em vista que a evolução de capacidades de armazenamento pode fazer com que volumes considerados grandes hoje sejam pequenos no futuro. Variedade se refere a heterogeneidade de um banco de dados, com estes sendo geralmente não-estruturados e altamente variados. Por último, velocidade se refere à rapidez com que os dados são gerados e à velocidade com que devem ser analisados e utilizados, amplificada pela proliferação de dispositivos digitais como *smartphones* e sensores. 
 
-- explicar como o parágrafo seguinte não precisa ser aplicado necessariamente a Big Data 
-
-Para estudos de análise de marketing, a Ciência de Dados aplicada a contextos de Big Data é capaz de perfilar os clientes mais promissores de forma a melhor guiar esforços de propaganda através da análise dos históricos de navegação e hábitos *online* de uma grande quantidade de pessoas. Além disso, é possível identificar alternativas atraentes para um produto do ponto de vista do consumidor com embasamento estatístico, bem como refinar algoritmos de recomendação para melhor prever o que um consumidor estaria mais propenso a adquirir com base em suas compras anteriores. Através da análise de redes sociais e do monitoramento das conexões entre usuários, é possível até mesmo avaliar associações de marca como o quão sustentável ela aparenta ser do ponto de vista de um consumidor médio, facilitando ações de marca reativas ou preditivas. [@Chintagunta2016] -->
+- EXPLICAR COMO O PARÁGRAFO SEGUINTE NÃO NECESSARIAMENTE É APLICÁVEL APENAS A BIG DATA -->
+Para estudos de análise de marketing, a Ciência de Dados aplicada a contextos de Big Data é capaz de perfilar os clientes mais promissores de forma a melhor guiar esforços de propaganda através da análise dos históricos de navegação e hábitos *online* de uma grande quantidade de pessoas. Além disso, é possível identificar alternativas atraentes para um produto do ponto de vista do consumidor com embasamento estatístico, bem como refinar algoritmos de recomendação para melhor prever o que um consumidor estaria mais propenso a adquirir com base em suas compras anteriores. Através da análise de redes sociais e do monitoramento das conexões entre usuários, é possível até mesmo avaliar associações de marca como o quão sustentável ela aparenta ser do ponto de vista de um consumidor médio, facilitando ações de marca reativas ou preditivas. [@Chintagunta2016]
 
 De acordo com @Tabani2020, o potencial da análise de marketing em negócios reais ainda não é totalmente realizado mesmo esta sendo um tópico altamente relevante na atualidade, em razão do crescente volume e complexidade de dados disponíveis através das redes sociais, ferramentas digitais e aplicações de software. O artigo aponta que barreiras na adoção desta abordagem incluem a falta de estratégias abrangentes, expertise, recursos e dados de qualidade, dentre outros fatores.
 
@@ -224,6 +223,8 @@ A análise de sentimentos (também conhecida como mineração de opiniões) é o
     - definir ciência de dados como área interdisciplinar (estatística, computação, conhecimento de domínio)
     - objetivo: transformar dados em informação útil para apoiar decisões
 - qual é a relação com marketing? uso de dados digitais para compreender comportamento do consumidor, segmentação, monitoramento de marcas etc.
+
+
 
 - workflow de projetos pontuais em ciência de dados
     - entendimento do problema de negócios
@@ -256,7 +257,7 @@ A rede teve um grande aumento de usuários em 30 de agosto de 2024, quando a *X 
 
 A suspensão do X no Brasil durou cerca de 40 dias, encerrando em 8 de outubro de 2024 após o cumprimento das ordens judiciais pela rede e uma multa de 28,6 milhões de reais. Durante este período, a migração de usuários brasileiros para alternativas como o Bluesky foi impulsionada significativamente. Em 31 agosto de 2024, o Bluesky anunciou que havia batido mais de 1 milhão de novos usuários nos últimos 3 dias e que brasileiros estavam estabelecendo novos recordes de atividade na plataforma. [@G12024]
 
-O Campeonato Brasileiro de League of Legends (CBLOL) é um torneio competitivo de e-sports de League of Legends no Brasil, organizado anualmente pela Riot Games. Em 2024, o evento teve sua primeira etapa entre 20 de janeiro e 20 de abril e sua segunda etapa entre 1 de junho e 7 de setembro. Com partidas gerando um grande número de engajamento nas redes sociais, a produção de conteúdo por espectadores durante a segunda etapa do CBLOL 2024 foi diretamente impactada pela suspensão do X no Brasil, que teve seu início próximo às finais do campeonato e término somente depois que ele havia encerrado. (@CBLOL2024)
+O Campeonato Brasileiro de League of Legends (CBLOL) é um torneio competitivo de e-sports de League of Legends no Brasil, organizado anualmente pela Riot Games. Em 2024, o evento teve sua primeira etapa entre 20 de janeiro e 20 de abril e sua segunda etapa entre 1 de junho e 7 de setembro. Com partidas gerando um grande número de engajamento nas redes sociais, a produção de conteúdo por espectadores durante a segunda etapa do CBLOL 2024 foi diretamente impactada pela suspensão do X no Brasil, que teve seu início próximo às finais do campeonato e término somente depois que ele havia encerrado. [@CBLOL2024]
 
 Diante disso, levanta-se a seguinte questão central:
 
@@ -358,15 +359,6 @@ No processo de raspagem de dados, foi solicitado o *App Pasword*, uma prática m
 
 # Resultados
 
-## bs_search_posts
-
-A função *bs_search_posts* serve para encontrar posts que seguem um critério pré escolhido. Assim, foi realizada a escolha da string "League of Legends" como parâmetro para a extração de 50 amostras de *posts* testes.
-
-O resultado obtido, após o comando *str(posts[1, ])* - que acessa a primeira linha do data frame *posts* e específica quais são as variáveis (colunas) que estão sendo puxadas, com seus respectivos tipos - foi:
-
-tibble [1 × 13] (S3: tbl_df/tbl/data.frame)
-          
-          
 # Discussão
 
 # Conclusão
