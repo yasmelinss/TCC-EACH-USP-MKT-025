@@ -230,19 +230,19 @@ Filtro dos dados (não está filtrando)
 
 ```{r}
 
-dados <- perfil %>%
-  tibble(
-    did = perfil$did,
-    usuario = perfil$handle,
-    displayName = perfil$displayName,
-    data = perfil$indexed_at,
-    seguidores = perfil$followersCount,
-    seguindo = perfil$followsCount,
-    quant_posts = perfil$postsCount
-  )
+#dados <- perfil %>%
+#  tibble(
+#    did = perfil$did,
+#    usuario = perfil$handle,
+#    displayName = perfil$displayName,
+#    data = perfil$indexed_at,
+#    seguidores = perfil$followersCount,
+#    seguindo = perfil$followsCount,
+#    quant_posts = perfil$postsCount
+#  )
 
-dados |>
-  toJSON(pretty = TRUE)
+#dados |>
+#  toJSON(pretty = TRUE)
 
 ```
 
@@ -335,10 +335,10 @@ recupera postagens curtidas por um ator
 #| eval: true
 
 
-#não estou conseguindo trocar o ACTOR
+#não estou conseguindo trocar o ACTOR para o meu próprio
 pegarcurtidas <- 
   bs_get_likes(
-    actor = "yasmelins.bsky.social",
+    actor = "ennoe.bsky.social",
     cursor = NULL,
     limit = 10,
     auth = auth,
@@ -994,9 +994,6 @@ print(filtragem)
 ```{r}
 #| label: puxando postagem exojuego
 
-
-
-
 dados_filtrados <- posts %>%
   transmute(
     id_do_post = uri,
@@ -1054,18 +1051,29 @@ str(post)
 ```
 
 
+Essa função não pega as curtidas que o usuário fez — ela pega as curtidas em um post específico.
+
+Se você quer as curtidas feitas por um usuário, essa API ainda não é exposta diretamente (nem no bskyr, nem no Bluesky oficial).
+A alternativa seria:
+
+pegar os posts do usuário com bs_search_posts(author = "handle"),
+
+depois rodar bs_get_likes() para cada post dele e ver os usuários que curtiram.
+
 
 ```{r}
 #| label: tentando pegar curtida de 1 post
 
 bs_get_likes(
-    '',
+    actor = actor,
+    user = 'yasmelins.bsky.social',
     cursor = NULL,
-    limit = 10,
+    limit = 20,
     auth = auth,
     clean = FALSE
   )
 ```
+
 
 
 ```{r}
