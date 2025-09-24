@@ -8,39 +8,71 @@ Professor orientador: Marcelo Ventura
 
 Sprint da semana:
 
-- [ ] colocar os tópicos concluídos de mais recente para mais antigo
-  - Thales
-- [ ] Revisão Bibliográfica 
-    - [X] Workflow de ciência de dados
-    - [ ] Análise de Sentimentos
-  - Thales
+
 - [ ] Analisar e documentar o output de cada função
+    - [ ] bota aqui
+    - [ ] Eliminar as que não vai usar
   - Yas
-- [ ] arrumar o markdown do `teste-raspagem.qmd`
-  - separar os chunks
-  - botar os comentários, os `cat()` e os `print()` como texto em markdown  fora dos chunks
-  - botar nomes descritivos para as seções
+  
+- [ ] Elaborar um novo documento de teste de raspagem
+  - [ ] passar o que já foi feito pro novo documento de forma consolidada
+  - [ ] extrair os replies individuais, os forward individuais, comentários etc.
+  - [ ] extrair lista de seguindo e seguidores por perfil/user
   - Yas
-- [ ] Extrair uma postagem específica e comparar os dados retornados pela função com os dados presentes no bluesky 
-  - ver se falta alguma informação que a função não retorna ou retorna truncada
-  - se sim, descobrir como corrigir isso para trazer a informação completa
-  - extrair os replies individuais, os forward individuais, comentários etc.
-  - Yas
-- [ ] Metodologia -- ler artigos e escrever dentro dos tópicos
+
+- [/] Metodologia -- ler artigos e escrever dentro dos tópicos
+  - [ ] análise de frequência e exploratória: contagem de palavras, bigramas, visualização
+  - [ ] análise de conectividade: análise de índices de conexão, de centralidade
+  - [ ] análise de sentimentos (???)
+  - Thales
+  
+- [ ] Terminar as revisões com base no feedback do orientador
+  - [ ] Indústria de Games
+  - [ ] Indústria E-sports e League of Legends
+  - [ ] Justificativa
+  - [ ] Pacote {bskyr} do R
   - Thales
 
 Backlog:
 
+- [/] Código de como fazer
+  - [ ] análise de frequência e exploratória: contagem de palavras, bigramas, visualização
+  - [ ] análise de conectividade: análise de índices de conexão, de centralidade
+  - Yas
 - [ ] Fundamentação teórica - Buscar Jane
   - Thales
 - [ ] Descobrir como plotar uma rede e conectar as pessoas
   - Yas e Thales
 - [ ] Mandar e-mail para PGB (talvez mais pra frente)
   - Thales
+- [ ] Revisão Bibliográfica 
+  - [X] Workflow de ciência de dados
+  - [ ] ~~Análise de Sentimentos~~
+  - Thales
+
 
 
 Concluído:
 
+- [/] Metodologia -- ler artigos e escrever dentro dos tópicos
+  - [X] raspagem de dados: obtenção automatizada de mensagens
+  - [X] pré-processamento de texto: tokenização, remoção de stopwords, normalização
+  - concluído em 23/09
+  - Thales
+- [X] Extrair uma postagem específica e comparar os dados retornados pela função com os dados presentes no bluesky 
+  - [X] ver se falta alguma informação que a função não retorna ou retorna truncada. 
+  - [-] se sim, descobrir como corrigir isso para trazer a informação completa
+  - concluído em 23/09
+  - Yas
+- [X] arrumar o markdown do `teste-raspagem.qmd`
+  - [X] separar os chunks
+  - [X] botar os comentários, os `cat()` e os `print()` como texto em markdown  fora dos chunks
+  - [X] botar nomes descritivos para as seções
+  - Yas
+  - concluído em 23/09
+- [X] colocar os tópicos concluídos de mais recente para mais antigo
+  - Thales
+  - concluído em 23/09
 - [x] Revisar todo o teste-raspagem.qmd
   - [x] indentar o código
   - [x] colocar json onde precisa
