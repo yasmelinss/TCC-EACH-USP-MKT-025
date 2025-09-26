@@ -1065,7 +1065,7 @@ depois rodar bs_get_likes() para cada post dele e ver os usuários que curtiram.
 #| label: tentando pegar curtida de 1 post
 
 bs_get_likes(
-    actor = actor,
+    actor = 'ennoe.bsky.social',
     user = 'yasmelins.bsky.social',
     cursor = NULL,
     limit = 20,
