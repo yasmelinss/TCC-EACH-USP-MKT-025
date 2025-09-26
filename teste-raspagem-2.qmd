@@ -74,7 +74,7 @@ bs_extract_record_key('at://did:plc:kwssn4xujlrl4ybhzm5vt5mg/app.bsky.feed.post/
 puxando um usuário pela url
 
 ```{r}
-#| label: bs-url-to-uri
+#| label: url-to-uri
 
 bs_url_to_uri('https://bsky.app/profile/yasmelins.bsky.social', auth = auth)
 ```
@@ -82,7 +82,7 @@ bs_url_to_uri('https://bsky.app/profile/yasmelins.bsky.social', auth = auth)
 puxando um usuário pela uri
 
 ```{r}
-#| label: bs-uri-ro-url
+#| label: uri-ro-url
 
 bs_uri_to_url('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.NA/NA')
 ```
@@ -130,12 +130,35 @@ Esse campo quer dizer: “O usuário autenticado (DID 4bvoxokewgsqfjfefnzsppny) 
 #| label: get-profile
 #| eval: true
 
-bs_get_profile(
-  did,
-  auth = auth,
-  clean = FALSE
-)
+perfil<-
+  bs_get_profile(
+    did,
+    auth = auth,
+    clean = FALSE
+  )
 ```
+
+
+```{r}
+#| label: filtrando as informações de 1 perfil
+
+handle <- perfil$profiles[[1]]$handle
+
+filtragem <- 
+    tibble(
+      nome_perfil = perfil$profiles[[1]]$displayName,
+      bio = perfil$profiles[[1]]$description,
+      seguidores = perfil$profiles[[1]]$followersCount,
+      seguindo = perfil$profiles[[1]]$followsCount,
+      posts = perfil$profiles[[1]]$postsCount,
+      criado_em = perfil$profiles[[1]]$createdAt,
+      url_perfil = paste0("https://bsky.app/profile/", handle),
+      seguidores_em_comum = perfil$profiles[[1]]$viewer$knownFollowers,
+    )
+
+print(filtragem)
+```
+
 
 Procurando perfis com uma query específica
 
@@ -162,16 +185,37 @@ print(procurandoperfis)
 ## POSTS
 
 
-Puxando um post pela URI
+Convertendo um post pela URI
 
 ```{r}
+#| label: uri-to-url
+#| 
 bs_uri_to_url('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zrsda2r')
 ```
 
-Puxando um post pela URL
+Convertendo um post pela URL
 
 ```{r}
+#| label: url-to-uri
+
 bs_url_to_uri('https://bsky.app/profile/yasmelins.bsky.social/post/3l6br5zrsda2r', auth = auth)
+```
+
+
+Puxando um post de um usuário
+
+```{r}
+#| label: search-posts
+
+posts_yasmelins <-
+  bs_search_posts(
+    query = "a",
+    author = "yasmelins.bsky.social",
+    limit = 1,
+    auth = auth
+  )
+
+print(posts_yasmelins)
 ```
 
 
@@ -184,7 +228,7 @@ Puxando post com query específica
 posts <- 
   bs_search_posts(
     query = '"league of legends" since:2024-08-30 until:2024-10-08',
-    limit = 2,
+    limit = 1,
     auth = auth
   )
 
@@ -200,34 +244,34 @@ pegando curtidas (verificar)
 `$feed` = lista
 `$cursor` = key number
 
+
+tentando pegar curtidas
+primeiro você pega os posts de um usuário, e ai você passa a URI para `(bs_get_likes)`
+
+
 ```{r}
 #| label: get-likes
 #| eval: true
 
 
-#não estou conseguindo trocar o ACTOR para o meu próprio
-pegarcurtidas <- 
+likes <- 
   bs_get_likes(
-    actor <- 'ennoe.bsky.social',
-    cursor = NULL,
+    actor = posts_yasmelins$uri, #diz de quem você quer pegar os likes, e espera um uri, não um handle
     limit = 10,
     auth = auth,
     clean = FALSE
   )
-
-print(pegarcurtidas)
- 
 ```
-
 
 
 ## SEGUIDORES
 
 `$followers$did` = did
 `$followes$handle` = @
-`$followers$associated$activitySubscription$allowSubscriptions` = 
+`$followers$associated$activitySubscription$allowSubscriptions` = Se follow, seguindo
 
 Seguidores de um usuário
+
 
 ```{r}
 #| label: get-followers
@@ -255,7 +299,7 @@ ele também puxa o meu perfil ao final
 
 seguindo <-
   bs_get_follows(
-    actor,
+    actor = 'emmoe.bsky.social',
     cursor = NULL,
     limit = 2,
     auth = auth,
