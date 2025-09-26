@@ -62,7 +62,7 @@ Pega apenas o valor do Record Key do usuário
 ```{r}
 
 #| label: testando-extract-record-key
-#| eval: false
+#| eval: true
 
 bs_extract_record_key('at://did:plc:kwssn4xujlrl4ybhzm5vt5mg/app.bsky.feed.post/3l5xjaj66js24')
 ```
@@ -71,18 +71,70 @@ bs_extract_record_key('at://did:plc:kwssn4xujlrl4ybhzm5vt5mg/app.bsky.feed.post/
 
 ## USUÁRIO
 
-puxando dados de um usuário pelo @
+puxando um usuário pela url
+
+```{r}
+#| label: bs-url-to-uri
+
+bs_url_to_uri('https://bsky.app/profile/yasmelins.bsky.social', auth = auth)
+```
+
+puxando um usuário pela uri
+
+```{r}
+#| label: bs-uri-ro-url
+
+bs_uri_to_url('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.NA/NA')
+```
+
+pegando did do usuário
+
+```{r}
+#| label: str-extract
+
+did <- str_extract('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zrsda2r', "did:[^/]+")
+
+print(did)
+```
+
+puxando dados de um usuário pelo @ ou did
+
+`$did` -> did
+`$handle` -> @ do perfil
+`$displayName` -> nome informal que o perfil escolheu
+`$description` -> bio ou descrição do perfil
+`$followersCount` -> quantidade de seguidores
+`$followsCount` -> quantidade de pessoas que segue
+`$postCount` -> quantidade de posts feitos
+`$created_At` -> data de criação
+
+`$profiles[[1]]$viewer$following`
+[1] "at://did:plc:4bvoxokewgsqfjfefnzsppny/app.bsky.graph.follow/3lqazs263lf2w"
+
+following → significa que você está seguindo esse perfil. (visão do viwer ou auth)
+
+did:plc:4bvoxokewgsqfjfefnzsppny → é o DID (identificador descentralizado) do seu usuário (a conta autenticada).
+
+app.bsky.graph.follow → tipo de registro: uma relação de "seguir".
+
+3lqazs263lf2w → ID específico do registro (essa ação de seguir).
+
+Esse campo quer dizer: “O usuário autenticado (DID 4bvoxokewgsqfjfefnzsppny) está seguindo o perfil que você acabou de buscar.”
+
+
+`$viewer$knownFollowers` -> informações sobre os seguidores em comum
+`$viewer$knownFollowers$count` -> conta seguidores em comum com o auth
+
 
 ```{r}
 #| label: get-profile
 #| eval: true
 
 bs_get_profile(
-  'yasmelins.bsky.social',
+  did,
   auth = auth,
   clean = FALSE
 )
-
 ```
 
 Procurando perfis com uma query específica
@@ -100,11 +152,30 @@ procurandoperfis <-
     auth = auth,
     clean = FALSE
 )
+
+print(procurandoperfis)
 ```
+
+
+
 
 ## POSTS
 
-### Puxando post com query específica
+
+Puxando um post pela URI
+
+```{r}
+bs_uri_to_url('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zrsda2r')
+```
+
+Puxando um post pela URL
+
+```{r}
+bs_url_to_uri('https://bsky.app/profile/yasmelins.bsky.social/post/3l6br5zrsda2r', auth = auth)
+```
+
+
+Puxando post com query específica
 
 ```{r}
 #| label: search-posts
@@ -116,9 +187,18 @@ posts <-
     limit = 2,
     auth = auth
   )
+
+print(posts)
 ```
 
+
+
 ## CURTIDAS
+
+pegando curtidas (verificar)
+
+`$feed` = lista
+`$cursor` = key number
 
 ```{r}
 #| label: get-likes
@@ -128,16 +208,24 @@ posts <-
 #não estou conseguindo trocar o ACTOR para o meu próprio
 pegarcurtidas <- 
   bs_get_likes(
-    actor = 'ennoe.bsky.social',
+    actor <- 'ennoe.bsky.social',
     cursor = NULL,
     limit = 10,
     auth = auth,
     clean = FALSE
   )
+
+print(pegarcurtidas)
  
 ```
 
+
+
 ## SEGUIDORES
+
+`$followers$did` = did
+`$followes$handle` = @
+`$followers$associated$activitySubscription$allowSubscriptions` = 
 
 Seguidores de um usuário
 
@@ -146,15 +234,19 @@ Seguidores de um usuário
 #| eval: true
 
 bs_get_followers(
-  actor <- 'yasmelins.bksy.social',
+  actor <- did, #não estava funcinando com o handle ou @
   cursor = NULL,
-  limit = 1,
+  limit = 3,
   auth = auth,
   clean = FALSE
 )  
 ```
 
 Quem o usuário segue
+
+`$subject$viewer$following` = erro ao puxar
+ele também puxa o meu perfil ao final
+
 
 ```{r}
 
@@ -165,10 +257,12 @@ seguindo <-
   bs_get_follows(
     actor,
     cursor = NULL,
-    limit = 1,
+    limit = 2,
     auth = auth,
     clean = FALSE
   )    
+
+print(seguindo)
 ```
 
 
