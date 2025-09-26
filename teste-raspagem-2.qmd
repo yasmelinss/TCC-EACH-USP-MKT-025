@@ -1,0 +1,103 @@
+---
+title: "Primeiro Teste de Raspagem no Bluesky"
+author: "Thales de Fante Romão"
+lang: pt-br
+format: html
+execute: 
+  cache: false
+---
+
+# SETUP
+
+
+```{r}
+#| label: setup
+#| eval: true
+#| warning: false
+
+library(bskyr)
+library(tidyverse)
+library(readr)
+library(jsonlite)
+```
+
+
+## dados da autenticação do usuário para a raspagem
+
+Usando o login do Thales
+
+```{r}
+#| label: usuario-autenticação
+#| eval: true
+actor <- 'ennoe.bsky.social'
+
+auth <- 
+  bs_auth(
+    user = "ennoe.bsky.social", 
+    pass = "omp6-axyy-kme6-i4gm"
+  )
+```
+
+# CONVERSÃO
+
+transformando URI em URL e vice-versa
+
+```{r}
+#| label: testando-convert-uri-to-url-to-uri
+#| eval: true
+
+bs_uri_to_url('at://did:plc:ic6zqvuw5ulmfpjiwnhsr2ns/app.bsky.feed.post/3k7qmjev5lr2s')
+
+bs_uri_to_url('at://did:plc:kwssn4xujlrl4ybhzm5vt5mg/app.bsky.feed.post/3l5xjaj66js24')
+
+bs_url_to_uri('https://bsky.app/profile/ennoe.bsky.social', auth = auth)
+
+bs_url_to_uri('https://bsky.app/profile/yasmelinss.bsky.social', auth = auth)
+
+
+```
+
+Pega apenas o valor do Record Key do usuário
+
+```{r}
+
+#| label: testando-extract-record-key
+#| eval: false
+
+bs_extract_record_key('at://did:plc:kwssn4xujlrl4ybhzm5vt5mg/app.bsky.feed.post/3l5xjaj66js24')
+
+```
+
+# RASPAGENS
+
+## USUÁRIO
+
+```{r}
+
+
+```
+
+
+## POSTS
+
+### Puxando post com query específica
+
+```{r}
+#| label: search-posts
+#| eval: true
+
+posts <- 
+  bs_search_posts(
+    query = '"league of legends" since:2024-08-30 until:2024-10-08',
+    limit = 2,
+    auth = auth
+  )
+```
+
+## CURTIDAS
+
+```{r}
+ 
+
+```
+

@@ -3,13 +3,10 @@
 .Rhistory
 .RData
 .Ruserdata
-
 # arquivos temporários do html a ignorar
 *_files/
-
 # arquivos cache a ignorar
 *_cache/
-
 # arquivos temporários do latex a ignorar
 *.aux
 *.bcf
@@ -19,10 +16,9 @@
 *.tex
 *.toc
 *.run.xml
-
 # este é exceção
 !capa.tex
-
 # arquivos de output
 *.pdf
 *.html
+teste-raspagem-2
