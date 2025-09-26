@@ -29,7 +29,9 @@ Usando o login do Thales
 ```{r}
 #| label: usuario-autenticação
 #| eval: true
-actor <- 'ennoe.bsky.social'
+
+
+#actor <- 'ennoe.bsky.social'
 
 auth <- 
   bs_auth(
@@ -43,7 +45,7 @@ auth <-
 transformando URI em URL e vice-versa
 
 ```{r}
-#| label: testando-convert-uri-to-url-to-uri
+#| label: uri-to-url-to-uri
 #| eval: true
 
 bs_uri_to_url('at://did:plc:ic6zqvuw5ulmfpjiwnhsr2ns/app.bsky.feed.post/3k7qmjev5lr2s')
@@ -53,8 +55,6 @@ bs_uri_to_url('at://did:plc:kwssn4xujlrl4ybhzm5vt5mg/app.bsky.feed.post/3l5xjaj6
 bs_url_to_uri('https://bsky.app/profile/ennoe.bsky.social', auth = auth)
 
 bs_url_to_uri('https://bsky.app/profile/yasmelinss.bsky.social', auth = auth)
-
-
 ```
 
 Pega apenas o valor do Record Key do usuário
@@ -65,18 +65,42 @@ Pega apenas o valor do Record Key do usuário
 #| eval: false
 
 bs_extract_record_key('at://did:plc:kwssn4xujlrl4ybhzm5vt5mg/app.bsky.feed.post/3l5xjaj66js24')
-
 ```
 
 # RASPAGENS
 
 ## USUÁRIO
 
-```{r}
+puxando dados de um usuário pelo @
 
+```{r}
+#| label: get-profile
+#| eval: true
+
+bs_get_profile(
+  'yasmelins.bsky.social',
+  auth = auth,
+  clean = FALSE
+)
 
 ```
 
+Procurando perfis com uma query específica
+
+```{r}
+#| label: search-actors
+#| eval: true
+
+procurandoperfis <- 
+  bs_search_actors(
+    'league of legend', #query == texto da busca
+    typeahead = FALSE, #se TRUE, faz uma busca tipo "sugestão enquanto digita" (autocomplete). Padrão: FALSE.
+    cursor = NULL, #paginação a parti de uma resposta anterior
+    limit = 2,
+    auth = auth,
+    clean = FALSE
+)
+```
 
 ## POSTS
 
@@ -97,7 +121,54 @@ posts <-
 ## CURTIDAS
 
 ```{r}
- 
+#| label: get-likes
+#| eval: true
 
+
+#não estou conseguindo trocar o ACTOR para o meu próprio
+pegarcurtidas <- 
+  bs_get_likes(
+    actor = 'ennoe.bsky.social',
+    cursor = NULL,
+    limit = 10,
+    auth = auth,
+    clean = FALSE
+  )
+ 
 ```
+
+## SEGUIDORES
+
+Seguidores de um usuário
+
+```{r}
+#| label: get-followers
+#| eval: true
+
+bs_get_followers(
+  actor <- 'yasmelins.bksy.social',
+  cursor = NULL,
+  limit = 1,
+  auth = auth,
+  clean = FALSE
+)  
+```
+
+Quem o usuário segue
+
+```{r}
+
+#| label: get-follows
+#| eval: true
+
+seguindo <-
+  bs_get_follows(
+    actor,
+    cursor = NULL,
+    limit = 1,
+    auth = auth,
+    clean = FALSE
+  )    
+```
+
 
