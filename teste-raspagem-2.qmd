@@ -262,6 +262,14 @@ likes <-
     clean = FALSE
   )
 ```
+```{r}
+likes$likes %>% 
+  map_df(~ tibble(
+    handle = .x$actor$handle,
+    did = .x$actor$did,
+    nome = .x$actor$displayName
+  ))
+```
 
 
 ## SEGUIDORES
@@ -293,7 +301,6 @@ ele também puxa o meu perfil ao final
 
 
 ```{r}
-
 #| label: get-follows
 #| eval: true
 
@@ -309,4 +316,46 @@ seguindo <-
 print(seguindo)
 ```
 
+# REPLIES
+
+```{r}
+#| label: get_replies
+
+replies <- bs_get_replies(
+  uri = posts_yasmelins$uri,
+  auth = auth,
+  limit = 10,
+  clean = FALSE
+)
+
+# Extrair infos do autor
+replies$feed %>%
+  map_df(~ tibble(
+    handle = .x$post$author$handle,
+    did = .x$post$author$did,
+    texto = .x$post$record$text
+  ))
+
+```
+
+# COMENTÁRIOS
+
+```{r}
+#| label: get-posthread
+
+thread <- bs_get_post_thread(
+  uri = posts_yasmelins$uri,
+  auth = auth,
+  depth = 2, # profundidade da thread
+  clean = FALSE
+)
+
+# Extrair autores dos comentários
+thread$thread$replies %>% 
+  map_df(~ tibble(
+    handle = .x$post$author$handle,
+    texto = .x$post$record$text
+  ))
+
+```
 
