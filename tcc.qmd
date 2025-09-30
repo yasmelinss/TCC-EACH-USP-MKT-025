@@ -157,17 +157,17 @@ Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (19
 <!-- - Ver se ela conhece alguém que estude o tópico -->
 <!-- - Procurar alguém que estude -->
 
-Existe uma longa discussão sobre a diferenciação ou a semelhança dos *E-sports* com os esportes. Entretanto, este trabalho não busca adentrar na discussão da diferenciação ou não dos *E-sports* como “esporte”, mas sim, já carrega tal premissa, e busca expandir os horizontes da aplicação do cenário a partir disso. Encontra-se então a definição de que *E-sports* referem-se a partidas competitivas (amadoras ou profissionais) de vídeo games que podem ser coordenadas por instituições que realizam torneios, onde os *Players* ou *Pró-players* costumeiramente pertencem a times que podem ser patrocinados por outras instituições, gerando assim, um negócio. [@Juho2017]
+Existe um extenso debate sobre a diferenciação ou a semelhança dos esportes eletrônicos com os esportes tradicionais. O presente trabalho não busca expandir a discussão da classificação ou não dos esportes eletrônicos como “esportes”, mas sim, já carrega tal premissa e busca expandir os horizontes da aplicação do cenário a partir disso. Utiliza-se então da definição dos autores @Juho2017, em que *E-sports* referem-se a partidas competitivas (amadoras ou profissionais) de vídeo games que podem ser coordenadas por instituições que realizam torneios, onde os *Players* (jogadores) ou *Pro-players* (jogadores profissionais) costumeiramente pertencem a times que podem ser patrocinados por outras instituições, gerando assim, um negócio.
 
-A principal forma de disseminação dos E-sports se dá através das transmissões online (*streaming*) e eventos híbridos (campeonatos com torcida que são também transmitidos de forma online). 
+A principal forma de disseminação dos E-sports se dá através das transmissões online (*streaming*) e eventos híbridos (campeonatos com torcida que são também transmitidos de forma online), nos quais toda a atividade esportiva (antes, durante a após o evento) é mediada por computadores, facilitando a obtenção de dados dos telespectadores [@Juho2017]. 
 
->Os esportes estão se tornando cada vez mais uma forma de mídia mediada por computadores e tecnologia da informação, o que pode acarretar novas maneiras de uso da tecnologia da informação. [@Juho2017, pg. XX-XX]
+<!-- A interação social que é construída através dos *E-sports* está positivamente associada à frequência de assistir *E-sports*. Isso deve-se à satisfação gerada por novidades da mídia esportiva e pelo prazer e a empolgação de ver novos jogadores, equipes e campeonatos no cenário esportivo, além do prazer relacionado à interação e socialização com outras pessoas assistindo ao jogo. (trail e James, 2001). Com o amadurecimento e crescimento dos *E-sports*, o senso e a criação de comunidade também cresceu e é refletido principalmente pelo crescimento no número de fãs de determinados jogos, times e jogadores, expressos nas redes sociais, plataformas de *streaming* e mercado cultural. 
 
-A midiatização dos *E-sports* ocorre porque não apenas o jogo é veiculado através de transmissões computadorizadas, mas toda a atividade esportiva (pré, durante e pós) é mediada por computador. Isso nos dá dados das manifestações de telespectadores e dos players. [@Juho2017]
-
-Segundo @Juho2017, a interação social que é construída através dos E-sports está positivamente associada à frequência de assistir *E-sports*. Isso deve-se à satisfação gerada a novidades da mídia esportiva e ao prazer e a empolgação de ver novos jogadores, equipes e campeonatos no cenário esportivo, além do prazer relacionado à interação e socialização com outras pessoas assistindo ao jogo. (trail e James, 2001). Com o amadurecimento e crescimento dos *E-sports*, o senso e a criação de comunidade também cresceu, e é refletido principalmente pelo crescimento de fãs de determinados jogos, times e jogadores, expressados nos números das redes sociais, plataformas de streaming e mercado cultural.
+PRIMEIRA FRASE É FALSA, SEGUNDA CITAÇÃO INACESSÍVEL E AUSENTE NO BIB
 
 A partir de dados apresentados pelo site TwitchTracker.com, a plataforma Twitch obteve no primeiro semestre de 2025 mais de 10 bilhões de horas de conteúdo assistido, 2,5% a menos comparado com o mesmo período do ano passado. Das views, 33,5% da audiência da Twitch é impulsionada pelos 5 Games mais assistidos pelos usuários. São eles: Just Chatting - 15,9% (categoria de streamers que comentam ou reagem a partidas de jogos ou assuntos variados relacionados); League of Legends - 5,5%; Grand Theft Auto V - 3,7%; Counter-Strike - 3,7%; Dota 2 - 3,1%; e Valorant - 3,1%.
+
+AGUARDANDO REF -->
 
 
 
