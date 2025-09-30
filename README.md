@@ -9,15 +9,21 @@ Professor orientador: Marcelo Ventura
 Sprint da semana:
 
 
-- [ ] Analisar e documentar o output de cada função
-    - [ ] bota aqui
-    - [ ] Eliminar as que não vai usar
+- [ ] Analisar e documentar o output de cada sessão
+    - [ ] Sessão SETUP
+    - [ ] Sessão CONVERSÃO
+    - [ ] Sessão USUÁRIO
+    - [ ] Sessão POSTS
+    - [ ] Sessão CURTIDAS
+    - [ ] Sessão POSTS
+    - [ ] Sessão COMENTÁRIOS
+    - [X] Eliminar as que não vai usar
   - Yas
   
-- [ ] Elaborar um novo documento de teste de raspagem
-  - [ ] passar o que já foi feito pro novo documento de forma consolidada
-  - [ ] extrair os replies individuais, os forward individuais, comentários etc.
-  - [ ] extrair lista de seguindo e seguidores por perfil/user
+- [X] Elaborar um novo documento de teste de raspagem
+  - [X] passar o que já foi feito pro novo documento de forma consolidada
+  - [X] extrair os replies individuais, os forward individuais, comentários etc.
+  - [X] extrair lista de seguindo e seguidores por perfil/user
   - Yas
 
 - [/] Metodologia -- ler artigos e escrever dentro dos tópicos
