@@ -257,11 +257,10 @@ Em geral, a API do Bluesky expõe isso pelo feed/getLikes, que deveria estar imp
 
 Mas na versão bskyr 0.3.0, pelo que vi, ainda não tem função wrapper pronta pra isso.
 
-👉 Então existem 2 opções:
+Então existem 2 opções:
 
 Usar httr2 diretamente pra chamar o endpoint app.bsky.feed.getLikes, passando a URI do post.
 
-Ver se na sua versão do bskyr tem algo como bs_post_get_likes() ou bs_get_post_thread() (às vezes muda de nome).
 
 ```{r}
 #| label: get-likes
@@ -292,6 +291,8 @@ likes$likes %>%
 puxando por httr2
 
 ```{r}
+#| label: criando-funcao-likes
+
 post_uri <- "at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zrsda2r"
 
 # Montando a requisição para o endpoint getLikes
@@ -367,35 +368,65 @@ print(seguindo)
 
 # REPLIES
 
+→ o pacote bskyr não implementou ainda a função bs_get_replies() (nem bs_get_post_likes()).
+
+ir direto na API oficial do Bluesky usando httr2.
+
+Endpoints úteis da API Bluesky
+
+Quem curtiu um post → app.bsky.feed.getLikes
+
+Thread completa (comentários) → app.bsky.feed.getPostThread
+
+Posts de um autor → app.bsky.feed.getAuthorFeed
+
+
+pegando os dados de uma função replyes
+
 ```{r}
-#| label: get_replies
+#| label: criando-funcao-reply
 
-replies <- bs_get_replies(
-  uri = posts_yasmelins$uri,
-  auth = auth,
-  limit = 10,
-  clean = FALSE
-)
+# URI do post
+post_uri <- "at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zrsda2r"
 
-# Extrair infos do autor
-replies$feed %>%
-  map_df(~ tibble(
-    handle = .x$post$author$handle,
-    did = .x$post$author$did,
-    texto = .x$post$record$text
-  ))
+# endpoint: getPostThread
+res <- 
+  request("https://bsky.social/xrpc/app.bsky.feed.getPostThread") |>
+    req_auth_bearer_token(auth$accessJwt) |>
+      req_url_query(uri = post_uri, depth = 2) |>
+        req_perform()
+
+# parse JSON
+thread <- 
+  res |> 
+  resp_body_json()
+
+# extrair replies diretos
+#replies <- map_df(thread$post$repostCount, function(x) {
+replies <- map_df(thread$thread$replies, function(x) {
+  tibble(
+    handle = x$post$author$handle,
+    did = x$post$author$did,
+    texto = x$post$record$text
+  )
+})
+
+print(thread)
+#print(replies)
 
 ```
+
+
 
 # COMENTÁRIOS
 
 ```{r}
-#| label: get-posthread
+#| label: get-post-thread
 
 thread <- bs_get_post_thread(
   uri = posts_yasmelins$uri,
   auth = auth,
-  depth = 2, # profundidade da thread
+  depth = 4, # profundidade da thread
   clean = FALSE
 )
 
@@ -407,4 +438,3 @@ thread$thread$replies %>%
   ))
 
 ```
-
