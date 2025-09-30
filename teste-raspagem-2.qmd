@@ -249,6 +249,19 @@ pegando curtidas (verificar)
 tentando pegar curtidas
 primeiro você pega os posts de um usuário, e ai você passa a URI para `(bs_get_likes)`
 
+bs_get_likes() não serve para pegar quem curtiu um post, e sim quais posts um usuário curtiu.
+
+Agora, se a sua ideia é descobrir quem curtiu um post específico, a função é outra:
+
+Em geral, a API do Bluesky expõe isso pelo feed/getLikes, que deveria estar implementado como bs_get_post_likes() (ou similar).
+
+Mas na versão bskyr 0.3.0, pelo que vi, ainda não tem função wrapper pronta pra isso.
+
+👉 Então existem 2 opções:
+
+Usar httr2 diretamente pra chamar o endpoint app.bsky.feed.getLikes, passando a URI do post.
+
+Ver se na sua versão do bskyr tem algo como bs_post_get_likes() ou bs_get_post_thread() (às vezes muda de nome).
 
 ```{r}
 #| label: get-likes
@@ -257,12 +270,15 @@ primeiro você pega os posts de um usuário, e ai você passa a URI para `(bs_ge
 
 likes <- 
   bs_get_likes(
-    actor = posts_yasmelins$uri, #diz de quem você quer pegar os likes, e espera um uri, não um handle
+    actor = 'ennoe.bsky.social', #diz de quem você quer pegar os likes, e espera um uri, não um handle
     limit = 10,
-    auth = auth,
-    clean = FALSE
+    auth = auth
   )
+
+print(likes)
 ```
+
+
 ```{r}
 likes$likes %>% 
   map_df(~ tibble(
@@ -271,6 +287,38 @@ likes$likes %>%
     nome = .x$actor$displayName
   ))
 ```
+
+
+puxando por httr2
+
+```{r}
+post_uri <- "at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zrsda2r"
+
+# Montando a requisição para o endpoint getLikes
+res <- request("https://bsky.social/xrpc/app.bsky.feed.getLikes") |>
+  req_auth_bearer_token(auth$accessJwt) |>   # usa o token do bs_auth
+  req_url_query(uri = post_uri, limit = 20) |> 
+  req_perform()
+
+# Parse do JSON
+data <- 
+  res |> 
+  resp_body_json()
+
+# Transformar em tibble
+likes <- map_df(data$likes, function(x) {
+  tibble(
+    handle = x$actor$handle,
+    did = x$actor$did,
+    nome = x$actor$displayName
+  )
+})
+
+print(likes)
+```
+
+
+
 
 
 ## SEGUIDORES
