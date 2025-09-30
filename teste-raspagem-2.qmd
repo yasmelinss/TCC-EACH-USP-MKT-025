@@ -197,7 +197,7 @@ bs_uri_to_url('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zr
 Convertendo um post pela URL
 
 ```{r}
-#| label: url-to-uri
+#| label: url-to-uri2
 
 bs_url_to_uri('https://bsky.app/profile/yasmelins.bsky.social/post/3l6br5zrsda2r', auth = auth)
 ```
@@ -223,7 +223,7 @@ print(posts_yasmelins)
 Puxando post com query específica
 
 ```{r}
-#| label: search-posts
+#| label: search-posts2
 #| eval: true
 
 posts <- 
