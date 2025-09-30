@@ -119,15 +119,13 @@ format:
 
 ### Indústria de Games enquanto Indústria Criativa
 
-Segundo @Wainberg_2024, os termos *industria cultural*, *industria criativa* ou *economia cultural* têm sido utilizados para descrever o setor de 14 profissões. São elas: arquitetura e engenharia, artes, artes cênicas, biotecnologia, design, expressões culturais, filme & vídeo, mercado editorial, moda, música, pesquisa e desenvolvimento, publicidade, software, computação e telecomunicação e mídia -- televisão e rádio.
+<!--Segundo @Wainberg_2024, os termos *industria cultural*, *industria criativa* ou *economia cultural* têm sido utilizados para descrever o setor de 14 profissões. São elas: arquitetura e engenharia, artes, artes cênicas, biotecnologia, design, expressões culturais, filme & vídeo, mercado editorial, moda, música, pesquisa e desenvolvimento, publicidade, software, computação e telecomunicação e mídia -- televisão e rádio.
 
 O enfoque sociológico elabora sobre o conceito de induscria cultural e seus efeitos. Pensadores Críticos como Walter Benjamin e Theodor Adorno são vínculados a Escola de Frankfurt apontam os efeitos malignos da indústria cultural, e o olhar otimista que apresenta a criatividade e a inovação como fontes de prosperidade chegou anos depois, em 2014, com Edmund Phelps, ganhador do Prêmio Nobel de Ecomonia em 2014. [@Wainberg_2024]
 
 - bibliografia do Edmund Phelps
 
-<!-- - Pedir bibliografia introdutória para a Jane -->
-
-
+- Aguardando bibliografia introdutória da Jane -->
 
 
 ### Marketing de Redes Sociais
@@ -138,7 +136,7 @@ O acesso rápido e amplo aos consumidores-alvo, até mesmo em nível internacion
   
 @Tuten2015 alegam que, com a instalação das redes sociais no cotidiano dos consumidores, um novo “P” pode ser adicionado ao mix de marketing, resultando nos 5 “P”s de praça, produto, promoção, preço e participação em marketing de redes sociais:
   
->It isn’t enough to interrupt the consumer experience and steal a few moments of attention. With social media marketing, the ability for consumers to interact and engage with brands is greatly enhanced. Social media channels give consumers unparalleled access. Consumers discuss, contribute, collaborate, and share—with brands and with each other. The culture of marketing has shifted to an informal one focused on the belief that customers are in control. Marketing guru Peter Drucker once famously said, “The purpose of a business is to create a customer.” With the reach and community influence of social media, we can expand this definition: the purpose of a business is to create customers who create other customers. That participation in the process is the new fifth P of marketing. [@Tuten2015, p. 21].
+>"Os canais de redes sociais oferecem aos consumidores um acesso sem precedentes. Os consumidores discutem, contribuem, colaboram e compartilham — com as marcas e entre si. A cultura do marketing mudou para uma cultura informal, focada na crença de que os clientes estão no controle. O guru do marketing Peter Drucker disse uma vez a famosa frase: “O objetivo de uma empresa é criar um cliente”. Com o alcance e a influência da comunidade nas mídias sociais, podemos expandir essa definição: o objetivo de uma empresa é criar clientes que criem outros clientes. Essa participação no processo é o novo quinto P do marketing." [@Tuten2015, p. 21, tradução nossa].
 
 @Gronroos2004 define o marketing de relacionamentos como a noção de que, além do valor percebido de produtos ou serviços, existe um relacionamento entre as partes que gera valor adicional para o consumidor e para a empresa. Adicionalmente, o autor destaca que consumidores num contexto relacional podem demonstrar padrão de comportamento ativo ou passivo. Consumidores de comportamento ativo buscam contato com a marca ativamente, enquanto que os de comportamento passivo estão satisfeitos em saber que a marca pode ser contatada e que os auxiliaria se necessário [@Gronroos2004]. Este fenômeno ganha nova importância com a popularização das redes sociais, onde o alto grau de interatividade facilita na construção e manutenção desses relacionamentos. 
 
