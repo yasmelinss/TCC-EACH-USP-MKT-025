@@ -282,7 +282,7 @@ Diante disso, levanta-se a seguinte questão central:
 ## Justificativa
 
 
-Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvida pela Go Gamers e SX Group em parceria com a ESPM e com a Blend New Research, aplicado em 6 países da América Latina como Argentina, Chile, Colômbia, México e Peru, 82,8%  dos participantes relataram ter o costume de jogar algum tipo de jogo digital, um crescimento de 8,9 p.p em relação à edição anterior. Além disso, a demografia do jogador brasileiro se demonstra interessante, constatando que 53,2% - a maioria - das pessoas que jogam são mulheres.
+<!---> Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvida pela Go Gamers e SX Group em parceria com a ESPM e com a Blend New Research, aplicado em 6 países da América Latina como Argentina, Chile, Colômbia, México e Peru, 82,8%  dos participantes relataram ter o costume de jogar algum tipo de jogo digital, um crescimento de 8,9 p.p em relação à edição anterior. Além disso, a demografia do jogador brasileiro se demonstra interessante, constatando que 53,2% - a maioria - das pessoas que jogam são mulheres. --->
 
 
 ## Estrutura do trabalho
