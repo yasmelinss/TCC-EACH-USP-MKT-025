@@ -287,7 +287,7 @@ Diante disso, levanta-se a seguinte questão central:
 
 Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvido pela Go Gamers e SX Group em parceria com a ESPM e Blend New Research, aplicada em 6 países da América Latina como Argentina, Chile, Colômbia, México e Peru, 82,8%  dos participantes relataram ter o costume de jogar algum tipo de jogo digital, um crescimento de 8,9% em relação à edição anterior. Além disso, a demografia do jogador brasileiro consta que 53,2%, a maioria, são mulheres.
 
-<!--
+<!--FALTA REF
 Unir BlueSky, redes sociais, queda do X e LoL e apontar a significância
 --->
 
@@ -302,11 +302,17 @@ A raspagem de dados é uma técnica proeminente para a coleta automatizada de da
 
 Levando em consideração que dados obtidos por raspagem geralmente são não-estruturados e ruídosos, @Batrinca2014 destacam a necessidade da limpeza de dados, que envolve a remoção de erros tipográficos ou a validação e correção de valores em relação a uma lista conhecida de entidades. Esse processo envolve a regularização da capitalização do texto, correção de datas e horas e organização em colunas e linhas, entre outros.
 
-Dada a estruturação de dados raspados de uma rede social, é possível empregar técnicas de análise de redes sociais. Para a detecção de comunidades, @Aggarwal2011 sugere a representação através de nós e arestas, em que nós representam entidades de interesse e arestas imitam as interações ou relações entre elas. Estes nós são então definidos como comunidades distintas se suas conexões internas são mais fortes do que com o resto da rede.
+Dada a estruturação de dados raspados de uma rede social, é possível empregar técnicas de análise de redes sociais. Para a detecção de comunidades, @Aggarwal2011 sugere a representação através de nós e arestas, em que nós representam entidades de interesse e arestas imitam as interações ou relações entre elas. Estes nós são então definidos como comunidades distintas se suas conexões internas são mais fortes do que com o resto da rede. Sendo assim, redes sociais podem ser modeladas em grafos *G = {V, E}*, onde V é um conjunto de nós e E um conjunto de arestas.
 
-<!-- se formos utilizar análise de sentimentos, falar sobre emojis, erros ortográficos, word cloud:
+[@Aggarwal2011]:
+- A influência social dentro de uma rede pode ser entendida como um efeito direcional de um nó A para outro nó B, relacionado à força da aresta de A para B. 
+- A semelhância nas vizinhanças de A e B representam a força da aresta que os conecta. Muitos vizinhos em comum representam um laço forte e vice-versa.
+- Medidas de centralidade podem ser agrupadas em duas categorias: medidas radiais e medidas mediais. As medidas radiais avaliam caminhadas aleatórias que começam ou terminam em um determinado nó. Por outro lado, as medidas mediais avaliam caminhadas aleatórias que passam por um determinado nó.
+- Análise de proximidade: Ao contrário das medidas baseadas no volume, as medidas baseadas no comprimento contam o comprimento dos percursos. A medida de centralidade mais popular neste grupo é a centralidade de proximidade de Freeman, que mede a centralidade calculando a média das distâncias mais curtas para todos os outros nós. Em seguida, Ela mede a centralidade calculando a média das distâncias mais curtas para todos os outros nós. 
+- A homofilia é uma das características mais fundamentais das redes sociais, que sugere que um ator na rede social tende a ser semelhante aos seus vizinhos ou “amigos” conectados. Esse é um resultado natural, pois os amigos ou vizinhos de um determinado ator na rede social não são uma amostra aleatória da população subjacente
+- Influência social: Isso indica que as pessoas tendem a seguir os comportamentos de seus amigos. O efeito da influência social leva as pessoas a adotarem comportamentos exibidos por seus vizinhos.
 
-
+<!---
 - técnicas utilizadas neste trabalho
     - análise de frequência e exploratória: contagem de palavras, bigramas, visualização
     - análise de conectividade: análise de índices de conexão, de centralidade
