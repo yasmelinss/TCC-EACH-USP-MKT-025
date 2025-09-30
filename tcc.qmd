@@ -174,13 +174,18 @@ AGUARDANDO REF -->
 
 #### League of Legends
 
-League of Legends (LoL) é um jogo do tipo MOBA (Multiplayer Online Battle Arena), que foi lançado pela empresa Riot em 2009. O jogo é composto por duas equipes de 5 jogadores cada, onde o objetivo principal da equipe é conquistar o "Nexus" (Torre) do inimigo em um mapa. [@Cauteruccio2023]
+League of Legends (LoL) é um jogo *on-line* do tipo MOBA (*Multiplayer Online Battle Arena*), desenvolvido pela empresa Riot Games em 2009, com as partidas nos modos de jogo principais sendo compostas por duas equipes de 5 jogadores, nas quais cada jogador toma controle de um personagem e são esperados a trabalharem em conjunto para destruir a base inimiga. [@Cauteruccio2023]
 
-Um grande cenário competitivo vem crescendo ao redor do jogo ao passar dos anos. De acordo com @Cauteruccio2023 Os principais eventos de e-sports sobre o LoL são o MSI e o LoL World Championship (Worlds), onde as melhores equipes do mundo participam e disputam os campeonatos competindo por prêmios multimilionários. No cenário competitivo, temos algumas ligas atualmente consideradas MAJOR (regiões com mais vitórias e melhores jogadores): Liga da Coréia (LCK); Liga da China (LPL); Liga da Europa (LEC); e regiões MINOR (consideradas mais fracas competitivamente): LTA SUL e LTA NORTE. 
+Devido a complexidade das partidas e o nível de habilidade demandado, um grande cenário competitivo vem crescendo ao redor do jogo ao passar dos anos. De acordo com @Cauteruccio2023, o principal evento de *E-sports* de LoL é o LoL World Championship (também conhecido como Worlds), onde as melhores equipes do mundo participam e disputam os campeonatos competindo por prêmios multimilionários em formato de torneio. 
 
-Apesar do Brasil e américa Latina estarem enquadrados na região MINOR, o engajamento dos *fãs* e os números das *lives* demonstram um expressão significativa mundialemente. Foi criado o canal de trasmissão *Ilha das Lendas*, onde um grupo de ex-jogadores fazem *co-stream* dos jogos oficiais de LOL em geral, de todas as ligas. As lives IDL (Ilha das Lendas) chegam a alcançar 150 mil pessoas simultaneamentente, enquanto as lives oficiais chegam a 20 mil. 
+Até 2025, as ligas eram divididas entre as quatro regiões *major*:  Coréia (LCK), China (LPL), Europa (LEC) e América do Norte (LCS), enquanto torneios menores em outras regiões eram considerados ligas *minor*. Anunciada em Junho de 2024 e fundada em 31 de outubro de 2024, a liga de LoL das Américas (LTA) uniu as principais ligas americanas LCS, Campeonato Brasileiro de League of Legends (CBLOL) e Liga Latinoamérica (LLA) em um único ecossistema com duas conferências: LTA Norte (baseada na LCS) e LTA Sul (baseada no CBLOL) [@Riot2024LTA]. 
 
-As lives geralmente são transmitidas por diferentes serviços *streamings* como Twitch e Youtube, e o número de *viewers* (pessoas assistindo as partidas) são expressivos. Durante a final do Worlds de 2018, mais de 99 milhões de views foram contabilizadas. [@Cauteruccio2023]
+As *lives* das ligas geralmente são transmitidas por diferentes serviços *streamings* como Twitch e Youtube, e o número de visualizações são expressivos, com mais de 99 milhões contabilizadas mundialmente durante a final do Worlds de 2018. [@Cauteruccio2023]
+
+<!-- Apesar de o Brasil e a América Latina estiverem enquadrados como liga *minor* até recentemente, o engajamento dos fãs e os números de telespectadores em transmissões ao vivo demonstram grande interesse no país, evidenciado pela união com a liga norte-americana. Em 2025, foi criado o canal de trasmissão *Ilha das Lendas*, onde um grupo de ex-jogadores fazem *co-stream* de todas as ligas de LoL, cujas transmissões ao vivo chegam a alcançar 150 mil telespectadores simultaneamentente, enquanto as lives oficiais chegam a 20 mil. 
+
+BUSCANDO REF-->
+
 
 
 
