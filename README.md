@@ -29,13 +29,13 @@ Sprint da semana:
 - [/] Metodologia -- ler artigos e escrever dentro dos tópicos
   - [ ] análise de frequência e exploratória: contagem de palavras, bigramas, visualização
   - [ ] análise de conectividade: análise de índices de conexão, de centralidade
-  - [ ] análise de sentimentos (???)
+  - [-] análise de sentimentos (???)
   - Thales
   
-- [ ] Terminar as revisões com base no feedback do orientador
-  - [ ] Indústria de Games
-  - [ ] Indústria E-sports e League of Legends
-  - [ ] Justificativa
+- [X] Terminar as revisões com base no feedback do orientador
+  - [/] Indústria de Games
+  - [X] Indústria E-sports e League of Legends
+  - [X] Justificativa
   - [ ] Pacote {bskyr} do R
   - Thales
 
