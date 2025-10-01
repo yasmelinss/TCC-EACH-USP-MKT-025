@@ -9,21 +9,15 @@ Professor orientador: Marcelo Ventura
 Sprint da semana:
 
 
-- [ ] Analisar e documentar o output de cada sessão
-    - [ ] Sessão SETUP
-    - [ ] Sessão CONVERSÃO
-    - [ ] Sessão USUÁRIO
-    - [ ] Sessão POSTS
-    - [ ] Sessão CURTIDAS
-    - [ ] Sessão POSTS
-    - [ ] Sessão COMENTÁRIOS
+- [ ] Analisar e documentar o output de cada seção
+    - [ ] Seção SETUP
+    - [ ] Seção CONVERSÃO
+    - [X] Seção USUÁRIO
+    - [ ] Seção POSTS
+    - [ ] Seção CURTIDAS
+    - [ ] Seção POSTS
+    - [ ] Seção COMENTÁRIOS
     - [X] Eliminar as que não vai usar
-  - Yas
-  
-- [X] Elaborar um novo documento de teste de raspagem
-  - [X] passar o que já foi feito pro novo documento de forma consolidada
-  - [X] extrair os replies individuais, os forward individuais, comentários etc.
-  - [X] extrair lista de seguindo e seguidores por perfil/user
   - Yas
 
 - [/] Metodologia -- ler artigos e escrever dentro dos tópicos
@@ -60,6 +54,12 @@ Backlog:
 
 Concluído:
 
+- [X] Elaborar um novo documento de teste de raspagem
+  - [X] passar o que já foi feito pro novo documento de forma consolidada
+  - [X] extrair os replies individuais, os forward individuais, comentários etc.
+  - [X] extrair lista de seguindo e seguidores por perfil/user
+  - concluído em 30/09
+  - Yas
 - [/] Metodologia -- ler artigos e escrever dentro dos tópicos
   - [X] raspagem de dados: obtenção automatizada de mensagens
   - [X] pré-processamento de texto: tokenização, remoção de stopwords, normalização
