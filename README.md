@@ -8,33 +8,47 @@ Professor orientador: Marcelo Ventura
 
 Sprint da semana:
 
-
 - [ ] Analisar e documentar o output de cada seção
-    - [ ] Seção SETUP
-    - [ ] Seção CONVERSÃO
-    - [X] Seção USUÁRIO
-    - [ ] Seção POSTS
-    - [ ] Seção CURTIDAS
-    - [ ] Seção POSTS
-    - [ ] Seção COMENTÁRIOS
-    - [X] Eliminar as que não vai usar
+  - [ ] Seção SETUP
+  - [ ] Seção CONVERSÃO
+  - [ ] Seção POSTS
+  - [ ] Seção CURTIDAS
+  - [ ] Seção POSTS
+  - [ ] Seção COMENTÁRIOS
+  - Yas
+  
+- [ ] Criar uma nova conta no BLSKY para teste
+  - Yas
+
+- [ ] Estudar o pacote atrrr
+  - Yas
+
+- [ ] Dar uma ajeitada geral no código
+  - [ ] Arrumar prints para JSON
+  - [ ] Arrumar labels dos chunks (tirar eval true)
+  - [ ] Filtragem de variaveis (sem gpt)
+  - [ ] Verificar novamente likes, reply e comments de outras contas a partir da postagem
   - Yas
 
 - [/] Metodologia -- ler artigos e escrever dentro dos tópicos
   - [ ] análise de frequência e exploratória: contagem de palavras, bigramas, visualização
-  - [ ] análise de conectividade: análise de índices de conexão, de centralidade
-  - [-] análise de sentimentos (???)
   - Thales
   
-- [X] Terminar as revisões com base no feedback do orientador
+- [/] Terminar as revisões com base no feedback do orientador
   - [/] Indústria de Games
-  - [X] Indústria E-sports e League of Legends
-  - [X] Justificativa
   - [ ] Pacote {bskyr} do R
   - Thales
 
+- [ ] Revisão Bibliográfica 
+  - [ ] Ambiente computacional estatístico R
+  - Thales
+
+
 Backlog:
 
+- [/] Metodologia -- ler artigos e escrever dentro dos tópicos
+  - [-] análise de sentimentos (???)
+  - Thales
 - [/] Código de como fazer
   - [ ] análise de frequência e exploratória: contagem de palavras, bigramas, visualização
   - [ ] análise de conectividade: análise de índices de conexão, de centralidade
@@ -45,26 +59,34 @@ Backlog:
   - Yas e Thales
 - [ ] Mandar e-mail para PGB (talvez mais pra frente)
   - Thales
-- [ ] Revisão Bibliográfica 
-  - [X] Workflow de ciência de dados
-  - [ ] ~~Análise de Sentimentos~~
-  - Thales
 
 
 
 Concluído:
 
+- [/] Analisar e documentar o output de cada seção
+  - [X] Seção USUÁRIO
+  - [X] Eliminar as que não vai usar
+  - concluído em 30/09
+  - Yas
+- [/] Terminar as revisões com base no feedback do orientador
+  - [X] Indústria E-sports e League of Legends
+  - [X] Justificativa
+  - concluído em 30/09
+  - Thales
+- [/] Metodologia -- ler artigos e escrever dentro dos tópicos
+  - [X] análise de conectividade: análise de índices de conexão, de centralidade
+  - concluído em 30/09
+  - [X] raspagem de dados: obtenção automatizada de mensagens
+  - [X] pré-processamento de texto: tokenização, remoção de stopwords, normalização
+  - concluído em 23/09
+  - Thales
 - [X] Elaborar um novo documento de teste de raspagem
   - [X] passar o que já foi feito pro novo documento de forma consolidada
   - [X] extrair os replies individuais, os forward individuais, comentários etc.
   - [X] extrair lista de seguindo e seguidores por perfil/user
   - concluído em 30/09
   - Yas
-- [/] Metodologia -- ler artigos e escrever dentro dos tópicos
-  - [X] raspagem de dados: obtenção automatizada de mensagens
-  - [X] pré-processamento de texto: tokenização, remoção de stopwords, normalização
-  - concluído em 23/09
-  - Thales
 - [X] Extrair uma postagem específica e comparar os dados retornados pela função com os dados presentes no bluesky 
   - [X] ver se falta alguma informação que a função não retorna ou retorna truncada. 
   - [-] se sim, descobrir como corrigir isso para trazer a informação completa
