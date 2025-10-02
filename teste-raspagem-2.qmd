@@ -29,7 +29,6 @@ Usando o login do Thales
 
 ```{r}
 #| label: usuario-autenticação
-#| eval: true
 
 
 #actor <- 'ennoe.bsky.social'
@@ -47,7 +46,7 @@ transformando URI em URL e vice-versa
 
 ```{r}
 #| label: uri-to-url-to-uri
-#| eval: true
+#| eval: false
 
 bs_uri_to_url('at://did:plc:ic6zqvuw5ulmfpjiwnhsr2ns/app.bsky.feed.post/3k7qmjev5lr2s')
 
@@ -68,22 +67,25 @@ Pega apenas o valor do Record Key do usuário
 bs_extract_record_key('at://did:plc:kwssn4xujlrl4ybhzm5vt5mg/app.bsky.feed.post/3l5xjaj66js24')
 ```
 
-# RASPAGENS
+# EXTRAÇÃO DOS DADOS
 
 ## USUÁRIO
 
 puxando um usuário pela url
 
 ```{r}
-#| label: url-to-uri
+#| label: user-url-to-uri
 
 bs_url_to_uri('https://bsky.app/profile/yasmelins.bsky.social', auth = auth)
 ```
 
+-> AQUI: escrever isso direito
+URIs ou URLs com valores NA/NA não funcionam para puxar o usuário, a mesma função com o valor do POST funciona
+
 puxando um usuário pela uri
 
 ```{r}
-#| label: uri-ro-url
+#| label: user-uri-to-url
 
 bs_uri_to_url('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.NA/NA')
 ```
@@ -91,7 +93,7 @@ bs_uri_to_url('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.NA/NA')
 pegando did do usuário
 
 ```{r}
-#| label: str-extract
+#| label: extrai-did-user
 
 did <- str_extract('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zrsda2r', "did:[^/]+")
 
@@ -141,7 +143,7 @@ perfil<-
 
 
 ```{r}
-#| label: filtrando as informações de 1 perfil
+#| label: filtrando-informação-1-perfil
 
 handle <- perfil$profiles[[1]]$handle
 
@@ -157,7 +159,7 @@ filtragem <-
       seguidores_em_comum = perfil$profiles[[1]]$viewer$knownFollowers,
     )
 
-print(filtragem)
+toJSON(filtragem, pretty = TRUE)
 ```
 
 
@@ -177,7 +179,8 @@ procurandoperfis <-
     clean = FALSE
 )
 
-print(procurandoperfis)
+
+toJSON(procurandoperfis, pretty = TRUE)
 ```
 
 
@@ -189,7 +192,7 @@ print(procurandoperfis)
 Convertendo um post pela URI
 
 ```{r}
-#| label: uri-to-url
+#| label: post-uri-to-url
 #| 
 bs_uri_to_url('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zrsda2r')
 ```
@@ -197,7 +200,7 @@ bs_uri_to_url('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zr
 Convertendo um post pela URL
 
 ```{r}
-#| label: url-to-uri2
+#| label: post-url-to-uri
 
 bs_url_to_uri('https://bsky.app/profile/yasmelins.bsky.social/post/3l6br5zrsda2r', auth = auth)
 ```
@@ -206,7 +209,7 @@ bs_url_to_uri('https://bsky.app/profile/yasmelins.bsky.social/post/3l6br5zrsda2r
 Puxando um post de um usuário
 
 ```{r}
-#| label: search-posts
+#| label: search-posts-by-user
 
 posts_yasmelins <-
   bs_search_posts(
@@ -216,14 +219,14 @@ posts_yasmelins <-
     auth = auth
   )
 
-print(posts_yasmelins)
+toJSON(posts_yasmelins, pretty = TRUE)
 ```
 
 
 Puxando post com query específica
 
 ```{r}
-#| label: search-posts2
+#| label: search-posts-by-subject
 #| eval: true
 
 posts <- 
@@ -233,7 +236,7 @@ posts <-
     auth = auth
   )
 
-print(posts)
+toJSON(posts, pretty = TRUE)
 ```
 
 
@@ -242,11 +245,12 @@ print(posts)
 
 pegando curtidas (verificar)
 
-`$feed` = lista
-`$cursor` = key number
+- `$feed` = lista
+- `$cursor` = key number
 
 
 tentando pegar curtidas
+
 primeiro você pega os posts de um usuário, e ai você passa a URI para `(bs_get_likes)`
 
 bs_get_likes() não serve para pegar quem curtiu um post, e sim quais posts um usuário curtiu.
@@ -266,25 +270,34 @@ Usar httr2 diretamente pra chamar o endpoint app.bsky.feed.getLikes, passando a 
 #| label: get-likes
 #| eval: true
 
-
 likes <- 
   bs_get_likes(
     actor = 'ennoe.bsky.social', #diz de quem você quer pegar os likes, e espera um uri, não um handle
-    limit = 10,
+    limit = 3,
     auth = auth
   )
 
-print(likes)
+toJSON(likes, pretty = TRUE)
 ```
 
 
 ```{r}
-likes$likes %>% 
-  map_df(~ tibble(
-    handle = .x$actor$handle,
-    did = .x$actor$did,
-    nome = .x$actor$displayName
-  ))
+str(likes)
+likes$post_uri
+
+
+
+  map_df(
+    \(x)
+    cat(str(x))
+      # tibble(
+      #   uri = $post_uri,
+      #   cid = x$post_cid,
+      #   # handle = x$post_author_handle,
+      #   # did = x$post_author_did,
+      #   # nome = x$actor$displayName
+      # )
+  )
 ```
 
 
@@ -315,7 +328,7 @@ likes <- map_df(data$likes, function(x) {
   )
 })
 
-print(likes)
+toJSON(likes, pretty = TRUE)
 ```
 
 
@@ -356,17 +369,17 @@ ele também puxa o meu perfil ao final
 
 seguindo <-
   bs_get_follows(
-    actor = 'emmoe.bsky.social',
+    actor = 'ennoe.bsky.social',
     cursor = NULL,
     limit = 2,
     auth = auth,
     clean = FALSE
   )    
 
-print(seguindo)
+toJSON(seguindo, pretty = TRUE)
 ```
 
-# REPLIES
+## REPLIES
 
 → o pacote bskyr não implementou ainda a função bs_get_replies() (nem bs_get_post_likes()).
 
@@ -411,14 +424,14 @@ replies <- map_df(thread$thread$replies, function(x) {
   )
 })
 
-print(thread)
+toJSON(thread, pretty = TRUE)
 #print(replies)
 
 ```
 
 
 
-# COMENTÁRIOS
+## COMENTÁRIOS
 
 ```{r}
 #| label: get-post-thread
@@ -438,3 +451,5 @@ thread$thread$replies %>%
   ))
 
 ```
+
+Descobrir de onde está vindo o parâmetro post_yasmelins$uri
