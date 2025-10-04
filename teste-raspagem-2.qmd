@@ -9,6 +9,13 @@ execute:
 
 # SETUP
 
+Para a inicialização da raspagem, carrega-se as bibliotecas a seguir. 
+
+- {`bksky`}: Pacote para interagir com a API do *Bluesky*
+-{`tidyverse`}: Conjunto de pacotes para a manipulação e visualização de dados
+-{`readr`}: Pacote para ler e escrever arquivos de texto/tabulares
+-{`jsonlite`}: Pacote para tabular dados em formato JSON
+-{`httr2`}: Pacote para fazer requisições http
 
 ```{r}
 #| label: setup
@@ -61,7 +68,7 @@ Pega apenas o valor do Record Key do usuário
 
 ```{r}
 
-#| label: testando-extract-record-key
+#| label: extract-record-key
 #| eval: true
 
 bs_extract_record_key('at://did:plc:kwssn4xujlrl4ybhzm5vt5mg/app.bsky.feed.post/3l5xjaj66js24')

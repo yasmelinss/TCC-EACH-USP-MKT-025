@@ -9,7 +9,7 @@ Professor orientador: Marcelo Ventura
 Sprint da semana:
 
 - [ ] Analisar e documentar o output de cada seção
-  - [ ] Seção SETUP
+  - [X] Seção SETUP
   - [ ] Seção CONVERSÃO
   - [ ] Seção POSTS
   - [ ] Seção CURTIDAS

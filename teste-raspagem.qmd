@@ -37,6 +37,8 @@ auth <-
     user = "ennoe.bsky.social", 
     pass = "omp6-axyy-kme6-i4gm"
   )
+
+print(auth)
 ```
 
 
