@@ -10,13 +10,17 @@ execute:
 ```{r}
 library(atrrr)
 library(jsonlite)
+library(tibble)
 
 ```
 
 ```{r}
-get_skeets_authored_by(actor = "lolesportsbr.com", parse = TRUE) |>
+dados <- get_skeets_authored_by(actor = "yasmelinss.bsky.social", parse = TRUE) |>
   dplyr::glimpse()
 
+```
+```{r}
+as_tibble(dados)
 ```
 
 
