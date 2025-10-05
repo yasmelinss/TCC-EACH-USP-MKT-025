@@ -327,9 +327,13 @@ Dada a estruturação de dados raspados de uma rede social, é possível emprega
 
 <!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
 
+A linguagem R tem se consolidado como uma das principais ferramentas da ciência de dados contemporânea, oferecendo recursos avançados para análise estatística, modelagem e visualização de informações. De acordo com @Wickham2017, “R é uma linguagem poderosa e flexível, projetada para análise estatística e visualização de dados, tornando-se uma das principais ferramentas da ciência de dados moderna”. Essa versatilidade permite que pesquisadores e profissionais de marketing realizem diversas aplicações de ciência de dados, transformando dados brutos e não-estruturados em insights estratégicos.
+
+O RStudio atua como um ambiente integrado que potencializa o uso da linguagem R. Conforme observam @Wickham2017, o RStudio transformou a experiência de análise de dados ao integrar código, gráficos e relatórios em um mesmo ambiente, promovendo uma ciência de dados mais interativa e transparente”. No presente trabalho, o RStudio é utilizado para realizar a mineração, tratamento e formatação de dados provenientes da rede social Bluesky.
+
 ### Mineração de Dados 
 
-#### Pacote `{bskyr}` do R
+#### Pacote `{bskyr}` do RStudio
 
 O Pacote `{bskyr}` teve sua versão 0.3.0 disponibilizada em 22 de julho de 2025. Esse pacote é responsável por coletar dados e fazer *posts* no *Bluesky* com API (application programming interface) via HTTP (hypertext transfer protocol). [@bskyr] Essas APIs permitem que um cliente (software) envie uma solicitação a um servidor (outro software) e receba uma resposta.
 
