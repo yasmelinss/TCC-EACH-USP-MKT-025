@@ -86,10 +86,7 @@ puxando um usuário pela url
 bs_url_to_uri('https://bsky.app/profile/yasmelins.bsky.social', auth = auth)
 ```
 
--> AQUI: escrever isso direito
-URIs ou URLs com valores NA/NA não funcionam para puxar o usuário, a mesma função com o valor do POST funciona
-
-puxando um usuário pela uri
+Durante a análise, verificou-se que URIs ou URLs que apresentam os valores (`NA/NA`) não permitem a recuperação do usuário, uma vez que tais entradas não são interpretadas corretamente pelo sistema. Por outro lado, quando a função é aplicada a um post que contém valores válidos, a conversão ocorre de maneira adequada.
 
 ```{r}
 #| label: user-uri-to-url
@@ -97,7 +94,9 @@ puxando um usuário pela uri
 bs_uri_to_url('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.NA/NA')
 ```
 
-pegando did do usuário
+Obtendo did da URI
+
+Para extrair apenas o `$did` de uma `URI` é necessário aplicar a função (`str_extract`).
 
 ```{r}
 #| label: extrai-did-user
@@ -107,34 +106,30 @@ did <- str_extract('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6
 print(did)
 ```
 
-puxando dados de um usuário pelo @ ou did
+#PERFIL
 
-`$did` -> did
-`$handle` -> @ do perfil
-`$displayName` -> nome informal que o perfil escolheu
-`$description` -> bio ou descrição do perfil
-`$followersCount` -> quantidade de seguidores
-`$followsCount` -> quantidade de pessoas que segue
-`$postCount` -> quantidade de posts feitos
-`$created_At` -> data de criação
+puxando dados de um perfil pelo @ ou did
 
-`$profiles[[1]]$viewer$following`
+-`$did` -> did
+-`$handle` -> @ do perfil
+-`$displayName` -> nome informal que o perfil escolheu
+-`$description` -> bio ou descrição do perfil
+-`$followersCount` -> quantidade de seguidores
+-`$followsCount` -> quantidade de pessoas que segue
+-`$postCount` -> quantidade de posts feitos
+-`$created_At` -> data de criação
+-`$profiles[[1]]$viewer$following`
 [1] "at://did:plc:4bvoxokewgsqfjfefnzsppny/app.bsky.graph.follow/3lqazs263lf2w"
-
-following → significa que você está seguindo esse perfil. (visão do viwer ou auth)
-
-did:plc:4bvoxokewgsqfjfefnzsppny → é o DID (identificador descentralizado) do seu usuário (a conta autenticada).
 
 app.bsky.graph.follow → tipo de registro: uma relação de "seguir".
 
-3lqazs263lf2w → ID específico do registro (essa ação de seguir).
+-`$viewer$knownFollowers` -> informações sobre os seguidores em comum
+-`$viewer$knownFollowers$count` -> conta seguidores em comum com o auth
+-`$viewer$knownFollowers$did` -> did do seguidor em comum
+-`$viewer$knownFollowers$handle` -> @ do perfil do seguidor em comum
+-`$viewer$knownFollowers$displayName` -> Nome informal do seguidor em comum
 
-Esse campo quer dizer: “O usuário autenticado (DID 4bvoxokewgsqfjfefnzsppny) está seguindo o perfil que você acabou de buscar.”
-
-
-`$viewer$knownFollowers` -> informações sobre os seguidores em comum
-`$viewer$knownFollowers$count` -> conta seguidores em comum com o auth
-
+Extrai o perfil com a `did` específicada e seus seguidores
 
 ```{r}
 #| label: get-profile
@@ -148,6 +143,8 @@ perfil<-
   )
 ```
 
+
+Filtra informações do perfil principal `did`, com enfase na `knownFollowers`
 
 ```{r}
 #| label: filtrando-informação-1-perfil
@@ -163,10 +160,31 @@ filtragem <-
       posts = perfil$profiles[[1]]$postsCount,
       criado_em = perfil$profiles[[1]]$createdAt,
       url_perfil = paste0("https://bsky.app/profile/", handle),
-      seguidores_em_comum = perfil$profiles[[1]]$viewer$knownFollowers,
+      qnt_seguidores_em_comum = perfil$profiles[[1]]$viewer$knownFollowers$count
     )
 
 toJSON(filtragem, pretty = TRUE)
+```
+filtra as informações dos seguidores em comum entre auth e `did`
+
+```{r}
+#| label: vizualiza-seguidores-comum
+
+qnt_seguidores_em_comum <- perfil$profiles[[1]]$viewer$knownFollowers$count
+
+i = 1
+while( i <= length(qnt_seguidores_em_comum)){
+  filtragem2 <- 
+    tibble(
+      perfis_comum_did = perfil$profiles[[1]]$viewer$knownFollowers$followers[[i]]$did, 
+      perfis_comum_handle = perfil$profiles[[1]]$viewer$knownFollowers$followers[[i]]$handle, 
+      perfis_comum_displayName = perfil$profiles[[1]]$viewer$knownFollowers$followers[[i]]$displayName
+    )
+
+i = i + 1
+}
+
+toJSON(filtragem2, pretty = TRUE)
 ```
 
 

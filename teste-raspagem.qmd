@@ -1176,3 +1176,67 @@ $ author: List of 2
 significa que precisa de map_* (map_chr, map_dbl, map_lgl) para extrair o campo desejado.
 
 https://bsky.app/profile/yasmelins.bsky.social
+
+
+
+
+
+
+
+
+
+
+
+### MODELO API OFICIAL
+
+teste 1
+
+```{r}
+#| label: seguidores-comuns
+#| include: true
+
+# Função auxiliar para pegar seguidores via API oficial Bluesky
+get_followers <- function(handle, limit = 10) {
+  base_url <- "https://bsky.social/xrpc/app.bsky.graph.getFollowers"
+  cursor <- NULL
+  all_followers <- list()
+
+  repeat {
+    req <- request(base_url) |>
+      req_url_query(actor = handle, limit = 10, cursor = cursor)
+
+    resp <- req_perform(req)
+    data <- resp_body_json(resp)
+
+    # Adiciona seguidores retornados
+    all_followers <- c(all_followers, data$followers)
+
+    # Controle de paginação
+    if (is.null(data$cursor) || length(all_followers) >= limit) break
+    cursor <- data$cursor
+  }
+
+  # Converte para tibble
+  tibble(
+    did = sapply(all_followers, function(x) x$did),
+    handle = sapply(all_followers, function(x) x$handle),
+    displayName = sapply(all_followers, function(x) x$displayName)
+  )
+}
+
+# ---- Exemplo de uso ----
+usuario1 <- "ennoe.bsky.social"
+usuario2 <- "yasmelins.bsky.social"
+
+seguidores1 <- get_followers(usuario1)
+seguidores2 <- get_followers(usuario2)
+
+# Interseção dos seguidores (pelo DID)
+seguidores_comuns <- inner_join(seguidores1, seguidores2, by = "did", suffix = c("_u1", "_u2"))
+
+# Resultado
+seguidores_comuns |>
+  select(did, handle_u1, displayName_u1)
+
+```
+
