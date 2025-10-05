@@ -10,7 +10,8 @@ Sprint da semana:
 
 - [ ] Analisar e documentar o output de cada seção
   - [X] Seção SETUP
-  - [ ] Seção CONVERSÃO
+  - [X] Seção CONVERSÃO
+  - [X] Seção PERFIL
   - [ ] Seção POSTS
   - [ ] Seção CURTIDAS
   - [ ] Seção POSTS
