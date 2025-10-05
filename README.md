@@ -37,11 +37,11 @@ Sprint da semana:
   
 - [/] Terminar as revisões com base no feedback do orientador
   - [/] Indústria de Games
-  - [ ] Pacote {bskyr} do R
+  - [X] Pacote {bskyr} do R
   - Thales
 
-- [ ] Revisão Bibliográfica 
-  - [ ] Ambiente computacional estatístico R
+- [X] Revisão Bibliográfica 
+  - [X] Ambiente computacional estatístico R
   - Thales
 
 
