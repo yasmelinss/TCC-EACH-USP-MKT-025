@@ -1,0 +1,37 @@
+---
+title: "Terceiro Teste de Raspagem no Bluesky"
+author: "Yasmin Messias Lins"
+lang: pt-br
+format: html
+execute: 
+  cache: false
+---
+
+```{r}
+library(atrrr)
+library(jsonlite)
+
+```
+
+```{r}
+get_skeets_authored_by(actor = "lolesportsbr.com", parse = TRUE) |>
+  dplyr::glimpse()
+
+```
+
+
+
+
+
+```{r}
+feeds <- get_feeds_created_by(actor = "shieda.bsky.social") 
+
+# Filtering for a specific keyword, for example "#rstats"
+rstat_feed <- feeds |>
+  filter(displayName == "#leagueoflegends")
+
+# Extracting posts from this curated feed
+rstat_posts <- get_feed(rstat_feed$uri, limit = 200) |>
+  dplyr::glimpse()
+```
+
