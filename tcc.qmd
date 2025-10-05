@@ -161,11 +161,9 @@ Existe um extenso debate sobre a diferenciação ou a semelhança dos esportes e
 
 A principal forma de disseminação dos E-sports se dá através das transmissões online (*streaming*) e eventos híbridos (campeonatos com torcida que são também transmitidos de forma online), nos quais toda a atividade esportiva (antes, durante a após o evento) é mediada por computadores, facilitando a obtenção de dados dos telespectadores [@Juho2017]. 
 
-<!-- A interação social que é construída através dos *E-sports* está positivamente associada à frequência de assistir *E-sports*. Isso deve-se à satisfação gerada por novidades da mídia esportiva e pelo prazer e a empolgação de ver novos jogadores, equipes e campeonatos no cenário esportivo, além do prazer relacionado à interação e socialização com outras pessoas assistindo ao jogo. (trail e James, 2001). Com o amadurecimento e crescimento dos *E-sports*, o senso e a criação de comunidade também cresceu e é refletido principalmente pelo crescimento no número de fãs de determinados jogos, times e jogadores, expressos nas redes sociais, plataformas de *streaming* e mercado cultural. 
+@Trail2001 apontam que a motivação social é um dos fatores que influenciam o consumo de esportes, levando indivíduos a acompanhar eventos esportivos pela interação e sentimento de pertencimento que emergem dessas experiências coletivas. Embora o estudo tenha sido direcionado aos esportes tradicionais, é possível observar esta mesma manifestação nos *E-sports*, nos quais o prazer de acompanhar novas competições, jogadores e equipes é potencializado pela troca social entre espectadores em ambientes digitais, expressos as redes sociais, plataformas de *streaming* e mercado cultural.
 
-PRIMEIRA FRASE É FALSA, SEGUNDA CITAÇÃO INACESSÍVEL E AUSENTE NO BIB
-
-A partir de dados apresentados pelo site TwitchTracker.com, a plataforma Twitch obteve no primeiro semestre de 2025 mais de 10 bilhões de horas de conteúdo assistido, 2,5% a menos comparado com o mesmo período do ano passado. Das views, 33,5% da audiência da Twitch é impulsionada pelos 5 Games mais assistidos pelos usuários. São eles: Just Chatting - 15,9% (categoria de streamers que comentam ou reagem a partidas de jogos ou assuntos variados relacionados); League of Legends - 5,5%; Grand Theft Auto V - 3,7%; Counter-Strike - 3,7%; Dota 2 - 3,1%; e Valorant - 3,1%.
+<!--A partir de dados apresentados pelo site TwitchTracker.com, a plataforma Twitch obteve no primeiro semestre de 2025 mais de 10 bilhões de horas de conteúdo assistido, 2,5% a menos comparado com o mesmo período do ano passado. Das views, 33,5% da audiência da Twitch é impulsionada pelos 5 Games mais assistidos pelos usuários. São eles: Just Chatting - 15,9% (categoria de streamers que comentam ou reagem a partidas de jogos ou assuntos variados relacionados); League of Legends - 5,5%; Grand Theft Auto V - 3,7%; Counter-Strike - 3,7%; Dota 2 - 3,1%; e Valorant - 3,1%.
 
 AGUARDANDO REF -->
 
@@ -185,7 +183,6 @@ As *lives* das ligas geralmente são transmitidas por diferentes serviços *stre
 <!-- Apesar de o Brasil e a América Latina estiverem enquadrados como liga *minor* até recentemente, o engajamento dos fãs e os números de telespectadores em transmissões ao vivo demonstram grande interesse no país, evidenciado pela união com a liga norte-americana. Em 2025, foi criado o canal de trasmissão *Ilha das Lendas*, onde um grupo de ex-jogadores fazem *co-stream* de todas as ligas de LoL, cujas transmissões ao vivo chegam a alcançar 150 mil telespectadores simultaneamentente, enquanto as lives oficiais chegam a 20 mil. 
 
 BUSCANDO REF-->
-
 
 
 
