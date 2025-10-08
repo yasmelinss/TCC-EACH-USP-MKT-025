@@ -19,11 +19,11 @@ execute:
 
 Para a inicialização da raspagem, carrega-se as bibliotecas a seguir. 
 
-- {`bksky`}: Pacote para interagir com a API do *Bluesky*
--{`tidyverse`}: Conjunto de pacotes para a manipulação e visualização de dados
--{`readr`}: Pacote para ler e escrever arquivos de texto/tabulares
--{`jsonlite`}: Pacote para tabular dados em formato JSON
--{`httr2`}: Pacote para fazer requisições http
+- `{bksky}`: Pacote para interagir com a API do *Bluesky*
+- `{tidyverse}`: Conjunto de pacotes para a manipulação e visualização de dados
+- `{readr}`: Pacote para ler e escrever arquivos de texto/tabulares
+- `{jsonlite}`: Pacote para tabular dados em formato JSON
+- `{httr2}`: Pacote para fazer requisições http
 
 ```{r}
 #| label: setup
@@ -114,28 +114,31 @@ did <- str_extract('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6
 print(did)
 ```
 
-#PERFIL
+# PERFIL
 
 puxando dados de um perfil pelo @ ou did
 
--`$did` -> did
--`$handle` -> @ do perfil
--`$displayName` -> nome informal que o perfil escolheu
--`$description` -> bio ou descrição do perfil
--`$followersCount` -> quantidade de seguidores
--`$followsCount` -> quantidade de pessoas que segue
--`$postCount` -> quantidade de posts feitos
--`$created_At` -> data de criação
--`$profiles[[1]]$viewer$following`
+- `$did` -> did
+- `$handle` -> @ do perfil
+- `$displayName` -> nome informal que o perfil escolheu
+- `$description` -> bio ou descrição do perfil
+- `$followersCount` -> quantidade de seguidores
+- `$followsCount` -> quantidade de pessoas que segue
+- `$postCount` -> quantidade de posts feitos
+- `$created_At` -> data de criação
+- `$profiles[[1]]$viewer$following`
+
+```
 [1] "at://did:plc:4bvoxokewgsqfjfefnzsppny/app.bsky.graph.follow/3lqazs263lf2w"
+```
 
 app.bsky.graph.follow → tipo de registro: uma relação de "seguir".
 
--`$viewer$knownFollowers` -> informações sobre os seguidores em comum
--`$viewer$knownFollowers$count` -> conta seguidores em comum com o auth
--`$viewer$knownFollowers$did` -> did do seguidor em comum
--`$viewer$knownFollowers$handle` -> @ do perfil do seguidor em comum
--`$viewer$knownFollowers$displayName` -> Nome informal do seguidor em comum
+- `$viewer$knownFollowers` -> informações sobre os seguidores em comum
+- `$viewer$knownFollowers$count` -> conta seguidores em comum com o auth
+- `$viewer$knownFollowers$did` -> did do seguidor em comum
+- `$viewer$knownFollowers$handle` -> @ do perfil do seguidor em comum
+- `$viewer$knownFollowers$displayName` -> Nome informal do seguidor em comum
 
 Extrai o perfil com a `did` específicada e seus seguidores
 
@@ -370,9 +373,9 @@ toJSON(likes, pretty = TRUE)
 
 ## SEGUIDORES
 
-`$followers$did` = did
-`$followes$handle` = @
-`$followers$associated$activitySubscription$allowSubscriptions` = Se follow, seguindo
+- `$followers$did` = did
+- `$followes$handle` = @
+- `$followers$associated$activitySubscription$allowSubscriptions` = Se follow, seguindo
 
 Seguidores de um usuário
 
