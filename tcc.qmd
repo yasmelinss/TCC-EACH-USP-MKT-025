@@ -56,6 +56,8 @@ format:
   #   ### opções comuns para todas as versões
   #   #################### 
   #   documentclass: abntex2
+  #   # precisa executar `tinytex::tlmgr_install("babel-portuges")`
+  #   #   se der erro de que o babel não encontra a opção "brazil"
   #   cite-method: biblatex
   #   biblatexoptions:
   #     - backend=biber
