@@ -3,6 +3,14 @@ title: "Primeiro Teste de Raspagem no Bluesky"
 author: "Thales de Fante Romão"
 lang: pt-br
 format: html
+# format: 
+#   pdf:
+#     geometry:
+#       - top=1in
+#       - bottom=1in
+#       - left=1in
+#       - right=1in
+#       - heightrounded
 execute: 
   cache: false
 ---
