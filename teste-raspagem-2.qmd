@@ -55,11 +55,11 @@ transformando URI em URL e vice-versa
 #| label: uri-to-url-to-uri
 #| eval: false
 
-bs_uri_to_url('at://did:plc:ic6zqvuw5ulmfpjiwnhsr2ns/app.bsky.feed.post/3k7qmjev5lr2s')
+bs_uri_to_url('at://did:plc:g4efut5lyfkz6wxoejsuo2dw/app.bsky.feed.post/3m2i7h6uhx222')
 
 bs_uri_to_url('at://did:plc:kwssn4xujlrl4ybhzm5vt5mg/app.bsky.feed.post/3l5xjaj66js24')
 
-bs_url_to_uri('https://bsky.app/profile/ennoe.bsky.social', auth = auth)
+bs_url_to_uri('https://bsky.app/profile/pupn1k.bsky.social/post/3m2kh4cgtk22q', auth = auth)
 
 bs_url_to_uri('https://bsky.app/profile/yasmelinss.bsky.social', auth = auth)
 ```
