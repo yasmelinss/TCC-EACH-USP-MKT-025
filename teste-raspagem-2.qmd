@@ -88,13 +88,17 @@ transformando URI em URL e vice-versa
 #| label: uri-to-url-to-uri
 #| eval: false
 
-bs_uri_to_url('at://did:plc:g4efut5lyfkz6wxoejsuo2dw/app.bsky.feed.post/3m2i7h6uhx222')
+'at://did:plc:g4efut5lyfkz6wxoejsuo2dw/app.bsky.feed.post/3m2i7h6uhx222' |> 
+bs_uri_to_url()
 
-bs_uri_to_url('at://did:plc:kwssn4xujlrl4ybhzm5vt5mg/app.bsky.feed.post/3l5xjaj66js24')
+'at://did:plc:kwssn4xujlrl4ybhzm5vt5mg/app.bsky.feed.post/3l5xjaj66js24' |> 
+  bs_uri_to_url()
 
-bs_url_to_uri('https://bsky.app/profile/pupn1k.bsky.social/post/3m2kh4cgtk22q', auth = auth)
+'https://bsky.app/profile/pupn1k.bsky.social/post/3m2kh4cgtk22q' |> 
+  bs_url_to_uri(auth = auth)
 
-bs_url_to_uri('https://bsky.app/profile/yasmelinss.bsky.social', auth = auth)
+'https://bsky.app/profile/yasmelinss.bsky.social' |> 
+  bs_url_to_uri(auth = auth)
 ```
 
 Pega apenas o valor do Record Key do usuário
@@ -104,7 +108,8 @@ Pega apenas o valor do Record Key do usuário
 #| label: extract-record-key
 #| eval: true
 
-bs_extract_record_key('at://did:plc:kwssn4xujlrl4ybhzm5vt5mg/app.bsky.feed.post/3l5xjaj66js24')
+'at://did:plc:kwssn4xujlrl4ybhzm5vt5mg/app.bsky.feed.post/3l5xjaj66js24' |> 
+  bs_extract_record_key()
 ```
 
 # EXTRAÇÃO DOS DADOS
@@ -134,7 +139,9 @@ Para extrair apenas o `$did` de uma `URI` é necessário aplicar a função (`st
 ```{r}
 #| label: extrai-did-user
 
-did <- str_extract('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zrsda2r', "did:[^/]+")
+did <- 
+  'at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zrsda2r' |> 
+  str_extract("did:[^/]+")
 
 print(did)
 ```
@@ -196,10 +203,11 @@ filtragem <-
       posts = perfil$profiles[[1]]$postsCount,
       criado_em = perfil$profiles[[1]]$createdAt,
       url_perfil = paste0("https://bsky.app/profile/", handle),
-      qnt_seguidores_em_comum = perfil$profiles[[1]]$viewer$knownFollowers$count
+      qnt_seguidores_em_comum = 
+        perfil$profiles[[1]]$viewer$knownFollowers$count
     )
 
-toJSON(filtragem, pretty = TRUE)
+formataJSON(filtragem)
 ```
 filtra as informações dos seguidores em comum entre auth e `did`
 
@@ -209,18 +217,20 @@ filtra as informações dos seguidores em comum entre auth e `did`
 qnt_seguidores_em_comum <- perfil$profiles[[1]]$viewer$knownFollowers$count
 
 i = 1
-while( i <= length(qnt_seguidores_em_comum)){
+while (i <= length(qnt_seguidores_em_comum)) {
   filtragem2 <- 
     tibble(
-      perfis_comum_did = perfil$profiles[[1]]$viewer$knownFollowers$followers[[i]]$did, 
-      perfis_comum_handle = perfil$profiles[[1]]$viewer$knownFollowers$followers[[i]]$handle, 
-      perfis_comum_displayName = perfil$profiles[[1]]$viewer$knownFollowers$followers[[i]]$displayName
+      perfis_comum_did =
+        perfil$profiles[[1]]$viewer$knownFollowers$followers[[i]]$did, 
+      perfis_comum_handle =
+        perfil$profiles[[1]]$viewer$knownFollowers$followers[[i]]$handle, 
+      perfis_comum_displayName =
+        perfil$profiles[[1]]$viewer$knownFollowers$followers[[i]]$displayName
     )
-
-i = i + 1
+  i = i + 1
 }
 
-toJSON(filtragem2, pretty = TRUE)
+formataJSON(filtragem2)
 ```
 
 
@@ -233,15 +243,17 @@ Procurando perfis com uma query específica
 procurandoperfis <- 
   bs_search_actors(
     'league of legend', #query == texto da busca
-    typeahead = FALSE, #se TRUE, faz uma busca tipo "sugestão enquanto digita" (autocomplete). Padrão: FALSE.
+    typeahead = FALSE, 
+      # se typeahead == TRUE, então faz uma busca tipo "sugestão enquanto digita"
+      #   (autocomplete).
+      # Padrão: FALSE.
     cursor = NULL, #paginação a parti de uma resposta anterior
     limit = 2,
     auth = auth,
     clean = FALSE
 )
 
-
-toJSON(procurandoperfis, pretty = TRUE)
+formataJSON(procurandoperfis)
 ```
 
 
@@ -255,7 +267,8 @@ Convertendo um post pela URI
 ```{r}
 #| label: post-uri-to-url
 #| 
-bs_uri_to_url('at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zrsda2r')
+'at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zrsda2r' |> 
+  bs_uri_to_url()
 ```
 
 Convertendo um post pela URL
@@ -263,7 +276,8 @@ Convertendo um post pela URL
 ```{r}
 #| label: post-url-to-uri
 
-bs_url_to_uri('https://bsky.app/profile/yasmelins.bsky.social/post/3l6br5zrsda2r', auth = auth)
+'https://bsky.app/profile/yasmelins.bsky.social/post/3l6br5zrsda2r' |> 
+  bs_url_to_uri(auth = auth)
 ```
 
 
@@ -280,7 +294,7 @@ posts_yasmelins <-
     auth = auth
   )
 
-toJSON(posts_yasmelins, pretty = TRUE)
+formataJSON(posts_yasmelins)
 ```
 
 
@@ -297,7 +311,7 @@ posts <-
     auth = auth
   )
 
-toJSON(posts, pretty = TRUE)
+formataJSON(posts)
 ```
 
 
@@ -333,12 +347,13 @@ Usar httr2 diretamente pra chamar o endpoint app.bsky.feed.getLikes, passando a 
 
 likes <- 
   bs_get_likes(
-    actor = 'ennoe.bsky.social', #diz de quem você quer pegar os likes, e espera um uri, não um handle
+    actor = 'ennoe.bsky.social', 
+      # diz de quem você quer pegar os likes, e espera um uri, não um handle
     limit = 3,
     auth = auth
   )
 
-toJSON(likes, pretty = TRUE)
+formataJSON(likes)
 ```
 
 
@@ -346,19 +361,17 @@ toJSON(likes, pretty = TRUE)
 str(likes)
 likes$post_uri
 
-
-
-  map_df(
-    \(x)
-    cat(str(x))
-      # tibble(
-      #   uri = $post_uri,
-      #   cid = x$post_cid,
-      #   # handle = x$post_author_handle,
-      #   # did = x$post_author_did,
-      #   # nome = x$actor$displayName
-      # )
-  )
+  # map_df(
+  #   \(x)
+  #   cat(str(x))
+  #     # tibble(
+  #     #   uri = $post_uri,
+  #     #   cid = x$post_cid,
+  #     #   # handle = x$post_author_handle,
+  #     #   # did = x$post_author_did,
+  #     #   # nome = x$actor$displayName
+  #     # )
+  # )
 ```
 
 
@@ -367,7 +380,8 @@ puxando por httr2
 ```{r}
 #| label: criando-funcao-likes
 
-post_uri <- "at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zrsda2r"
+post_uri <- 
+  "at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zrsda2r"
 
 # Montando a requisição para o endpoint getLikes
 res <- request("https://bsky.social/xrpc/app.bsky.feed.getLikes") |>
@@ -389,7 +403,7 @@ likes <- map_df(data$likes, function(x) {
   )
 })
 
-toJSON(likes, pretty = TRUE)
+formataJSON(likes)
 ```
 
 
@@ -415,7 +429,8 @@ bs_get_followers(
   limit = 3,
   auth = auth,
   clean = FALSE
-)  
+) |> 
+  formataJSON()
 ```
 
 Quem o usuário segue
@@ -437,7 +452,7 @@ seguindo <-
     clean = FALSE
   )    
 
-toJSON(seguindo, pretty = TRUE)
+formataJSON(seguindo)
 ```
 
 ## REPLIES
@@ -461,7 +476,8 @@ pegando os dados de uma função replyes
 #| label: criando-funcao-reply
 
 # URI do post
-post_uri <- "at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zrsda2r"
+post_uri <- 
+  "at://did:plc:vljand5f4megiw7rj4mpmhaw/app.bsky.feed.post/3l6br5zrsda2r"
 
 # endpoint: getPostThread
 res <- 
@@ -485,9 +501,8 @@ replies <- map_df(thread$thread$replies, function(x) {
   )
 })
 
-toJSON(thread, pretty = TRUE)
+formataJSON(thread)
 #print(replies)
-
 ```
 
 
