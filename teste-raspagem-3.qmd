@@ -14,3 +14,55 @@ format: html
 execute: 
   cache: false
 ---
+
+# SETUP
+```{r}
+library(bskyr)
+library(tidyverse)
+library(readr)
+library(jsonlite)
+library(atrrr)
+```
+
+
+
+```{r}
+
+```
+
+
+
+# CONVERSÃO
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+# RASPAGEM
+
+## Busca por posts
+
+
+
+## Raspagem post
+
+
+## Raspagem likes
+
+
+## Busca por usuário
+
+
+## Raspagem usuário
+
+
+## Ver posts de um usuário
+
+```{r}
+```
+
