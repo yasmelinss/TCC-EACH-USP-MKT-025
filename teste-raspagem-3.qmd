@@ -25,6 +25,7 @@ library(atrrr)
 ```
 
 
+# AUTENTICAÇÃO
 
 ```{r}
 
@@ -36,10 +37,12 @@ library(atrrr)
 
 
 ```{r}
+convert_http_to_at("https://bsky.app/profile/yasmelinss.bsky.social/post/3m2iaytbuxk2q", .token = NULL)
 ```
 
 
 ```{r}
+convert_at_to_http("at://did:plc:g4efut5lyfkz6wxoejsuo2dw/app.bsky.feed.post/3m2iaytbuxk2q")
 ```
 
 
@@ -64,5 +67,7 @@ library(atrrr)
 ## Ver posts de um usuário
 
 ```{r}
+dados <- get_skeets_authored_by(actor = "yasmelinss.bsky.social", parse = TRUE) |>
+  dplyr::glimpse()
 ```
 
