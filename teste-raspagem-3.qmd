@@ -17,7 +17,7 @@ execute:
 
 # SETUP
 ```{r}
-library(bskyr)
+#library(bskyr)
 library(tidyverse)
 library(readr)
 library(jsonlite)
@@ -48,26 +48,62 @@ convert_at_to_http("at://did:plc:g4efut5lyfkz6wxoejsuo2dw/app.bsky.feed.post/3m2
 
 # RASPAGEM
 
-## Busca por posts
+## Searching / Aleatória
+
+### Busca por posts
+### Busca por usuário
+
+## Específicada
+
+### Raspagem post/usuário
+### Raspagem likes
 
 
-
-## Raspagem post
-
-
-## Raspagem likes
-
-
-## Busca por usuário
-
-
-## Raspagem usuário
-
-
-## Ver posts de um usuário
 
 ```{r}
+#| label: raspagem-user-posts
+
+
 dados <- get_skeets_authored_by(actor = "yasmelinss.bsky.social", parse = TRUE) |>
   dplyr::glimpse()
 ```
 
+
+```{r}
+#| label: raspagem-thread
+
+
+toJSON(get_thread(
+post_url = 'https://bsky.app/profile/pupn1k.bsky.social/post/3m2kh4cgtk22q',
+.token = NULL
+), pretty = TRUE)
+```
+
+```{r}
+
+#| label: raspagem-users-likes
+
+
+toJSON(get_likes(
+post_url = 'at://did:plc:g4efut5lyfkz6wxoejsuo2dw/app.bsky.feed.post/3m2iaytbuxk2q',
+limit = 25L,
+cursor = NULL,
+parse = TRUE,
+verbose = NULL,
+.token = NULL
+), pretty = TRUE)
+```
+
+```{r}
+#| label: raspagem-users-repost
+
+
+toJSON(get_reposts(
+post_url = 'at://did:plc:2d5tigfjv3z4zxadq7z3vcoe/app.bsky.feed.post/3m2kh4cgtk22q',
+limit = 25L,
+cursor = NULL,
+parse = TRUE,
+verbose = NULL,
+.token = NULL
+), pretty = TRUE)
+```
