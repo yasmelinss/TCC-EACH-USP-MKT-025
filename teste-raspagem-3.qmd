@@ -17,6 +17,8 @@ execute:
 
 # SETUP
 ```{r}
+#| label: setup
+
 #library(bskyr)
 library(tidyverse)
 library(readr)
@@ -35,6 +37,9 @@ library(atrrr)
 
 # CONVERSÃO
 
+<-- Entendendo o padrão de URL do Bluesky -->
+
+- DID: Identificador descentralizado
 
 ```{r}
 convert_http_to_at("https://bsky.app/profile/yasmelinss.bsky.social/post/3m2iaytbuxk2q", .token = NULL)
@@ -58,14 +63,42 @@ convert_at_to_http("at://did:plc:g4efut5lyfkz6wxoejsuo2dw/app.bsky.feed.post/3m2
 ### Raspagem post/usuário
 ### Raspagem likes
 
+A função (`get_skeets_authored_by`) fornece os seguintes metadados:
+
+- `$ uri`: Padrão de redirecionamento do *Bluesky*, funciona como o "endereço" do post.
+- `$ cid`: *Content Identifier* - um hash que representa o conteúdo do post de forma única
+- `$ author_handle`: *"@"* do perfil ou nome público de uma conta
+- `$ author_name`: Nome não oficial da conta exibido
+- `$ text`: Conteúdo em texto do post, pode conter texto, menções, emojis e links
+- `$ author_data`: Informações do perfil
+-- *did*, *handle*, *bio*, link da imagem de perfil 
+- `$ post_data`: Informações sobre o post como a data de criação e dados *embed* como anexos, citações e imagens
+- `$ embed_data`: Informações sobre o conteúdo incorporado (embed), como outro post citado, imagem ou link
+- `$ reply_count`: quantidade de respostas ou comentários
+- `$ repost_count`: quantidade de *reposts* ou compartilhamentos ou *reskeet*
+- `$ like_count`: quantidade de *likes* ou curtidas
+- `$ quote_count`: quantidade de *reposts* com marcação ou citação *
+- `$ indexed_at`: data da publicação no servidor do *Bluesky*
+- `$ in_reply_to`: URI do post ao qual este responde (caso seja uma resposta direta).
+- `$ in_reply_root`: URI do post original na cadeia de respostas (a “raiz” da conversa).
+- `$ quotes`: URIs de posts que foram citados por este post
+- `$ tags`: Lista de hashtags incluídas no post
+- `$ mentions`: Lista de usuários mencionados
+- `$ links`: Links externos incluídos no texto do post
+- `$ langs`: Idiomas detectados no texto
+- `$ labels`: Rótulos automáticos atribuídos
+- `$ is_reskeet`: (booleano) verifica se é um *repost*
 
 
 ```{r}
 #| label: raspagem-user-posts
 
-
-dados <- get_skeets_authored_by(actor = "yasmelinss.bsky.social", parse = TRUE) |>
-  dplyr::glimpse()
+dplyr::glimpse(
+  "yasmelinss.bsky.social" |> 
+    get_skeets_authored_by(
+      parse = TRUE
+    )
+  )
 ```
 
 
