@@ -29,12 +29,6 @@ library(atrrr)
 
 # AUTENTICAÇÃO
 
-```{r}
-
-```
-
-
-
 # CONVERSÃO
 
 <-- Entendendo o padrão de URL do Bluesky -->
@@ -42,12 +36,18 @@ library(atrrr)
 - DID: Identificador descentralizado
 
 ```{r}
-convert_http_to_at("https://bsky.app/profile/yasmelinss.bsky.social/post/3m2iaytbuxk2q", .token = NULL)
+#| label: url-to-uri
+
+"https://bsky.app/profile/yasmelinss.bsky.social/post/3m2iaytbuxk2q" |>
+convert_http_to_at(.token = NULL)
 ```
 
 
 ```{r}
-convert_at_to_http("at://did:plc:g4efut5lyfkz6wxoejsuo2dw/app.bsky.feed.post/3m2iaytbuxk2q")
+#| label: uri-to-url
+
+"at://did:plc:g4efut5lyfkz6wxoejsuo2dw/app.bsky.feed.post/3m2iaytbuxk2q" |>
+  convert_at_to_http()
 ```
 
 
@@ -58,10 +58,11 @@ convert_at_to_http("at://did:plc:g4efut5lyfkz6wxoejsuo2dw/app.bsky.feed.post/3m2
 ### Busca por posts
 ### Busca por usuário
 
+
+
 ## Específicada
 
 ### Raspagem post/usuário
-### Raspagem likes
 
 A função (`get_skeets_authored_by`) fornece os seguintes metadados:
 
@@ -102,15 +103,71 @@ dplyr::glimpse(
 ```
 
 
+aqui buscamos informações que vão além do post, também compilamos informações sobre suas interações.
+
+O primeiro resultado da postagem trás informações do *reskeet* 
+raiz. Os próximos trazem dados das interações.
+
+
 ```{r}
 #| label: raspagem-thread
 
+'https://bsky.app/profile/pupn1k.bsky.social/post/3m2kh4cgtk22q'|>
+  get_thread()
+
+```
+
+
+
+```{r}
+#| label: raspagem-thread-jeito-2
 
 toJSON(get_thread(
 post_url = 'https://bsky.app/profile/pupn1k.bsky.social/post/3m2kh4cgtk22q',
 .token = NULL
 ), pretty = TRUE)
+``` 
+
+
+filtrando dados
+
+
+```{r}
+#| label: filtragem-thread-pré
+
+dados <-
+'https://bsky.app/profile/pupn1k.bsky.social/post/3m2kh4cgtk22q'|>
+  get_thread()
+
 ```
+
+
+```{r}
+#| label: filtragem-thread
+#| eval: true
+
+#ele não está pegando TODOS os dados
+dados |>
+    select(
+      author_name, 
+      author_handle, 
+      text, 
+      like_count, 
+      reply_count
+  ) |>
+head()
+
+```
+
+
+
+```{r}
+post_url <- 
+  'https://bsky.app/profile/pupn1k.bsky.social/post/3m2kh4cgtk22q' |>
+  get_thread()
+```
+
+### Raspagem likes
 
 ```{r}
 
