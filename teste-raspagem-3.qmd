@@ -46,7 +46,7 @@ convert_http_to_at(.token = NULL)
 ```{r}
 #| label: uri-to-url
 
-"at://did:plc:g4efut5lyfkz6wxoejsuo2dw/app.bsky.feed.post/3m2iaytbuxk2q" |>
+"at://did:plc:4bvoxokewgsqfjfefnzsppny/app.bsky.graph.follow/3m2idq3n4b22n" |>
   convert_at_to_http()
 ```
 
@@ -160,23 +160,35 @@ head()
 ```
 
 
-
-```{r}
-post_url <- 
-  'https://bsky.app/profile/pupn1k.bsky.social/post/3m2kh4cgtk22q' |>
-  get_thread()
-```
-
 ### Raspagem likes
 
-```{r}
+Raspagem dos perfis que curtiram determinado post.
 
+Metadados trazidos pela (`get_likes`)
+- `$ created_at`:
+- `$ indexed_at`:
+- `$ actor_handle`:
+- `$ actor_name`:
+- `$ actor_data`:
+-- `$ did`:
+-- `$ handle`:
+-- `$ avatar`:
+-- `$ associated`:
+-- `$ viewer`: informação se está mutado, bloqueado ou seguindo. trás a uri de `$ following` com `$ followedBy` (o nome do usuário aparece quando convertemos a URI para URL)
+- `$ labels`:
+- `$ createdAt`:
+- `$ description`: 
+- `$ indexedAt`:
+
+
+```{r}
+#seria interessante uma tabela
 #| label: raspagem-users-likes
 
 
 toJSON(get_likes(
-post_url = 'at://did:plc:g4efut5lyfkz6wxoejsuo2dw/app.bsky.feed.post/3m2iaytbuxk2q',
-limit = 25L,
+post_url = 'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x',
+limit = 2L,
 cursor = NULL,
 parse = TRUE,
 verbose = NULL,
@@ -189,8 +201,8 @@ verbose = NULL,
 
 
 toJSON(get_reposts(
-post_url = 'at://did:plc:2d5tigfjv3z4zxadq7z3vcoe/app.bsky.feed.post/3m2kh4cgtk22q',
-limit = 25L,
+post_url = 'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x',
+limit = 2L,
 cursor = NULL,
 parse = TRUE,
 verbose = NULL,
