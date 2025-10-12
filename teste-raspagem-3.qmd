@@ -56,6 +56,41 @@ convert_http_to_at(.token = NULL)
 ## Searching / Aleatória
 
 ### Busca por posts
+
+Procurando post com query específica
+
+```{r}
+#| label: buscando-posts-search
+
+buscando_posts <- 
+  bs_search_posts(
+    query = '"league of legends" since:2024-08-30 until:2024-10-08',
+    limit = 1,
+    auth = auth
+  )
+
+formataJSON(buscando_posts)
+```
+
+
+```{r}
+#| label: filtragem-buscando-posts-search
+
+buscando_posts |>
+    select(
+      uri,
+      author,
+      #text,
+      reply_count,
+      repost_count,
+      like_count,
+      indexed_at
+      
+      
+  ) |>
+head()
+
+```
 ### Busca por usuário
 
 
