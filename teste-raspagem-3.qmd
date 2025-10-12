@@ -196,6 +196,26 @@ verbose = NULL,
 ), pretty = TRUE)
 ```
 
+```{r}
+#| label: raspagem-users-likes-2
+
+likes <-
+  'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x' |>
+    get_likes()
+
+```
+
+```{r}
+#| label: filtragem-users-likes
+
+likes |>
+  select(
+    actor_handle,
+    actor_name
+  ) |>
+  head()
+
+```
 
 
 pegando reposts
