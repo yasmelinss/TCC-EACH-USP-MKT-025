@@ -200,8 +200,17 @@ verbose = NULL,
 
 pegando reposts
 
+
+- `$ did`:
+- `$ actor_handle`:
+- `$ actor_name`:
+- `$ actor_avatar`:
 - `$ associated`: grupa configurações opcionais ligadas ao comportamento social do usuário, ou seja, quem pode mandar mensagens e quem pode acompanhar atividades (como notificações de posts, likes, etc.).
- 
+- `$ viewer`:
+- `$ labels`:
+- `$ created_at`:
+- `$ actor_description`:
+- `$ indexed_at`:
 
 | Caso | Chat permitido para | Assinaturas permitidas para | Indica                           |
 | ---- | ------------------- | --------------------------- | -------------------------------- |
