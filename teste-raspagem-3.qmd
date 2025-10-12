@@ -196,6 +196,21 @@ verbose = NULL,
 ), pretty = TRUE)
 ```
 
+
+
+pegando reposts
+
+- `$ associated`: grupa configurações opcionais ligadas ao comportamento social do usuário, ou seja, quem pode mandar mensagens e quem pode acompanhar atividades (como notificações de posts, likes, etc.).
+ 
+
+| Caso | Chat permitido para | Assinaturas permitidas para | Indica                           |
+| ---- | ------------------- | --------------------------- | -------------------------------- |
+| 1️⃣  | Seguindo            | Seguidores                  | Privado / restrito               |
+| 2️⃣  | (ausente)           | Seguidores                  | Chat desativado ou não retornado |
+| 3️⃣  | Todos               | Seguidores                  | Mais aberto / público            |
+
+
+
 ```{r}
 #| label: raspagem-users-repost
 
