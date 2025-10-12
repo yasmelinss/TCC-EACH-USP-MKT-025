@@ -175,7 +175,7 @@ dplyr::glimpse(
 ```
 
 
-aqui buscamos informações que vão além do post, também compilamos informações sobre suas interações.
+com a função (`get_thread`) buscamos informações que vão além do post, também compilamos informações sobre suas interações.
 
 O primeiro resultado da postagem trás informações do *reskeet* 
 raiz. Os próximos trazem dados das interações.
@@ -232,7 +232,7 @@ head()
 ```
 
 
-### Raspagem likes
+### Raspagem Likes
 
 Raspagem dos perfis que curtiram determinado post.
 
@@ -291,7 +291,7 @@ likes |>
 
 
 
-### Raspagem reposts
+### Raspagem Reposts
 
 
 - `$ did`:
@@ -354,3 +354,5 @@ head()
 ```
 
 
+
+### Raspagem Quotes
