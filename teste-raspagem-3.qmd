@@ -224,3 +224,30 @@ verbose = NULL,
 .token = NULL
 ), pretty = TRUE)
 ```
+
+```{r}
+#| label: raspagem-users-repost-2
+
+reposts <-
+  'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x' |>
+  get_reposts()
+
+```
+
+
+```{r}
+#| label: filtragem-users-repost
+
+#também está limitando os dados
+reposts |>
+    select(
+      did,
+      actor_name,
+      actor_handle,
+      associated
+
+  ) |>
+head()
+
+```
+
