@@ -89,9 +89,46 @@ buscando_posts |>
       
   ) |>
 head()
+```
+
+
+### Busca por usuário
+
+
+Buscando perfis com uma query específica
+
+```{r}
+#| label: buscando-perfis-search
+#| eval: true
+
+buscando_perfis <- 
+  bs_search_actors(
+    'league of legend',
+    typeahead = FALSE, 
+      # se typeahead == TRUE, então faz uma busca tipo "sugestão enquanto digita"
+    cursor = NULL,
+    limit = 2,
+    auth = auth,
+    clean = FALSE
+)
+
+formataJSON(buscando_perfis)
+```
+
+
+
+```{r}
+#| label: filtragem-buscando-perfis-search
+
+buscando_posts |>
+    select(
+      #actors
+  ) |>
+head()
 
 ```
-### Busca por usuário
+
+
 
 
 
@@ -254,7 +291,7 @@ likes |>
 
 
 
-PEGANDO REPOSTS
+### Raspagem reposts
 
 
 - `$ did`:
