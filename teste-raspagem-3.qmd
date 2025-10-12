@@ -182,7 +182,6 @@ Metadados trazidos pela (`get_likes`)
 
 
 ```{r}
-#seria interessante uma tabela
 #| label: raspagem-users-likes
 
 
@@ -218,7 +217,9 @@ likes |>
 ```
 
 
-pegando reposts
+
+
+PEGANDO REPOSTS
 
 
 - `$ did`:
@@ -234,9 +235,9 @@ pegando reposts
 
 | Caso | Chat permitido para | Assinaturas permitidas para | Indica                           |
 | ---- | ------------------- | --------------------------- | -------------------------------- |
-| 1️⃣  | Seguindo            | Seguidores                  | Privado / restrito               |
-| 2️⃣  | (ausente)           | Seguidores                  | Chat desativado ou não retornado |
-| 3️⃣  | Todos               | Seguidores                  | Mais aberto / público            |
+| 1⃣  | Seguindo            | Seguidores                  | Privado / restrito               |
+| 2⃣  | (ausente)           | Seguidores                  | Chat desativado ou não retornado |
+| 3⃣  | Todos               | Seguidores                  | Mais aberto / público            |
 
 
 
@@ -279,4 +280,5 @@ reposts |>
 head()
 
 ```
+
 
