@@ -24,10 +24,48 @@ library(tidyverse)
 library(readr)
 library(jsonlite)
 library(atrrr)
+
+# funções úteis
+quebra <- function(string, tamanho = 80) {
+  str_split(string, "\n", simplify = TRUE) |> 
+    c() |> 
+    sapply(
+      \(x)
+      sapply(
+        1:(nchar(x) %/% tamanho + 1), 
+        \(k) str_sub(x, start = (k - 1) * tamanho + 1, end = k * tamanho),
+        simplify = TRUE,
+        USE.NAMES = FALSE
+      ),
+      simplify = TRUE,
+      USE.NAMES = FALSE
+    ) |> 
+    unlist() |> 
+    paste(collapse = "\n") |> 
+    cat()
+  
+}
+formataJSON <- function(string) {
+  toJSON(string, pretty = TRUE) |> 
+    quebra()
+}
 ```
 
 
 # AUTENTICAÇÃO
+
+Usando o login do Thales
+
+```{r}
+#| label: usuario-autenticação
+
+auth <- 
+  bskyr::bs_auth(
+    user = "ennoe.bsky.social", 
+    pass = "omp6-axyy-kme6-i4gm"
+  )
+```
+
 
 # CONVERSÃO
 
@@ -256,15 +294,15 @@ Metadados trazidos pela (`get_likes`)
 ```{r}
 #| label: raspagem-users-likes
 
-
-toJSON(get_likes(
-post_url = 'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x',
-limit = 2L,
-cursor = NULL,
-parse = TRUE,
-verbose = NULL,
-.token = NULL
-), pretty = TRUE)
+'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x' |> 
+  get_likes(
+    limit = 2L,
+    cursor = NULL,
+    parse = TRUE,
+    verbose = NULL,
+    .token = NULL
+  ) |> 
+  formataJSON()
 ```
 
 ```{r}
