@@ -117,7 +117,9 @@ format:
 # Introdução
 
 ## Revisão Bibliográfica
-<!-- Redação provisória em bullet points-->
+<!-- Redação provisória em bullet points
+
+Falta adicionar conectivos ao corpo do texto. Parecem citações pouco conexas e com pouco texto autoral-->
 
 ### Indústria de Games enquanto Indústria Criativa
 
@@ -128,6 +130,8 @@ O enfoque sociológico elabora sobre o conceito de induscria cultural e seus efe
 - bibliografia do Edmund Phelps
 
 - Aguardando bibliografia introdutória da Jane -->
+
+
 
 
 ### Marketing de Redes Sociais
@@ -164,6 +168,7 @@ Existe um extenso debate sobre a diferenciação ou a semelhança dos esportes e
 A principal forma de disseminação dos E-sports se dá através das transmissões online (*streaming*) e eventos híbridos (campeonatos com torcida que são também transmitidos de forma online), nos quais toda a atividade esportiva (antes, durante a após o evento) é mediada por computadores, facilitando a obtenção de dados dos telespectadores [@Juho2017]. 
 
 @Trail2001 apontam que a motivação social é um dos fatores que influenciam o consumo de esportes, levando indivíduos a acompanhar eventos esportivos pela interação e sentimento de pertencimento que emergem dessas experiências coletivas. Embora o estudo tenha sido direcionado aos esportes tradicionais, é possível observar esta mesma manifestação nos *E-sports*, nos quais o prazer de acompanhar novas competições, jogadores e equipes é potencializado pela troca social entre espectadores em ambientes digitais, expressos as redes sociais, plataformas de *streaming* e mercado cultural.
+
 
 <!--A partir de dados apresentados pelo site TwitchTracker.com, a plataforma Twitch obteve no primeiro semestre de 2025 mais de 10 bilhões de horas de conteúdo assistido, 2,5% a menos comparado com o mesmo período do ano passado. Das views, 33,5% da audiência da Twitch é impulsionada pelos 5 Games mais assistidos pelos usuários. São eles: Just Chatting - 15,9% (categoria de streamers que comentam ou reagem a partidas de jogos ou assuntos variados relacionados); League of Legends - 5,5%; Grand Theft Auto V - 3,7%; Counter-Strike - 3,7%; Dota 2 - 3,1%; e Valorant - 3,1%.
 
@@ -251,11 +256,17 @@ A análise de sentimentos (também conhecida como mineração de opiniões) é o
 
 ## Problema de pesquisa
 
-Em dezembro de 2019, Jack Donsey, então CEO do Twitter Inc.,  anunciou que a empresa estaria financiando uma equipe de profissionais independentes para o desenvolvimento de um novo protocolo aberto e descentralizado para redes sociais, com a intenção de eventualmente implementá-lo para o próprio Twitter. Em 2021, o projeto se tornou uma organização independente do Twitter, dando origem ao Bluesky Social PCB. Um ano depois, em 2022, Elon Musk adquiriu o Twitter (renomeado como X) e a rede cessou todas relações de serviço com o Bluesky, que seguiu com sua proposta de desenvolver e impulsionar a adoção em larga escala de tecnologias para conversas públicas, abertas e descentralizadas. [@Bluesky2023]
+Em dezembro de 2019, Jack Donsey, então CEO do Twitter Inc., anunciou que a empresa estaria financiando uma equipe de profissionais independentes para o desenvolvimento de um novo protocolo aberto e descentralizado para redes sociais, com a intenção de eventualmente implementá-lo para o próprio Twitter. Em 2021, o projeto se tornou uma organização independente do Twitter, dando origem ao Bluesky Social PCB. Um ano depois, em 2022, Elon Musk adquiriu o Twitter (renomeado como X) e a rede cessou todas relações de serviço com o Bluesky, que seguiu com sua proposta de desenvolver e impulsionar a adoção em larga escala de tecnologias para conversas públicas, abertas e descentralizadas. [@Bluesky2023]
 
 A rede teve um grande aumento de usuários em 30 de agosto de 2024, quando a *X Brasil Internet Ltda.* (antigo Twitter) e outras empresas relacionadas à Elon Musk tiveram seus funcionamentos integralmente suspensos em todo o Brasil por determinação de Alexandre de Moraes, ministro do Supremo Tribunal Federal. O motivo da suspensão foi o desobedecimento de ordens judiciais brasileiras na não nomeação de um representante legal dentro do prazo estipulado pelo ministro na intimação (PET 12.404 DF) de 18 de setembro de 2024. [@G12024]
 
 A suspensão do X no Brasil durou cerca de 40 dias, encerrando em 8 de outubro de 2024 após o cumprimento das ordens judiciais pela rede e uma multa de 28,6 milhões de reais. Durante este período, a migração de usuários brasileiros para alternativas como o Bluesky foi impulsionada significativamente. Em 31 agosto de 2024, o Bluesky anunciou que havia batido mais de 1 milhão de novos usuários nos últimos 3 dias e que brasileiros estavam estabelecendo novos recordes de atividade na plataforma. [@G12024]
+
+Os autores @Dijck2019 introduzem o conceito de "sociedade plataformizada", onde as lógicas das plataformas (como AirBnb, Google, Uber e outras) moldam a interação social, a economia e o exercicio da cidadania. O ecossistema de plataformas pode ser dividido entre plataformas infraestruturais e setoriais, em que as plataformas infraestruturais são as mais influentes e formam o coração do ecossistema sob as quais outros aplicativos e plataformas podem ser construídos, sendo elas mecanismos de busca, navegadores, *e-mail*, plataformas de mensagem, redes sociais, lojas de aplicativos, *GPS*, sistemas de pagamento e hospedagem de arquivos [@Dijck2019]. Sendo assim, podemos entender a migração de usuários do X (centralizado, baseado em anúncios, sujeito a pressões de um único ator -- Musk) para o Bluesky (descentralizado e com protocolo aberto) como uma mudança de um ecossistema plataformizado fechado para um (potencialmente) mais aberto.
+
+<!-- Baym (2010) e Velkova e Kaun (2021) interpretam a migração dos fãs de e-sports como uma adaptação rápida de um ecossistema de informação e uma prática de "reparo" cultural. -->
+
+Em seu artigo sobre as consequências da algoritmização na sociedade, os autores @Velkova2021 abordam a ideia de "políticas de reparo" midiáticas como sendo trabalhos corretivos em conjunto com e dentro de sistemas algorítmicos para fazê-los gerarem resultados não intencionais, em resposta à tendenciosidades ou "falhas" percebidas nos resultados de algorítmos. Similarmente, a migração em massa de usuários brasileiros do X para o Bluesky pode ser vista como uma forma de "reparo" ou "resistência algorítmica" diante da falha de uma plataforma centralizada, tornando necessário o reparo de seus tecidos sociais e comunicativos em um novo espaço onde possam reconstruir comunidades.
 
 O Campeonato Brasileiro de League of Legends (CBLOL) é um torneio competitivo de e-sports de League of Legends no Brasil, organizado anualmente pela Riot Games. Em 2024, o evento teve sua primeira etapa entre 20 de janeiro e 20 de abril e sua segunda etapa entre 1 de junho e 7 de setembro. Com partidas gerando um grande número de engajamento nas redes sociais, a produção de conteúdo por espectadores durante a segunda etapa do CBLOL 2024 foi diretamente impactada pela suspensão do X no Brasil, que teve seu início próximo às finais do campeonato e término somente depois que ele havia encerrado. [@CBLOL2024]
 
