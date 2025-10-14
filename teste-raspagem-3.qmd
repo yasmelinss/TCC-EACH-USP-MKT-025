@@ -24,6 +24,31 @@ library(tidyverse)
 library(readr)
 library(jsonlite)
 library(atrrr)
+
+# funções úteis
+quebra <- function(string, tamanho = 80) {
+  str_split(string, "\n", simplify = TRUE) |> 
+    c() |> 
+    sapply(
+      \(x)
+      sapply(
+        1:(nchar(x) %/% tamanho + 1), 
+        \(k) str_sub(x, start = (k - 1) * tamanho + 1, end = k * tamanho),
+        simplify = TRUE,
+        USE.NAMES = FALSE
+      ),
+      simplify = TRUE,
+      USE.NAMES = FALSE
+    ) |> 
+    unlist() |> 
+    paste(collapse = "\n") |> 
+    cat()
+  
+}
+formataJSON <- function(string) {
+  toJSON(string, pretty = TRUE) |> 
+    quebra()
+}
 ```
 
 
