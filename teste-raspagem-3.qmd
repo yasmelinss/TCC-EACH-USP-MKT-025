@@ -294,15 +294,15 @@ Metadados trazidos pela (`get_likes`)
 ```{r}
 #| label: raspagem-users-likes
 
-
-toJSON(get_likes(
-post_url = 'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x',
-limit = 2L,
-cursor = NULL,
-parse = TRUE,
-verbose = NULL,
-.token = NULL
-), pretty = TRUE)
+'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x' |> 
+  get_likes(
+    limit = 2L,
+    cursor = NULL,
+    parse = TRUE,
+    verbose = NULL,
+    .token = NULL
+  ) |> 
+  formataJSON()
 ```
 
 ```{r}
