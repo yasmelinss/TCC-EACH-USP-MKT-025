@@ -8,45 +8,44 @@ Professor orientador: Marcelo Ventura
 
 Sprint da semana:
 
-- [ ] Analisar e documentar o output de cada seção
-  - [X] Seção SETUP
-  - [X] Seção CONVERSÃO
-  - [X] Seção PERFIL
-  - [ ] Seção POSTS
-  - [ ] Seção CURTIDAS
-  - [ ] Seção POSTS
-  - [ ] Seção COMENTÁRIOS
+- [ ] Trocar todas as funções do {bskyr} pelo {atrrr}
   - Yas
   
-- [ ] Criar uma nova conta no BLSKY para teste
+- [ ] Extrair dados 
+  - [ ] de perfis 
+  - [ ] de postagens
+  - [ ] de replies
+  - [ ] de likes
+  - [ ] de seguindo
+  - [ ] de seguidores
   - Yas
 
-- [ ] Estudar o pacote atrrr
-  - Yas
-
-- [ ] Dar uma ajeitada geral no código
+- [ ] Dar uma ajeitada geral no código do arquivo teste-raspagem-3.qmd
   - [ ] Arrumar prints para JSON
-  - [ ] Arrumar labels dos chunks (tirar eval true)
-  - [ ] Filtragem de variaveis (sem gpt)
-  - [ ] Verificar novamente likes, reply e comments de outras contas a partir da postagem
   - Yas
 
 - [/] Metodologia -- ler artigos e escrever dentro dos tópicos
   - [ ] análise de frequência e exploratória: contagem de palavras, bigramas, visualização
   - Thales
   
-- [/] Terminar as revisões com base no feedback do orientador
-  - [/] Indústria de Games
-  - [X] Pacote {bskyr} do R
+- [ ] Reescrever e incluir as referências da Jane
+  - [/] Problema de Pesquisa
+  - [ ] Indústria de E-sports
+  - [ ] Metodologia
   - Thales
 
-- [X] Revisão Bibliográfica 
-  - [X] Ambiente computacional estatístico R
+- [ ] Realçar quais parágrafos precisam de revisão
   - Thales
-
 
 Backlog:
 
+- [ ] Terminar as revisões com base no feedback do orientador
+  - [ ] Pacote atrrr
+- [ ] Manuseio de dados
+  - [ ] Descobrir como conectar perfis
+  - [ ] Descobrir como conectar postagens
+  - [ ] Descobrir como plotar uma rede e conectar as pessoas
+  - Yas
 - [/] Metodologia -- ler artigos e escrever dentro dos tópicos
   - [-] análise de sentimentos (???)
   - Thales
@@ -54,17 +53,47 @@ Backlog:
   - [ ] análise de frequência e exploratória: contagem de palavras, bigramas, visualização
   - [ ] análise de conectividade: análise de índices de conexão, de centralidade
   - Yas
-- [ ] Fundamentação teórica - Buscar Jane
-  - Thales
-- [ ] Descobrir como plotar uma rede e conectar as pessoas
-  - Yas e Thales
-- [ ] Mandar e-mail para PGB (talvez mais pra frente)
+- [ ] Mandar e-mail para Pesquisa Games Brasil (talvez mais pra frente)
   - Thales
 
 
 
 Concluído:
 
+- [/] Terminar as revisões com base no feedback do orientador
+  - [/] Indústria de Games
+  - [X] Pacote {bskyr} do R
+  - Thales
+  - concluído em 14/10
+- [X] Fundamentação teórica - Buscar Jane
+  - Thales
+  - concluído em 14/10
+- [X] Dar uma ajeitada geral no código do arquivo teste-raspagem-2.qmd
+  - [X] Arrumar prints para JSON
+  - [X] Arrumar labels dos chunks (tirar eval true)
+  - [X] Filtragem de variaveis (sem gpt)
+  - [X] Verificar novamente likes, reply e comments de outras contas a partir da postagem
+  - Yas
+  - concluído em 14/10
+- [X] Criar uma nova conta no BLSKY para teste
+  - Yas
+  - concluído em 14/10
+- [X] Estudar o pacote atrrr
+  - Yas
+  - concluído em 14/10
+- [X] Analisar e documentar o output de cada seção
+  - [X] Seção SETUP
+  - [X] Seção CONVERSÃO
+  - [X] Seção PERFIL
+  - [X] Seção POSTS
+  - [X] Seção CURTIDAS
+  - [X] Seção COMENTÁRIOS
+  - Yas
+  - concluído em 14/10
+- [X] Revisão Bibliográfica 
+  - [X] Ambiente computacional estatístico R
+  - Thales
+  - concluído 07/10
 - [/] Analisar e documentar o output de cada seção
   - [X] Seção USUÁRIO
   - [X] Eliminar as que não vai usar
