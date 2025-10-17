@@ -356,3 +356,34 @@ head()
 
 
 ### Raspagem Quotes
+### Mineração Quotes
+
+### Mineração Seguindo/Seguidores
+
+```{r}
+#| label: extracao-followers
+
+
+seguidores <-
+  get_followers(
+    actor = 'yasmelinss.bsky.social',
+    limit = 25L
+  )
+
+formataJSON(seguidores)
+```
+
+```{r}
+#| label: extracao-follows
+
+
+seguindo <-
+  get_follows(
+    'yasmelinss.bsky.social',
+    limit = 25L
+  )
+
+formataJSON(seguindo)
+
+```
+
