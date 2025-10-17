@@ -50,7 +50,7 @@ formataJSON <- function(string) {
   toJSON(string, pretty = TRUE) |> 
     quebra()
 }
-
+#<<<<<<< HEAD
 
 #autenticação
 auth = ('yasmelins.bsky.social')
@@ -287,9 +287,14 @@ Metadados trazidos pela (`get_likes`)
 ```{r}
 #| label: extracao-users-likes
 
+
 likes <-
   get_likes(
     post_url = 'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x',
+
+'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x' |> 
+  get_likes(
+
     limit = 2L,
     cursor = NULL,
     parse = TRUE,
@@ -297,6 +302,9 @@ likes <-
     .token = NULL
   )
 formataJSON(likes)
+
+  ) |> 
+  formataJSON()
 
 ```
 
