@@ -18,6 +18,7 @@ execute:
 # SETUP
 ```{r}
 #| label: setup
+#| warning: false
 
 #library(bskyr)
 library(tidyverse)
@@ -49,21 +50,10 @@ formataJSON <- function(string) {
   toJSON(string, pretty = TRUE) |> 
     quebra()
 }
-```
+#<<<<<<< HEAD
 
-
-# AUTENTICAÇÃO
-
-Usando o login do Thales
-
-```{r}
-#| label: usuario-autenticação
-
-auth <- 
-  bskyr::bs_auth(
-    user = "ennoe.bsky.social", 
-    pass = "omp6-axyy-kme6-i4gm"
-  )
+#autenticação
+auth = ('yasmelins.bsky.social')
 ```
 
 
@@ -89,11 +79,11 @@ convert_http_to_at(.token = NULL)
 ```
 
 
-# RASPAGEM
+# MINERAÇÃO / EXTRAÇÃO DE DADOS
 
-## Searching / Aleatória
+## Searching por URIs
 
-### Busca por posts
+### Busca por termos
 
 Procurando post com query específica
 
@@ -172,7 +162,7 @@ head()
 
 ## Específicada
 
-### Raspagem post/usuário
+### Mineração Post/usuário
 
 A função (`get_skeets_authored_by`) fornece os seguintes metadados:
 
@@ -202,7 +192,7 @@ A função (`get_skeets_authored_by`) fornece os seguintes metadados:
 
 
 ```{r}
-#| label: raspagem-user-posts
+#| label: extracao-user-posts
 
 dplyr::glimpse(
   "yasmelinss.bsky.social" |> 
@@ -220,7 +210,7 @@ raiz. Os próximos trazem dados das interações.
 
 
 ```{r}
-#| label: raspagem-thread
+#| label: extracao-thread
 
 'https://bsky.app/profile/pupn1k.bsky.social/post/3m2kh4cgtk22q'|>
   get_thread()
@@ -230,12 +220,15 @@ raiz. Os próximos trazem dados das interações.
 
 
 ```{r}
-#| label: raspagem-thread-jeito-2
+#| label: extracao-thread-jeito-2
 
-toJSON(get_thread(
-post_url = 'https://bsky.app/profile/pupn1k.bsky.social/post/3m2kh4cgtk22q',
-.token = NULL
-), pretty = TRUE)
+buscando_thread_dois <-
+  get_thread(
+    post_url = 'https://bsky.app/profile/pupn1k.bsky.social/post/3m2kh4cgtk22q',
+    .token = NULL
+  )
+
+fomataJSON(buscando_thread_dois)
 ``` 
 
 
@@ -243,7 +236,7 @@ filtrando dados
 
 
 ```{r}
-#| label: filtragem-thread-pré
+#| label: extracao-thread-pré
 
 dados <-
 'https://bsky.app/profile/pupn1k.bsky.social/post/3m2kh4cgtk22q'|>
@@ -253,7 +246,7 @@ dados <-
 
 
 ```{r}
-#| label: filtragem-thread
+#| label: extracao-thread
 #| eval: true
 
 #ele não está pegando TODOS os dados
@@ -270,7 +263,7 @@ head()
 ```
 
 
-### Raspagem Likes
+### Mineração Likes
 
 Raspagem dos perfis que curtiram determinado post.
 
@@ -292,32 +285,44 @@ Metadados trazidos pela (`get_likes`)
 
 
 ```{r}
-#| label: raspagem-users-likes
+#| label: extracao-users-likes
+
+
+likes <-
+  get_likes(
+    post_url = 'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x',
 
 'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x' |> 
   get_likes(
+
     limit = 2L,
     cursor = NULL,
     parse = TRUE,
     verbose = NULL,
     .token = NULL
+  )
+formataJSON(likes)
+
   ) |> 
   formataJSON()
+
 ```
 
 ```{r}
-#| label: raspagem-users-likes-2
+#| label: extracao-users-likes-2
 
-likes <-
+likess <-
   'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x' |>
-    get_likes()
+    get_likes(
+      limit = 2L
+    )
 
 ```
 
 ```{r}
 #| label: filtragem-users-likes
 
-likes |>
+likess |>
   select(
     actor_handle,
     actor_name
@@ -329,7 +334,7 @@ likes |>
 
 
 
-### Raspagem Reposts
+### Mineração Reposts
 
 
 - `$ did`:
@@ -352,21 +357,24 @@ likes |>
 
 
 ```{r}
-#| label: raspagem-users-repost
+#| label: extracao-users-repost
 
 
-toJSON(get_reposts(
-post_url = 'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x',
-limit = 2L,
-cursor = NULL,
-parse = TRUE,
-verbose = NULL,
-.token = NULL
-), pretty = TRUE)
+repost <-
+  get_reposts(
+    post_url = 'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x',
+    limit = 2L,
+    cursor = NULL,
+    parse = TRUE,
+    verbose = NULL,
+    .token = NULL
+  )
+
+formataJSON(repost)
 ```
 
 ```{r}
-#| label: raspagem-users-repost-2
+#| label: extracao-users-repost-2
 
 reposts <-
   'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x' |>
@@ -376,7 +384,7 @@ reposts <-
 
 
 ```{r}
-#| label: filtragem-users-repost
+#| label: extracao-users-repost
 
 #também está limitando os dados
 reposts |>
@@ -393,4 +401,34 @@ head()
 
 
 
-### Raspagem Quotes
+### Mineração Quotes
+
+### Mineração Seguindo/Seguidores
+
+```{r}
+#| label: extracao-followers
+
+
+seguidores <-
+  get_followers(
+    actor = 'yasmelinss.bsky.social',
+    limit = 25L
+  )
+
+formataJSON(seguidores)
+```
+
+```{r}
+#| label: extracao-follows
+
+
+seguindo <-
+  get_follows(
+    'yasmelinss.bsky.social',
+    limit = 25L
+  )
+
+formataJSON(seguindo)
+
+```
+
