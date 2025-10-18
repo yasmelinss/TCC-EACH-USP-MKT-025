@@ -181,11 +181,11 @@ AGUARDANDO REF -->
 
 #### League of Legends
 
-League of Legends (LoL) é um jogo *on-line* do tipo MOBA (*Multiplayer Online Battle Arena*), desenvolvido pela empresa Riot Games em 2009, com as partidas nos modos de jogo principais sendo compostas por duas equipes de 5 jogadores, nas quais cada jogador toma controle de um personagem e são esperados a trabalharem em conjunto para destruir a base inimiga. [@Cauteruccio2023]
+<mark>Um dos jogos eletrônicos e *E-sport* mais relevantes na atualidade,</mark> League of Legends (LoL) é um jogo *on-line* do tipo MOBA (*Multiplayer Online Battle Arena*), desenvolvido pela empresa Riot Games em 2009, com as partidas nos modos de jogo principais sendo compostas por duas equipes de 5 jogadores, nas quais cada jogador toma controle de um personagem e são esperados a trabalharem em conjunto para destruir a base inimiga. [@Cauteruccio2023]
 
 Devido a complexidade das partidas e o nível de habilidade demandado, um grande cenário competitivo vem crescendo ao redor do jogo ao passar dos anos. De acordo com @Cauteruccio2023, o principal evento de *E-sports* de LoL é o LoL World Championship (também conhecido como Worlds), onde as melhores equipes do mundo participam e disputam os campeonatos competindo por prêmios multimilionários em formato de torneio. 
 
-Até 2025, as ligas eram divididas entre as quatro regiões *major*:  Coréia (LCK), China (LPL), Europa (LEC) e América do Norte (LCS), enquanto torneios menores em outras regiões eram considerados ligas *minor*. Anunciada em Junho de 2024 e fundada em 31 de outubro de 2024, a liga de LoL das Américas (LTA) uniu as principais ligas americanas LCS, Campeonato Brasileiro de League of Legends (CBLOL) e Liga Latinoamérica (LLA) em um único ecossistema com duas conferências: LTA Norte (baseada na LCS) e LTA Sul (baseada no CBLOL) [@Riot2024LTA]. 
+Até 2025, as ligas eram divididas entre as quatro regiões *major*:  Coréia (LCK), China (LPL), Europa (LEC) e América do Norte (LCS), enquanto torneios menores em outras regiões eram considerados ligas *minor*. Anunciada em Junho de 2024 e fundada em 31 de outubro de 2024, a liga de LoL das Américas (LTA) uniu as principais ligas americanas LCS, Campeonato Brasileiro de League of Legends (CBLOL) e Liga Latinoamérica (LLA) em um único ecossistema com duas conferências: LTA Norte (baseada na LCS) e LTA Sul (baseada no CBLOL) [@Riot2024LTA]. Tal mudança reflete o grande público consumidor de *E-sports* de LoL no Brasil e outros países sul-americanos.
 
 As *lives* das ligas geralmente são transmitidas por diferentes serviços *streamings* como Twitch e Youtube, e o número de visualizações são expressivos, com mais de 99 milhões contabilizadas mundialmente durante a final do Worlds de 2018. [@Cauteruccio2023]
 
