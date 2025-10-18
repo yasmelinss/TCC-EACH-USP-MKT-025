@@ -334,9 +334,33 @@ A linguagem R tem se consolidado como uma das principais ferramentas da ciência
 
 O RStudio atua como um ambiente integrado que potencializa o uso da linguagem R. Conforme observam @Wickham2017, o RStudio transformou a experiência de análise de dados ao integrar código, gráficos e relatórios em um mesmo ambiente, promovendo uma ciência de dados mais interativa e transparente”. No presente trabalho, o RStudio é utilizado para realizar a mineração, tratamento e formatação de dados provenientes da rede social Bluesky.
 
-### Mineração de Dados 
+### <mark>Mineração de Dados 
 
-#### Pacote `{bskyr}` do RStudio (ALTERADO)
+Em seu artigo sobre abordagens quantitativas para a comparação de padrões comunicativos no Twitter (atual X), @Bruns2012 utiliza da *API* de busca através da plataforma *yourTwapperkeeper* (2012) para extrair um conjunto de dados de *tweets* (postagens) que contenham palavras-chave ou hashtags determinadas pelo operador. No Bluesky, um processo equivalente pode ser realizado através do pacote *atrrr* do RStudio para acessar a API e captar postagens dentro de um critério estabelecido.
+
+Para descrever os padrões comunicativos que podem ser observados dentro deste conjunto de dados, utiliza de um catálogo de métricas, divididas entre três grupos em distribuição 1/9/90 [@Bruns2012]:
+
+- o 1% de usuários líderes em atividade;
+- os 9% seguintes de usuários mais ativos;
+- os 90% restantes de usuários.
+
+Destes, foram calculadas as métricas:
+
+- O número de postagens no conjunto de dados;
+- O número de usuários únicos que contribuem para o conjunto de dados;
+- A porcentagem de postagens originais no conjunto de dados (ou seja, tweets que não são respostas nem *reposts*);
+- A porcentagem de respostas genuínas no conjunto de dados (ou seja, respostas que não são *reposts*);
+- A porcentagem de *reposts* no conjunto de dados;
+- A porcentagem de postagens no conjunto de dados que contêm URLs.
+
+Dessa forma, é possível medir dentro do conjunto de dados o quão dominantes na conversa geral são os usuários mais ativos e observar diferenças nos padrões de atividades dos três grupos [@Bruns2012]. O mesmo processo pode ser aplicado à critérios ou hashtags não relacionados ao tema de pesquisa para inseri-lo em um contexto mais amplo. Ademais, para analisar o impacto da suspensão do X nas dinâmicas de comunidade no Bluesky, pode-se dividir conjuntos de dados entre períodos temporais.
+
+
+
+
+<!-- Comentando a seção abaixo enquanto averiguamos se vamos manter o bskyr ou mudar totalmente para o atrrr
+
+#### Pacote `{bskyr}` do RStudio
 
 Tendo sua versão 0.3.0 disponibilizada em 22 de julho de 2025, o `{bskyr}` é um pacote do R Studio que providencia uma interface com a Bluesky Social API via HTTP (*HyperText Transfer Protocol*), permitindo extrações de dados da rede [@bskyr]. APIs como a API Bluesky Social permitem que um *software* cliente enviem uma solicitação a um *software* servidor e receba dele uma resposta.
 
