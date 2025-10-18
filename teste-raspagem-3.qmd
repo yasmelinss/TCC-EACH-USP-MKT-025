@@ -89,17 +89,47 @@ Procurando post com query específica
 
 ```{r}
 #| label: buscando-posts-search
+#| label: extracao-search-post
 
 buscando_posts <- 
   bs_search_posts(
     query = '"league of legends" since:2024-08-30 until:2024-10-08',
     limit = 1,
     auth = auth
+pesquisa <-
+  search_post(
+    q = 'cblol -nsfw',
+    limit = 100L
   )
-
-formataJSON(buscando_posts)
+    
+#formataJSON(pesquisa)
 ```
 
+formataJSON(buscando_posts)
+```{r}
+#| label: filtragem-search-post
+
+pesquisa |>
+  select(
+    uri,
+    author_handle,
+    text
+  )
+```
+
+```{r}
+#| label: extracao-search-skeet
+
+skeet <-
+  search_skeet(
+    q = 'League of Legends',
+    limit = 10L
+  )
+
+#formataJSON(skeet)
+
+
+```
 
 ```{r}
 #| label: filtragem-buscando-posts-search
@@ -117,6 +147,12 @@ buscando_posts |>
       
   ) |>
 head()
+skeet |>
+  select(
+    uri,
+    author_handle,
+    text
+  )
 ```
 
 
@@ -139,8 +175,13 @@ buscando_perfis <-
     auth = auth,
     clean = FALSE
 )
+  search_user(
+    query = 'league of legends',
+    limit = 2
+  )
 
 formataJSON(buscando_perfis)
+
 ```
 
 
@@ -153,6 +194,14 @@ buscando_posts |>
       #actors
   ) |>
 head()
+buscando_perfis |>
+  select(
+    did,
+    handle,
+    display_name,
+    associated_activity_subscription,
+    description
+  )
 
 ```
 
