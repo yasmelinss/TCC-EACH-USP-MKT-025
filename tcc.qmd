@@ -117,22 +117,6 @@ format:
 # Introdução
 
 ## Revisão Bibliográfica
-<!-- Redação provisória em bullet points
-
-Falta adicionar conectivos ao corpo do texto. Parecem citações pouco conexas e com pouco texto autoral-->
-
-### Indústria de Games enquanto Indústria Criativa
-
-<!--Segundo @Wainberg_2024, os termos *industria cultural*, *industria criativa* ou *economia cultural* têm sido utilizados para descrever o setor de 14 profissões. São elas: arquitetura e engenharia, artes, artes cênicas, biotecnologia, design, expressões culturais, filme & vídeo, mercado editorial, moda, música, pesquisa e desenvolvimento, publicidade, software, computação e telecomunicação e mídia -- televisão e rádio.
-
-O enfoque sociológico elabora sobre o conceito de induscria cultural e seus efeitos. Pensadores Críticos como Walter Benjamin e Theodor Adorno são vínculados a Escola de Frankfurt apontam os efeitos malignos da indústria cultural, e o olhar otimista que apresenta a criatividade e a inovação como fontes de prosperidade chegou anos depois, em 2014, com Edmund Phelps, ganhador do Prêmio Nobel de Ecomonia em 2014. [@Wainberg_2024]
-
-- bibliografia do Edmund Phelps
-
-- Aguardando bibliografia introdutória da Jane -->
-
-
-
 
 ### Marketing de Redes Sociais
 
@@ -158,6 +142,18 @@ A honestidade percebida na forma em que uma personalidade virtual se porta em re
 Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (1956), descrevem vínculos unilaterais com figuras da mídia. Na atualidade e através das redes sociais, esses relacionamentos são cada vez mais comuns, com o número de seguidores e a autoridade percebida dessas personalidades ampliando o impacto das mensagens emocionais propagadas por estes [@Giles2002]. Outros aspectos, como conhecimento e experiência, auto-confiança, articulação na fala e grau de identificação com o consumidor-alvo demonstrados são características importantes de um influenciador, que afetam a confiabilidade de seu *word-of-mouth* (marketing boca-a-boca) eletrônico [@Forbes2016]. Sendo assim, a multitude de atributos de um influenciador digital, moldados ou não a partir de sua identidade verdadeira, afetam a eficácia do marketing de influência proporcionalmente à sua compatibilidade com a imagem que a marca deseja propagar, juntamente de características gerais que estão diretamente relacionadas à capacidade de influenciar.
 
 
+
+### <mark> Indústria de *Games* enquanto Indústria Criativa
+
+*Games* ou jogos eletrônicos, além de servirem como passa-tempo e atividade de lazer, representam um ambiente de dados empíricos valiosos para a criação de conhecimento, exercendo papel central na mídia, redes e cenário sociotécnico da atualidade [@Taylor2019]. 
+
+<!-- EXPANDIR A INTRODUÇÃO ANTES DA PARTE ECONÔMICA. -->
+
+@Terranova2000 incentiva o debate sobre como trabalhos culturais e técnicos da internet são uma característica predominante da economia pós-industrial, em que indivíduos contribuem com esforços laborais para plataformas comercializadas desde a produção de vídeos no YouTube à criação de postagens em páginas pessoais de redes de networking social. No contexto de *games*, estas plataformas ofereceram algumas das primeiras oportunidades e normas para a monetização do ato de jogar, bem como de atividades criativas na criação de conteúdo através de jogos eletrônicos, amplamente descrito por *User Generated Content* (UGC) [@Taylor2019].
+
+A transmissão de jogos eletrônicos como uma atividade monetizada surge de uma multitude de fatores. Para o *streamer*, aquele que realiza as transmissões, os principais motivadores são as conexões sociais (como o desejo de compartilhar o ato de jogar com amigos), a amplificação da experiência de jogo através da introdução de telespectadores, as performances criativas e capacidade de auto-expressão através da interação com uma audiência expressiva e as aspirações profissionais de sustentar-se através de um hobby ou contribuir para o crescimento indústria de *games* através da publicidade [@Taylor2019]. Em especial, o aspecto relacional das transmissões ao vivo é explicado por @Taylor2019 como um componente importante para o aspecto financeiro da atividade, onde doações e inscrições são apresentadas como formas de expressar gratidão ao criador de conteúdo e tendem a serem seguidas por agradecimentos diretos deste. Desta forma, *streamers* atuam de forma semelhante à influenciadores digitais e possuem um incentivo financeiro direto para promover a parassociabilidade de sua audiência, cuja generosidade é a principal fonte de remuneração.
+
+<!-- dar um jeito de falar sobre a BGS? -->
 
 
 ### Indústria de *E-Sports*
