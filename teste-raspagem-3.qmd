@@ -25,6 +25,7 @@ library(tidyverse)
 library(readr)
 library(jsonlite)
 library(atrrr)
+library(ggplot2)
 
 # funções úteis
 quebra <- function(string, tamanho = 80) {
@@ -50,7 +51,6 @@ formataJSON <- function(string) {
   toJSON(string, pretty = TRUE) |> 
     quebra()
 }
-#<<<<<<< HEAD
 
 #autenticação
 auth = ('yasmelins.bsky.social')
@@ -66,7 +66,8 @@ auth = ('yasmelins.bsky.social')
 ```{r}
 #| label: url-to-uri
 
-"https://bsky.app/profile/yasmelinss.bsky.social/post/3m2iaytbuxk2q" |>
+"at://did:plc:monbpol4rwcmxwy3eokejayd/app.bsky.feed.post/3m3g
+dyyfbxc24" |>
 convert_http_to_at(.token = NULL)
 ```
 
@@ -74,50 +75,69 @@ convert_http_to_at(.token = NULL)
 ```{r}
 #| label: uri-to-url
 
-"at://did:plc:4bvoxokewgsqfjfefnzsppny/app.bsky.graph.follow/3m2idq3n4b22n" |>
+"at://did:plc:crr5fojl5ssfyrdfwhhuzots/app.bsky.feed.post/3lyr7t5lgjk2a" |>
   convert_at_to_http()
 ```
 
 
 # MINERAÇÃO / EXTRAÇÃO DE DADOS
 
-## Searching por URIs
+## Buscando por URIs
 
 ### Busca por termos
 
 Procurando post com query específica
 
-```{r}
-#| label: buscando-posts-search
 
-buscando_posts <- 
-  bs_search_posts(
-    query = '"league of legends" since:2024-08-30 until:2024-10-08',
-    limit = 1,
-    auth = auth
+
+```{r}
+#| label: extracao-search-post
+
+pesquisa <-
+  search_post(
+    q = 'cblol -nsfw',
+    limit = 100L
+  )
+    
+#formataJSON(pesquisa)
+```
+
+```{r}
+#| label: filtragem-search-post
+
+pesquisa |>
+  select(
+    uri,
+    author_handle,
+    text
+  )
+```
+
+```{r}
+#| label: extracao-search-skeet
+
+skeet <-
+  search_skeet(
+    q = 'League of Legends',
+    limit = 10L
   )
 
-formataJSON(buscando_posts)
-```
+#formataJSON(skeet)
 
+
+```
 
 ```{r}
-#| label: filtragem-buscando-posts-search
+#| label: filtragem-search-skeet
 
-buscando_posts |>
-    select(
-      uri,
-      author,
-      #text,
-      reply_count,
-      repost_count,
-      like_count,
-      indexed_at
-      
-      
-  ) |>
-head()
+skeet |>
+  select(
+    uri,
+    author_handle,
+    text
+  )
 ```
+
 
 
 ### Busca por usuário
@@ -127,20 +147,15 @@ Buscando perfis com uma query específica
 
 ```{r}
 #| label: buscando-perfis-search
-#| eval: true
 
 buscando_perfis <- 
-  bs_search_actors(
-    'league of legend',
-    typeahead = FALSE, 
-      # se typeahead == TRUE, então faz uma busca tipo "sugestão enquanto digita"
-    cursor = NULL,
-    limit = 2,
-    auth = auth,
-    clean = FALSE
-)
+  search_user(
+    query = 'league of legends',
+    limit = 2
+  )
 
 formataJSON(buscando_perfis)
+
 ```
 
 
@@ -148,11 +163,14 @@ formataJSON(buscando_perfis)
 ```{r}
 #| label: filtragem-buscando-perfis-search
 
-buscando_posts |>
-    select(
-      #actors
-  ) |>
-head()
+buscando_perfis |>
+  select(
+    did,
+    handle,
+    display_name,
+    associated_activity_subscription,
+    description
+  )
 
 ```
 
@@ -214,7 +232,6 @@ raiz. Os próximos trazem dados das interações.
 
 'https://bsky.app/profile/pupn1k.bsky.social/post/3m2kh4cgtk22q'|>
   get_thread()
-
 ```
 
 
@@ -228,7 +245,7 @@ buscando_thread_dois <-
     .token = NULL
   )
 
-fomataJSON(buscando_thread_dois)
+formataJSON(buscando_thread_dois)
 ``` 
 
 
@@ -246,7 +263,7 @@ dados <-
 
 
 ```{r}
-#| label: extracao-thread
+#| label: filtragem-extracao-thread
 #| eval: true
 
 #ele não está pegando TODOS os dados
@@ -259,7 +276,6 @@ dados |>
       reply_count
   ) |>
 head()
-
 ```
 
 
@@ -268,16 +284,17 @@ head()
 Raspagem dos perfis que curtiram determinado post.
 
 Metadados trazidos pela (`get_likes`)
+
 - `$ created_at`:
 - `$ indexed_at`:
 - `$ actor_handle`:
 - `$ actor_name`:
 - `$ actor_data`:
--- `$ did`:
--- `$ handle`:
--- `$ avatar`:
--- `$ associated`:
--- `$ viewer`: informação se está mutado, bloqueado ou seguindo. trás a uri de `$ following` com `$ followedBy` (o nome do usuário aparece quando convertemos a URI para URL)
+- `$ did`:
+- `$ handle`:
+- `$ avatar`:
+- `$ associated`:
+- `$ viewer`: informação se está mutado, bloqueado ou seguindo. trás a uri de `$ following` com `$ followedBy` (o nome do usuário aparece quando convertemos a URI para URL)
 - `$ labels`:
 - `$ createdAt`:
 - `$ description`: 
@@ -291,21 +308,22 @@ Metadados trazidos pela (`get_likes`)
 likes <-
   get_likes(
     post_url = 'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x',
-
-'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x' |> 
-  get_likes(
-
-    limit = 2L,
     cursor = NULL,
     parse = TRUE,
     verbose = NULL,
     .token = NULL
   )
 formataJSON(likes)
+```
 
-  ) |> 
-  formataJSON()
 
+```{r}
+#| label: extracao-users-likes-1
+
+'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x' |> 
+  get_likes(
+    limit = 2L,
+  )
 ```
 
 ```{r}
@@ -316,19 +334,17 @@ likess <-
     get_likes(
       limit = 2L
     )
-
 ```
 
 ```{r}
 #| label: filtragem-users-likes
 
-likess |>
+likes |>
   select(
     actor_handle,
     actor_name
   ) |>
   head()
-
 ```
 
 
@@ -379,12 +395,11 @@ formataJSON(repost)
 reposts <-
   'https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x' |>
   get_reposts()
-
 ```
 
 
 ```{r}
-#| label: extracao-users-repost
+#| label: filtragem-users-repost
 
 #também está limitando os dados
 reposts |>
@@ -396,7 +411,6 @@ reposts |>
 
   ) |>
 head()
-
 ```
 
 
