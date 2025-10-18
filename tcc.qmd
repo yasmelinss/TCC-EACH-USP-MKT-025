@@ -326,7 +326,9 @@ A medida de influência social na análide de redes sociais parte do princípio 
 
 ## Tecnologias Utilizadas
 
-### Ambiente Computacional Estatístico R (NOVO)
+
+
+### <mark>Ambiente Computacional Estatístico R
 
 <!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
 
@@ -386,8 +388,15 @@ No processo de raspagem de dados, foi solicitado o *App Pasword*, uma prática m
 <!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
 <!-- - Mencionar bibliotecas do R -->
 
-### Análise de Dados em Rede
+### <mark>Análise de Dados em Rede
 
+A partir das métricas estabelecidas durante a mineração de dados, @Bruns2012 realiza as seguintes conjunturas, que servem como embasamento para a análise de padrões comunicativos:
+
+- Contribuições relativas dos três grupos de usuários;
+- Longetividade do termo em comparação à porcentagem de posts contribuídos pelo grupo de 90% dos usuários;
+- Porcentagens relativas dos diferentes tipos de postagens;
+- Porcentagem de URLs em posts vs. porcentagem de *reposts*;
+- Porcentagem de postagens contribuídas por usuários líderes em atividade vs. porcentagem de URLs em postagens.
 
 
 <!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
