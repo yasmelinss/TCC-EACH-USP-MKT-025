@@ -25,16 +25,19 @@ Sprint da semana:
   - Yas
 
 - [/] Metodologia -- ler artigos e escrever dentro dos tópicos
-  - [ ] análise de frequência e exploratória: contagem de palavras, bigramas, visualização
+  - [/] análise de frequência e exploratória: contagem de palavras, bigramas, visualização
   - Thales
   
-- [ ] Reescrever e incluir as referências da Jane
-  - [/] Problema de Pesquisa
-  - [ ] Indústria de E-sports
-  - [ ] Metodologia
+- [X] Reescrever e incluir as referências da Jane
+  - [X] Problema de Pesquisa
+  - [X] Influenciadores Digitais
+  - [X] Marketing de Redes Sociais
+  - [X] Indústria de E-sports
+  - [X] Indústria de Games
+  - [X] Metodologia
   - Thales
 
-- [ ] Realçar quais parágrafos precisam de revisão
+- [X] Realçar quais seções precisam de revisão
   - Thales
 
 Backlog:
