@@ -26,6 +26,7 @@ library(readr)
 library(jsonlite)
 library(atrrr)
 library(ggplot2)
+library(igraph)
 
 # funções úteis
 quebra <- function(string, tamanho = 80) {
@@ -443,6 +444,94 @@ seguindo <-
   )
 
 formataJSON(seguindo)
+```
+
+
+
+
+# CONEXÃO
+
+
+##Seguidores em comum
+
+
+Queremos um grafo em que:
+
+nós (nodes) são contas do Bluesky (handles ou DIDs),
+
+arestas (edges) ligam contas que se seguem em comum (por exemplo, ambas seguem pastelveve.bsky.social, ou ambas são seguidas por ela).
+
+```{r}
+#| label: teste-raquel
+
+seguidores <-
+  get_followers(
+    actor = 'pastelveve.bsky.social',
+    limit = 1L
+  )
+
+dado1 <-
+  seguidores |> 
+    select(
+      actor_handle
+    )
+
+convert_at_to_http(seguidores)
+
+
+dado1 |>
+  get_followers()
+
+formataJSON(dado1)
+
+
+
+```
+
+```{r}
+
+contas_iniciais <- c(
+  "pastelveve.bsky.social",
+  "yasmelins.bsky.social",
+  "ennoe.bsky.social"
+)
+
+# 2. Função auxiliar para buscar seguidores
+pegar_seguidores <- function(handle) {
+  get_followers(actor = handle, limit = 50L) |> 
+    select(actor_handle) |> 
+    mutate(origem = handle)
+}
+
+# 3. Buscar seguidores de todas as contas
+todos_seguidores <- map_df(contas_iniciais, pegar_seguidores)
+
+# 4. Ver dados brutos
+head(todos_seguidores)
+
+# 5. Encontrar quem segue mais de uma dessas contas
+seguidores_comuns <- todos_seguidores |>
+  group_by(actor_handle) |>
+  summarise(segue_quantas = n_distinct(origem),
+            contas_seguidas = paste(origem, collapse = ", ")) |>
+  filter(segue_quantas > 1)
+
+# 6. Criar grafo (arestas entre contas seguidas em comum)
+arestas <- todos_seguidores |>
+  semi_join(seguidores_comuns, by = "actor_handle") |>
+  select(actor_handle, origem) |>
+  rename(from = actor_handle, to = origem)
+
+grafo <- graph_from_data_frame(arestas, directed = TRUE)
+
+# 7. Visualizar grafo simples
+plot(
+  grafo,
+  vertex.size = 5,
+  vertex.label.cex = 0.6,
+  main = "Grafo de seguidores em comum"
+)
+
 
 ```
 
