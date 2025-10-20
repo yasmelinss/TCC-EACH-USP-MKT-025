@@ -117,28 +117,12 @@ format:
 # Introdução
 
 ## Revisão Bibliográfica
-<!-- Redação provisória em bullet points
-
-Falta adicionar conectivos ao corpo do texto. Parecem citações pouco conexas e com pouco texto autoral-->
-
-### Indústria de Games enquanto Indústria Criativa
-
-<!--Segundo @Wainberg_2024, os termos *industria cultural*, *industria criativa* ou *economia cultural* têm sido utilizados para descrever o setor de 14 profissões. São elas: arquitetura e engenharia, artes, artes cênicas, biotecnologia, design, expressões culturais, filme & vídeo, mercado editorial, moda, música, pesquisa e desenvolvimento, publicidade, software, computação e telecomunicação e mídia -- televisão e rádio.
-
-O enfoque sociológico elabora sobre o conceito de induscria cultural e seus efeitos. Pensadores Críticos como Walter Benjamin e Theodor Adorno são vínculados a Escola de Frankfurt apontam os efeitos malignos da indústria cultural, e o olhar otimista que apresenta a criatividade e a inovação como fontes de prosperidade chegou anos depois, em 2014, com Edmund Phelps, ganhador do Prêmio Nobel de Ecomonia em 2014. [@Wainberg_2024]
-
-- bibliografia do Edmund Phelps
-
-- Aguardando bibliografia introdutória da Jane -->
-
-
-
 
 ### Marketing de Redes Sociais
 
-De acordo com @Kaplan2010, redes sociais são um grupo de aplicativos hospedados na Internet, que se baseiam nos fundamentos ideológicos e tecnológicos da Web 2.0 e que permitem a criação e o intercâmbio de conteúdo gerado pelos usuários. Dessa forma, as redes sociais virtuais se destacam como um mecanismo de comunicação que permite um maior alcance de informações e interações do que aqueles possíveis em canais tradicionais de antes da era digital, mudando a forma com a qual pessoas interagem entre si e com marcas. Em particular, a natureza interativa desses canais transformou os consumidores de observadores passivos de conteúdo em participantes ativos que agora criam grandes quantidades de conteúdo por meio de suas conversas, interações e comportamentos on-line [@Malthouse2013].
+De acordo com @Kaplan2010, redes sociais são um grupo de aplicativos hospedados na Internet, que se baseiam nos fundamentos ideológicos e tecnológicos da Web 2.0 e que permitem a criação e o intercâmbio de conteúdo gerado pelos usuários. Dessa forma, as redes sociais virtuais se destacam como um mecanismo de comunicação que permite um maior alcance de informações e interações do que aqueles possíveis em canais tradicionais <mark>de antes da era digital</mark>, mudando a forma com a qual pessoas interagem entre si e com marcas. Em particular, a natureza interativa desses canais transformou os consumidores de observadores passivos de conteúdo em participantes ativos que agora criam grandes quantidades de conteúdo por meio de suas conversas, interações e comportamentos on-line [@Malthouse2013].
 
-O termo rede social é abrangente em definição, reunindo ambientes virtuais com funcionalidades muito diferentes entre si. Em vista disso, os autores @Kaplan2010 definem seis tipos de redes sociais de acordo com a forma em que os processos sociais ocorrem nestas: projetos colaborativos (como Wikipedia), blogs e microblogues (como X, antigo Twitter), comunidades de conteúdo (como YouTube e Twitch), sites de networking social (como Facebook e LinkedIn), mundos de jogos virtuais e mundos sociais virtuais (como Second Life). Redes sociais que surgiram depois de 2010, como TikTok e Instagram, ainda podem ser categorizadas dentre os seis tipos estabelecidos pelos autores como comunidade de conteúdo e site de networking social, respectivamente, de acordo com suas estruturações. Dessas, as mais comumente referidas pelo termo "redes sociais" são os sites de networking social e as plataformes de microblogs, com redes sociais como X e BlueSky unindo características de ambas categorias em suas funcionalidades.
+<mark>O termo rede social é abrangente em definição, reunindo ambientes virtuais com funcionalidades muito diferentes entre si.</mark> Em vista disso, os autores @Kaplan2010 definem seis tipos de redes sociais de acordo com a forma em que os processos sociais ocorrem nestas: projetos colaborativos (como Wikipedia), blogs e microblogues (como X, antigo Twitter), comunidades de conteúdo (como YouTube e Twitch), sites de networking social (como Facebook e LinkedIn), mundos de jogos virtuais e mundos sociais virtuais (como Second Life). Redes sociais que surgiram depois de 2010, como TikTok e <mark>Instagram</mark>, ainda podem ser categorizadas dentre os seis tipos estabelecidos pelos autores como comunidade de conteúdo e site de networking social, respectivamente, de acordo com suas estruturações. Dessas, as mais comumente referidas pelo termo "redes sociais" são os sites de networking social e as plataformes de microblogs, com redes sociais como X e BlueSky unindo características de ambas categorias em suas funcionalidades.
   
 O acesso rápido e amplo aos consumidores-alvo, até mesmo em nível internacional, é uma vantagem das redes sociais para esforços de marketing [@Ravi2021], com campanhas promocionais digitais estando entre as estratégias mais comuns para agências e organizações de publicidade ou comunicação. Essas estratégias, conhecidas como *Social Media Marketing* (SMM), têm como principal atrativo o retorno rápido ao mesmo tempo que permitem informar consumidores da marca, construir posicionamento e adquirir *feedback* a custos mais baixos que através de canais físicos.
   
@@ -151,13 +135,25 @@ Com a instalação das redes sociais no cotidiano dos consumidores, @Tuten2015 a
 #### Influenciadores digitais ou *Social Media Influencers*
 
 
-Em explorar como as relações sociais são construídas em ambientes virtuais, @Baym2010 descrevem como um espaço (plataforma) e práticas (linguagem, hábitos, nacionalidade ou interesses) em comum contribuem para a formação de comunidades em redes sociais, que desenvolvem normas próprias e as perpetuam através da interação entre membros. Sites de networking social como o Facebook tendem a incentivar o surgimento de comunidades na incorporação de ferramentas para auto-apresentação, que fornecem categorias com as quais criar identidades, incluindo dados demográficos como idade, local de residência e interesses gerais. Tais ferramentas também podem ter o resultado não-intencional de facilitar na construção de identidades falsas ou alteradas, levando a um entendimento geral construído ao longo do tempo da distinção entre personalidades *on-line* e *off-line* [@Baym2010].
+<mark>Em explorar como as relações sociais são construídas em ambientes virtuais, @Baym2010 descrevem como um espaço (plataforma) e práticas (linguagem, hábitos, nacionalidade ou interesses) em comum contribuem para a formação de comunidades em redes sociais, que desenvolvem normas próprias e as perpetuam através da interação entre membros. Sites de networking social como o Facebook tendem a incentivar o surgimento de comunidades na incorporação de ferramentas para auto-apresentação, que fornecem categorias com as quais criar identidades, incluindo dados demográficos como idade, local de residência e interesses gerais. Tais ferramentas também podem ter o resultado não-intencional de facilitar na construção de identidades falsas ou alteradas, levando a um entendimento geral construído ao longo do tempo da distinção entre personalidades *on-line* e *off-line* [@Baym2010].
 
-A honestidade percebida na forma em que uma personalidade virtual se porta em relação a sua comunidade é crucial para sua reputação e influência, fazendo com que outros usuários a vejam como semelhantes a eles e considerem mais valiosas suas opiniões ou recomendações [@Forbes2016]. Tal princípio, sustentado pela teoria de aprendizagem social, é o que dá origem aos influenciadores de redes sociais (SMIs), representando um novo tipo de endossantes independentes que moldam as atitudes do público por meio de blogs, postagens e do uso de outras mídias sociais [@Freberg2011]. Atuando como pseudo-celebridades altamente segmentadas, estes influenciadores digitais representam para o marketing de influência uma ferramenta de relações públicas bem-sucedida que permite que as marcas e os consumidores se conectem em um nível mais pessoal [@Glucksman2017]. 
+<mark>A honestidade percebida na forma em que uma personalidade virtual se porta em relação a sua comunidade é crucial para sua reputação e influência, fazendo com que outros usuários a vejam como semelhantes a eles e considerem mais valiosas suas opiniões ou recomendações [@Forbes2016].</mark> Tal princípio, sustentado pela teoria de aprendizagem social, é o que dá origem aos influenciadores de redes sociais (SMIs), representando um novo tipo de endossantes independentes que moldam as atitudes do público por meio de blogs, postagens e do uso de outras mídias sociais [@Freberg2011]. Atuando como pseudo-celebridades altamente segmentadas, estes influenciadores digitais representam para o marketing de influência uma ferramenta de relações públicas bem-sucedida que permite que as marcas e os consumidores se conectem em um nível mais pessoal [@Glucksman2017]. 
 
-Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (1956), descrevem vínculos unilaterais com figuras da mídia. Na atualidade e através das redes sociais, esses relacionamentos são cada vez mais comuns, com o número de seguidores e a autoridade percebida dessas personalidades ampliando o impacto das mensagens emocionais propagadas por estes [@Giles2002]. Outros aspectos, como conhecimento e experiência, auto-confiança, articulação na fala e grau de identificação com o consumidor-alvo demonstrados são características importantes de um influenciador, que afetam a confiabilidade de seu *word-of-mouth* (marketing boca-a-boca) eletrônico [@Forbes2016]. Sendo assim, a multitude de atributos de um influenciador digital, moldados ou não a partir de sua identidade verdadeira, afetam a eficácia do marketing de influência proporcionalmente à sua compatibilidade com a imagem que a marca deseja propagar, juntamente de características gerais que estão diretamente relacionadas à capacidade de influenciar.
+Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (1956), descrevem vínculos unilaterais com figuras da mídia. Na atualidade e através das redes sociais, esses relacionamentos são cada vez mais comuns, com o número de seguidores e a autoridade percebida dessas personalidades ampliando o impacto das mensagens emocionais propagadas por estes [@Giles2002]. <mark>Outros aspectos, como conhecimento e experiência, auto-confiança, articulação na fala e grau de identificação com o consumidor-alvo demonstrados são características importantes de um influenciador, que afetam a confiabilidade de seu *word-of-mouth* (marketing boca-a-boca) eletrônico [@Forbes2016]. Sendo assim, a multitude de atributos de um influenciador digital, moldados ou não a partir de sua identidade verdadeira, afetam a eficácia do marketing de influência proporcionalmente à sua compatibilidade com a imagem que a marca deseja propagar, juntamente de características gerais que estão diretamente relacionadas à capacidade de influenciar.</mark>
 
 
+
+### <mark> Indústria de *Games* enquanto Indústria Criativa
+
+*Games* ou jogos eletrônicos, além de servirem como passa-tempo e atividade de lazer, representam um ambiente de dados empíricos valiosos para a criação de conhecimento, exercendo papel central na mídia, redes e cenário sociotécnico da atualidade [@Taylor2019]. 
+
+<!-- EXPANDIR A INTRODUÇÃO ANTES DA PARTE ECONÔMICA. -->
+
+@Terranova2000 incentiva o debate sobre como trabalhos culturais e técnicos da internet são uma característica predominante da economia pós-industrial, em que indivíduos contribuem com esforços laborais para plataformas comercializadas desde a produção de vídeos no YouTube à criação de postagens em páginas pessoais de redes de networking social. No contexto de *games*, estas plataformas ofereceram algumas das primeiras oportunidades e normas para a monetização do ato de jogar, bem como de atividades criativas na criação de conteúdo através de jogos eletrônicos, amplamente descrito por *User Generated Content* (UGC) [@Taylor2019].
+
+A transmissão de jogos eletrônicos como uma atividade monetizada surge de uma multitude de fatores. Para o *streamer*, aquele que realiza as transmissões, os principais motivadores são as conexões sociais (como o desejo de compartilhar o ato de jogar com amigos), a amplificação da experiência de jogo através da introdução de telespectadores, as performances criativas e capacidade de auto-expressão através da interação com uma audiência expressiva e as aspirações profissionais de sustentar-se através de um hobby ou contribuir para o crescimento indústria de *games* através da publicidade [@Taylor2019]. Em especial, o aspecto relacional das transmissões ao vivo é explicado por @Taylor2019 como um componente importante para o aspecto financeiro da atividade, onde doações e inscrições são apresentadas como formas de expressar gratidão ao criador de conteúdo e tendem a serem seguidas por agradecimentos diretos deste. Desta forma, *streamers* atuam de forma semelhante à influenciadores digitais e possuem um incentivo financeiro direto para promover a parassociabilidade de sua audiência, cuja generosidade é a principal fonte de remuneração.
+
+<!-- dar um jeito de falar sobre a BGS? -->
 
 
 ### Indústria de *E-Sports*
@@ -172,7 +168,7 @@ A principal forma de disseminação dos *E-sports* se dá através das transmiss
 
 @Trail2001 apontam que a motivação social é um dos fatores que influenciam o consumo de esportes, levando indivíduos a acompanhar eventos esportivos pela interação e sentimento de pertencimento que emergem dessas experiências coletivas. Embora o estudo tenha sido direcionado aos esportes tradicionais, é possível observar esta mesma manifestação nos *E-sports*, nos quais o prazer de acompanhar novas competições, jogadores e equipes é potencializado pela troca social entre espectadores em ambientes digitais, expressos as redes sociais, plataformas de *streaming* e mercado cultural.
 
-No ambiente virtual das redes sociais, os torneios de *E-sports* são promovidos em grande parte por *mídias propagáveis* como memes, análises, clipes e reações. De acordo com @Jenkins2015, propagabilidade se refere ao potencial cultural e técnico de públicos compartilharem conteúdos por motivos próprios, com ou sem a permissão dos detentores de direitos autorais. Aspectos que influenciam a propagabilidade de mídias incluem o fácil acesso, portabilidade, reutilizabilidade, relevância para públicos amplos e participação em um fluxo constante de material [@Jenkins2015]. A troca social inerente aos esportes, ampliada pelo fácil acesso à transmissão, reprodução e veiculação dos *E-sports* fazem deles mídias altamente propagáveis, em que fãs não são apenas consumidores ou telespectadores mas produtores ativos de conteúdo.
+<mark>No ambiente virtual das redes sociais, os torneios de *E-sports* são promovidos em grande parte por *mídias propagáveis* como memes, análises, clipes e reações. De acordo com @Jenkins2015, propagabilidade se refere ao potencial cultural e técnico de públicos compartilharem conteúdos por motivos próprios, com ou sem a permissão dos detentores de direitos autorais. Aspectos que influenciam a propagabilidade de mídias incluem o fácil acesso, portabilidade, reutilizabilidade, relevância para públicos amplos e participação em um fluxo constante de material [@Jenkins2015]. A troca social inerente aos esportes, ampliada pelo fácil acesso à transmissão, reprodução e veiculação dos *E-sports* fazem deles mídias altamente propagáveis, em que fãs não são apenas consumidores ou telespectadores mas produtores ativos de conteúdo.
 
 
 
@@ -185,11 +181,11 @@ AGUARDANDO REF -->
 
 #### League of Legends
 
-League of Legends (LoL) é um jogo *on-line* do tipo MOBA (*Multiplayer Online Battle Arena*), desenvolvido pela empresa Riot Games em 2009, com as partidas nos modos de jogo principais sendo compostas por duas equipes de 5 jogadores, nas quais cada jogador toma controle de um personagem e são esperados a trabalharem em conjunto para destruir a base inimiga. [@Cauteruccio2023]
+<mark>Um dos jogos eletrônicos e *E-sport* mais relevantes na atualidade,</mark> League of Legends (LoL) é um jogo *on-line* do tipo MOBA (*Multiplayer Online Battle Arena*), desenvolvido pela empresa Riot Games em 2009, com as partidas nos modos de jogo principais sendo compostas por duas equipes de 5 jogadores, nas quais cada jogador toma controle de um personagem e são esperados a trabalharem em conjunto para destruir a base inimiga. [@Cauteruccio2023]
 
 Devido a complexidade das partidas e o nível de habilidade demandado, um grande cenário competitivo vem crescendo ao redor do jogo ao passar dos anos. De acordo com @Cauteruccio2023, o principal evento de *E-sports* de LoL é o LoL World Championship (também conhecido como Worlds), onde as melhores equipes do mundo participam e disputam os campeonatos competindo por prêmios multimilionários em formato de torneio. 
 
-Até 2025, as ligas eram divididas entre as quatro regiões *major*:  Coréia (LCK), China (LPL), Europa (LEC) e América do Norte (LCS), enquanto torneios menores em outras regiões eram considerados ligas *minor*. Anunciada em Junho de 2024 e fundada em 31 de outubro de 2024, a liga de LoL das Américas (LTA) uniu as principais ligas americanas LCS, Campeonato Brasileiro de League of Legends (CBLOL) e Liga Latinoamérica (LLA) em um único ecossistema com duas conferências: LTA Norte (baseada na LCS) e LTA Sul (baseada no CBLOL) [@Riot2024LTA]. 
+Até 2025, as ligas eram divididas entre as quatro regiões *major*:  Coréia (LCK), China (LPL), Europa (LEC) e América do Norte (LCS), enquanto torneios menores em outras regiões eram considerados ligas *minor*. Anunciada em Junho de 2024 e fundada em 31 de outubro de 2024, a liga de LoL das Américas (LTA) uniu as principais ligas americanas LCS, Campeonato Brasileiro de League of Legends (CBLOL) e Liga Latinoamérica (LLA) em um único ecossistema com duas conferências: LTA Norte (baseada na LCS) e LTA Sul (baseada no CBLOL) [@Riot2024LTA]. Tal mudança reflete o grande público consumidor de *E-sports* de LoL no Brasil e outros países sul-americanos.
 
 As *lives* das ligas geralmente são transmitidas por diferentes serviços *streamings* como Twitch e Youtube, e o número de visualizações são expressivos, com mais de 99 milhões contabilizadas mundialmente durante a final do Worlds de 2018. [@Cauteruccio2023]
 
@@ -227,7 +223,6 @@ Para a obtenção dos dados de redes sociais, a mineração é uma tática comum
 @Gandomi2015 explicam a análise de influência social como outra técnica na análise de redes sociais, que agrupa métodos de modelação e avaliação da influência de usuários e conexões em uma rede social. Métodos de análise de influência social são amplamente úteis em esforços de *brand awareness* e adoção de marca, auxiliando no marketing de influência. Adicionalmente, os autores descrevem o método de *previsão de conexões* como a análise de dados passados para tentar prever interações futuras, de forma a levar em consideração a natureza dinâmica e imprevisível das dinâmicas de redes sociais.
 
 A análise de sentimentos (também conhecida como mineração de opiniões) é o processo de analisar computacionalmente e identificar opiniões e julgamentos de um texto linguístico, podendo ser implementada em propósitos diferentes como *baseada em aspectos*, *a nível de documento* e *a nível de frase* [@Chakraborty2023]. A análise de sentimentos *baseada em aspectos* é capaz de classificar textos em aspectos diferentes e determinar sentimentos correspondentes por associação. O módulo *a nível de documento* analisa um documento inteiro, enquanto aquele *a nível de frase* limita-se a sentenças curtas como as de postagens em microblogues, que tendem a ter baixos limites de caracteres. 
-
 @Bian2016 apontam que existem duas abordagens gerais para a análise de sentimentos: a primeira se baseia em um léxico como o Harvard General Inquirer, SentiWordNet ou Linguistic Inquiry, que associam escolhas de palavras a opiniões e atitudes. Esta abordagem visa descobrir a estrutura temática por trás de grandes conjuntos de documentos não-estruturados, através da análise das palavras por um algorítmo estatístico. A segunda abordagem, baseada em classificações, é um método supervisionado que requer conjuntos rotulados para o treinamento de um algorítmo. 
 
 <!--- apresentar ciência de dados como campo interdisciplinar que estuda os dados 
@@ -252,15 +247,7 @@ A análise de sentimentos (também conhecida como mineração de opiniões) é o
 
 
 
-### Carreiras de Dados em Negócios
-
---- AQUI!!! ---
-
-@Wedel2016 FALTA ACESSO
-
-
-
-## Problema de pesquisa (ALTERADO)
+## Problema de pesquisa
 
 Em dezembro de 2019, Jack Donsey, então CEO do Twitter Inc., anunciou que a empresa estaria financiando uma equipe de profissionais independentes para o desenvolvimento de um novo protocolo aberto e descentralizado para redes sociais, com a intenção de eventualmente implementá-lo para o próprio Twitter. Em 2021, o projeto se tornou uma organização independente do Twitter, dando origem ao Bluesky Social PCB. Um ano depois, em 2022, Elon Musk adquiriu o Twitter (renomeado como X) e a rede cessou todas relações de serviço com o Bluesky, que seguiu com sua proposta de desenvolver e impulsionar a adoção em larga escala de tecnologias para conversas públicas, abertas e descentralizadas. [@Bluesky2023]
 
@@ -268,9 +255,11 @@ A rede teve um grande aumento de usuários em 30 de agosto de 2024, quando a *X 
 
 A suspensão do X no Brasil durou cerca de 40 dias, encerrando em 8 de outubro de 2024 após o cumprimento das ordens judiciais pela rede e uma multa de 28,6 milhões de reais. Durante este período, a migração de usuários brasileiros para alternativas como o Bluesky foi impulsionada significativamente. Em 31 agosto de 2024, o Bluesky anunciou que havia batido mais de 1 milhão de novos usuários nos últimos 3 dias e que brasileiros estavam estabelecendo novos recordes de atividade na plataforma. [@G12024]
 
-O conceito de "sociedade plataformizada", autorado por @Dijck2019, explica o fenômeno em que as lógicas das plataformas (como AirBnb, Google, Uber e outras) moldam a interação social, a economia e o exercicio da cidadania. O ecossistema de plataformas pode ser dividido entre plataformas infraestruturais e setoriais, em que as plataformas infraestruturais são as mais influentes e formam o coração do ecossistema sob as quais outros aplicativos e plataformas podem ser construídos, sendo elas mecanismos de busca, navegadores, *e-mail*, plataformas de mensagem, redes sociais, lojas de aplicativos, *GPS*, sistemas de pagamento e hospedagem de arquivos [@Dijck2019]. Sendo assim, podemos entender a migração de usuários do X (centralizado, baseado em anúncios, sujeito a pressões de um único ator -- Musk) para o Bluesky (descentralizado e com protocolo aberto) como uma mudança de um ecossistema plataformizado fechado para um (potencialmente) mais aberto. Tal perspectiva é sustentada pela análise de @Plantin2018, que destaca como a utilização de *API*s de plataformas infraestruturais por outros atores predominantes cria um ambiente virtual controlado por estas plataformas, que passam a 'dominar um território' da Web anteriormente livre, centralizando-a para fins comerciais. O projeto que viria a se tornar o Bluesky surge em resposta à essa crescente centralização, buscando desenvolver um novo padrão descentralizado para conversas públicas em redes sociais -- o Protocolo AT (*Authenticated Transfer Protocol*).
+<mark>O conceito de "sociedade plataformizada", autorado por @Dijck2019, explica o fenômeno em que as lógicas das plataformas (como AirBnb, Google, Uber e outras) moldam a interação social, a economia e o exercicio da cidadania. O ecossistema de plataformas pode ser dividido entre plataformas infraestruturais e setoriais, em que as plataformas infraestruturais são as mais influentes e formam o coração do ecossistema sob as quais outros aplicativos e plataformas podem ser construídos, sendo elas mecanismos de busca, navegadores, *e-mail*, plataformas de mensagem, redes sociais, lojas de aplicativos, *GPS*, sistemas de pagamento e hospedagem de arquivos [@Dijck2019]. Sendo assim, podemos entender a migração de usuários do X (centralizado, baseado em anúncios, sujeito a pressões de um único ator -- Musk) para o Bluesky (descentralizado e com protocolo aberto) como uma mudança de um ecossistema plataformizado fechado para um (potencialmente) mais aberto. Tal perspectiva é sustentada pela análise de @Plantin2018, que destaca como a utilização de *API*s (Interfaces de programação de aplicações) de plataformas infraestruturais por outros atores predominantes cria um ambiente virtual controlado por estas plataformas, que passam a 'dominar um território' da Web anteriormente livre, centralizando-a para fins comerciais. O projeto que viria a se tornar o Bluesky surge em resposta à essa crescente centralização, buscando desenvolver um novo padrão descentralizado para conversas públicas em redes sociais -- o Protocolo AT (*Authenticated Transfer Protocol*).
 
-Ao mesmo tempo em que o X foi suspenso ocorria a 13ª edição do Campeonato Brasileiro de League of Legends (CBLOL), um torneio competitivo de *E-sports* de League of Legends no Brasil organizado anualmente pela Riot Games. Em 2024, o evento teve sua primeira etapa entre 20 de janeiro e 20 de abril e sua segunda etapa entre 1 de junho e 7 de setembro. Com partidas gerando um grande número de engajamento nas redes sociais, a produção de conteúdo por espectadores durante a segunda etapa do CBLOL 2024 foi diretamente impactada pela suspensão da rede no Brasil, que teve seu início próximo às finais do campeonato e término somente depois que ele havia encerrado. [@CBLOL2024]
+<mark>Em seu artigo sobre as consequências da algoritmização na sociedade, os autores @Velkova2021 abordam a ideia de "políticas de reparo" midiáticas como sendo trabalhos corretivos em conjunto com e dentro de sistemas algorítmicos para fazê-los gerarem resultados não intencionais, em resposta à tendenciosidades ou "falhas" percebidas nos resultados de algorítmos. Similarmente, a migração em massa de usuários brasileiros do X para o Bluesky pode ser vista como uma forma de "reparo" ou "resistência algorítmica" diante da falha de uma plataforma centralizada, tornando necessário o reparo de seus tecidos sociais e comunicativos em um novo espaço onde possam reconstruir comunidades.
+
+<mark>Ao mesmo tempo em que o X foi suspenso ocorria a 13ª edição do Campeonato Brasileiro de League of Legends (CBLOL), um torneio competitivo de *E-sports* de League of Legends no Brasil organizado anualmente pela Riot Games.</mark> Em 2024, o evento teve sua primeira etapa entre 20 de janeiro e 20 de abril e sua segunda etapa entre 1 de junho e 7 de setembro. Com partidas gerando um grande número de engajamento nas redes sociais, a produção de conteúdo por espectadores durante a segunda etapa do CBLOL 2024 foi diretamente impactada pela suspensão da rede no Brasil, que teve seu início próximo às finais do campeonato e término somente depois que ele havia encerrado. [@CBLOL2024]
 
 Diante disso, levanta-se a seguinte questão central:
 
@@ -296,7 +285,9 @@ Diante disso, levanta-se a seguinte questão central:
 
 ## Justificativa
 
+@Rogers2009 aborda os “Métodos Digitais”, propondo usar os traços deixados online (hashtags, menções, links) como unidades de análise para estudar fenômenos culturais e sociais. ELABORAR E REESCREVER;
 
+<!-- REVER
 Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvido pela Go Gamers e SX Group em parceria com a ESPM e Blend New Research, aplicada em 6 países da América Latina como Argentina, Chile, Colômbia, México e Peru, 82,8%  dos participantes relataram ter o costume de jogar algum tipo de jogo digital, um crescimento de 8,9% em relação à edição anterior (73,9%). Além disso, a demografia do jogador brasileiro consta que 53,2%, a maioria, são mulheres [@pgb2025].
 
 <!--FALTA REF
@@ -308,21 +299,16 @@ Unir BlueSky, redes sociais, queda do X e LoL e apontar a significância
 
 # Fundamentação Teórica
 
-# Metodologia
+# <mark> Metodologia
 
 A raspagem de dados é uma técnica proeminente para a coleta automatizada de dados *online* em que utiliza-se de *scrapers*, *softwares* que permitem baixar automaticamente dados da Web [@Marres2013]. Estes dados podem ser acessados através de uma Interface de programação de aplicações (*API*) própria do site em que são hospedados, porém grandes fontes como Facebook, Google e X têm recentemente limitado ou restringido o acesso gratuito às suas *API*s em virtude do valor comercial dessas informações, dificultando a obtenção de dados reais para fins acadêmicos [@Batrinca2014]. Dentre as redes sociais mais relevantes atualmente, o Bluesky se destaca como uma das únicas que ainda permite acesso irrestrito e gratuito à sua *API*, desde que utilize-se de uma autenticação única atrelada a uma conta na plataforma.
 
-Levando em consideração que dados obtidos por raspagem geralmente são não-estruturados e ruídosos, @Batrinca2014 destacam a necessidade da limpeza de dados, que envolve a remoção de erros tipográficos ou a validação e correção de valores em relação a uma lista conhecida de entidades. Esse processo envolve a regularização da capitalização do texto, correção de datas e horas e organização em colunas e linhas, entre outros.
+Dada a estruturação de dados raspados de uma rede social, é possível empregar técnicas de análise de redes sociais. Para a detecção de comunidades, @Aggarwal2011 sugere a representação através de nós e arestas, em que nós representam entidades de interesse e arestas imitam as interações ou relações entre elas. Estes nós são então definidos como comunidades distintas se suas conexões internas são mais fortes do que com o resto da rede. Sendo assim, redes sociais podem ser modeladas em grafos *G = {V, E}*, onde V é um conjunto de nós e E um conjunto de arestas. Nesta estrutura, a influência social dentro de uma rede pode ser entendida como um efeito direcional de um nó A para outro nó B, relacionado à força da aresta de A para B, ao mesmo tempo em que a semelhância nas 'vizinhanças' (nós próximos) de A e B representam a força da aresta que os conecta, com muitos vizinhos em comum representando um laço forte e vice-versa [@Aggarwal2011].
 
-Dada a estruturação de dados raspados de uma rede social, é possível empregar técnicas de análise de redes sociais. Para a detecção de comunidades, @Aggarwal2011 sugere a representação através de nós e arestas, em que nós representam entidades de interesse e arestas imitam as interações ou relações entre elas. Estes nós são então definidos como comunidades distintas se suas conexões internas são mais fortes do que com o resto da rede. Sendo assim, redes sociais podem ser modeladas em grafos *G = {V, E}*, onde V é um conjunto de nós e E um conjunto de arestas.
+De acordo com @Aggarwal2011, medidas de centralidade podem ser agrupadas em duas categorias: medidas radiais e medidas mediais, em que as medidas radiais avaliam caminhadas aleatórias que começam ou terminam em um determinado nó e as medidas mediais avaliam caminhadas aleatórias que passam por um determinado nó. A medida de centralidade mais popular neste grupo é a centralidade de proximidade de Freeman mede a centralidade calculando a média das distâncias mais curtas para todos os outros nós [@Aggarwal2011].
 
-[@Aggarwal2011]:
-- A influência social dentro de uma rede pode ser entendida como um efeito direcional de um nó A para outro nó B, relacionado à força da aresta de A para B. 
-- A semelhância nas vizinhanças de A e B representam a força da aresta que os conecta. Muitos vizinhos em comum representam um laço forte e vice-versa.
-- Medidas de centralidade podem ser agrupadas em duas categorias: medidas radiais e medidas mediais. As medidas radiais avaliam caminhadas aleatórias que começam ou terminam em um determinado nó. Por outro lado, as medidas mediais avaliam caminhadas aleatórias que passam por um determinado nó.
-- Análise de proximidade: Ao contrário das medidas baseadas no volume, as medidas baseadas no comprimento contam o comprimento dos percursos. A medida de centralidade mais popular neste grupo é a centralidade de proximidade de Freeman, que mede a centralidade calculando a média das distâncias mais curtas para todos os outros nós. Em seguida, Ela mede a centralidade calculando a média das distâncias mais curtas para todos os outros nós. 
-- A homofilia é uma das características mais fundamentais das redes sociais, que sugere que um ator na rede social tende a ser semelhante aos seus vizinhos ou “amigos” conectados. Esse é um resultado natural, pois os amigos ou vizinhos de um determinado ator na rede social não são uma amostra aleatória da população subjacente
-- Influência social: Isso indica que as pessoas tendem a seguir os comportamentos de seus amigos. O efeito da influência social leva as pessoas a adotarem comportamentos exibidos por seus vizinhos.
+A medida de influência social na análide de redes sociais parte do princípio que as pessoas tendem a seguir ou adotar os comportamentos de seus amigos ou vizinhos, fenômeno conhecido como homofilia [@Aggarwal2011]. Desta forma, é possível utilizar das medidas de centralidade para identificar indivíduos capazes de exercer grande influência dentro de comunidades.
+
 
 <!---
 - técnicas utilizadas neste trabalho
@@ -335,7 +321,9 @@ Dada a estruturação de dados raspados de uma rede social, é possível emprega
 
 ## Tecnologias Utilizadas
 
-### Ambiente Computacional Estatístico R (NOVO)
+
+
+### <mark>Ambiente Computacional Estatístico R
 
 <!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
 
@@ -343,9 +331,33 @@ A linguagem R tem se consolidado como uma das principais ferramentas da ciência
 
 O RStudio atua como um ambiente integrado que potencializa o uso da linguagem R. Conforme observam @Wickham2017, o RStudio transformou a experiência de análise de dados ao integrar código, gráficos e relatórios em um mesmo ambiente, promovendo uma ciência de dados mais interativa e transparente”. No presente trabalho, o RStudio é utilizado para realizar a mineração, tratamento e formatação de dados provenientes da rede social Bluesky.
 
-### Mineração de Dados 
+### <mark>Mineração de Dados 
 
-#### Pacote `{bskyr}` do RStudio (ALTERADO)
+Em seu artigo sobre abordagens quantitativas para a comparação de padrões comunicativos no Twitter (atual X), @Bruns2012 utiliza da *API* de busca através da plataforma *yourTwapperkeeper* (2012) para extrair um conjunto de dados de *tweets* (postagens) que contenham palavras-chave ou hashtags determinadas pelo operador. No Bluesky, um processo equivalente pode ser realizado através do pacote *atrrr* do RStudio para acessar a API e captar postagens dentro de um critério estabelecido.
+
+Para descrever os padrões comunicativos que podem ser observados dentro deste conjunto de dados, utiliza de um catálogo de métricas, divididas entre três grupos em distribuição 1/9/90 [@Bruns2012]:
+
+- o 1% de usuários líderes em atividade;
+- os 9% seguintes de usuários mais ativos;
+- os 90% restantes de usuários.
+
+Destes, foram calculadas as métricas:
+
+- O número de postagens no conjunto de dados;
+- O número de usuários únicos que contribuem para o conjunto de dados;
+- A porcentagem de postagens originais no conjunto de dados (ou seja, tweets que não são respostas nem *reposts*);
+- A porcentagem de respostas genuínas no conjunto de dados (ou seja, respostas que não são *reposts*);
+- A porcentagem de *reposts* no conjunto de dados;
+- A porcentagem de postagens no conjunto de dados que contêm URLs.
+
+Dessa forma, é possível medir dentro do conjunto de dados o quão dominantes na conversa geral são os usuários mais ativos e observar diferenças nos padrões de atividades dos três grupos [@Bruns2012]. O mesmo processo pode ser aplicado à critérios ou hashtags não relacionados ao tema de pesquisa para inseri-lo em um contexto mais amplo. Ademais, para analisar o impacto da suspensão do X nas dinâmicas de comunidade no Bluesky, pode-se dividir conjuntos de dados entre períodos temporais.
+
+
+
+
+<!-- Comentando a seção abaixo enquanto averiguamos se vamos manter o bskyr ou mudar totalmente para o atrrr
+
+#### Pacote `{bskyr}` do RStudio
 
 Tendo sua versão 0.3.0 disponibilizada em 22 de julho de 2025, o `{bskyr}` é um pacote do R Studio que providencia uma interface com a Bluesky Social API via HTTP (*HyperText Transfer Protocol*), permitindo extrações de dados da rede [@bskyr]. APIs como a API Bluesky Social permitem que um *software* cliente enviem uma solicitação a um *software* servidor e receba dele uma resposta.
 
@@ -371,8 +383,15 @@ No processo de raspagem de dados, foi solicitado o *App Pasword*, uma prática m
 <!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
 <!-- - Mencionar bibliotecas do R -->
 
-### Análise de Dados em Rede
+### <mark>Análise de Dados em Rede
 
+A partir das métricas estabelecidas durante a mineração de dados, @Bruns2012 realiza as seguintes conjunturas, que servem como embasamento para a análise de padrões comunicativos:
+
+- Contribuições relativas dos três grupos de usuários;
+- Longetividade do termo em comparação à porcentagem de posts contribuídos pelo grupo de 90% dos usuários;
+- Porcentagens relativas dos diferentes tipos de postagens;
+- Porcentagem de URLs em posts vs. porcentagem de *reposts*;
+- Porcentagem de postagens contribuídas por usuários líderes em atividade vs. porcentagem de URLs em postagens.
 
 
 <!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
