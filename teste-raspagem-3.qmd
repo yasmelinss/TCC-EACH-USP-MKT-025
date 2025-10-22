@@ -52,9 +52,18 @@ formataJSON <- function(string) {
   toJSON(string, pretty = TRUE) |> 
     quebra()
 }
+```
 
-#autenticação
-auth = ('yasmelins.bsky.social')
+# Autenticação
+
+```{r}
+#| label: autenticando
+
+auth(
+  user = 'yasmelinss.bsky.social',
+  password = read_lines("senha.txt"),
+  overwrite = TRUE
+)
 ```
 
 

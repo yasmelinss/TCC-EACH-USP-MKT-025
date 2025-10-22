@@ -23,3 +23,5 @@
 *.html
 teste-raspagem-2
 teste_atrrr.rmarkdown
+# arquivo de autenticação
+senha.txt
