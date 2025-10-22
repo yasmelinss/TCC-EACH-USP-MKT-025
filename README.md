@@ -8,20 +8,23 @@ Professor orientador: Marcelo Ventura
 
 Sprint da semana:
 
-- [ ] Trocar todas as funções do {bskyr} pelo {atrrr}
-  - Yas
-  
-- [ ] Extrair dados 
-  - [ ] de perfis 
-  - [ ] de postagens
-  - [ ] de replies
-  - [ ] de likes
-  - [ ] de seguindo
-  - [ ] de seguidores
-  - Yas
-
-- [ ] Dar uma ajeitada geral no código do arquivo teste-raspagem-3.qmd
-  - [ ] Arrumar prints para JSON
+- [ ] Criar novo arquivo "extracao.qmd"
+  - [ ] replicar as 4 vignettes do pacote `{atrrr}`, exceto as partes redundantes, com os dados do LOL
+  - [ ] extrair 10 usuários
+  - [ ] para cada um dos 10 usuarios acima, extrair 10 seguidores
+  - [ ] para cada um dos 10 usuarios acima, extrair 10 seguindo
+  - [ ] pra cada usuário acima extrair 10 posts
+  - [ ] pra cada post, extrair 10 replies e 10 reposts
+  - [ ] manuseio dos dados 
+    - [ ] ids, handles (usuario, postagem, like, repost, reply)
+    - [ ] ligar pro lelão para explicar como fazer os dataframes de relacionamento
+  - [ ] montar os respectivos grafos
+    - [ ] usuarios que se seguem
+    - [ ] usuarios que são seguidos
+    - [ ] usuarios + numero de replies que cada usuario deu (proximidade maior quanto mais replies)
+    - [ ] usuarios + numero de reposts que cada usuario deu (proximidade maior quanto mais reposts)
+    - [ ] usuarios + numero de interações (replies + reposts + likes) que cada usuario deu
+  - [ ] fazer gráfico dos grafos acima
   - Yas
 
 - [/] Metodologia -- ler artigos e escrever dentro dos tópicos
@@ -36,9 +39,11 @@ Sprint da semana:
   - [X] Indústria de Games
   - [X] Metodologia
   - Thales
+  - concluido em 21/10
 
 - [X] Realçar quais seções precisam de revisão
   - Thales
+  - concluido em 21/10
 
 Backlog:
 
@@ -63,6 +68,22 @@ Backlog:
 
 Concluído:
 
+- [x] Dar uma ajeitada geral no código do arquivo teste-raspagem-3.qmd
+  - [x] Arrumar prints para JSON
+  - Yas
+  - concluido em 21/10
+- [x] Extrair dados 
+  - [x] de perfis 
+  - [x] de postagens
+  - [x] de replies
+  - [x] de likes
+  - [x] de seguindo
+  - [x] de seguidores
+  - Yas
+  - concluído em 21/10
+- [X] Trocar todas as funções do {bskyr} pelo {atrrr}
+  - Yas
+  - concluído em 21/10
 - [/] Terminar as revisões com base no feedback do orientador
   - [/] Indústria de Games
   - [X] Pacote {bskyr} do R
