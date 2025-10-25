@@ -59,6 +59,9 @@ formataJSON <- function(string) {
 ```{r}
 #| label: autenticando
 
+#autenticação
+
+
 auth(
   user = 'yasmelinss.bsky.social',
   password = read_lines("senha.txt"),
