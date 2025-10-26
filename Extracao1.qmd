@@ -158,3 +158,30 @@ handle <-
 handle
 
 ```
+
+
+```{r}
+#| label: listagem-seguidores 
+
+lista_seguidores <- list()
+
+  for (item in handle) {
+    resultado <-
+      get_followers(
+        actor = item,
+        limit = 4000
+      )
+    lista_seguidores[[item]] <- resultado
+  }
+
+
+
+seguidores <- dplyr::bind_rows(lista_seguidores)
+
+seguidores |>
+  dplyr::glimpse()
+
+seguidores |>
+  view()
+
+```
