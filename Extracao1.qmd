@@ -57,17 +57,14 @@ formataJSON <- function(string) {
 # Autenticação
 
 ```{r}
-#| label: autenticando
+#| label: autentica
 
-#autenticação
+auth(
+  user = 'yasmelinss.bsky.social',
+  password = read_lines("senha.txt"),
+  overwrite = TRUE
+)
+```
 
-token <-
-  auth(
-    user = 'yasmelinss.bsky.social',
-    password = read_lines("senha.txt"),
-    domain = "https://bsky.app/",
-    verbose = TRUE,
-    overwrite = FALSE,
-    token = NULL
   )
 ```
