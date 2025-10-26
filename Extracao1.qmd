@@ -133,4 +133,14 @@ posts <-
 #formataJSON(pesquisa)
 ```
 
+```{r}
+#| label: filtragem-search-post
+
+posts |>
+  select(uri, author_handle, text) |>
+  view()
+
+```
+
+vamos trabalhar com esses 10 resultados.
 ```
