@@ -185,3 +185,29 @@ seguidores |>
   view()
 
 ```
+
+```{r}
+#| label: listagem-seguindo 
+
+lista_seguindo <- list()
+
+  for (item in handle) {
+    resultado_2 <-
+      get_follows(
+        actor = item,
+        limit = 4000
+      )
+    lista_seguindo[[item]] <- resultado_2
+  }
+
+
+
+seguindo <- dplyr::bind_rows(lista_seguindo)
+
+seguindo |>
+  dplyr::glimpse()
+
+seguindo |>
+  view()
+```
+
