@@ -143,4 +143,18 @@ posts |>
 ```
 
 vamos trabalhar com esses 10 resultados.
+
+explorando Conexões
+
+```{r}
+#| label: filtragem-handles
+
+handle <- 
+  posts |>
+    select(handle = author_handle) |>
+        distinct() |>
+          pull(handle)
+
+handle
+
 ```
