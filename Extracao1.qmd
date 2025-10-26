@@ -66,5 +66,50 @@ auth(
 )
 ```
 
+
+
+
+
+# INDICE
+
+## Extraindo por URIs
+
+
+A função `get_skeets_authored_by()` retorna um dataframe com as seguintes variáveis:
+
+- `uri`: Padrão de redirecionamento do *Bluesky*, funciona como o "endereço" do post.
+- `cid`: *Content Identifier* - um hash que representa o conteúdo do post de forma única
+- `author_handle`: *"@"* do perfil ou nome público de uma conta
+- `author_name`: Nome não oficial da conta exibido
+- `text`: Conteúdo em texto do post, pode conter texto, menções, emojis e links
+- `author_data`: Informações do perfil
+  - `did`, 
+  - `handle`, 
+  - `bio`, 
+  - link da imagem de perfil 
+- `post_data`: Informações sobre o post como a data de criação e dados *embed* como anexos, citações e imagens
+- `embed_data`: Informações sobre o conteúdo incorporado (embed), como outro post citado, imagem ou link
+- `reply_count`: quantidade de respostas ou comentários
+- `repost_count`: quantidade de *reposts* ou compartilhamentos ou *reskeet*
+- `like_count`: quantidade de *likes* ou curtidas
+- `quote_count`: quantidade de *reposts* com marcação ou citação *
+- `indexed_at`: data da publicação no servidor do *Bluesky*
+- `in_reply_to`: URI do post ao qual este responde (caso seja uma resposta direta).
+- `in_reply_root`: URI do post original na cadeia de respostas (a “raiz” da conversa).
+- `quotes`: URIs de posts que foram citados por este post
+- `tags`: Lista de hashtags incluídas no post
+- `mentions`: Lista de usuários mencionados
+- `links`: Links externos incluídos no texto do post
+- `langs`: Idiomas detectados no texto
+- `labels`: Rótulos automáticos atribuídos
+- `is_reskeet`: (booleano) verifica se é um *repost*
+
+
+“Skeet” é o nome informal (um trocadilho com tweet) que a comunidade Bluesky usa para se referir a um post.
+
+“Post” é o termo oficial no protocolo AT (Authenticated Transfer Protocol), que é a base técnica do Bluesky.
+
+`(atrr)` aceita ambos os termos, são equivalentes.
+
   )
 ```
