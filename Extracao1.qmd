@@ -111,5 +111,26 @@ A função `get_skeets_authored_by()` retorna um dataframe com as seguintes vari
 
 `(atrr)` aceita ambos os termos, são equivalentes.
 
+
+# INICIO
+
+
+pegando 10 nomes de usuários que tenham haver com CBLOL
+
+```{r}
+#| label: extracao-search-post
+
+querys <- 
+  c('cblol','lol')
+
+posts <-
+  search_post(
+    q = querys,
+    limit = 10L,
+    since = "2024-08-30",
+    until = "2024-09-08"
   )
+#formataJSON(pesquisa)
+```
+
 ```
