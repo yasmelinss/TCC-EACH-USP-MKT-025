@@ -22,11 +22,13 @@ execute:
 
 #library(bskyr)
 library(tidyverse)
-library(readr)
+#library(readr)
 library(jsonlite)
 library(atrrr)
-library(ggplot2)
+#library(ggplot2)
 library(igraph)
+library(ggraph)
+library(tidygraph)
 
 # funções úteis
 quebra <- function(string, tamanho = 80) {
@@ -151,9 +153,9 @@ explorando Conexões
 
 handle <- 
   posts |>
-    select(handle = author_handle) |>
-        distinct() |>
-          pull(handle)
+  select(handle = author_handle) |>
+  distinct() |>
+  pull(handle)
 
 handle
 
@@ -165,14 +167,14 @@ handle
 
 lista_seguidores <- list()
 
-  for (item in handle) {
-    resultado <-
-      get_followers(
-        actor = item,
-        limit = 4000
-      )
-    lista_seguidores[[item]] <- resultado
-  }
+for (item in handle) {
+  resultado <-
+    get_followers(
+      actor = item,
+      limit = 4000
+    )
+  lista_seguidores[[item]] <- resultado
+}
 
 
 
@@ -191,14 +193,14 @@ seguidores |>
 
 lista_seguindo <- list()
 
-  for (item in handle) {
-    resultado_2 <-
-      get_follows(
-        actor = item,
-        limit = 4000
-      )
-    lista_seguindo[[item]] <- resultado_2
-  }
+for (item in handle) {
+  resultado_2 <-
+    get_follows(
+      actor = item,
+      limit = 4000
+    )
+  lista_seguindo[[item]] <- resultado_2
+}
 
 
 
@@ -209,5 +211,60 @@ seguindo |>
 
 seguindo |>
   view()
+```
+
+```{r}
+#| label: visualizando-em-redes
+
+
+#recupera os seguidores e extrai só a coluna actor_handle, virando um vetor de strings.
+some_followers <- 
+  get_followers(
+    actor = "yasminkally.bsky.social", 
+    limit = 10
+    )$actor_handle
+
+# Para cada seguidor, recupere seu próprio conjunto de seguidores.
+
+followers_of_followers <- 
+  some_followers |>
+    #executa get_followers() para cada um desses handles.
+    purrr::map_dfr( ~ {
+      get_followers(
+        actor = .x, 
+        limit = 200) |>
+      #adiciona uma coluna dizendo “de quem são esses seguidores
+      mutate(from = .x)
+  }) |>
+  #from → o usuário original (some_followers)
+  #to → o seguidor de cada um deles
+  dplyr::rename(to = actor_handle) |>
+  dplyr::select(from, to)
+
+```
+
+```{r}
+
+# Criando o grafo
+graph <- 
+  #A função graph_from_data_frame() transforma suas relações (from → to) em nós e arestas
+  igraph::graph_from_data_frame(
+    followers_of_followers,
+    #O argumento directed = TRUE indica que a relação tem direção (ex: A → B é diferente de B → A)
+    directed = TRUE
+    )
+
+# Usando ggraph para vizualizar
+#Existem outros layouts: "fr" (Fruchterman-Reingold), "circle", "grid", etc
+ggraph::ggraph(graph, layout = "kk") +
+  #Desenha as arestas
+  ggraph::geom_edge_link() +
+  #Desenha os nós
+  ggraph::geom_node_point(
+    #calcula e mapeia o PageRank de cada nó, nós que são seguidos por perfis influentes ficam maiores
+    aes(size = tidygraph::centrality_pagerank())) +
+  #Remove eixos, títulos e grades
+  ggplot2::theme_void()
+
 ```
 
