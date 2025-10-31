@@ -230,6 +230,28 @@ actor_handles
 ```
 
 
+```{r}
+#| label: listagem-seguidores-dos-seguidores
+
+lista_seguidores_dos_seguidores <- list()
+
+for (item in actor_handles$actor_handles) {
+  print(paste("Buscando 10 seguidores de:", item))
+  Sys.sleep(0.5)
+  some_followers <-
+    get_followers(
+      actor = item,
+      limit = 10
+    )
+  lista_seguidores_dos_seguidores[[item]] <- some_followers
+}
+
+seguidores_dos_seguidores <- dplyr::bind_rows(lista_seguidores_dos_seguidores)
+
+seguidores_dos_seguidores |>
+  dplyr::glimpse()
+
+```
 #recupera os seguidores e extrai só a coluna actor_handle, virando um vetor de strings.
 some_followers <- 
   get_followers(
