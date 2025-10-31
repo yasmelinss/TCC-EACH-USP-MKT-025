@@ -132,7 +132,7 @@ posts <-
     since = "2024-08-30",
     until = "2024-09-08"
   )
-#formataJSON(pesquisa)
+view(posts)
 ```
 
 ```{r}
@@ -172,12 +172,10 @@ for (item in handle$handle) {
   resultado <-
     get_followers(
       actor = item,
-      limit = 4000
+      limit = 10
     )
   lista_seguidores[[item]] <- resultado
 }
-
-
 
 seguidores <- dplyr::bind_rows(lista_seguidores)
 
@@ -199,13 +197,12 @@ for (item in handle$handle) {
   resultado_2 <-
     get_follows(
       actor = item,
-      limit = 4000
+      limit = 10
     )
   lista_seguindo[[item]] <- resultado_2
 }
 
-
-
+#unindo os resultados
 seguindo <- dplyr::bind_rows(lista_seguindo)
 
 seguindo |>
@@ -219,7 +216,7 @@ seguindo |>
 Criando uma lista de `actor_handle` dessa extração
 
 ```{r}
-#| label: filtragem-actor-handles-seguidores
+#| label: filtragem-actor-handle-seguidores
 
 actor_handles <- 
 seguidores |>
@@ -228,6 +225,8 @@ select(actor_handles = actor_handle)
 actor_handles
 
 ```
+
+
 
 
 ```{r}
@@ -276,19 +275,20 @@ actor_handles_2
 ```
 
 ```{r}
-#| label: criando-o-grafo
+#| label: criando-grafo=pt1
+
 
 graph <- 
   #A função graph_from_data_frame() transforma suas relações (from → to) em nós e arestas
   igraph::graph_from_data_frame(
-    followers_of_followers,
+    seguidores_dos_seguidores,
     #O argumento directed = TRUE indica que a relação tem direção (ex: A → B é diferente de B → A)
     directed = TRUE
     )
 
 # Usando ggraph para vizualizar
 #Existem outros layouts: "fr" (Fruchterman-Reingold), "circle", "grid", etc
-ggraph::ggraph(graph, layout = "fr") +
+ggraph::ggraph(graph, layout = "kk") +
   #Desenha as arestas
   ggraph::geom_edge_link() +
   #Desenha os nós
@@ -299,4 +299,5 @@ ggraph::ggraph(graph, layout = "fr") +
   ggplot2::theme_void()
 
 ```
+
 
