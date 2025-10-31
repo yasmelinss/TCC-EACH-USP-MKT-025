@@ -215,8 +215,19 @@ seguindo |>
   view()
 ```
 
+
+Criando uma lista de `actor_handle` dessa extração
+
 ```{r}
-#| label: visualizando-em-redes
+#| label: filtragem-actor-handles-seguidores
+
+actor_handles <- 
+seguidores |>
+select(actor_handles = actor_handle)
+
+actor_handles
+
+```
 
 
 #recupera os seguidores e extrai só a coluna actor_handle, virando um vetor de strings.
