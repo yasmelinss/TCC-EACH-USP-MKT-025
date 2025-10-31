@@ -168,7 +168,7 @@ iterando handle na função `(get_followers)`
 
 lista_seguidores <- list()
 
-for (item in handle) {
+for (item in handle$handle) {
   resultado <-
     get_followers(
       actor = item,
