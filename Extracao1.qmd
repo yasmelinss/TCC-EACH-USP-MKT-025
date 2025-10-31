@@ -238,11 +238,19 @@ lista_seguidores_dos_seguidores <- list()
 for (item in actor_handles$actor_handles) {
   print(paste("Buscando 10 seguidores de:", item))
   Sys.sleep(0.5)
-  some_followers <-
-    get_followers(
-      actor = item,
-      limit = 10
-    )
+  some_followers <- tryCatch(
+    {
+      get_followers(
+        actor = item,
+        limit = 10
+      )
+    }, error = function(e){
+      print(paste("FALHA AO BUSCAR:", item, "| Erro:", e$message))
+      NULL
+    }
+  )
+    
+
   lista_seguidores_dos_seguidores[[item]] <- some_followers
 }
 
@@ -251,30 +259,19 @@ seguidores_dos_seguidores <- dplyr::bind_rows(lista_seguidores_dos_seguidores)
 seguidores_dos_seguidores |>
   dplyr::glimpse()
 
+seguidores_dos_seguidores |>
+  view()
 ```
-#recupera os seguidores e extrai só a coluna actor_handle, virando um vetor de strings.
-some_followers <- 
-  get_followers(
-    actor = "yasminkally.bsky.social", 
-    limit = 10
-    )$actor_handle
 
-# Para cada seguidor, recupere seu próprio conjunto de seguidores.
 
-followers_of_followers <- 
-  some_followers |>
-    #executa get_followers() para cada um desses handles.
-    purrr::map_dfr( ~ {
-      get_followers(
-        actor = .x, 
-        limit = 200) |>
-      #adiciona uma coluna dizendo “de quem são esses seguidores
-      mutate(from = .x)
-  }) |>
-  #from → o usuário original (some_followers)
-  #to → o seguidor de cada um deles
-  dplyr::rename(to = actor_handle) |>
-  dplyr::select(from, to)
+```{r}
+#| label: filtragem-actor-handle-seguidores-dos-seguidores
+
+actor_handles_2 <- 
+seguidores_dos_seguidores |>
+select(actor_handle = actor_handle)
+
+actor_handles_2
 
 ```
 
