@@ -8,11 +8,11 @@ Professor orientador: Marcelo Ventura
 
 Sprint da semana:
 
-- [ ] Criar novo arquivo "extracao.qmd"
-  - [ ] replicar as 4 vignettes do pacote `{atrrr}`, exceto as partes redundantes, com os dados do LOL
-  - [ ] extrair 10 usuários
-  - [ ] para cada um dos 10 usuarios acima, extrair 10 seguidores
-  - [ ] para cada um dos 10 usuarios acima, extrair 10 seguindo
+- [X] Criar novo arquivo "extracao.qmd"
+  - [X] replicar as 4 vignettes do pacote `{atrrr}`, exceto as partes redundantes, com os dados do LOL
+  - [X] extrair 10 usuários
+  - [X] para cada um dos 10 usuarios acima, extrair 10 seguidores
+  - [X] para cada um dos 10 usuarios acima, extrair 10 seguindo
   - [ ] pra cada usuário acima extrair 10 posts
   - [ ] pra cada post, extrair 10 replies e 10 reposts
   - [ ] manuseio dos dados 
