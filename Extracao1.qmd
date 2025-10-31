@@ -72,9 +72,9 @@ auth(
 
 
 
-# INDICE
+# Glossário
 
-## Extraindo por URIs
+## Variáveis extraídas
 
 
 A função `get_skeets_authored_by()` retorna um dataframe com as seguintes variáveis:
@@ -114,7 +114,7 @@ A função `get_skeets_authored_by()` retorna um dataframe com as seguintes vari
 `(atrr)` aceita ambos os termos, são equivalentes.
 
 
-# INICIO
+# Extração
 
 
 pegando 10 nomes de usuários que tenham haver com CBLOL
@@ -148,6 +148,8 @@ vamos trabalhar com esses 10 resultados.
 
 explorando Conexões
 
+pegando os valores de handle em uma lista vetor, na variável handle.
+
 ```{r}
 #| label: filtragem-handles
 
@@ -161,6 +163,7 @@ handle
 
 ```
 
+iterando handle na função `(get_followers)`
 
 ```{r}
 #| label: listagem-seguidores 
@@ -187,6 +190,7 @@ seguidores |>
   view()
 
 ```
+iterando handle na função `(get_follows)`
 
 ```{r}
 #| label: listagem-seguindo 
@@ -244,8 +248,8 @@ followers_of_followers <-
 ```
 
 ```{r}
+#| label: criando-o-grafo
 
-# Criando o grafo
 graph <- 
   #A função graph_from_data_frame() transforma suas relações (from → to) em nós e arestas
   igraph::graph_from_data_frame(
@@ -256,7 +260,7 @@ graph <-
 
 # Usando ggraph para vizualizar
 #Existem outros layouts: "fr" (Fruchterman-Reingold), "circle", "grid", etc
-ggraph::ggraph(graph, layout = "kk") +
+ggraph::ggraph(graph, layout = "fr") +
   #Desenha as arestas
   ggraph::geom_edge_link() +
   #Desenha os nós
