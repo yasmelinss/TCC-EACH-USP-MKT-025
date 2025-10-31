@@ -153,11 +153,9 @@ pegando os valores de handle em uma lista vetor, na variável handle.
 ```{r}
 #| label: filtragem-handles
 
-handle <- 
+handle <-
   posts |>
-  select(handle = author_handle) |>
-  distinct() |>
-  pull(handle)
+  select(handle = author_handle)
 
 handle
 
