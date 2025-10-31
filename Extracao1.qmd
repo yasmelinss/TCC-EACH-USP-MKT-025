@@ -195,7 +195,7 @@ iterando handle na função `(get_follows)`
 
 lista_seguindo <- list()
 
-for (item in handle) {
+for (item in handle$handle) {
   resultado_2 <-
     get_follows(
       actor = item,
