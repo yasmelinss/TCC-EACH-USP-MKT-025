@@ -13,7 +13,7 @@ Sprint da semana:
   - [X] extrair 10 usuários
   - [X] para cada um dos 10 usuarios acima, extrair 10 seguidores
   - [X] para cada um dos 10 usuarios acima, extrair 10 seguindo
-  - [ ] pra cada usuário acima extrair 10 posts
+  - [X] pra cada usuário acima extrair 10 posts
   - [ ] pra cada post, extrair 10 replies e 10 reposts
   - [ ] manuseio dos dados 
     - [ ] ids, handles (usuario, postagem, like, repost, reply)
