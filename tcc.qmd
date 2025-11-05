@@ -202,7 +202,7 @@ BUSCANDO REF-->
 
 ### Ciência de Dados
 
-Com o avanço da internet, a coleta e a circulação de informações passaram a ocorrer em volumes e velocidades cada vez maiores. O valor destes dados são reconhecidos globalmente, com muitas organizações adotando estratégias orientadas por dados de forma a fazer decisões melhor informadas. 
+Com o avanço da internet, a coleta e a circulação de informações passaram a ocorrer em volumes e velocidades cada vez maiores. O valor destes dados são reconhecidos globalmente, com muitas organizações adotando estratégias orientadas por dados de forma a fazer decisões melhor informadas [@Wedel2016]. 
 
 A necessidade de estudar dados como uma ciência à parte e não apenas através de suas aplicações em pesquisa e indústria leva ao surgimento da Ciência de Dados, que recebeu diversas definições ao longo dos anos. @Zhu2015 consolidam as várias conceituações ao definir Ciência de Dados como a teoria, o método e a tecnologia de estudar a natureza dos dados, tendo dois componentes principais. O primeiro componente é o estudo dos padrões e regras dos próprios dados, explorando a natureza dos dados sem necessariamente levar em consideração seu significado no mundo real. O segundo componente é o estudo das leis do mundo natural refletidas nos dados, de forma a inferir informações sobre a realidade através do estudo de dados.
 
