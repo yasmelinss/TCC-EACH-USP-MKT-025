@@ -343,13 +343,13 @@ A medida de influência social na análide de redes sociais parte do princípio 
 
 <!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
 
-A linguagem R tem se consolidado como uma das principais ferramentas da ciência de dados contemporânea, oferecendo recursos avançados para análise estatística, modelagem e visualização de informações. De acordo com @Wickham2017, “R é uma linguagem poderosa e flexível, projetada para análise estatística e visualização de dados, tornando-se uma das principais ferramentas da ciência de dados moderna”. Essa versatilidade permite que pesquisadores e profissionais de marketing realizem diversas aplicações de ciência de dados, transformando dados brutos e não-estruturados em insights estratégicos.
+A linguagem R tem se consolidado como uma das principais ferramentas da ciência de dados contemporânea, oferecendo recursos avançados para análise estatística, modelagem e visualização de informações. De acordo com @Wickham2017, o R é "uma linguagem poderosa e flexível, projetada para análise estatística e visualização de dados, tornando-se uma das principais ferramentas da ciência de dados moderna”. Essa versatilidade permite que pesquisadores e profissionais de marketing realizem diversas aplicações de ciência de dados, transformando dados brutos e não-estruturados em insights estratégicos.
 
 O RStudio atua como um ambiente integrado que potencializa o uso da linguagem R. Conforme observam @Wickham2017, o RStudio transformou a experiência de análise de dados ao integrar código, gráficos e relatórios em um mesmo ambiente, promovendo uma ciência de dados mais interativa e transparente”. No presente trabalho, o RStudio é utilizado para realizar a mineração, tratamento e formatação de dados provenientes da rede social Bluesky.
 
 ### <mark>Mineração de Dados 
 
-Em seu artigo sobre abordagens quantitativas para a comparação de padrões comunicativos no Twitter (atual X), @Bruns2012 utiliza da *API* de busca através da plataforma *yourTwapperkeeper* (2012) para extrair um conjunto de dados de *tweets* (postagens) que contenham palavras-chave ou hashtags determinadas pelo operador. No Bluesky, um processo equivalente pode ser realizado através do pacote *atrrr* do RStudio para acessar a API e captar postagens dentro de um critério estabelecido.
+Em seu artigo sobre abordagens quantitativas para a comparação de padrões comunicativos no Twitter (atual X), @Bruns2012 utiliza da API de busca através da plataforma *yourTwapperkeeper* (2012) para extrair um conjunto de dados de *tweets* (postagens) que contenham palavras-chave ou hashtags determinadas pelo operador. No Bluesky, um processo equivalente pode ser realizado através do pacote *atrrr* do RStudio para acessar a API e captar postagens dentro de um critério estabelecido.
 
 Para descrever os padrões comunicativos que podem ser observados dentro deste conjunto de dados, utiliza de um catálogo de métricas, divididas entre três grupos em distribuição 1/9/90 [@Bruns2012]:
 
