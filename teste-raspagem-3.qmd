@@ -129,11 +129,11 @@ pesquisa |>
 ```{r}
 #| label: extracao-search-skeet
 
-skeet <-
-  search_skeet(
-    q = 'League of Legends',
-    limit = 10L
-  )
+#skeet <-
+#  search_skeet(
+#    q = 'League of Legends',
+#    limit = 10L
+#  )
 
 #formataJSON(skeet)
 
@@ -143,12 +143,12 @@ skeet <-
 ```{r}
 #| label: filtragem-search-skeet
 
-skeet |>
-  select(
-    uri,
-    author_handle,
-    text
-  )
+#skeet |>
+#  select(
+#   uri,
+#    author_handle,
+#    text
+#  )
 ```
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Arquivo de extração de dados"
+title: "Arquivo de extração de dados - teste 2"
 author: "Yasmin Messias Lins"
 lang: pt-br
 format: html
@@ -173,7 +173,8 @@ for (item in handle$handle) {
     get_followers(
       actor = item,
       limit = 10
-    )
+    ) |>
+    mutate(from = item)
   lista_seguidores[[item]] <- resultado
 }
 
@@ -198,7 +199,7 @@ for (item in handle$handle) {
     get_follows(
       actor = item,
       limit = 10
-    )
+    ) |> mutate(from = item)
   lista_seguindo[[item]] <- resultado_2
 }
 
@@ -242,7 +243,8 @@ for (item in actor_handles$actor_handles) {
       get_followers(
         actor = item,
         limit = 10
-      )
+      ) |>
+        mutate(from = item)
     }, error = function(e){
       print(paste("FALHA AO BUSCAR:", item, "| Erro:", e$message))
       NULL
