@@ -287,9 +287,17 @@ Diante disso, levanta-se a seguinte questão central:
 - Mensurar a flutuação no volume de postagens sobre League of Legends antes, durante e após a suspensão do X no Brasil.
 - Caracterizar as dinâmicas de seguidores e influência social de usuários dentro de comunidades associadas à League of Legends.
 
-## Justificativa
+## <mark>Justificativa
 
-@Rogers2009 aborda os “Métodos Digitais”, propondo usar os traços deixados online (hashtags, menções, links) como unidades de análise para estudar fenômenos culturais e sociais. ELABORAR E REESCREVER;
+No meio digital, esforços de pesquisa acadêmica devem considerar que os objetos de estudo são em grande parte instáveis, seja pela efemeridade de *Websites* (que podem ser alterados, redirecionados ou retirados do ar subitamente), atualizações de *software* ou modificações em serviços digitais que reconfiguram de alguma forma aquilo sendo estudado [@Rogers2009]. Tal característica se torna evidente com o rebranding do Twitter para X e a reconfiguração subsequente da plataforma após a aquisição de Elon Musk, que encerrou o acesso gratuito à API e passou a cobrar um serviço de inscrição em Fevereiro de 2023 [@EconomicTimes2025]. Como consequência, a mineração ou raspagem de postagens para estudos de percepção pública, análise de sentimentos, predição de consumo [@Bhattacharjee2017; @Chakraborty2023; @Bian2016] e outras metodologias de pesquisa semelhantes que utilizassem de dados do antigo Twitter se tornaram repentinamente irreplicáveis.
+
+Em função desta constante mudança, @Rogers2009 argumenta que através da empregação de métodos virtuais, pesquisas relacionadas à internet devem deixar de focar na mensuração de quanto cultura virtual reflete a realidade para, em vez disso, diagnosticar as mudanças culturais e societais *através* da internet, como fonte de dados e não objeto de estudo. A suspensão do X no Brasil e a subsequente migração de usuários para o BlueSky, portanto, é um fenômeno digital que reflete uma mudança cultural e social e que pode vir a ser estudada através de métodos digitais.
+
+REESCREVER C EMBASAMENTO>
+O tópico de games on-line representam um ambiente de dados digitais empíricos valiosos para a criação de conhecimento social; os e-sports, então, são representam uma subseção do tópico de games que é altamente engajada e produz mídia espalhável. O fato de LoL ter a maior cena de e-sports do mundo pareado com a coincidência do CBLOL ter ocorrido durante a suspensão do X torna este um tópico de interesse para através do qual examinar como a suspensão das atividades do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo no BlueSky.
+
+QUAL A SIGNIFICÂNCIA?
+
 
 <!-- REVER
 Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvido pela Go Gamers e SX Group em parceria com a ESPM e Blend New Research, aplicada em 6 países da América Latina como Argentina, Chile, Colômbia, México e Peru, 82,8%  dos participantes relataram ter o costume de jogar algum tipo de jogo digital, um crescimento de 8,9% em relação à edição anterior (73,9%). Além disso, a demografia do jogador brasileiro consta que 53,2%, a maioria, são mulheres [@pgb2025].
