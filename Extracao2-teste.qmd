@@ -210,7 +210,7 @@ seguindo |>
   dplyr::glimpse()
 
 seguindo |>
-  view()
+  # view()
 ```
 
 
