@@ -8,12 +8,7 @@ Professor orientador: Marcelo Ventura
 
 Sprint da semana:
 
-- [X] Criar novo arquivo "extracao.qmd"
-  - [X] replicar as 4 vignettes do pacote `{atrrr}`, exceto as partes redundantes, com os dados do LOL
-  - [X] extrair 10 usuários
-  - [X] para cada um dos 10 usuarios acima, extrair 10 seguidores
-  - [X] para cada um dos 10 usuarios acima, extrair 10 seguindo
-  - [X] pra cada usuário acima extrair 10 posts
+- [/] Criar novo arquivo "extracao.qmd"
   - [ ] pra cada post, extrair 10 replies e 10 reposts
   - [ ] manuseio dos dados 
     - [ ] ids, handles (usuario, postagem, like, repost, reply)
@@ -24,26 +19,18 @@ Sprint da semana:
     - [ ] usuarios + numero de replies que cada usuario deu (proximidade maior quanto mais replies)
     - [ ] usuarios + numero de reposts que cada usuario deu (proximidade maior quanto mais reposts)
     - [ ] usuarios + numero de interações (replies + reposts + likes) que cada usuario deu
-  - [ ] fazer gráfico dos grafos acima
+  - [/] fazer gráfico dos grafos acima
   - Yas
+- [/] Código de como fazer
+  - [ ] análise de frequência e exploratória: contagem de palavras, bigramas, visualização
+  - [ ] análise de conectividade: análise de índices de conexão, de centralidade
+  - Yas
+- [/] Justificativa
+  - Thales
+- [ ] aprimorar redação 
+  - [ ] Metodologia
+  - Thales
 
-- [/] Metodologia -- ler artigos e escrever dentro dos tópicos
-  - [/] análise de frequência e exploratória: contagem de palavras, bigramas, visualização
-  - Thales
-  
-- [X] Reescrever e incluir as referências da Jane
-  - [X] Problema de Pesquisa
-  - [X] Influenciadores Digitais
-  - [X] Marketing de Redes Sociais
-  - [X] Indústria de E-sports
-  - [X] Indústria de Games
-  - [X] Metodologia
-  - Thales
-  - concluido em 21/10
-
-- [X] Realçar quais seções precisam de revisão
-  - Thales
-  - concluido em 21/10
 
 Backlog:
 
@@ -57,10 +44,6 @@ Backlog:
 - [/] Metodologia -- ler artigos e escrever dentro dos tópicos
   - [-] análise de sentimentos (???)
   - Thales
-- [/] Código de como fazer
-  - [ ] análise de frequência e exploratória: contagem de palavras, bigramas, visualização
-  - [ ] análise de conectividade: análise de índices de conexão, de centralidade
-  - Yas
 - [ ] Mandar e-mail para Pesquisa Games Brasil (talvez mais pra frente)
   - Thales
 
@@ -68,6 +51,30 @@ Backlog:
 
 Concluído:
 
+- [X] Realçar quais seções precisam de revisão
+  - Thales
+  - concluido em 21/10
+- [X] Reescrever e incluir as referências da Jane
+  - [X] Problema de Pesquisa
+  - [X] Influenciadores Digitais
+  - [X] Marketing de Redes Sociais
+  - [X] Indústria de E-sports
+  - [X] Indústria de Games
+  - [X] Metodologia
+  - Thales
+  - concluido em 21/10
+- [X] Metodologia -- ler artigos e escrever dentro dos tópicos
+  - [X] análise de frequência e exploratória: contagem de palavras, bigramas, visualização
+  - Thales
+  - concluído 24/10
+- [/] Criar novo arquivo "extracao.qmd"
+  - [X] replicar as 4 vignettes do pacote `{atrrr}`, exceto as partes redundantes, com os dados do LOL
+  - [X] extrair 10 usuários
+  - [X] para cada um dos 10 usuarios acima, extrair 10 seguidores
+  - [X] para cada um dos 10 usuarios acima, extrair 10 seguindo
+  - [X] pra cada usuário acima extrair 10 posts
+  - Yas
+  - concluído em 30/10
 - [x] Dar uma ajeitada geral no código do arquivo teste-raspagem-3.qmd
   - [x] Arrumar prints para JSON
   - Yas
