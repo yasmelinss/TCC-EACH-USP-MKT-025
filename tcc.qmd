@@ -154,28 +154,34 @@ Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (19
 
 *Games* ou jogos eletrônicos, além de servirem como passa-tempo e atividade de lazer, representam um ambiente de dados empíricos valiosos para a criação de conhecimento, exercendo papel central na mídia, redes e cenário sociotécnico da atualidade [@Taylor2019]. 
 
-<!-- EXPANDIR A INTRODUÇÃO ANTES DA PARTE ECONÔMICA. -->
+:::callout-note
+EXPANDIR A INTRODUÇÃO ANTES DA PARTE ECONÔMICA.
+:::
 
 @Terranova2000 incentiva o debate sobre como trabalhos culturais e técnicos da internet são uma característica predominante da economia pós-industrial, em que indivíduos contribuem com esforços laborais para plataformas comercializadas desde a produção de vídeos no YouTube à criação de postagens em páginas pessoais de redes de networking social. No contexto de *games*, estas plataformas ofereceram algumas das primeiras oportunidades e normas para a monetização do ato de jogar, bem como de atividades criativas na criação de conteúdo através de jogos eletrônicos, amplamente descrito por *User Generated Content* (UGC) [@Taylor2019].
 
 A transmissão de jogos eletrônicos como uma atividade monetizada surge de uma multitude de fatores. Para o *streamer*, aquele que realiza as transmissões, os principais motivadores são as conexões sociais (como o desejo de compartilhar o ato de jogar com amigos), a amplificação da experiência de jogo através da introdução de telespectadores, as performances criativas e capacidade de auto-expressão através da interação com uma audiência expressiva e as aspirações profissionais de sustentar-se através de um hobby ou contribuir para o crescimento indústria de *games* através da publicidade [@Taylor2019]. Em especial, o aspecto relacional das transmissões ao vivo é explicado por @Taylor2019 como um componente importante para o aspecto financeiro da atividade, onde doações e inscrições são apresentadas como formas de expressar gratidão ao criador de conteúdo e tendem a serem seguidas por agradecimentos diretos deste. Desta forma, *streamers* atuam de forma semelhante à influenciadores digitais e possuem um incentivo financeiro direto para promover a parassociabilidade de sua audiência, cuja generosidade é a principal fonte de remuneração.
 
-<!-- dar um jeito de falar sobre a BGS? -->
+:::callout-note
+dar um jeito de falar sobre a BGS?
+:::
 
 
 ### Indústria de *E-Sports*
 
-<!-- - Pedir referências para a Branca -->
-<!-- - Ver se ela conhece alguém que estude o tópico -->
-<!-- - Procurar alguém que estude -->
+:::callout-note
+- Pedir referências para a Branca
+- Ver se ela conhece alguém que estude o tópico
+- Procurar alguém que estude
+:::
 
 Existe um extenso debate sobre a diferenciação ou a semelhança dos esportes eletrônicos com os esportes tradicionais [@Wollesen2025; @Block2021]. O presente trabalho não busca expandir a discussão da classificação ou não dos esportes eletrônicos como “esportes”. Pelo contrário, ele já carrega tal premissa e busca expandir os horizontes da aplicação do cenário a partir disso. Utiliza-se então da definição dos autores @Juho2017, em que *E-sports* referem-se a partidas competitivas (amadoras ou profissionais) de vídeo games que podem ser coordenadas por instituições que realizam torneios, onde os *Players* (jogadores) ou *Pro-players* (jogadores profissionais) costumeiramente pertencem a times que podem ser patrocinados por outras instituições, gerando assim, um negócio.
 
 Transmissões online (*streaming*) e eventos híbridos (campeonatos com torcida que são também transmitidos de forma online) são as principais formas de disseminação dos *E-sports*, nos quais toda a atividade esportiva (antes, durante e após o evento) é mediada por computadores, facilitando a obtenção de dados dos telespectadores [@Juho2017]. 
 
-<!-- 
+:::callout-note
 Usar @Taylor2019 falar sobre a evolução do espectador (arcade > casa > online)
--->
+:::
 
 :::callout
 Em sua *Motivation Scale for Sport Consumption* (Escala de Motivação de Consumo de Esportes), @Trail2001 identificam conquistas (sentir-se realizado com o sucesso do time), escapismo (uma fuga da vida comum), interação social, aquisição de conhecimento, habilidades físicas dos jogadores e atração física como os construtos motivacionais mais positivamente correlacionados ao consumo de mídias esportivas e aos fãs de esportes. Aplicada ao consumo de *E-sports*, muitos dos motivos permanecem os mesmos [@Cheung2011], porém a aquisição de conhecimento se destaca como o construto motivacional mais associado à intenção de assistir *E-sports* [@Macey2025].
@@ -184,11 +190,11 @@ No ambiente virtual das redes sociais, os torneios de *E-sports* são promovidos
 :::
 
 
+:::callout-note
+A partir de dados apresentados pelo site TwitchTracker.com, a plataforma Twitch obteve no primeiro semestre de 2025 mais de 10 bilhões de horas de conteúdo assistido, 2,5% a menos comparado com o mesmo período do ano passado. Das views, 33,5% da audiência da Twitch é impulsionada pelos 5 Games mais assistidos pelos usuários. São eles: Just Chatting - 15,9% (categoria de streamers que comentam ou reagem a partidas de jogos ou assuntos variados relacionados); League of Legends - 5,5%; Grand Theft Auto V - 3,7%; Counter-Strike - 3,7%; Dota 2 - 3,1%; e Valorant - 3,1%.
 
-<!--A partir de dados apresentados pelo site TwitchTracker.com, a plataforma Twitch obteve no primeiro semestre de 2025 mais de 10 bilhões de horas de conteúdo assistido, 2,5% a menos comparado com o mesmo período do ano passado. Das views, 33,5% da audiência da Twitch é impulsionada pelos 5 Games mais assistidos pelos usuários. São eles: Just Chatting - 15,9% (categoria de streamers que comentam ou reagem a partidas de jogos ou assuntos variados relacionados); League of Legends - 5,5%; Grand Theft Auto V - 3,7%; Counter-Strike - 3,7%; Dota 2 - 3,1%; e Valorant - 3,1%.
-
-AGUARDANDO REF -->
-
+AGUARDANDO REF
+:::
 
 
 
@@ -204,10 +210,11 @@ Até 2025, os campeonatos de LoL eram divididos entre as quatro regiões *major*
 
 As transmissões ao vivo das ligas geralmente são transmitidas por diferentes serviços *streamings* como Twitch e Youtube e o número de visualizações são expressivos, com mais de 99 milhões contabilizadas mundialmente durante a final do Worlds de 2018. [@Cauteruccio2023]
 
-<!-- Apesar de o Brasil e a América Latina estiverem enquadrados como liga *minor* até recentemente, o engajamento dos fãs e os números de telespectadores em transmissões ao vivo demonstram grande interesse no país, evidenciado pela união com a liga norte-americana. Em 2025, foi criado o canal de trasmissão *Ilha das Lendas*, onde um grupo de ex-jogadores fazem *co-stream* de todas as ligas de LoL, cujas transmissões ao vivo chegam a alcançar 150 mil telespectadores simultaneamentente, enquanto as lives oficiais chegam a 20 mil. 
+:::callout-note
+Apesar de o Brasil e a América Latina estiverem enquadrados como liga *minor* até recentemente, o engajamento dos fãs e os números de telespectadores em transmissões ao vivo demonstram grande interesse no país, evidenciado pela união com a liga norte-americana. Em 2025, foi criado o canal de trasmissão *Ilha das Lendas*, onde um grupo de ex-jogadores fazem *co-stream* de todas as ligas de LoL, cujas transmissões ao vivo chegam a alcançar 150 mil telespectadores simultaneamentente, enquanto as lives oficiais chegam a 20 mil. 
 
-BUSCANDO REF-->
-
+BUSCANDO REF
+:::
 
 
 
@@ -240,12 +247,10 @@ Para a obtenção dos dados de redes sociais, a mineração é uma tática comum
 A análise de sentimentos (também conhecida como mineração de opiniões) é o processo de analisar computacionalmente e identificar opiniões e julgamentos de um texto linguístico, podendo ser implementada em propósitos diferentes como *baseada em aspectos*, *a nível de documento* e *a nível de frase* [@Chakraborty2023]. A análise de sentimentos *baseada em aspectos* é capaz de classificar textos em aspectos diferentes e determinar sentimentos correspondentes por associação. O módulo *a nível de documento* analisa um documento inteiro, enquanto aquele *a nível de frase* limita-se a sentenças curtas como as de postagens em microblogues, que tendem a ter baixos limites de caracteres. 
 @Bian2016 apontam que existem duas abordagens gerais para a análise de sentimentos: a primeira se baseia em um léxico como o Harvard General Inquirer, SentiWordNet ou Linguistic Inquiry, que associam escolhas de palavras a opiniões e atitudes. Esta abordagem visa descobrir a estrutura temática por trás de grandes conjuntos de documentos não-estruturados, através da análise das palavras por um algorítmo estatístico. A segunda abordagem, baseada em classificações, é um método supervisionado que requer conjuntos rotulados para o treinamento de um algorítmo. -->
 
-<!--- apresentar ciência de dados como campo interdisciplinar que estuda os dados 
+apresentar ciência de dados como campo interdisciplinar que estuda os dados 
     - definir ciência de dados como área interdisciplinar (estatística, computação, conhecimento de domínio)
     - objetivo: transformar dados em informação útil para apoiar decisões
 - qual é a relação com marketing? uso de dados digitais para compreender comportamento do consumidor, segmentação, monitoramento de marcas etc.
-
-
 
 - workflow de projetos pontuais em ciência de dados
     - entendimento do problema de negócios
@@ -258,8 +263,7 @@ A análise de sentimentos (também conhecida como mineração de opiniões) é o
     - [Brodie, 2023](https://arxiv.org/abs/2306.16177)
     - [Cao, 2020](https://arxiv.org/abs/2007.03606) 
     - [R4DS](https://r4ds.hadley.nz/) para workflow de data science
--->
-
+:::
 
 
 ## Problema de pesquisa
@@ -283,11 +287,12 @@ Diante disso, levanta-se a seguinte questão central:
 > De que maneira a queda do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre *E-sports* de League of Legends na rede social Bluesky?
 
 
-
-<!-- - Caracterizar o fenômeno -->
-<!--   - Bloqueio do Twitter no Brasil numa data específica (XX/XX/XXXX)  -->
-<!--   - Transferência parcial do fluxo de postagens sobre E-Sports (qual?) para o BlueSky -->
-<!--   - O que mais??? -->
+:::callout-note
+- Caracterizar o fenômeno
+  - Bloqueio do Twitter no Brasil numa data específica (XX/XX/XXXX)
+  - Transferência parcial do fluxo de postagens sobre E-Sports (qual?) para o BlueSky
+  - O que mais???
+:::
 
 ## Objetivos
 
@@ -306,18 +311,15 @@ No meio digital, esforços de pesquisa acadêmica devem considerar que os objeto
 
 Em função desta constante mudança, @Rogers2009 argumenta que através da empregação de métodos virtuais, pesquisas relacionadas à internet devem deixar de focar na mensuração de quanto cultura virtual reflete a realidade para, em vez disso, diagnosticar as mudanças culturais e societais *através* da internet, como fonte de dados e não objeto de estudo. A suspensão do X no Brasil e a subsequente migração de usuários para o BlueSky, portanto, é um fenômeno digital que reflete uma mudança cultural e social e que pode vir a ser estudada através de métodos digitais.
 
-REESCREVER C EMBASAMENTO>
-O tópico de games on-line representam um ambiente de dados digitais empíricos valiosos para a criação de conhecimento social; os e-sports, então, são representam uma subseção do tópico de games que é altamente engajada e produz mídia espalhável. O fato de LoL ter a maior cena de e-sports do mundo pareado com a coincidência do CBLOL ter ocorrido durante a suspensão do X torna este um tópico de interesse para através do qual examinar como a suspensão das atividades do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo no BlueSky.
-
-QUAL A SIGNIFICÂNCIA?
-
-
-<!-- REVER
-Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvido pela Go Gamers e SX Group em parceria com a ESPM e Blend New Research, aplicada em 6 países da América Latina como Argentina, Chile, Colômbia, México e Peru, 82,8%  dos participantes relataram ter o costume de jogar algum tipo de jogo digital, um crescimento de 8,9% em relação à edição anterior (73,9%). Além disso, a demografia do jogador brasileiro consta que 53,2%, a maioria, são mulheres [@pgb2025].
-
-<!--FALTA REF
-Unir BlueSky, redes sociais, queda do X e LoL e apontar a significância
---->
+:::callout-note
+- REESCREVER C EMBASAMENTO
+  - O tópico de games on-line representam um ambiente de dados digitais empíricos valiosos para a criação de conhecimento social; os e-sports, então, são representam uma subseção do tópico de games que é altamente engajada e produz mídia espalhável. O fato de LoL ter a maior cena de e-sports do mundo pareado com a coincidência do CBLOL ter ocorrido durante a suspensão do X torna este um tópico de interesse para através do qual examinar como a suspensão das atividades do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo no BlueSky.
+  - QUAL A SIGNIFICÂNCIA?
+- REVER
+  - Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvido pela Go Gamers e SX Group em parceria com a ESPM e Blend New Research, aplicada em 6 países da América Latina como Argentina, Chile, Colômbia, México e Peru, 82,8%  dos participantes relataram ter o costume de jogar algum tipo de jogo digital, um crescimento de 8,9% em relação à edição anterior (73,9%). Além disso, a demografia do jogador brasileiro consta que 53,2%, a maioria, são mulheres [@pgb2025].
+- FALTA REF
+  - Unir BlueSky, redes sociais, queda do X e LoL e apontar a significância
+:::
 
 
 ## Estrutura do trabalho
@@ -326,9 +328,10 @@ Unir BlueSky, redes sociais, queda do X e LoL e apontar a significância
 
 # [Metodologia]{.mark}
 
-<!-- 
-CONCEITUAR GRAFOS
-INSERIR FÓRMULAS -->
+:::callout-note
+- CONCEITUAR GRAFOS
+- INSERIR FÓRMULAS
+:::
 
 A mineração de dados é uma técnica proeminente para a coleta automatizada de dados *online* em que utiliza-se de *scrapers*, *softwares* que permitem baixar automaticamente dados disponíveis *on-line* [@Marres2013]. Estes dados podem ser acessados através de uma Interface de programação de aplicações (API) própria do *site* em que são hospedados, porém grandes fontes como Facebook, Google e X têm recentemente limitado ou restringido o acesso gratuito às suas APIs em virtude do valor comercial dessas informações, dificultando a obtenção de dados reais para fins acadêmicos [@Batrinca2014]. Dentre as redes sociais mais relevantes atualmente, o Bluesky se destaca como uma das únicas que ainda permite acesso irrestrito e gratuito à sua API, desde que utilize-se de uma autenticação única atrelada a uma conta na plataforma.
 
@@ -339,12 +342,12 @@ De acordo com @Aggarwal2011, medidas de centralidade podem ser agrupadas em duas
 A medida de influência social na análide de redes sociais parte do princípio que as pessoas tendem a seguir ou adotar os comportamentos de seus amigos ou vizinhos, fenômeno conhecido como homofilia [@Aggarwal2011]. Desta forma, é possível utilizar das medidas de centralidade para identificar indivíduos capazes de exercer grande influência dentro de comunidades.
 
 
-<!---
+:::callout-note
 - técnicas utilizadas neste trabalho
-    - análise de frequência e exploratória: contagem de palavras, bigramas, visualização
-    - análise de conectividade: análise de índices de conexão, de centralidade
-    - análise de sentimentos (???)
--->
+  - análise de frequência e exploratória: contagem de palavras, bigramas, visualização
+  - análise de conectividade: análise de índices de conexão, de centralidade
+  - análise de sentimentos (???)
+:::
 
 
 
@@ -354,7 +357,9 @@ A medida de influência social na análide de redes sociais parte do princípio 
 
 ### [Ambiente Computacional Estatístico R]{.mark}
 
-<!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
+:::callout-note
+Achar alguma bibliografia pertinente como espécie de introdução
+:::
 
 A linguagem R tem se consolidado como uma das principais ferramentas da ciência de dados contemporânea, oferecendo recursos avançados para análise estatística, modelagem e visualização de informações. De acordo com @Wickham2017, o R é "uma linguagem poderosa e flexível, projetada para análise estatística e visualização de dados, tornando-se uma das principais ferramentas da ciência de dados moderna”. Essa versatilidade permite que pesquisadores e profissionais de marketing realizem diversas aplicações de ciência de dados, transformando dados brutos e não-estruturados em insights estratégicos.
 
@@ -423,14 +428,18 @@ A partir das métricas estabelecidas durante a mineração de dados, @Bruns2012 
 - Porcentagem de postagens contribuídas por usuários líderes em atividade vs. porcentagem de URLs em postagens.
 
 
-<!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
-<!-- - Mencionar bibliotecas do R -->
+:::callout-note
+- Achar alguma bibliografia pertinente como espécie de introdução
+- Mencionar bibliotecas do R
+:::
 
 ## Fonte dos Dados
 
-<!-- - Mencionar BlueSky -->
-<!-- - Caracterizar período -->
-<!-- - Fundamentar porquê do período -->
+:::callout-note
+- Mencionar BlueSky
+- Caracterizar período
+- Fundamentar porquê do período
+:::
 
 # Resultados
 
