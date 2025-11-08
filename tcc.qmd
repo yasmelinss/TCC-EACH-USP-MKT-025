@@ -91,6 +91,11 @@ format:
   #       \setlrmarginsandblock{3cm}{3cm}{*}
   #       \setulmarginsandblock{3cm}{3cm}{*}
   #       \checkandfixthelayout
+  #       \usepackage{titlesec}
+  #       \titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+  #       \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+  #       \setcounter{secnumdepth}{4}
+  #       \usepackage{indentfirst}
   #   include-before-body:
   #     text: |
   #       \DoubleSpacing
@@ -107,6 +112,13 @@ format:
   #   # lof-title: "Lista de Figuras"
   #   # lot: true
   #   # lot-title: "Lista de Tabelas"
+  #   # include-in-header:
+  #   #   text: |
+  #   #     \usepackage{titlesec}
+  #   #     \titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+  #   #     \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+  #   #     \setcounter{secnumdepth}{4}
+  #   #     \usepackage{indentfirst}
   #   ####################
   #   ### opções para a versão para o depósito
   #   #################### 
@@ -117,6 +129,13 @@ format:
   #   # lof-title: "Lista de Figuras"
   #   # lot: true
   #   # lot-title: "Lista de Tabelas"
+  #   # include-in-header:
+  #   #   text: |
+  #   #     \usepackage{titlesec}
+  #   #     \titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+  #   #     \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+  #   #     \setcounter{secnumdepth}{4}
+  #   #     \usepackage{indentfirst}
 ---
 
 # Introdução
