@@ -143,7 +143,7 @@ Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (19
 
 
 
-### <mark> Indústria de *Games* enquanto Indústria Criativa
+### [Indústria de *Games* enquanto Indústria Criativa]{.mark}
 
 *Games* ou jogos eletrônicos, além de servirem como passa-tempo e atividade de lazer, representam um ambiente de dados empíricos valiosos para a criação de conhecimento, exercendo papel central na mídia, redes e cenário sociotécnico da atualidade [@Taylor2019]. 
 
@@ -287,7 +287,7 @@ Diante disso, levanta-se a seguinte questão central:
 - Mensurar a flutuação no volume de postagens sobre League of Legends antes, durante e após a suspensão do X no Brasil.
 - Caracterizar as dinâmicas de seguidores e influência social de usuários dentro de comunidades associadas à League of Legends.
 
-## <mark>Justificativa
+## [Justificativa]{.mark}
 
 No meio digital, esforços de pesquisa acadêmica devem considerar que os objetos de estudo são em grande parte instáveis, seja pela efemeridade de *Websites* (que podem ser alterados, redirecionados ou retirados do ar subitamente), atualizações de *software* ou modificações em serviços digitais que reconfiguram de alguma forma aquilo sendo estudado [@Rogers2009]. Tal característica se torna evidente com o rebranding do Twitter para X e a reconfiguração subsequente da plataforma após a aquisição de Elon Musk, que encerrou o acesso gratuito à API e passou a cobrar um serviço de inscrição em Fevereiro de 2023 [@EconomicTimes2025]. Como consequência, a mineração ou raspagem de postagens para estudos de percepção pública, análise de sentimentos, predição de consumo [@Bhattacharjee2017; @Chakraborty2023; @Bian2016] e outras metodologias de pesquisa semelhantes que utilizassem de dados do antigo Twitter se tornaram repentinamente irreplicáveis.
 
@@ -311,7 +311,7 @@ Unir BlueSky, redes sociais, queda do X e LoL e apontar a significância
 
 # Fundamentação Teórica
 
-# <mark> Metodologia
+# [Metodologia]{.mark}
 
 <!-- 
 CONCEITUAR GRAFOS
@@ -339,7 +339,7 @@ A medida de influência social na análide de redes sociais parte do princípio 
 
 
 
-### <mark>Ambiente Computacional Estatístico R
+### [Ambiente Computacional Estatístico R]{.mark}
 
 <!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
 
@@ -347,7 +347,7 @@ A linguagem R tem se consolidado como uma das principais ferramentas da ciência
 
 O RStudio atua como um ambiente integrado que potencializa o uso da linguagem R. Conforme observam @Wickham2017, o RStudio transformou a experiência de análise de dados ao integrar código, gráficos e relatórios em um mesmo ambiente, promovendo uma ciência de dados mais interativa e transparente”. No presente trabalho, o RStudio é utilizado para realizar a mineração, tratamento e formatação de dados provenientes da rede social Bluesky.
 
-### <mark>Mineração de Dados 
+### [Mineração de Dados ]{.mark}
 
 Em seu artigo sobre abordagens quantitativas para a comparação de padrões comunicativos no Twitter (atual X), @Bruns2012 utiliza da API de busca através da plataforma *yourTwapperkeeper* (2012) para extrair um conjunto de dados de *tweets* (postagens) que contenham palavras-chave ou hashtags determinadas pelo operador. No Bluesky, um processo equivalente pode ser realizado através do pacote *atrrr* do RStudio para acessar a API e captar postagens dentro de um critério estabelecido.
 
@@ -399,7 +399,7 @@ No processo de raspagem de dados, foi solicitado o *App Pasword*, uma prática m
 <!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
 <!-- - Mencionar bibliotecas do R -->
 
-### <mark>Análise de Dados em Rede
+### [Análise de Dados em Rede]{.mark}
 
 A partir das métricas estabelecidas durante a mineração de dados, @Bruns2012 realiza as seguintes conjunturas, que servem como embasamento para a análise de padrões comunicativos:
 
