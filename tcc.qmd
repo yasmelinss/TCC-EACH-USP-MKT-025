@@ -53,6 +53,7 @@ format:
     # toc-location: right
     toc-title: "Sumário"
     toc-depth: 3
+    embed-resources: true
   #################################################################
   ### versão impressa, quer como rascunho, quer como versão final
   #################################################################
