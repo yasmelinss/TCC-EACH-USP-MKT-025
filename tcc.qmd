@@ -48,6 +48,11 @@ format:
   #################################################################
   html:
     lang: pt-BR
+    toc: true
+    toc-location: left
+    # toc-location: right
+    toc-title: "Sumário"
+    toc-depth: 3
   #################################################################
   ### versão impressa, quer como rascunho, quer como versão final
   #################################################################
