@@ -226,9 +226,10 @@ A necessidade de estudar dados como uma ciência à parte e não apenas através
 
 A Ciência de Dados é por natureza um campo interdisciplinar, tendo aplicações comuns em diversas ciências pela forma que transforma dados desordenados em informações úteis que apoiam ou guiam decisões. De acordo com @Ozsu2024, o sucesso da ciência de dados é evidente em campos como as ciências da saúde, onde a análise de teias sociais permite o rastreamento de epidemias; em sistemas financeiros, em que a análise de grandes volumes de dados podem guiar investimentos e até mesmo para a indústria de atendimento ao consumidor, na qual o avanço de *chatterbots* auxilia no atendimento.
 
-<!-- Big Data é um conceito relevante para a ciência de dados, porém definições do termo variam. Os autores @Gandomi2015 destacam três 'V's que surgem em comum ao longo de diferentes conceituações de Big Data: volume, variedade e velocidade. Volume se refere a magnitude dos dados, com a definição do volume mínimo necessário para que dados sejam considerados Big Data variando de acordo com o tempo, em vista que a evolução de capacidades de armazenamento pode fazer com que volumes considerados grandes hoje sejam pequenos no futuro. Variedade se refere a heterogeneidade de um banco de dados, com estes sendo geralmente não-estruturados e altamente variados. Por último, velocidade se refere à rapidez com que os dados são gerados e à velocidade com que devem ser analisados e utilizados, amplificada pela proliferação de dispositivos digitais como *smartphones* e sensores. 
-
- -->
+:::callout-note
+commenting-out o parágrafo sobre big data
+<!-- Big Data é um conceito relevante para a ciência de dados, porém definições do termo variam. Os autores @Gandomi2015 destacam três 'V's que surgem em comum ao longo de diferentes conceituações de Big Data: volume, variedade e velocidade. Volume se refere a magnitude dos dados, com a definição do volume mínimo necessário para que dados sejam considerados Big Data variando de acordo com o tempo, em vista que a evolução de capacidades de armazenamento pode fazer com que volumes considerados grandes hoje sejam pequenos no futuro. Variedade se refere a heterogeneidade de um banco de dados, com estes sendo geralmente não-estruturados e altamente variados. Por último, velocidade se refere à rapidez com que os dados são gerados e à velocidade com que devem ser analisados e utilizados, amplificada pela proliferação de dispositivos digitais como *smartphones* e sensores.-->
+:::
 
 Para estudos de análise de marketing, a Ciência de Dados aplicada a contextos de Big Data (bem como em conjuntos de dados menores ou segmentados) é capaz de perfilar os clientes mais promissores de forma a melhor guiar esforços de propaganda através da análise dos históricos de navegação e hábitos *online* de uma grande quantidade de pessoas. Além disso, é possível identificar alternativas atraentes para um produto do ponto de vista do consumidor com embasamento estatístico, bem como refinar algoritmos de recomendação para melhor prever o que um consumidor estaria mais propenso a adquirir com base em suas compras anteriores.Através da análise de redes sociais e do monitoramento das conexões entre usuários, empresas são capazes de até mesmo avaliar associações de marca como o quão sustentável ela aparenta ser do ponto de vista de um consumidor médio, facilitando ações de marca reativas ou preditivas. [@Chintagunta2016]
 
@@ -242,10 +243,12 @@ Para a obtenção dos dados de redes sociais, a mineração é uma tática comum
 
 @Gandomi2015 explicam a análise de influência social como outra técnica na análise de redes sociais, que agrupa métodos de modelação e avaliação da influência de usuários e conexões em uma rede social. Métodos de análise de influência social são amplamente úteis em esforços de *brand awareness* e adoção de marca, auxiliando no marketing de influência. Adicionalmente, os autores descrevem o método de *previsão de conexões* como a análise de dados passados para tentar prever interações futuras, de forma a levar em consideração a natureza dinâmica e imprevisível das dinâmicas de redes sociais.
 
-<!-- NÃO VAMOS USAR ANÁLISE DE SENTIMENTO
-
+:::callout-note
+NÃO VAMOS USAR ANÁLISE DE SENTIMENTO
+<!-- 
 A análise de sentimentos (também conhecida como mineração de opiniões) é o processo de analisar computacionalmente e identificar opiniões e julgamentos de um texto linguístico, podendo ser implementada em propósitos diferentes como *baseada em aspectos*, *a nível de documento* e *a nível de frase* [@Chakraborty2023]. A análise de sentimentos *baseada em aspectos* é capaz de classificar textos em aspectos diferentes e determinar sentimentos correspondentes por associação. O módulo *a nível de documento* analisa um documento inteiro, enquanto aquele *a nível de frase* limita-se a sentenças curtas como as de postagens em microblogues, que tendem a ter baixos limites de caracteres. 
-@Bian2016 apontam que existem duas abordagens gerais para a análise de sentimentos: a primeira se baseia em um léxico como o Harvard General Inquirer, SentiWordNet ou Linguistic Inquiry, que associam escolhas de palavras a opiniões e atitudes. Esta abordagem visa descobrir a estrutura temática por trás de grandes conjuntos de documentos não-estruturados, através da análise das palavras por um algorítmo estatístico. A segunda abordagem, baseada em classificações, é um método supervisionado que requer conjuntos rotulados para o treinamento de um algorítmo. -->
+@Bian2016 apontam que existem duas abordagens gerais para a análise de sentimentos: a primeira se baseia em um léxico como o Harvard General Inquirer, SentiWordNet ou Linguistic Inquiry, que associam escolhas de palavras a opiniões e atitudes. Esta abordagem visa descobrir a estrutura temática por trás de grandes conjuntos de documentos não-estruturados, através da análise das palavras por um algorítmo estatístico. A segunda abordagem, baseada em classificações, é um método supervisionado que requer conjuntos rotulados para o treinamento de um algorítmo. 
+--->
 
 apresentar ciência de dados como campo interdisciplinar que estuda os dados 
     - definir ciência de dados como área interdisciplinar (estatística, computação, conhecimento de domínio)
@@ -387,17 +390,17 @@ Destes, foram calculadas as métricas:
 Dessa forma, é possível medir dentro do conjunto de dados o quão dominantes na conversa geral são os usuários mais ativos e observar diferenças nos padrões de atividades dos três grupos [@Bruns2012]. O mesmo processo pode ser aplicado à critérios ou hashtags não relacionados ao tema de pesquisa para inseri-lo em um contexto mais amplo. Ademais, para analisar o impacto da suspensão do X nas dinâmicas de comunidade no Bluesky, pode-se dividir conjuntos de dados entre períodos temporais.
 
 
+:::callout-note
+Comentando a seção abaixo enquanto averiguamos se vamos manter o bskyr ou mudar totalmente para o atrrr
 
-
-<!-- Comentando a seção abaixo enquanto averiguamos se vamos manter o bskyr ou mudar totalmente para o atrrr
-
+<!-- 
 #### Pacote `{bskyr}` do RStudio
 
 Tendo sua versão 0.3.0 disponibilizada em 22 de julho de 2025, o `{bskyr}` é um pacote do R Studio que providencia uma interface com a Bluesky Social API via HTTP (*HyperText Transfer Protocol*), permitindo extrações de dados da rede [@bskyr]. APIs como a API Bluesky Social permitem que um *software* cliente enviem uma solicitação a um *software* servidor e receba dele uma resposta.
 
 As APIs de HTTP são ferramentas que permitem a comunicação entre diferentes sistemas, funcionando como pontes entre cliente e servidor. No caso do Bluesky, essa comunicação utiliza um conjunto de protocolos chamado XRPC (*eXtensible Remote Procedure Call*), que define como essas trocas devem acontecer, no qual cada função da API possui um endpoint — ou seja, um endereço específico na web — identificado por um código chamado NSID (*NameSpace IDentifier*) responsável por organizar e padronizar essas interações. As mensagens trocadas seguem formatos estruturados, geralmente em JSON (*JavaScript Object Notation*), o que garante que ambos os lados da comunicação “falem a mesma língua”. Esse tipo de arquitetura é comum em redes abertas e descentralizadas, como o próprio Bluesky, favorecendo a interoperabilidade e a consistência na troca de dados [@bskyr].
 
-<!-- O conteúdo da biblioteca está em sua documentação [@bskyr]. A seguir, algumas das funções que pretendemos utilizar:
+O conteúdo da biblioteca está em sua documentação [@bskyr]. A seguir, algumas das funções que pretendemos utilizar:
 
 - `bs_auth()`: autentica um usuário
 - `bs_search_posts()`: encontra posts específicos dentro de um critério de pesquisa
@@ -411,11 +414,13 @@ Lista de NSID importantes:
 
 #### App Paswords
 
-No processo de raspagem de dados, foi solicitado o *App Pasword*, uma prática mais segura para reduzir riscos quando *logamos* como clientes em partes terceiras e em aplicações web. São usadas como a chave de acesso assim como a senha, mas concede permissões restritas, impedindo ações destrutivas. [Protocolo usado no API HTTP (XRPC)](https://atproto.com/pt/specs/xrpc) -->
+No processo de raspagem de dados, foi solicitado o *App Pasword*, uma prática mais segura para reduzir riscos quando *logamos* como clientes em partes terceiras e em aplicações web. São usadas como a chave de acesso assim como a senha, mas concede permissões restritas, impedindo ações destrutivas. [Protocolo usado no API HTTP (XRPC)](https://atproto.com/pt/specs/xrpc)
 
+- Achar alguma bibliografia pertinente como espécie de introdução
+- Mencionar bibliotecas do R 
 
-<!-- - Achar alguma bibliografia pertinente como espécie de introdução -->
-<!-- - Mencionar bibliotecas do R -->
+-->
+:::
 
 ### [Análise de Dados em Rede]{.mark}
 
