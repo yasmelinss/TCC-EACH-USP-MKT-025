@@ -159,7 +159,10 @@ grafo_tbl <- grafo_tbl |>
   mutate(
     grau = centrality_degree(mode = "all"),
     pagerank = centrality_pagerank()
-  )
+  ) |>
+  arrange(pagerank)|>
+  mutate(name = if_else(row_number() <= 10, name, NA))
+
 
 # 4️⃣ Visualização com ggraph
 ggraph(grafo_tbl, layout = "fr") + # layout Fruchterman-Reingold
@@ -171,10 +174,14 @@ ggraph(grafo_tbl, layout = "fr") + # layout Fruchterman-Reingold
     aes(size = grau, color = pagerank),
     alpha = 0.8
   ) +
-  geom_node_text(
-    aes(label = name),
+  geom_node_label(
+    aes(
+      label = name,
+#      width = nchar(name)
+    ),
+#    height = 3,
+    size = 2.5,
     repel = TRUE,        # evita sobreposição de rótulos
-    size = 3,
     color = "black"
   ) +
   scale_size_continuous(range = c(2, 10)) +
