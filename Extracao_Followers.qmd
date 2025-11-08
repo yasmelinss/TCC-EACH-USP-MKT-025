@@ -63,9 +63,13 @@ posts <-
     limit = 10L,
     since = "2024-08-30",
     until = "2024-09-08"
-  )$author_handle
+  )|>
+  select(
+    author_handle, 
+    like_count
+  )
 
-view(posts)
+kable(posts)
 ```
 
 
@@ -74,7 +78,7 @@ view(posts)
 
 safe_erros_get_followers <- purrr::possibly(get_followers, otherwise = tibble())
 
-followers <- posts |>
+followers <- posts$author_handle |>
   purrr::map_dfr(~{
     safe_erros_get_followers(actor = .x,
                              limit = 10) |>
