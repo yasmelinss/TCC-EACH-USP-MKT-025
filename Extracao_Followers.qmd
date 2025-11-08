@@ -75,6 +75,7 @@ kable(posts)
 
 ```{r}
 #| label: listagem-seguidores 
+#| dependson: extracao-search-post
 
 safe_erros_get_followers <- purrr::possibly(get_followers, otherwise = tibble())
 
@@ -91,6 +92,7 @@ followers <- posts$author_handle |>
 
 ```{r}
 #| label: listagem-seguidores-de-seguidores
+#| dependson: listagem-seguidores
 
 safe_erros_get_followers <- purrr::possibly(get_followers, otherwise = tibble())
 
@@ -113,6 +115,7 @@ followers_of_followers <- followers$to |>
 
 ```{r}
 #| label: grafo-de-relacao-seguidores
+#| dependson: listagem-seguidores
 
 graph <- igraph::graph_from_data_frame(followers, directed = TRUE)
 
@@ -132,6 +135,7 @@ ggraph::ggraph(graph, layout = 'fr') +
 
 ```{r}
 #| label: grafo-de-relacao-seguidores-seguidores
+#| dependson: listagem-seguidores-de-seguidores
 
 graph <- igraph::graph_from_data_frame(followers_of_followers, directed = TRUE)
 
@@ -150,6 +154,9 @@ ggraph::ggraph(graph, layout = 'fr') +
 
 
 ```{r}
+#| label: grafo-de-relacao-seguidores-seguidores-colorido
+#| dependson: listagem-seguidores-de-seguidores
+
 rede_total <- dplyr::bind_rows(followers, followers_of_followers) |>
   dplyr::distinct()
 # 1️⃣ Cria o grafo a partir da tabela de arestas
