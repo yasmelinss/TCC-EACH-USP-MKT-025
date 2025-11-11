@@ -54,7 +54,7 @@ format:
     toc-title: "Sumário"
     toc-depth: 3
     embed-resources: true
-    minimal: true
+    # minimal: true
   #################################################################
   ### versão impressa, quer como rascunho, quer como versão final
   #################################################################
