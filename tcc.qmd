@@ -288,7 +288,7 @@ apresentar ciência de dados como campo interdisciplinar que estuda os dados
 :::
 
 
-## Problema de pesquisa
+# Problema de pesquisa
 
 Em dezembro de 2019, Jack Donsey, então CEO do Twitter Inc., anunciou que a empresa estaria financiando uma equipe de profissionais independentes para o desenvolvimento de um novo protocolo aberto e descentralizado para redes sociais, com a intenção de eventualmente implementá-lo para o próprio Twitter. Em 2021, o projeto se tornou uma organização independente do Twitter, dando origem ao Bluesky Social PCB. Um ano depois, em 2022, Elon Musk adquiriu o Twitter (renomeado como X) e a rede cessou todas relações de serviço com o Bluesky, que seguiu com sua proposta de desenvolver e impulsionar a adoção em larga escala de tecnologias para conversas públicas, abertas e descentralizadas. [@Bluesky2023]
 
@@ -315,18 +315,18 @@ Diante disso, levanta-se a seguinte questão central:
   - O que mais???
 :::
 
-## Objetivos
+# Objetivos
 
-### Objetivo Geral
+## Objetivo Geral
 
 - Caracterizar como a suspensão das atividades do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre *E-sports* de League of Legends na rede social Bluesky.
 
-### Objetivos Específicos
+## Objetivos Específicos
 
 - Mensurar a flutuação no volume de postagens sobre League of Legends antes, durante e após a suspensão do X no Brasil.
 - Caracterizar as dinâmicas de seguidores e influência social de usuários dentro de comunidades associadas à League of Legends.
 
-## [Justificativa]{.mark}
+# [Justificativa]{.mark}
 
 No meio digital, esforços de pesquisa acadêmica devem considerar que os objetos de estudo são em grande parte instáveis, seja pela efemeridade de *Websites* (que podem ser alterados, redirecionados ou retirados do ar subitamente), atualizações de *software* ou modificações em serviços digitais que reconfiguram de alguma forma aquilo sendo estudado [@Rogers2009]. Tal característica se torna evidente com o rebranding do Twitter para X e a reconfiguração subsequente da plataforma após a aquisição de Elon Musk, que encerrou o acesso gratuito à API e passou a cobrar um serviço de inscrição em Fevereiro de 2023 [@EconomicTimes2025]. Como consequência, a mineração ou raspagem de postagens para estudos de percepção pública, análise de sentimentos, predição de consumo [@Bhattacharjee2017; @Chakraborty2023; @Bian2016] e outras metodologias de pesquisa semelhantes que utilizassem de dados do antigo Twitter se tornaram repentinamente irreplicáveis.
 
@@ -341,11 +341,9 @@ conversas que estão em andamento. [@Jenkins2015 p. 467-468]
 Um dos maiores contribuidores em volume de *User Generated Content* nas redes sociais é a comunidade *gamer*, cuja cultura de assistir outros jogarem, presente desde os fliperamas e consoles domésticos até as batalhas *on-line*, consolidou-se como parte essencial da experiência dos jogos [@Taylor2018].
 
 
-## Estrutura do trabalho
 REESCREVER C EMBASAMENTO>
 O tópico de games on-line representam um ambiente de dados digitais empíricos valiosos para a criação de conhecimento social; os e-sports, então, são representam uma subseção do tópico de games que é altamente engajada e produz mídia espalhável. O fato de LoL ter a maior cena de e-sports do mundo pareado com a coincidência do CBLOL ter ocorrido durante a suspensão do X torna este um tópico de interesse para através do qual examinar como a suspensão das atividades do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo no BlueSky.
 
-# Fundamentação Teórica
 QUAL A SIGNIFICÂNCIA?
 
 
