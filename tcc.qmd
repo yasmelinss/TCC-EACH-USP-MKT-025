@@ -382,7 +382,7 @@ A medida de influência social na análise de redes sociais parte do princípio 
 Achar alguma bibliografia pertinente como espécie de introdução
 :::
 
-A linguagem R tem se consolidado como uma das principais ferramentas da ciência de dados contemporânea, oferecendo recursos avançados para manuseio de dados, análise estatística, modelagem e visualização de informações. De acordo com @Wickham2017, o R é "uma linguagem poderosa e flexível, projetada para análise estatística e visualização de dados, tornando-se uma das principais ferramentas da ciência de dados moderna”. Essa versatilidade permite que pesquisadores e profissionais de marketing realizem diversas aplicações de ciência de dados, transformando dados brutos e não-estruturados em insights estratégicos. No presente trabalho, o R é utilizado para realizar a mineração, tratamento e formatação de dados provenientes da rede social Bluesky.
+A linguagem R tem se consolidado como uma das principais ferramentas da ciência de dados contemporânea, oferecendo recursos avançados para manuseio de dados, análise estatística, modelagem e visualização de informações. De acordo com @Wickham2017, o R é "uma linguagem poderosa e flexível, projetada para análise estatística e visualização de dados, tornando-se uma das principais ferramentas da ciência de dados moderna”. No presente trabalho, o R é utilizado para realizar a mineração, tratamento e formatação de dados provenientes da rede social Bluesky.
 
 ### Mineração de Dados
 
