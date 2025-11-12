@@ -194,9 +194,9 @@ dar um jeito de falar sobre a BGS?
 - Procurar alguém que estude
 :::
 
-Existe um extenso debate sobre a diferenciação ou a semelhança dos esportes eletrônicos com os esportes tradicionais [@Wollesen2025; @Block2021]. O presente trabalho não busca expandir a discussão da classificação ou não dos esportes eletrônicos como esportes. Pelo contrário, ele já carrega essa premissa e busca expandir os horizontes da aplicação do cenário a partir disso. Utiliza-se então da definição dos autores @Juho2017, em que *E-sports* referem-se a partidas competitivas (amadoras ou profissionais) de vídeo games que podem ser coordenadas por instituições que realizam torneios, onde os *players* (jogadores) ou *pro-players* (jogadores profissionais) costumeiramente pertencem a times que podem ser patrocinados por outras instituições, gerando assim, um negócio.
+Existe um extenso debate sobre a diferenciação ou a semelhança dos esportes eletrônicos com os esportes tradicionais [@Wollesen2025; @Block2021]. O presente trabalho não busca expandir a discussão da classificação ou não dos esportes eletrônicos como esportes. Pelo contrário, ele já carrega essa premissa e busca expandir os horizontes da aplicação do cenário a partir disso. Utiliza-se então da definição dos autores @Juho2017, em que *e-sports* referem-se a partidas competitivas (amadoras ou profissionais) de vídeo games que podem ser coordenadas por instituições que realizam torneios, onde os *players* (jogadores) ou *pro-players* (jogadores profissionais) costumeiramente pertencem a times que podem ser patrocinados por outras instituições, gerando assim, um negócio.
 
-Transmissões online (*streaming*) e eventos híbridos (campeonatos com torcida que são também transmitidos de forma online) são as principais formas de disseminação dos *E-sports*, nos quais toda a atividade esportiva (antes, durante e após o evento) é mediada por computadores, facilitando a obtenção de dados dos telespectadores [@Juho2017]. 
+Transmissões online (*streaming*) e eventos híbridos (campeonatos com torcida que são também transmitidos de forma online) são as principais formas de disseminação dos *e-sports*, nos quais toda a atividade esportiva (antes, durante e após o evento) é mediada por computadores, facilitando a obtenção de dados dos telespectadores [@Juho2017]. 
 
 :::callout-note
 Usar @Taylor2019 falar sobre a evolução do espectador (arcade > casa > online)
@@ -217,20 +217,20 @@ AGUARDANDO REF
 
 #### League of Legends
 
-Atualmente, League of Legends (LoL) se destaca como um dos jogos eletrônicos e *E-sports* mais relevantes do mercado, ocupando consistentemente a primeira ou segunda posição em jogos mais assistidos na plataforma Twitch no ano de 2025 [@TwitchMetrics]. O título, do gênero *Multiplayer Online Battle Arena* (MOBA, Arena de Batalha Multijogador Online), é um jogo *on-line* desenvolvido pela empresa Riot Games em 2009, com as partidas nos modos de jogo principais sendo compostas por duas equipes de 5 jogadores, nas quais cada jogador toma controle de um personagem e são esperados a trabalharem em conjunto para destruir a base inimiga. [@Cauteruccio2023]
-
-Devido a complexidade das partidas e o nível de habilidade demandado, um grande cenário competitivo vem crescendo ao redor do jogo ao passar dos anos. De acordo com @Cauteruccio2023, o principal evento de *E-sports* de League of Legends é o LoL World Championship (também conhecido como *Worlds*), onde as melhores equipes do mundo participam e disputam os campeonatos competindo por prêmios multimilionários em formato de torneio. 
-
-:::callout-note
-Explicar melhor major e minor; distinguir liga de torneio e campeonato:
+::: callout
+Segundo dados do 12º Relatório PGB [@PGB2025], desenvolvido pela Go Gamers e SX Group em parceria com a ESPM e Blend New Research, aplicada em 6 países da América Latina como Argentina, Chile, Colômbia, México e Peru, 82,8% dos participantes relataram ter o costume de jogar algum tipo de jogo digital, um crescimento de 8,9% em relação à edição anterior (73,9%). Em 2024, na 11º edição do relatório, 81,2% alegaram ter o costume de jogar jogos do universo de *e-sports* e 88,3% de assistir a partidas ou campeonatos de e-sports [@PGB2024]
 :::
 
-Até 2025, os campeonatos de LoL eram divididos entre as quatro regiões *major*:  Coréia (LCK), China (LPL), Europa (LEC) e América do Norte (LCS), enquanto torneios menores em outras regiões eram considerados ligas *minor*. Anunciada em Junho de 2024 e fundada em 31 de outubro de 2024, a liga de LoL das Américas (LTA) uniu as principais ligas americanas LCS, Campeonato Brasileiro de League of Legends (CBLOL) e Liga Latinoamérica (LLA) em um único ecossistema com duas conferências: LTA Norte (baseada na LCS) e LTA Sul (baseada no CBLOL) [@Riot2024LTA]. Tal mudança reflete o grande público consumidor de *E-sports* de LoL no Brasil e outros países sul-americanos.
+Atualmente, League of Legends (LoL) se destaca como um dos jogos eletrônicos e *e-sports* mais relevantes do mercado, ocupando consistentemente a primeira ou segunda posição em jogos mais assistidos na plataforma Twitch no ano de 2025 [@TwitchMetrics]. O título, do gênero *Multiplayer Online Battle Arena* (MOBA, Arena de Batalha Multijogador Online), é um jogo *on-line* desenvolvido pela empresa Riot Games em 2009, com as partidas nos modos de jogo principais sendo compostas por duas equipes de 5 jogadores, nas quais cada jogador toma controle de um personagem e são esperados a trabalharem em conjunto para destruir a base inimiga. [@Cauteruccio2023]
 
-As transmissões ao vivo das ligas geralmente são transmitidas por diferentes serviços *streamings* como Twitch e Youtube e o número de visualizações são expressivos, com mais de 99 milhões contabilizadas mundialmente durante a final do Worlds de 2018. [@Cauteruccio2023]
+Devido a complexidade das partidas e o nível de habilidade demandado, um grande cenário competitivo vem crescendo ao redor do jogo ao passar dos anos. De acordo com @Cauteruccio2023, o principal evento de *e-sports* de League of Legends é o LoL World Championship (também conhecido como *Worlds*), onde as melhores equipes do mundo participam e disputam os campeonatos competindo por prêmios multimilionários em formato de torneio. As transmissões ao vivo das ligas geralmente são transmitidas por diferentes serviços *streamings* como Twitch e Youtube e o número de visualizações são expressivos, com mais de 99 milhões contabilizadas mundialmente durante a final do Worlds de 2018 [@Cauteruccio2023].
+
+::: callout
+Em 2025, o cenário competitivo de League of Legends foi formado por cinco ligas regionais: Coréia do Sul (LCK), Américas (LTA), Europa, Oriente Médio e África (LEC), China (LPL) e Ásia-Pacífico (LCP) [@LoL2025]. Anunciada em Junho de 2024 e fundada em 31 de outubro de 2024, a liga de LoL das Américas (LTA) uniu as principais ligas americanas América do Norte (LCS), Campeonato Brasileiro de League of Legends (CBLOL) e Liga Latinoamérica (LLA) em um único ecossistema com duas conferências: LTA Norte (baseada na LCS) e LTA Sul (baseada no CBLOL) [@Riot2024LTA]. No entanto, o fim dessa união foi anunciado em menos de um ano após sua fundação, em 29 de Setembro de 2025, com a declaração do retorno do CBLOL e LCS como ligas independentes em 2026, assegurando uma vaga no *Worlds* para o time brasileiro vencedor da liga regional [@CBLOL2025].
+:::
 
 :::callout-note
-Apesar de o Brasil e a América Latina estiverem enquadrados como liga *minor* até recentemente, o engajamento dos fãs e os números de telespectadores em transmissões ao vivo demonstram grande interesse no país, evidenciado pela união com a liga norte-americana. Em 2025, foi criado o canal de trasmissão *Ilha das Lendas*, onde um grupo de ex-jogadores fazem *co-stream* de todas as ligas de LoL, cujas transmissões ao vivo chegam a alcançar 150 mil telespectadores simultaneamentente, enquanto as lives oficiais chegam a 20 mil. 
+Em 2025, foi criado o canal de trasmissão *Ilha das Lendas*, onde um grupo de ex-jogadores fazem *co-stream* de todas as ligas de LoL, cujas transmissões ao vivo chegam a alcançar 150 mil telespectadores simultaneamentente, enquanto as lives oficiais chegam a 20 mil. Apesar de o Brasil e a América Latina estiverem enquadrados como liga *minor* até recentemente, o engajamento dos fãs e os números de telespectadores em transmissões ao vivo demonstram o grande público consumidor de eventos de *e-sports* de LoL no Brasil, evidenciado pelo retorno da liga brasileira após união com a norte e latino americanas.
 
 BUSCANDO REF
 :::
@@ -301,17 +301,17 @@ O conceito de *sociedade plataformizada*, proposto por @Dijck2019, explica o fen
 
 Em seu artigo sobre as consequências da algoritmização na sociedade, @Velkova2021 abordam a ideia de "políticas de reparo" midiáticas como sendo trabalhos corretivos em conjunto com e dentro de sistemas algorítmicos para fazê-los gerarem resultados não intencionais, em resposta a tendenciosidades ou "falhas" percebidas nos resultados de algorítmos. Similarmente, a migração em massa de usuários brasileiros do X para o Bluesky pode ser vista como uma forma de "reparo" ou "resistência algorítmica" diante da falha (interdição no Brasil) de uma plataforma centralizada, tornando necessário o reparo de seus tecidos sociais e comunicativos em um novo espaço onde possam reconstruir comunidades.
 
-Ao mesmo tempo em que o X foi suspenso ocorria a 13ª edição do Campeonato Brasileiro de League of Legends (CBLOL), um torneio competitivo de *E-sports* de League of Legends no Brasil organizado anualmente pela Riot Games. Em 2024, o evento teve sua primeira etapa entre 20 de janeiro e 20 de abril e sua segunda etapa entre 1 de junho e 7 de setembro. Com partidas gerando um grande número de engajamento nas redes sociais, a produção de conteúdo por espectadores durante a segunda etapa do CBLOL 2024 foi diretamente impactada pela suspensão da rede social no Brasil, que teve seu início próximo às finais do campeonato e término somente depois que ele havia encerrado. [@CBLOL2024]
+Ao mesmo tempo em que o X foi suspenso ocorria a 13ª edição do Campeonato Brasileiro de League of Legends (CBLOL), um torneio competitivo de *e-sports* de League of Legends no Brasil organizado anualmente pela Riot Games. Em 2024, o evento teve sua primeira etapa entre 20 de janeiro e 20 de abril e sua segunda etapa entre 1 de junho e 7 de setembro. Com partidas gerando um grande número de engajamento nas redes sociais, a produção de conteúdo por espectadores durante a segunda etapa do CBLOL 2024 foi diretamente impactada pela suspensão da rede social no Brasil, que teve seu início próximo às finais do campeonato e término somente depois que ele havia encerrado. [@CBLOL2024]
 
 Diante disso, levanta-se a seguinte questão central:
 
-> De que maneira a queda do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre *E-sports* de League of Legends na rede social Bluesky?
+> De que maneira a queda do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre *e-sports* de League of Legends na rede social Bluesky?
 
 
 :::callout-note
 - Caracterizar o fenômeno
   - Bloqueio do Twitter no Brasil numa data específica (XX/XX/XXXX)
-  - Transferência parcial do fluxo de postagens sobre E-Sports (qual?) para o BlueSky
+  - Transferência parcial do fluxo de postagens sobre e-Sports (qual?) para o BlueSky
   - O que mais???
 :::
 
@@ -319,7 +319,7 @@ Diante disso, levanta-se a seguinte questão central:
 
 ## Objetivo Geral
 
-- Caracterizar como a suspensão das atividades do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre *E-sports* de League of Legends na rede social Bluesky.
+- Caracterizar como a suspensão das atividades do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre *e-sports* de League of Legends na rede social Bluesky.
 
 ## Objetivos Específicos
 
