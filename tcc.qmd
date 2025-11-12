@@ -173,15 +173,15 @@ Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (19
 
 ### Indústria de *Games* enquanto Indústria Criativa
 
-Jogos eletrônicos ou *games*, além de servirem como passa-tempo e atividade de lazer, representam um ambiente de dados empíricos valiosos para a criação de conhecimento, exercendo papel central na mídia, redes e cenário sociotécnico da atualidade [@Taylor2019]. 
-
-:::callout-note
-EXPANDIR A INTRODUÇÃO ANTES DA PARTE ECONÔMICA.
+:::callout
+Jogos eletrônicos ou *games*, além de servirem como passa-tempo e atividade de lazer, representam um ambiente de dados empíricos valiosos para a criação de conhecimento, exercendo papel central na mídia, redes e cenário sociotécnico da atualidade [@Taylor2019]. Segundo dados do 12º Relatório PGB [@PGB2025], desenvolvido pela Go Gamers e SX Group em parceria com a ESPM e Blend New Research e aplicada nos países Argentina, Chile, Colômbia, México Peru e Brasil, 82,8% dos participantes relataram ter o costume de jogar algum tipo de jogo digital, um crescimento de 8,9% em relação à edição anterior (73,9%).
 :::
 
 @Terranova2000 incentiva o debate sobre como trabalhos culturais e técnicos da internet são uma característica predominante da economia pós-industrial, em que indivíduos contribuem com esforços laborais para plataformas comercializadas desde a produção de vídeos no YouTube à criação de postagens em páginas pessoais de redes de networking social. No contexto de jogos eletrônicos, essas plataformas ofereceram algumas das primeiras oportunidades e normas para a monetização do ato de jogar, bem como de atividades criativas na criação de conteúdo através de jogos eletrônicos, amplamente descrito por *user generated content* (UGC) [@Taylor2019].
 
 A transmissão de jogos eletrônicos como uma atividade monetizada surge de uma multitude de fatores. Para aquele que realiza as transmissões, o *streamer*, os principais motivadores são as conexões sociais (como o desejo de compartilhar o ato de jogar com amigos), a amplificação da experiência de jogo através da introdução de telespectadores, as performances criativas e capacidade de auto-expressão através da interação com uma audiência expressiva e as aspirações profissionais de sustentar-se através de um *hobby* ou contribuir para o crescimento indústria de *games* através da publicidade [@Taylor2019]. Em especial, o aspecto relacional das transmissões ao vivo é explicado por @Taylor2019 como um componente importante para o aspecto financeiro da atividade, onde doações e inscrições são apresentadas como formas de expressar gratidão ao criador de conteúdo e tendem a serem seguidas por agradecimentos diretos deste. Desta forma, *streamers* atuam de forma semelhante à influenciadores digitais e possuem um incentivo financeiro direto para promover a parassociabilidade de sua audiência, cuja generosidade é a principal fonte de remuneração.
+
+
 
 :::callout-note
 dar um jeito de falar sobre a BGS?
@@ -198,10 +198,8 @@ dar um jeito de falar sobre a BGS?
 
 Existe um extenso debate sobre a diferenciação ou a semelhança dos esportes eletrônicos com os esportes tradicionais [@Wollesen2025; @Block2021]. O presente trabalho não busca expandir a discussão da classificação ou não dos esportes eletrônicos como esportes. Pelo contrário, ele já carrega essa premissa e busca expandir os horizontes da aplicação do cenário a partir disso. Utiliza-se então da definição dos autores @Juho2017, em que *e-sports* referem-se a partidas competitivas (amadoras ou profissionais) de vídeo games que podem ser coordenadas por instituições que realizam torneios, onde os *players* (jogadores) ou *pro-players* (jogadores profissionais) costumeiramente pertencem a times que podem ser patrocinados por outras instituições, gerando assim, um negócio.
 
-Transmissões online (*streaming*) e eventos híbridos (campeonatos com torcida que são também transmitidos de forma online) são as principais formas de disseminação dos *e-sports*, nos quais toda a atividade esportiva (antes, durante e após o evento) é mediada por computadores, facilitando a obtenção de dados dos telespectadores [@Juho2017]. 
-
-:::callout-note
-Usar @Taylor2019 falar sobre a evolução do espectador (arcade > casa > online)
+:::callout
+Transmissões online (*streaming*) e eventos híbridos (campeonatos com torcida que são também transmitidos de forma online) são as principais formas de disseminação dos *e-sports*, nos quais toda a atividade esportiva (antes, durante e após o evento) é mediada por computadores, facilitando a obtenção de dados dos telespectadores [@Juho2017]. Nesse contexto, @Cheung2011 definem o espectador de jogos eletrônicos como uma pessoa cujas intenções variam entre assistir ao jogo casualmente e ser um fã em torneios competitivos de jogos, fazendo parte de um "ecossistema de espectadores" onde normas sociais são estabelecidas e experiências emocionais são compartilhadas. Os autores também destacam os "círculos de observação" como sendo representativos das constribuições performáticas dos emissores e da platéia que acontecem ao redor do jogo, cuja narração e comentários contribuem esforços laborais para a criação de uma experiência agradável para o espectador [@Cheung2011].
 :::
 
 Em sua *Motivation Scale for Sport Consumption* (Escala de Motivação de Consumo de Esportes), @Trail2001 identificam conquistas (sentir-se realizado com o sucesso do time), escapismo (uma fuga da vida comum), interação social, aquisição de conhecimento, habilidades físicas dos jogadores e atração física como os construtos motivacionais mais positivamente correlacionados ao consumo de mídias esportivas tradicionais e aos fãs de esportes tradicionais. Aplicada ao consumo de *e-sports*, muitos dos motivos permanecem os mesmos [@Cheung2011], porém a aquisição de conhecimento se destaca como o construto motivacional mais associado à intenção de assistir *e-sports* [@Macey2025].
@@ -213,22 +211,20 @@ No ambiente virtual das redes sociais, os torneios de *e-sports* são promovidos
 A partir de dados apresentados pelo site TwitchTracker.com, a plataforma Twitch obteve no primeiro semestre de 2025 mais de 10 bilhões de horas de conteúdo assistido, 2,5% a menos comparado com o mesmo período do ano passado. Das views, 33,5% da audiência da Twitch é impulsionada pelos 5 Games mais assistidos pelos usuários. São eles: Just Chatting - 15,9% (categoria de streamers que comentam ou reagem a partidas de jogos ou assuntos variados relacionados); League of Legends - 5,5%; Grand Theft Auto V - 3,7%; Counter-Strike - 3,7%; Dota 2 - 3,1%; e Valorant - 3,1%.
 
 AGUARDANDO REF
+
+Em 2024, na 11º edição do relatório, 81,2% alegaram ter o costume de jogar jogos do universo de *e-sports* e 88,3% de assistir a partidas ou campeonatos de *e-sports* [@PGB2024]
 :::
 
 
 
 #### League of Legends
 
-::: callout
-Segundo dados do 12º Relatório PGB [@PGB2025], desenvolvido pela Go Gamers e SX Group em parceria com a ESPM e Blend New Research, aplicada em 6 países da América Latina como Argentina, Chile, Colômbia, México e Peru, 82,8% dos participantes relataram ter o costume de jogar algum tipo de jogo digital, um crescimento de 8,9% em relação à edição anterior (73,9%). Em 2024, na 11º edição do relatório, 81,2% alegaram ter o costume de jogar jogos do universo de *e-sports* e 88,3% de assistir a partidas ou campeonatos de e-sports [@PGB2024]
-:::
-
 Atualmente, League of Legends (LoL) se destaca como um dos jogos eletrônicos e *e-sports* mais relevantes do mercado, ocupando consistentemente a primeira ou segunda posição em jogos mais assistidos na plataforma Twitch no ano de 2025 [@TwitchMetrics]. O título, do gênero *Multiplayer Online Battle Arena* (MOBA, Arena de Batalha Multijogador Online), é um jogo *on-line* desenvolvido pela empresa Riot Games em 2009, com as partidas nos modos de jogo principais sendo compostas por duas equipes de 5 jogadores, nas quais cada jogador toma controle de um personagem e são esperados a trabalharem em conjunto para destruir a base inimiga. [@Cauteruccio2023]
 
 Devido a complexidade das partidas e o nível de habilidade demandado, um grande cenário competitivo vem crescendo ao redor do jogo ao passar dos anos. De acordo com @Cauteruccio2023, o principal evento de *e-sports* de League of Legends é o LoL World Championship (também conhecido como *Worlds*), onde as melhores equipes do mundo participam e disputam os campeonatos competindo por prêmios multimilionários em formato de torneio. As transmissões ao vivo das ligas geralmente são transmitidas por diferentes serviços *streamings* como Twitch e Youtube e o número de visualizações são expressivos, com mais de 99 milhões contabilizadas mundialmente durante a final do Worlds de 2018 [@Cauteruccio2023].
 
 ::: callout
-Em 2025, o cenário competitivo de League of Legends foi formado por cinco ligas regionais: Coréia do Sul (LCK), Américas (LTA), Europa, Oriente Médio e África (LEC), China (LPL) e Ásia-Pacífico (LCP) [@LoL2025]. Anunciada em Junho de 2024 e fundada em 31 de outubro de 2024, a liga de LoL das Américas (LTA) uniu as principais ligas americanas América do Norte (LCS), Campeonato Brasileiro de League of Legends (CBLOL) e Liga Latinoamérica (LLA) em um único ecossistema com duas conferências: LTA Norte (baseada na LCS) e LTA Sul (baseada no CBLOL) [@Riot2024LTA]. No entanto, o fim dessa união foi anunciado em menos de um ano após sua fundação, em 29 de Setembro de 2025, com a declaração do retorno do CBLOL e LCS como ligas independentes em 2026, assegurando uma vaga no *Worlds* para o time brasileiro vencedor da liga regional [@CBLOL2025].
+Em 2025, o cenário competitivo de League of Legends foi formado por cinco ligas regionais: Coréia do Sul (LCK), Américas (LTA), Europa, Oriente Médio e África (LEC), China (LPL) e Ásia-Pacífico (LCP), nas quais times de uma mesma região competem entre si por vagas nas competições internacionais [@LoL2025]. Anunciada em Junho de 2024 e fundada em 31 de outubro de 2024, a liga de LoL das Américas (LTA) uniu as principais ligas americanas América do Norte (LCS), Campeonato Brasileiro de League of Legends (CBLOL) e Liga Latinoamérica (LLA) em um único ecossistema com duas conferências: LTA Norte (baseada na LCS) e LTA Sul (baseada no CBLOL) [@Riot2024LTA]. No entanto, o fim dessa união foi anunciado em menos de um ano após sua fundação, em 29 de Setembro de 2025, com a declaração do retorno do CBLOL e LCS como ligas independentes em 2026, assegurando uma vaga no *Worlds* para o time brasileiro vencedor da liga regional [@CBLOL2025].
 :::
 
 :::callout-note
@@ -342,7 +338,7 @@ conversas que estão em andamento. [@Jenkins2015 p. 467-468]
 
 Um dos maiores contribuidores em volume de *user generated content* nas redes sociais é a comunidade *gamer*, cuja cultura de assistir outros jogarem, presente desde os fliperamas e consoles domésticos até as batalhas *on-line*, consolidou-se como parte essencial da experiência dos jogos [@Taylor2019]. Dentre os jogos eletrônicos mais relevantes atualmente, League of Legends se destaca como um *e-sports* dos mais assistidos [@Cauteruccio2023], nos quais fãs possuem investimentos afetivos nos jogadores e são capazes de compartilhar experiências emocionais dentro do ecossistema de espectadores [@Cheung2011]. Neste ambiente, os jogadores profissionais e *streamers* comentadores de *e-sports*, de atuação análoga aos influenciadores digitais, geram uma conexão mais próxima entre os espectadores e os jogos que transmitem [@Glucksman2017]. 
 
-A união desses diversos fatores, pareados com a prominência dos jogos eletrônicos e dos *e-sports* na sociedade brasileira evidenciado por estudos como o @PGB2025, fazem da discussão acerca de *e-sports* de League of Legends nas redes sociais um tópico com grande volume de dados digitais empíricos valiosos para a criação de conhecimento social. Portanto, a suspensão do X no Brasil, por coincidir com o CBLOL, torna possível examinar como as dinâmicas de engajamento e produção de conteúdo dessa comunidade no BlueSky foram afetadas pela migração através da análise de redes sociais, de forma a gerar uma melhor compreensão do impacto desse acontecimento digital.
+A união desses diversos fatores, pareados com a prominência dos jogos eletrônicos e dos *e-sports* na sociedade brasileira [@PGB2025; @PGB2024], fazem da discussão acerca de *e-sports* de League of Legends nas redes sociais um tópico com grande volume de dados digitais empíricos valiosos para a criação de conhecimento social. Portanto, a suspensão do X no Brasil, por coincidir com o CBLOL, torna possível examinar como as dinâmicas de engajamento e produção de conteúdo dessa comunidade no BlueSky foram afetadas pela migração através da análise de redes sociais, de forma a gerar uma melhor compreensão do impacto desse acontecimento digital.
 
 <!--
 Unir BlueSky, redes sociais, queda do X e LoL e apontar a significância
