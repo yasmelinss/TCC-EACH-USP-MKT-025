@@ -338,19 +338,11 @@ Como @Jenkins2015 descrevem, os contextos tecnológicos, econômicos e legais af
 propósito comunicativo para o público e porque se encaixa em suas
 conversas que estão em andamento. [@Jenkins2015 p. 467-468]
 
-Um dos maiores contribuidores em volume de *User Generated Content* nas redes sociais é a comunidade *gamer*, cuja cultura de assistir outros jogarem, presente desde os fliperamas e consoles domésticos até as batalhas *on-line*, consolidou-se como parte essencial da experiência dos jogos [@Taylor2018].
+Um dos maiores contribuidores em volume de *user generated content* nas redes sociais é a comunidade *gamer*, cuja cultura de assistir outros jogarem, presente desde os fliperamas e consoles domésticos até as batalhas *on-line*, consolidou-se como parte essencial da experiência dos jogos [@Taylor2018]. Dentre os jogos eletrônicos mais relevantes atualmente, League of Legends se destaca como um *e-sports* dos mais assistidos [@Cauteruccio2023], nos quais fãs possuem investimentos afetivos nos jogadores e são capazes de compartilhar experiências emocionais dentro do ecossistema de espectadores [@Cheung2011]. Neste ambiente, os jogadores profissionais e *streamers* comentadores de *e-sports*, de atuação análoga aos influenciadores digitais, geram uma conexão mais próxima entre os espectadores e os jogos que transmitem [@Glucksman2017]. 
 
+A união desses diversos fatores, pareados com a prominência dos jogos eletrônicos e dos *e-sports* na sociedade brasileira evidenciado por estudos como o @PGB2025, fazem da discussão acerca de *e-sports* de League of Legends nas redes sociais um tópico com grande volume de dados digitais empíricos valiosos para a criação de conhecimento social. Portanto, a suspensão do X no Brasil, por coincidir com o CBLOL, torna possível examinar como as dinâmicas de engajamento e produção de conteúdo dessa comunidade no BlueSky foram afetadas pela migração através da análise de redes sociais, de forma a gerar uma melhor compreensão do impacto desse acontecimento digital.
 
-REESCREVER C EMBASAMENTO>
-O tópico de games on-line representam um ambiente de dados digitais empíricos valiosos para a criação de conhecimento social; os e-sports, então, são representam uma subseção do tópico de games que é altamente engajada e produz mídia espalhável. O fato de LoL ter a maior cena de e-sports do mundo pareado com a coincidência do CBLOL ter ocorrido durante a suspensão do X torna este um tópico de interesse para através do qual examinar como a suspensão das atividades do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo no BlueSky.
-
-QUAL A SIGNIFICÂNCIA?
-
-
-<!-- REVER
-Segundo dados do 12º Relatório PGB (Pesquisa Game Brasil), desenvolvido pela Go Gamers e SX Group em parceria com a ESPM e Blend New Research, aplicada em 6 países da América Latina como Argentina, Chile, Colômbia, México e Peru, 82,8%  dos participantes relataram ter o costume de jogar algum tipo de jogo digital, um crescimento de 8,9% em relação à edição anterior (73,9%). Além disso, a demografia do jogador brasileiro consta que 53,2%, a maioria, são mulheres [@pgb2025].
-
-<!--FALTA REF
+<!--
 Unir BlueSky, redes sociais, queda do X e LoL e apontar a significância
 --->
 
