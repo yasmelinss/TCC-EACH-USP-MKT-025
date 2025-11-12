@@ -405,6 +405,11 @@ Desses grupos, foram calculadas as métricas:
 
 Dessa forma, é possível medir dentro do conjunto de dados o quão dominantes na conversa geral são os usuários mais ativos e observar diferenças nos padrões de atividades dos três grupos [@Bruns2012]. O mesmo processo pode ser aplicado à critérios ou hashtags não relacionados ao tema de pesquisa para inseri-lo em um contexto mais amplo. Ademais, para analisar o impacto da suspensão do X nas dinâmicas de comunidade no Bluesky, pode-se dividir conjuntos de dados entre períodos temporais, realizando a mesma coleta de dados para:
 
+:::callout
+- as 5 semanas anteriores à suspensão (26/07/2024 - 30/09/2024);
+- as 5 semanas em que o X esteve indisponível (31/09/2024 - 08/10/2024);
+- as 5 semanas posterior ao retorno da rede (09/10/2024 - 13/11/2024).
+:::
 
 :::callout-note
 Comentando a seção abaixo enquanto averiguamos se vamos manter o bskyr ou mudar totalmente para o atrrr
