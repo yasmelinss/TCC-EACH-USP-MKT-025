@@ -1,7 +1,7 @@
 ---
 #######################################
 ### introduzir isto na versão para a banca em diante
-# titulo: "botem aqui o título do TCC"
+# titulo: "Análise de redes sociais: O impacto do bloqueio do X em 2024 na comunidade brasileira de e-sports de League of Legends do Bluesky"
 # autores: 
 #   nome1: 
 #     longo: "Yasmin Messias Lins"
@@ -14,7 +14,7 @@
 # date-format: "YYYY"
 # versao: "Original"
 # # versao: "Corrigida"
-# tituloingles: "place title here"
+# tituloingles: "Social network analysis: The impact of X's ban in 2024 on Bluesky's Brazilian League of Legends esports community"
 # dedicatoria1: |
 #   dedicatoria 1 \\
 #   dedicatoria 1 \\
