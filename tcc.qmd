@@ -338,7 +338,7 @@ Como @Jenkins2015 descrevem, os contextos tecnológicos, econômicos e legais af
 propósito comunicativo para o público e porque se encaixa em suas
 conversas que estão em andamento. [@Jenkins2015 p. 467-468]
 
-Um dos maiores contribuidores em volume de *user generated content* nas redes sociais é a comunidade *gamer*, cuja cultura de assistir outros jogarem, presente desde os fliperamas e consoles domésticos até as batalhas *on-line*, consolidou-se como parte essencial da experiência dos jogos [@Taylor2018]. Dentre os jogos eletrônicos mais relevantes atualmente, League of Legends se destaca como um *e-sports* dos mais assistidos [@Cauteruccio2023], nos quais fãs possuem investimentos afetivos nos jogadores e são capazes de compartilhar experiências emocionais dentro do ecossistema de espectadores [@Cheung2011]. Neste ambiente, os jogadores profissionais e *streamers* comentadores de *e-sports*, de atuação análoga aos influenciadores digitais, geram uma conexão mais próxima entre os espectadores e os jogos que transmitem [@Glucksman2017]. 
+Um dos maiores contribuidores em volume de *user generated content* nas redes sociais é a comunidade *gamer*, cuja cultura de assistir outros jogarem, presente desde os fliperamas e consoles domésticos até as batalhas *on-line*, consolidou-se como parte essencial da experiência dos jogos [@Taylor2019]. Dentre os jogos eletrônicos mais relevantes atualmente, League of Legends se destaca como um *e-sports* dos mais assistidos [@Cauteruccio2023], nos quais fãs possuem investimentos afetivos nos jogadores e são capazes de compartilhar experiências emocionais dentro do ecossistema de espectadores [@Cheung2011]. Neste ambiente, os jogadores profissionais e *streamers* comentadores de *e-sports*, de atuação análoga aos influenciadores digitais, geram uma conexão mais próxima entre os espectadores e os jogos que transmitem [@Glucksman2017]. 
 
 A união desses diversos fatores, pareados com a prominência dos jogos eletrônicos e dos *e-sports* na sociedade brasileira evidenciado por estudos como o @PGB2025, fazem da discussão acerca de *e-sports* de League of Legends nas redes sociais um tópico com grande volume de dados digitais empíricos valiosos para a criação de conhecimento social. Portanto, a suspensão do X no Brasil, por coincidir com o CBLOL, torna possível examinar como as dinâmicas de engajamento e produção de conteúdo dessa comunidade no BlueSky foram afetadas pela migração através da análise de redes sociais, de forma a gerar uma melhor compreensão do impacto desse acontecimento digital.
 
@@ -346,7 +346,7 @@ A união desses diversos fatores, pareados com a prominência dos jogos eletrôn
 Unir BlueSky, redes sociais, queda do X e LoL e apontar a significância
 --->
 
-# [Metodologia]{.mark}
+# Metodologia
 
 :::callout-note
 - CONCEITUAR GRAFOS
@@ -354,13 +354,13 @@ Unir BlueSky, redes sociais, queda do X e LoL e apontar a significância
 - PARÁGRAFO INTRODUTÓRIO
 :::
 
-A mineração de dados é uma técnica proeminente para a coleta automatizada de dados *online* em que utiliza-se de *scrapers*, *softwares* que permitem baixar automaticamente dados disponíveis *on-line* [@Marres2013]. Estes dados podem ser acessados através de uma Interface de programação de aplicações (API) própria do *site* em que são hospedados, porém grandes fontes como Facebook, Google e X têm recentemente limitado ou restringido o acesso gratuito às suas APIs em virtude do valor comercial dessas informações, dificultando a obtenção de dados reais para fins acadêmicos [@Batrinca2014]. Dentre as redes sociais mais relevantes atualmente, o Bluesky se destaca como uma das únicas que ainda permite acesso irrestrito e gratuito à sua API, desde que utilize-se de uma autenticação única atrelada a uma conta na plataforma.
+A mineração de dados é uma técnica proeminente para a coleta automatizada de dados *online* em que utiliza-se de *scrapers*, *softwares* que permitem baixar automaticamente dados disponíveis *on-line* [@Marres2013]. Estes dados podem ser acessados através de uma Interface de programação de aplicações (API) própria do *site* em que são hospedados, porém grandes fontes como Facebook, Google e X têm recentemente limitado ou restringido o acesso gratuito às suas APIs em virtude do valor comercial dessas informações, dificultando a obtenção de dados reais para fins acadêmicos [@Batrinca2014]. Dentre as redes sociais mais relevantes atualmente, o Bluesky se destaca como uma das únicas que ainda permite acesso irrestrito e gratuito à sua API no momento desta redação, desde que utilize-se de uma autenticação única atrelada a uma conta na plataforma.
 
-Dada a estruturação de dados minerados de uma rede social, é possível empregar técnicas de análise de redes sociais. Para a detecção de comunidades, @Aggarwal2011 sugere a representação através de grafos compostos por nós e arestas, em que nós representam entidades de interesse e arestas representam as interações ou relações entre elas. Estes nós são então definidos como comunidades distintas se suas conexões internas são mais fortes do que com o resto da rede. Sendo assim, redes sociais podem ser modeladas em grafos $G = \{V, E\}$, onde $V$ é um conjunto de nós e $E$ um conjunto de arestas. Nesta estrutura, a influência social dentro de uma rede pode ser entendida como um efeito direcional de um nó A para outro nó B, relacionado à força da aresta de A para B, ao mesmo tempo em que a semelhância nas 'vizinhanças' (nós próximos) de A e B representam a força da aresta que os conecta, com muitos vizinhos em comum representando um laço forte e vice-versa [@Aggarwal2011].
+Dada a estruturação de dados minerados de uma rede social, é possível empregar técnicas de análise de redes sociais. Para a detecção de comunidades, @Aggarwal2011 sugere a representação através de grafos, uma estrutura matemática composta por um conjuntos nós ou vértices e um conjunto de arestas, em que os nós representam as entidades de interesse e as arestas representam as interações ou relações entre elas. Esses grupos de nós são então definidos como comunidades distintas se suas conexões internas são mais fortes do que com o resto da rede. Sendo assim, redes sociais podem ser modeladas em grafos $G = \{V, E\}$, onde $V$ é um conjunto de nós e $E$ um conjunto de arestas. Nesta estrutura, a influência social dentro de uma rede pode ser entendida como um efeito direcional de um nó A para outro nó B, relacionado à força da aresta de A para B, ao mesmo tempo em que a semelhança nas "vizinhanças" (nós próximos) de A e B representam a força da aresta que os conecta, com muitos vizinhos em comum representando um laço forte e vice-versa [@Aggarwal2011].
 
-De acordo com @Aggarwal2011, medidas de centralidade podem ser agrupadas em duas categorias: medidas radiais e medidas mediais, em que as medidas radiais avaliam caminhadas aleatórias que começam ou terminam em um determinado nó e as medidas mediais avaliam caminhadas aleatórias que passam por um determinado nó. A medida de centralidade mais popular neste grupo é a centralidade de proximidade de Freeman mede a centralidade calculando a média das distâncias mais curtas para todos os outros nós [@Aggarwal2011].
+De acordo com @Aggarwal2011, medidas de centralidade podem ser agrupadas em duas categorias: medidas radiais e medidas mediais, em que as medidas radiais avaliam caminhadas aleatórias que começam ou terminam em um determinado nó e as medidas mediais avaliam caminhadas aleatórias que passam por um determinado nó. A medida de centralidade mais popular neste grupo é a centralidade de proximidade de Freeman, que mede a centralidade calculando a média das distâncias mais curtas para todos os outros nós [@Aggarwal2011].
 
-A medida de influência social na análide de redes sociais parte do princípio que as pessoas tendem a seguir ou adotar os comportamentos de seus amigos ou vizinhos, fenômeno conhecido como homofilia [@Aggarwal2011]. Desta forma, é possível utilizar das medidas de centralidade para identificar indivíduos capazes de exercer grande influência dentro de comunidades.
+A medida de influência social na análise de redes sociais parte do princípio que as pessoas tendem a seguir ou adotar os comportamentos de seus amigos ou vizinhos, fenômeno conhecido como homofilia [@Aggarwal2011]. Desta forma, é possível utilizar das medidas de centralidade para identificar indivíduos capazes de exercer grande influência dentro de comunidades.
 
 
 :::callout-note
@@ -376,36 +376,34 @@ A medida de influência social na análide de redes sociais parte do princípio 
 
 
 
-### [Ambiente Computacional Estatístico R]{.mark}
+### Ambiente Computacional Estatístico R
 
 :::callout-note
 Achar alguma bibliografia pertinente como espécie de introdução
 :::
 
-A linguagem R tem se consolidado como uma das principais ferramentas da ciência de dados contemporânea, oferecendo recursos avançados para manuseio de dados, análise estatística, modelagem e visualização de informações. De acordo com @Wickham2017, o R é "uma linguagem poderosa e flexível, projetada para análise estatística e visualização de dados, tornando-se uma das principais ferramentas da ciência de dados moderna”. Essa versatilidade permite que pesquisadores e profissionais de marketing realizem diversas aplicações de ciência de dados, transformando dados brutos e não-estruturados em insights estratégicos.
+A linguagem R tem se consolidado como uma das principais ferramentas da ciência de dados contemporânea, oferecendo recursos avançados para manuseio de dados, análise estatística, modelagem e visualização de informações. De acordo com @Wickham2017, o R é "uma linguagem poderosa e flexível, projetada para análise estatística e visualização de dados, tornando-se uma das principais ferramentas da ciência de dados moderna”. Essa versatilidade permite que pesquisadores e profissionais de marketing realizem diversas aplicações de ciência de dados, transformando dados brutos e não-estruturados em insights estratégicos. No presente trabalho, o R é utilizado para realizar a mineração, tratamento e formatação de dados provenientes da rede social Bluesky.
 
-O RStudio atua como um ambiente integrado que potencializa o uso da linguagem R. Conforme observam @Wickham2017, o RStudio transformou a experiência de análise de dados ao integrar código, gráficos e relatórios em um mesmo ambiente, promovendo uma ciência de dados mais interativa e transparente”. No presente trabalho, o RStudio é utilizado para realizar a mineração, tratamento e formatação de dados provenientes da rede social Bluesky.
+### Mineração de Dados
 
-### [Mineração de Dados ]{.mark}
+Em seu artigo sobre abordagens quantitativas para a comparação de padrões comunicativos no Twitter (atual X), @Bruns2012 utiliza da API de busca através da plataforma *yourTwapperkeeper* para extrair um conjunto de dados de postagens (*tweets*) que contenham palavras-chave ou *hashtags* determinadas pelo operador. No Bluesky, um processo equivalente pode ser realizado através do pacote '{atrrr}' do R para acessar a API da rede e buscar postagens dentro de um critério estabelecido.
 
-Em seu artigo sobre abordagens quantitativas para a comparação de padrões comunicativos no Twitter (atual X), @Bruns2012 utiliza da API de busca através da plataforma *yourTwapperkeeper* (2012) para extrair um conjunto de dados de *tweets* (postagens) que contenham palavras-chave ou hashtags determinadas pelo operador. No Bluesky, um processo equivalente pode ser realizado através do pacote *atrrr* do RStudio para acessar a API e captar postagens dentro de um critério estabelecido.
-
-Para descrever os padrões comunicativos que podem ser observados dentro deste conjunto de dados, utiliza de um catálogo de métricas, divididas entre três grupos em distribuição 1/9/90 [@Bruns2012]:
+Para descrever os padrões comunicativos que podem ser observados dentro deste conjunto de interações, utiliza-se de um catálogo de métricas, divididas entre três grupos em razão 1:9:90 [@Bruns2012]:
 
 - o 1% de usuários líderes em atividade;
 - os 9% seguintes de usuários mais ativos;
 - os 90% restantes de usuários.
 
-Destes, foram calculadas as métricas:
+Desses grupos, foram calculadas as métricas:
 
-- O número de postagens no conjunto de dados;
-- O número de usuários únicos que contribuem para o conjunto de dados;
-- A porcentagem de postagens originais no conjunto de dados (ou seja, tweets que não são respostas nem *reposts*);
-- A porcentagem de respostas genuínas no conjunto de dados (ou seja, respostas que não são *reposts*);
-- A porcentagem de *reposts* no conjunto de dados;
-- A porcentagem de postagens no conjunto de dados que contêm URLs.
+- o número de postagens no conjunto de dados;
+- o número de usuários únicos que contribuem para o conjunto de dados;
+- a porcentagem de postagens originais no conjunto de dados (ou seja, postagens que não são respostas nem *reposts*);
+- a porcentagem de respostas genuínas no conjunto de dados (ou seja, respostas que não são *reposts*);
+- a porcentagem de *reposts* no conjunto de dados;
+- a porcentagem de postagens no conjunto de dados que contêm URLs.
 
-Dessa forma, é possível medir dentro do conjunto de dados o quão dominantes na conversa geral são os usuários mais ativos e observar diferenças nos padrões de atividades dos três grupos [@Bruns2012]. O mesmo processo pode ser aplicado à critérios ou hashtags não relacionados ao tema de pesquisa para inseri-lo em um contexto mais amplo. Ademais, para analisar o impacto da suspensão do X nas dinâmicas de comunidade no Bluesky, pode-se dividir conjuntos de dados entre períodos temporais.
+Dessa forma, é possível medir dentro do conjunto de dados o quão dominantes na conversa geral são os usuários mais ativos e observar diferenças nos padrões de atividades dos três grupos [@Bruns2012]. O mesmo processo pode ser aplicado à critérios ou hashtags não relacionados ao tema de pesquisa para inseri-lo em um contexto mais amplo. Ademais, para analisar o impacto da suspensão do X nas dinâmicas de comunidade no Bluesky, pode-se dividir conjuntos de dados entre períodos temporais, realizando a mesma coleta de dados para:
 
 
 :::callout-note
@@ -440,15 +438,15 @@ No processo de raspagem de dados, foi solicitado o *App Pasword*, uma prática m
 -->
 :::
 
-### [Análise de Dados em Rede]{.mark}
+### Análise de Dados em Rede
 
-A partir das métricas estabelecidas durante a mineração de dados, @Bruns2012 realiza as seguintes conjunturas, que servem como embasamento para a análise de padrões comunicativos:
+A partir das métricas estabelecidas durante a mineração de dados, @Bruns2012 realiza as seguintes análises, que servem como embasamento para a análise de padrões comunicativos:
 
-- Contribuições relativas dos três grupos de usuários;
-- Longetividade do termo em comparação à porcentagem de posts contribuídos pelo grupo de 90% dos usuários;
-- Porcentagens relativas dos diferentes tipos de postagens;
-- Porcentagem de URLs em posts vs. porcentagem de *reposts*;
-- Porcentagem de postagens contribuídas por usuários líderes em atividade vs. porcentagem de URLs em postagens.
+- contribuições relativas dos três grupos de usuários;
+- longetividade do termo em comparação à porcentagem de posts contribuídos pelo grupo de 90% dos usuários;
+- porcentagens relativas dos diferentes tipos de postagens;
+- porcentagem de URLs em posts vs. porcentagem de *reposts*;
+- porcentagem de postagens contribuídas por usuários líderes em atividade vs. porcentagem de URLs em postagens.
 
 
 :::callout-note
