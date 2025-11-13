@@ -1,0 +1,125 @@
+---
+title: "Glossario Funções"
+author: "Yasmin Messias Lins"
+lang: pt-br
+format: html
+# format: 
+#   pdf:
+#     geometry:
+#       - top=1in
+#       - bottom=1in
+#       - left=1in
+#       - right=1in
+#       - heightrounded
+execute: 
+  cache: false
+---
+
+
+# FUNÇÕES
+
+## `{ATRRR::SEARCH_POST()}`
+
+Descrição:
+
+
+search_post(
+  q,
+  limit = 100L,
+  sort = NULL,
+  since = NULL,
+  until = NULL,
+  mentions = NULL,
+  author = NULL,
+  lang = NULL,
+  domain = NULL,
+  url = NULL,
+  tag = NULL,
+  parse = TRUE,
+  verbose = NULL,
+  .token = NULL
+)
+
+{
+- `uri`: 
+- `cid`: 
+- `author_handle`: 
+- `author_name`: 
+- `text`: 
+- `author_data`: 
+  {
+  - `did`: 
+  - `handle`: 
+  - `bio`: bio
+  - `displayName`: 
+  - `avatar`: 
+  - `associated`:
+    {
+    - `chat`:
+      {
+    - `allowIncoming`:
+      }
+    - `activitySubscription`: 
+      { 
+     - `allowSubscriptions`: 
+      }
+    }
+  }
+- `post_data`:
+  {
+  - `createdAt`: 
+  - `embed`: {}
+  - `text`: 
+  }  
+- `reply_count`: 
+- `repost_count`: 
+- `like_count`: 
+- `quote_count`:
+- `indexed_at`: 
+- `tags`:
+- `mentions`: 
+- `links`:
+- `langs`:
+- `is_reskeet`:
+}
+
+## `{ATRRR::GET_LIKES()}`
+
+Descrição:
+
+
+get_likes(
+  post_url,
+  limit = 25L,
+  cursor = NULL,
+  parse = TRUE,
+  verbose = NULL,
+  .token = NULL
+)
+
+{
+- `created_at`: data da ação (curtida) 
+- `indexed_at`: data da ação (curtida)
+- `actor_handle`: @
+- `actor_name`: nome fictício da conta
+- `actor_data`: dados sobre a conta
+  {
+  - `did`: 
+  - `handle`: 
+  - `displayName`: 
+  - `avatar`: 
+  - `associated`: 
+    {
+    - `activitySubscription`: 
+      {
+      - `allowSubscriptions`:
+      }
+    }
+  - `viewer`: {}
+  - `labels`: 
+  - `createdAt`: 
+  - `description`: bio
+  - `indexedAt`: 
+  }
+}
+
