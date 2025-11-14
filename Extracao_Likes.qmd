@@ -1,7 +1,5 @@
 ---
-title: "Extracao_Likes"
-format: html
-title: "Arquivo de extração de dados - teste 3"
+title: "Arquivo de extração de dados - teste 4"
 author: "Yasmin Messias Lins"
 lang: pt-br
 format: html
@@ -31,31 +29,6 @@ library(atrrr)
 library(igraph)
 library(ggraph)
 library(tidygraph)
-
-# funções úteis
-quebra <- function(string, tamanho = 80) {
-  str_split(string, "\n", simplify = TRUE) |> 
-    c() |> 
-    sapply(
-      \(x)
-      sapply(
-        1:(nchar(x) %/% tamanho + 1), 
-        \(k) str_sub(x, start = (k - 1) * tamanho + 1, end = k * tamanho),
-        simplify = TRUE,
-        USE.NAMES = FALSE
-      ),
-      simplify = TRUE,
-      USE.NAMES = FALSE
-    ) |> 
-    unlist() |> 
-    paste(collapse = "\n") |> 
-    cat()
-  
-}
-formataJSON <- function(string) {
-  toJSON(string, pretty = TRUE) |> 
-    quebra()
-}
 ```
 
 # Autenticação
@@ -84,48 +57,58 @@ querys <-
 posts <-
   search_post(
     q = querys,
-    limit = 2L,
+    limit = 3L,
     since = "2024-08-30",
     until = "2024-09-08"
   ) |>
   select(
     handle = author_handle,
     like_count,
-    uri
+    uri 
   )
 
 view(posts)
 ```
 
 ```{r}
-safe_get_likes <- purrr::possibly(get_likes, otherwise = tibble())
+#| label: estracao-get-likes
 
-# Extrai todos os likes de cada post
+safe_get_likes <- 
+  purrr::possibly(
+    get_likes, 
+    otherwise = tibble()
+    )
+
 likes <- 
   posts$uri |> 
-  purrr::map_dfr(function(x) {
-    safe_get_likes(
-      post_url = x
-    ) |>
-      # mutate() serve para criar novas colunas ou modificar colunas existentes em um data frame (ou tibble). adiciona a origem (post) a cada like retornado. adiciona uma coluna from, que armazena o autor atual (x).
-      dplyr::mutate(from = x)
-  })
+  purrr::map_dfr(
+    function(curtida) {
+    url <- convert_at_to_http(curtida)
+    safe_get_likes(post_url = url) |>
+      dplyr::mutate(from = curtida) #está renomeando?
+   }
+  )
+#  dplyr::rename(to = post) |>
+#  dplyr::select(from, to)
+
+View(likes)
+
 ```
 
 
 ```{r}
-# Associa cada post ao autor que o publicou
+# GPT Associa cada post ao autor que o publicou
 likes_autor <- 
   likes |>
   # junta com o data frame "posts" pra recuperar o autor do post
   dplyr::left_join(
-    posts |> dplyr::select(uri, handle),
-    by = c("from_post" = "uri")
+    posts |> dplyr::select(handle, uri),
+    by = c("from" = "posts$uri")
   ) |>
   # renomeia para ficar claro
   dplyr::rename(
-    from = handle,      # quem escreveu o post
-    to = handle          # quem curtiu o post
+    from = uri,      # quem escreveu o post
+    to = actor_handle          # quem curtiu o post
   ) |>
   # mantém apenas colunas essenciais para o grafo
   dplyr::select(from, to)
