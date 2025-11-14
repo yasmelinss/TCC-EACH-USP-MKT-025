@@ -23,3 +23,5 @@
 *.html
 # arquivo de autenticação
 senha.txt
+# diretório de dados
+Dados/
