@@ -85,11 +85,10 @@ likes <-
     function(curtida) {
     url <- convert_at_to_http(curtida)
     safe_get_likes(post_url = url) |>
-      dplyr::mutate(from = curtida) #está renomeando?
+      dplyr::mutate(uri_post = curtida) #está renomeando?
    }
   )
-#  dplyr::rename(to = post) |>
-#  dplyr::select(from, to)
+
 
 View(likes)
 
