@@ -1,9 +1,6 @@
 ---
 title: "Extracao_Likes"
 format: html
----
-
----
 title: "Arquivo de extração de dados - teste 3"
 author: "Yasmin Messias Lins"
 lang: pt-br
@@ -17,7 +14,7 @@ format: html
 #       - right=1in
 #       - heightrounded
 execute: 
-  cache: false
+  cache: true
 ---
 
 # SETUP
@@ -87,143 +84,53 @@ querys <-
 posts <-
   search_post(
     q = querys,
-    limit = 10L,
+    limit = 2L,
     since = "2024-08-30",
     until = "2024-09-08"
-  )
-
-
-posts_and_likes <-
-  posts |>
+  ) |>
   select(
     handle = author_handle,
-    like_count
+    like_count,
+    uri
   )
 
-view(posts_and_likes)
+view(posts)
+```
+
+```{r}
+safe_get_likes <- purrr::possibly(get_likes, otherwise = tibble())
+
+# Extrai todos os likes de cada post
+likes <- 
+  posts$uri |> 
+  purrr::map_dfr(function(x) {
+    safe_get_likes(
+      post_url = x
+    ) |>
+      # mutate() serve para criar novas colunas ou modificar colunas existentes em um data frame (ou tibble). adiciona a origem (post) a cada like retornado. adiciona uma coluna from, que armazena o autor atual (x).
+      dplyr::mutate(from = x)
+  })
 ```
 
 
 ```{r}
-#| label: listagem-likes 
-
-
-followers <- 
-  posts_and_likes |>
-    purrr::map_dfr(
-      .x{
-       get_actor_likes(
-          actor = handle,
-          like_count,
-          limit = 10
-        ) |>
-        #Depois de obter os seguidores de um usuário, adiciona uma coluna from indicando de qual usuário vieram esses seguidores
-        mutate(from = handle)
-      }) |>
-    dplyr::rename(to = like_count) |>
-    dplyr::select(from, to)
-  ```
-
-```{r}
-#| label: listagem-seguidores-de-seguidores
-
-safe_erros_get_followers <- purrr::possibly(get_followers, otherwise = tibble())
-
-followers_of_followers <- followers$to |>
-  purrr::map_dfr(~{
-    safe_erros_get_followers(actor = .x,
-                  limit = 10) |>
-      
-      #Depois de obter os seguidores de um usuário, adiciona uma coluna from indicando de qual usuário vieram esses seguidores
-      dplyr::mutate(from = .x)
-  }) |>
-  dplyr::rename(to = actor_handle) |>
+# Associa cada post ao autor que o publicou
+likes_autor <- 
+  likes |>
+  # junta com o data frame "posts" pra recuperar o autor do post
+  dplyr::left_join(
+    posts |> dplyr::select(uri, handle),
+    by = c("from_post" = "uri")
+  ) |>
+  # renomeia para ficar claro
+  dplyr::rename(
+    from = handle,      # quem escreveu o post
+    to = handle          # quem curtiu o post
+  ) |>
+  # mantém apenas colunas essenciais para o grafo
   dplyr::select(from, to)
 
-```
+View(likes_autor)
 
-
-
-# Gráfico
-
-```{r}
-#| label: grafo-de-relacao-seguidores
-
-graph <- igraph::graph_from_data_frame(followers, directed = TRUE)
-
-# Use ggraph to visualize the network.
-ggraph::ggraph(graph, layout = 'fr') +
-  ggraph::geom_edge_link() +
-  ggraph::geom_node_point(aes(size = tidygraph::centrality_pagerank()), color = "lightblue") +
-  ggraph::geom_node_text(aes(label = name, size = tidygraph::centrality_pagerank(), family = "mono", fontface = "bold"),
-                   vjust = 1, hjust = 1, check_overlap = T, color = "white", show.legend = F) +
-  ggraph::geom_node_text(aes(label = name, size = tidygraph::centrality_pagerank(), family = "mono"),
-                   vjust = 1, hjust = 1, check_overlap = T, color = "blue", show.legend = F) +
-  ggplot2::theme_void() +
-  ggplot2::theme(legend.position = "bottom")
-
-```
-
-
-```{r}
-#| label: grafo-de-relacao-seguidores-seguidores
-
-graph <- igraph::graph_from_data_frame(followers_of_followers, directed = TRUE)
-
-# Use ggraph to visualize the network.
-ggraph::ggraph(graph, layout = 'fr') +
-  ggraph::geom_edge_link() +
-  ggraph::geom_node_point(aes(size = tidygraph::centrality_pagerank()), color = "lightblue") +
-  ggraph::geom_node_text(aes(label = name, size = tidygraph::centrality_pagerank(), family = "mono", fontface = "bold"),
-                   vjust = 1, hjust = 1, check_overlap = T, color = "white", show.legend = F) +
-  ggraph::geom_node_text(aes(label = name, size = tidygraph::centrality_pagerank(), family = "mono"),
-                   vjust = 1, hjust = 1, check_overlap = T, color = "blue", show.legend = F) +
-  ggplot2::theme_void() +
-  ggplot2::theme(legend.position = "bottom")
-
-```
-
-
-```{r}
-rede_total <- dplyr::bind_rows(followers, followers_of_followers) |>
-  dplyr::distinct()
-# 1️⃣ Cria o grafo a partir da tabela de arestas
-grafo <- graph_from_data_frame(rede_total, directed = TRUE)
-
-# 2️⃣ Converte para formato tidygraph (facilita análise e mapeamentos)
-grafo_tbl <- as_tbl_graph(grafo)
-
-# 3️⃣ Calcula medidas de centralidade (opcional, mas útil)
-grafo_tbl <- grafo_tbl |>
-  mutate(
-    grau = centrality_degree(mode = "all"),
-    pagerank = centrality_pagerank()
-  )
-
-# 4️⃣ Visualização com ggraph
-ggraph(grafo_tbl, layout = "fr") + # layout Fruchterman-Reingold
-  geom_edge_link(
-    alpha = 0.8,        # transparência das arestas
-    colour = "grey70"
-  ) +
-  geom_node_point(
-    aes(size = grau, color = pagerank),
-    alpha = 0.8
-  ) +
-  geom_node_text(
-    aes(label = name),
-    repel = TRUE,        # evita sobreposição de rótulos
-    size = 3,
-    color = "black"
-  ) +
-  scale_size_continuous(range = c(2, 10)) +
-  scale_color_viridis_c(option = "plasma") +
-  theme_void() +
-  labs(
-    title = "Rede de Seguidores e Seguidores-dos-Seguidores",
-    subtitle = "Nós = contas | Arestas = relações de seguir",
-    size = "Grau",
-    color = "PageRank"
-  )
 ```
 
