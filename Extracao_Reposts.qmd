@@ -88,7 +88,7 @@ reposts <-
     function(repost) { 
       url <- convert_at_to_http(repost)
       safe_get_reposts(post_url = url) |> 
-        dplyr::mutate(from = repost) #está renomeando? 
+        dplyr::mutate(uri_post = repost) #está renomeando? 
     } 
   ) 
 
