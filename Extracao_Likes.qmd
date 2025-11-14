@@ -57,7 +57,7 @@ querys <-
 posts <-
   search_post(
     q = querys,
-    limit = 3L,
+    limit = 10L,
     since = "2024-08-30",
     until = "2024-09-08"
   ) |>
@@ -65,7 +65,8 @@ posts <-
     handle = author_handle,
     like_count,
     uri 
-  )
+  ) |>
+  filter(like_count > 0)
 
 view(posts)
 ```
