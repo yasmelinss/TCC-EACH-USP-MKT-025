@@ -57,7 +57,7 @@ querys <-
 posts <-
   search_post(
     q = querys,
-    limit = 13L,
+    limit = 50L,
     since = "2024-08-30",
     until = "2024-09-08"
   ) |>
@@ -65,16 +65,20 @@ posts <-
     handle = author_handle,
     repost_count,
     uri 
-  )
+  ) |>
+  filter(repost_count > 0)
 
 view(posts)
+#puxar 15 semanas (5 antes, 5 durante, 5 depois)
+#no script (.r) que vai extrair os dados
+#write_rds("Dados/...")
+#no arquivo qmd que vai processar/analisar os dados
+#read_rds()
+
 ```
 
 ```{r}
-#| label: estracao-get-reposts
-
-  #posts$repost_count |> 
-  #dplyr::filter(repost > 0) |>
+#| label: extracao-get-reposts
 
 safe_get_reposts <- 
   purrr::possibly(
