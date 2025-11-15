@@ -6,3 +6,6 @@
 #2.4 - extrair todos os users de todas as threads
 
 #3 - escrever em disco 3 dataframes (threads, likes e users)
+
+
+
