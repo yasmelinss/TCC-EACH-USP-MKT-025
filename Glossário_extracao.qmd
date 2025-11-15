@@ -123,3 +123,111 @@ get_likes(
   }
 }
 
+
+## `{ATRRR::GET_THREAD()}`
+
+Descrição:
+
+get_thread(
+  post_url, 
+  .token = NULL
+  )
+  
+
+post raíz: 
+
+- `uri`:
+- `cid`:
+- `author_handle`:
+- `author_name`:
+- `text`:
+- `author_data`:{
+  - `did`:
+  - `handle`:
+  - `displayName`:
+  - `avatar`:
+  - `associated`:{
+    - `chat`:{
+      - `allowIncoming`:
+    }
+    - `activitySubscription`:{
+      - `allowSubscriptions`: 
+    }
+  }
+  - `viewer`:{
+  }
+  - `labels`:
+  - `createdAt`:
+}
+- `post_data`:{
+  - `$type`:
+  - `createdAt`:
+  - `embed`:{}
+  - `$type`:
+  - `langs`:
+  - `text`:
+}
+- `reply_count`:
+- `repost_count`:
+- `like_count`:
+- `quote_count`:
+- `indexed_at`:
+- `tags`:
+- `mentions`:
+- `links`:
+- `lans`:
+
+Thread
+
+- `uri`: uri individual
+- `cid`: identificador individual
+- `author_handle`:
+- `author_name`:
+- `text`: conteúdo do comentário
+- `author_data`:{
+  - `did`:
+  - `handle`:
+  - `displayName`:
+  - `avatar`:
+  - `associated`:{
+    - `activitySubscription`:{  
+      - `allowSubscriptions`:
+    }
+  }
+  - `viewer`:{}
+  - `labels`:{
+    - `src`: did do comentário
+    - `uri`:  
+    - `cid`:  
+    - `val`:  
+    - `cts`: data de criação do usuário
+  }  
+- `post_data`:{  
+  - `$type`:  
+  - `createdAt`:  
+  - `langs`:  
+  - `reply``:{  
+    - `parent`:  
+      - `cid`: identificador do post de galho raiz
+      - `uri`: uri do post galho ou raiz
+    }
+    - `root``:{
+      - `cid`: identificador do post raíz
+      - `uri`: uri do post raíz
+    }
+  - `text`: conteúdo do comentário
+}
+- `embed_data`:{}
+- `reply_count`:
+- `repost_count`:
+- `like_count`:
+- `quote_count`:
+- `indexed_at`: data de criação do comentário
+- `in_reply_to`: uri do post galho(s) ou raíz
+- `in_reply_root`:  uri do post raiz
+- `tags`:  
+- `mentions`:
+- `links`:
+- `langs`:
+- `labels`:
+  
