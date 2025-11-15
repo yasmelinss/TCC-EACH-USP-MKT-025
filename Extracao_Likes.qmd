@@ -96,24 +96,3 @@ View(likes)
 ```
 
 
-```{r}
-# GPT Associa cada post ao autor que o publicou
-likes_autor <- 
-  likes |>
-  # junta com o data frame "posts" pra recuperar o autor do post
-  dplyr::left_join(
-    posts |> dplyr::select(handle, uri),
-    by = c("from" = "posts$uri")
-  ) |>
-  # renomeia para ficar claro
-  dplyr::rename(
-    from = uri,      # quem escreveu o post
-    to = actor_handle          # quem curtiu o post
-  ) |>
-  # mantém apenas colunas essenciais para o grafo
-  dplyr::select(from, to)
-
-View(likes_autor)
-
-```
-
