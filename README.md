@@ -25,10 +25,10 @@ Sprint da semana:
   - [ ] análise de frequência e exploratória: contagem de palavras, bigramas, visualização
   - [ ] análise de conectividade: análise de índices de conexão, de centralidade
   - Yas
-- [/] Justificativa
+- [X] Justificativa
   - Thales
-- [ ] aprimorar redação 
-  - [ ] Metodologia
+- [/] aprimorar redação 
+  - [/] Metodologia
   - Thales
 
 
