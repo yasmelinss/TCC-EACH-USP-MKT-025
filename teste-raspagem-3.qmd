@@ -79,8 +79,7 @@ auth(
 ```{r}
 #| label: url-to-uri
 
-"at://did:plc:monbpol4rwcmxwy3eokejayd/app.bsky.feed.post/3m3g
-dyyfbxc24" |>
+"at://did:plc:g4efut5lyfkz6wxoejsuo2dw/app.bsky.feed.post/3m5na7ychbk\n25" |>
 convert_http_to_at(.token = NULL)
 ```
 
@@ -88,7 +87,7 @@ convert_http_to_at(.token = NULL)
 ```{r}
 #| label: uri-to-url
 
-"at://did:plc:crr5fojl5ssfyrdfwhhuzots/app.bsky.feed.post/3lyr7t5lgjk2a" |>
+"at://did:plc:g4efut5lyfkz6wxoejsuo2dw/app.bsky.feed.post/3m2iaytbuxk2q" |>
   convert_at_to_http()
 ```
 
@@ -246,8 +245,10 @@ raiz. Os próximos trazem dados das interações.
 ```{r}
 #| label: extracao-thread
 
-'https://bsky.app/profile/pupn1k.bsky.social/post/3m2kh4cgtk22q'|>
+tabble <- 'https://bsky.app/profile/yasmelinss.bsky.social/post/3m2iaytbuxk2q'|>
   get_thread()
+
+formataJSON(tabble)
 ```
 
 

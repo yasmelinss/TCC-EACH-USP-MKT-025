@@ -1,5 +1,5 @@
 ---
-title: "Arquivo de extração de dados - teste 4"
+title: "Arquivo de extração de dados - teste 5"
 author: "Yasmin Messias Lins"
 lang: pt-br
 format: html
@@ -57,42 +57,46 @@ querys <-
 posts <-
   search_post(
     q = querys,
-    limit = 10L,
+    limit = 50L,
     since = "2024-08-30",
     until = "2024-09-08"
   ) |>
   select(
     handle = author_handle,
-    like_count,
+    repost_count,
     uri 
   ) |>
-  filter(like_count > 0)
+  filter(repost_count > 0)
 
 view(posts)
+#puxar 15 semanas (5 antes, 5 durante, 5 depois)
+#no script (.r) que vai extrair os dados
+#write_rds("Dados/...")
+#no arquivo qmd que vai processar/analisar os dados
+#read_rds()
+
 ```
 
 ```{r}
-#| label: estracao-get-likes
+#| label: extracao-get-reposts
 
-safe_get_likes <- 
+safe_get_reposts <- 
   purrr::possibly(
-    get_likes, 
+    get_reposts, 
     otherwise = tibble()
     )
 
-likes <- 
-  posts$uri |> 
-  purrr::map_dfr(
-    function(curtida) {
-    url <- convert_at_to_http(curtida)
-    safe_get_likes(post_url = url) |>
-      dplyr::mutate(uri_post = curtida) #está renomeando?
-   }
-  )
+reposts <- 
+  posts$uri |>
+  purrr::map_dfr( 
+    function(repost) { 
+      url <- convert_at_to_http(repost)
+      safe_get_reposts(post_url = url) |> 
+        dplyr::mutate(uri_post = repost) #está renomeando? 
+    } 
+  ) 
 
 
-View(likes)
-
+View(reposts)
 ```
-
 

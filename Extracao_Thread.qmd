@@ -1,5 +1,5 @@
 ---
-title: "Arquivo de extração de dados - teste 4"
+title: "Extracao_Thread"
 author: "Yasmin Messias Lins"
 lang: pt-br
 format: html
@@ -57,42 +57,40 @@ querys <-
 posts <-
   search_post(
     q = querys,
-    limit = 10L,
+    limit = 25L,
     since = "2024-08-30",
     until = "2024-09-08"
   ) |>
   select(
-    handle = author_handle,
-    like_count,
-    uri 
+    author_handle,
+    text,
+    uri_comentario = uri,
+    reply_count
   ) |>
-  filter(like_count > 0)
+  filter(reply_count > 0)
 
 view(posts)
 ```
 
 ```{r}
-#| label: estracao-get-likes
+#| label: estracao-get_thread
 
-safe_get_likes <- 
+safe_get_thread <- 
   purrr::possibly(
-    get_likes, 
+    get_thread, 
     otherwise = tibble()
     )
 
-likes <- 
+cometarios <- 
   posts$uri |> 
   purrr::map_dfr(
-    function(curtida) {
-    url <- convert_at_to_http(curtida)
-    safe_get_likes(post_url = url) |>
-      dplyr::mutate(uri_post = curtida) #está renomeando?
+    function(post_raiz) {
+    url <- convert_at_to_http(post_raiz)
+    safe_get_thread(url) |>
+      dplyr::mutate(uri_post_raiz = post_raiz)
+#      dplyr::mutate(uri_comentario = uri_comentario)
    }
   )
-
-
-View(likes)
+View(thread)
 
 ```
-
-

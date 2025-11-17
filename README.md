@@ -8,22 +8,16 @@ Professor orientador: Marcelo Ventura
 
 Sprint da semana:
 
-- [/] Criar novo arquivo "extracao.qmd"
-  - [ ] pra cada post, extrair 10 replies e 10 reposts
-  - [ ] manuseio dos dados 
-    - [ ] ids, handles (usuario, postagem, like, repost, reply)
-    - [ ] ligar pro lelão para explicar como fazer os dataframes de relacionamento
-  - [ ] montar os respectivos grafos
-    - [ ] usuarios que se seguem
-    - [ ] usuarios que são seguidos
-    - [ ] usuarios + numero de replies que cada usuario deu (proximidade maior quanto mais replies)
-    - [ ] usuarios + numero de reposts que cada usuario deu (proximidade maior quanto mais reposts)
-    - [ ] usuarios + numero de interações (replies + reposts + likes) que cada usuario deu
-  - [/] fazer gráfico dos grafos acima
-  - Yas
-- [/] Código de como fazer
-  - [ ] análise de frequência e exploratória: contagem de palavras, bigramas, visualização
-  - [ ] análise de conectividade: análise de índices de conexão, de centralidade
+- [ ] Criar novo arquivo "1-extracao.r"
+  - [ ] confirmas/ validar quais são os termos para extração dos skeets
+  - [ ] deixar um piloto com poucos dados (10L)
+  - [ ] extrair postagens entre as duas datas
+  - [ ] para cada postagem,
+    - [ ] extrair todos os comentários (thread) (que serão novas postagens)
+    - [ ] extrair reposts de todas as threads
+    - [ ] extrair todos os likes de todas as threads
+    - [ ] extrair todos os users de todas as threads
+  - [ ] escrever em disco 3 dataframes (threads, likes e users)
   - Yas
 - [X] Justificativa
   - Thales
@@ -34,23 +28,45 @@ Sprint da semana:
 
 Backlog:
 
-- [ ] Terminar as revisões com base no feedback do orientador
-  - [ ] Pacote atrrr
-- [ ] Manuseio de dados
-  - [ ] Descobrir como conectar perfis
-  - [ ] Descobrir como conectar postagens
-  - [ ] Descobrir como plotar uma rede e conectar as pessoas
-  - Yas
+
 - [/] Metodologia -- ler artigos e escrever dentro dos tópicos
   - [-] análise de sentimentos (???)
   - Thales
 - [ ] Mandar e-mail para Pesquisa Games Brasil (talvez mais pra frente)
   - Thales
-
+- [ ] Criar novo arquivo "2-faxina.r"
+    - [ ] pra cada post, extrair 10 replies e 10 reposts
+    - [ ] manuseio dos dados 
+      - [ ] ids, handles (usuario, postagem, like, repost, reply)
+      - [ ] ligar pro lelão para explicar como fazer os dataframes de relacionamento
+  - Yas
+- [/] Código de como fazer
+  - [ ] análise de frequência e exploratória: contagem de palavras, bigramas, visualização
+  - [ ] análise de conectividade: análise de índices de conexão, de centralidade
+  - Yas
+- [ ] Criar novo arquivo "3-analise.qmd"
+  - [ ] montar os respectivos grafos
+    - [ ] usuarios que se seguem
+    - [ ] usuarios que são seguidos
+    - [ ] usuarios + numero de replies que cada usuario deu (proximidade maior quanto mais replies)
+    - [ ] usuarios + numero de reposts que cada usuario deu (proximidade maior quanto mais reposts)
+    - [ ] usuarios + numero de interações (replies + reposts + likes) que cada usuario deu
+  - [/] fazer gráfico dos grafos acima
+  - Yas
 
 
 Concluído:
 
+- [X] Manuseio de dados
+  - [X] Descobrir como conectar perfis
+  - [X] Descobrir como conectar postagens
+  - [X] Descobrir como plotar uma rede e conectar as pessoas
+  - Yas
+  - concluído em 14/11
+- [X] Terminar as revisões com base no feedback do orientador
+  - [X] Pacote atrrr
+  - Yas
+  - concluído em 7/11  
 - [X] Realçar quais seções precisam de revisão
   - Thales
   - concluido em 21/10
