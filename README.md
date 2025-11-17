@@ -19,15 +19,15 @@ Sprint da semana:
     - [ ] extrair todos os users de todas as threads
   - [ ] escrever em disco 3 dataframes (threads, likes e users)
   - Yas
-- [X] Justificativa
-  - Thales
-- [/] aprimorar redação 
-  - [/] Metodologia
+
+- [X] aprimorar redação 
+  - [X] Metodologia
   - Thales
 
 
 Backlog:
 
+- [ ] Normalizar a formatação das citações 
 
 - [/] Metodologia -- ler artigos e escrever dentro dos tópicos
   - [-] análise de sentimentos (???)
@@ -57,6 +57,9 @@ Backlog:
 
 Concluído:
 
+- [X] Justificativa
+  - Thales
+  - concluído em 14/11
 - [X] Manuseio de dados
   - [X] Descobrir como conectar perfis
   - [X] Descobrir como conectar postagens
