@@ -8,7 +8,7 @@ library(tidygraph)
 library(kableExtra)
 
 querys <-
-  c('cblol','lol')
+  c('cblol')
 
 posts <-
   search_post(
@@ -20,8 +20,6 @@ posts <-
 
 saveRDS(posts, "periodo_1_thread.rds")
 
-df2 <- readRDS("periodo_1_thread.rds")
-df2
 
 
 posts2 <-
@@ -34,8 +32,6 @@ posts2 <-
 
 saveRDS(posts, "periodo_2_thread.rds")
 
-df2 <- readRDS("periodo_2_thread.rds")
-df2
 
 posts3 <-
   search_post(
@@ -47,8 +43,6 @@ posts3 <-
 
 saveRDS(posts, "periodo_3_thread.rds")
 
-df2 <- readRDS("periodo_3_thread.rds")
-df2
 
 posts4 <-
   search_post(
@@ -60,9 +54,6 @@ posts4 <-
 
 saveRDS(posts, "periodo_4_thread.rds")
 
-df2 <- readRDS("periodo_4_thread.rds")
-df2
-
 posts5 <-
   search_post(
     q = querys,
@@ -73,8 +64,6 @@ posts5 <-
 
 saveRDS(posts, "periodo_5_thread.rds")
 
-df2 <- readRDS("periodo_5_thread.rds")
-df2
 
 posts6 <-
   search_post(
@@ -86,8 +75,6 @@ posts6 <-
 
 saveRDS(posts, "periodo_6_thread.rds")
 
-df2 <- readRDS("periodo_6_thread.rds")
-df2
 
 posts7 <-
   search_post(
@@ -99,5 +86,3 @@ posts7 <-
 
 saveRDS(posts, "periodo_7_thread.rds")
 
-df2 <- readRDS("periodo_7_thread.rds")
-df2
