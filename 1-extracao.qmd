@@ -1,0 +1,797 @@
+---
+title: "Script de extração dos *skeets* via API com a biblioteca `{atrrr}`"
+format: 
+  html:
+    toc: true
+    toc-depth: 4
+    toc-location: left
+execute: 
+  cache: true
+---
+
+```{r}
+#| label: setup
+
+library(atrrr)
+library(tidyverse)
+```
+
+## Definindo os parâmetros da busca
+
+### De quando a quando buscar? 
+
+```{r}
+inicio.bloqueio <- "30-08-2024" |> dmy()
+inicio.busca <- inicio.bloqueio - 4 * dweeks()
+wday(inicio.bloqueio)
+```
+
+Começou em uma sexta-feira, então precisa marcar o início das semanas a partir das sextas-feiras.
+
+```{r}
+final.bloqueio <- "08-10-2024" |> dmy()
+wday(final.bloqueio)
+```
+
+Terminou em uma terça-feira.
+
+```{r}
+final.bloqueio - inicio.bloqueio + 1
+```
+
+O bloqueio durou 40 dias, então não vai ser um número redondo de semanas.
+
+```{r}
+(final.bloqueio - inicio.bloqueio + 1) / dweeks()
+```
+
+Isso dá 5.7 blocos de 7 dias.
+
+Nota: nesse caso, um bloco de 7 dias é diferente de uma semana, pois o bloco não começa no domingo.
+
+```{r}
+((final.bloqueio - inicio.bloqueio + 1) / dweeks() - 5) * dweeks()
+```
+
+O período do bloqueio será de 5 blocos de 7 dias e mais 5 dias, ou seja 5 blocos inteiros e, no sexto bloco, caiu o desbloqueio no quinto dia.
+
+```{r}
+final.busca <- final.bloqueio + 2 * ddays() + 4 * dweeks()
+(final.busca - inicio.busca + 1) / dweeks()
+```
+
+Em resumo, serão considerados:
+
+- 14 blocos de 7 dias
+    - blocos 1 a 4: 1 mês antes
+    - bloco 5: bloqueia 1o dia desse bloco
+    - blocos 6 a 9: só bluesky
+    - bloco 10: desbloqueia no 5o dia desse bloco
+    - blocos 11 a 14: X voltando a funcionar e bluesky esvaziando
+
+
+### Por qual termos buscar?
+
+Em princípio, poderia ser `"cblol"` com ou sem o símbolo de *hashtag* ou mais algum outro termos de busca, mas vou ficar só com um mesmo.
+
+## Autenticando
+
+```{r}
+#| label: autenticando
+
+auth(
+  user = 'yasmelinss.bsky.social',
+  password = read_lines("senha.txt"),
+  overwrite = TRUE
+)
+```
+
+
+## Buscando skeets 
+
+### Primeira tentativa: tudo de uma vez 
+
+```{r}
+(
+  skeets.cblol <-
+  search_post(
+    q = "cblol",
+    since = inicio.busca,
+    until = final.busca
+  )
+) |> 
+  nrow()
+```
+
+Ué, só 184 skeets?!?
+
+```{r}
+(
+  skeets.hash.cblol <-
+  search_post(
+    q = '"#cblol"',
+    since = inicio.busca,
+    until = final.busca
+  )
+) |> 
+  nrow()
+```
+
+Aqui deu 184 skeets também.
+
+
+```{r}
+skeets.cblol$uri |> length()
+skeets.hash.cblol$uri |> length()
+```
+
+O mesmo resultado em ambos quando busca com `"cblol"` ou com `'"#cblol"'`.
+
+```{r}
+intersect(
+  skeets.cblol$uri,
+  skeets.hash.cblol$uri
+) |> length()
+```
+
+Pelo menos, as duas buscas dão o mesmo retorno.
+
+Não parece confiável tentar extrair tudo de uma vez.
+
+### Deu merda sim. Porquê?
+
+No manual do `{atrrr}` aparece o motivo: o próprio protocolo tem uma limitação de 100 buscas no máximo.
+
+Assim, só dá para confiar em buscas que retornaram menos de 100 *skeets*.
+
+
+
+
+### Segunda tentativa: fatiando
+
+#### Fatiando por dia 
+
+A busca vai ser feita individualmente nestes dias:
+
+```{r}
+(dias.buscas <- seq(inicio.busca, final.busca))
+```
+
+Tentando buscar por dia para ver quantos skeets são retornados em cada dia.
+
+```{r}
+skeets.cblol.por.dia <-
+  seq(inicio.busca, final.busca) |>
+  map(
+    insistently(
+      \(inicio.bloco) {
+        list(
+          inicio = inicio.bloco,
+          final = inicio.bloco + 1 * ddays(),
+          skeets =
+            search_post(
+              q = "cblol",
+              since = inicio.bloco,
+              until = inicio.bloco + 1 * ddays()
+            )
+        )
+      }
+    )
+  )
+```
+
+Vamos ver como ficou.
+
+```{r}
+(
+  n.skeets.por.dia <-
+  skeets.cblol.por.dia |>
+  map_dfr(
+    function(bloco)
+      tibble(
+        dia = bloco$inicio,
+        n.skeets = nrow(bloco$skeets)
+      )
+  )
+)
+```
+
+Tem muitos dia que retornaram mais do que 100 skeets?
+
+```{r}
+(
+  dias.a.refinar <-
+    n.skeets.por.dia |>
+    filter(n.skeets >= 100) |>
+    pull(dia)
+)
+```
+
+É gente pra caramba: `r 100*length(dias.a.refinar)/length(dias.buscas)`% dos dias precisam ser refinados.
+
+O jeito vai ser refinar a busca nos dias em que deu xabu, particionando cada dia em dois.
+
+Mas antes, vou montar o dataframe com os dias que retornaram direito.
+
+```{r}
+skeets.dias.ok <-
+  skeets.cblol.por.dia[!dias.buscas %in% dias.a.refinar] |>
+  map(\(x) x$skeets) |>
+  list_rbind()
+```
+
+
+#### Refinando os dias com excesso de postagem
+
+Quebrando cada dia em dois blocos de 12h.
+
+Quais blocos serão buscados?
+
+```{r}
+(
+  blocos.12h.buscas <-
+  expand_grid(
+    dia = dias.a.refinar,
+    hora = 0:1 * 12 * dhours()
+  ) |>
+  mutate(quando = dia + hora) |>
+  pull(quando)
+)
+```
+
+Buscando
+
+```{r}
+skeets.cblol.por.12h <-
+  blocos.12h.buscas |>
+  map(
+    insistently(
+      \(inicio.bloco) {
+        list(
+          inicio = inicio.bloco,
+          final = inicio.bloco + 12 * dhours(),
+          skeets =
+            search_post(
+              q = "cblol",
+              since = inicio.bloco,
+              until = inicio.bloco + 12 * dhours()
+            )
+        )
+      }
+    )
+  )
+```
+
+Quantos skeets por bloco?
+
+```{r}
+(
+  n.skeets.por.12h <-
+  skeets.cblol.por.12h |>
+  map_dfr(
+    function(bloco)
+      tibble(
+        quando = bloco$inicio,
+        n.skeets = nrow(bloco$skeets)
+      )
+  )
+)
+```
+
+Ainda precisa refinar.
+
+```{r}
+blocos.12h.a.refinar <-
+  n.skeets.por.12h |>
+  filter(n.skeets >= 100) |>
+  pull(quando)
+```
+
+Salvando os skeets de dias sem excesso de skeets.
+
+```{r}
+skeets.12h.ok <-
+  skeets.cblol.por.12h[!blocos.12h.buscas %in% blocos.12h.a.refinar] |>
+  map(\(x) x$skeets) |>
+  list_rbind()
+```
+
+#### Refinando os blocos de 12h com excesso de postagem
+
+```{r}
+blocos.6h.buscas <-
+  expand_grid(
+    dia = blocos.12h.a.refinar,
+    hora = 0:1 * 6 * dhours()
+  ) |>
+  mutate(quando = dia + hora) |>
+  pull(quando)
+```
+
+
+```{r}
+skeets.cblol.por.6h <-
+  blocos.6h.buscas |>
+  map(
+    insistently(
+      \(inicio.bloco) {
+        list(
+          inicio = inicio.bloco,
+          final = inicio.bloco + 6 * dhours(),
+          skeets =
+            search_post(
+              q = "cblol",
+              since = inicio.bloco,
+              until = inicio.bloco + 6 * dhours()
+            )
+        )
+      }
+    )
+  )
+```
+
+
+```{r}
+n.skeets.por.6h <-
+  skeets.cblol.por.6h |>
+  map_dfr(
+    function(bloco)
+      tibble(
+        quando = bloco$inicio,
+        n.skeets = nrow(bloco$skeets)
+      )
+  )
+```
+
+
+```{r}
+blocos.6h.a.refinar <-
+  n.skeets.por.6h |>
+  filter(n.skeets >= 100) |>
+  pull(quando)
+```
+
+
+```{r}
+skeets.6h.ok <-
+  skeets.cblol.por.6h[!blocos.6h.buscas %in% blocos.6h.a.refinar] |>
+  map(\(x) x$skeets) |>
+  list_rbind()
+```
+
+#### Refinando os blocos de 6h com excesso de postagem 
+
+```{r}
+blocos.3h.buscas <-
+  expand_grid(
+    dia = blocos.6h.a.refinar,
+    hora = 0:1 * 3 * dhours()
+  ) |>
+  mutate(quando = dia + hora) |>
+  pull(quando)
+```
+
+
+```{r}
+skeets.cblol.por.3h <-
+  blocos.3h.buscas |>
+  map(
+    insistently(
+      \(inicio.bloco) {
+        list(
+          inicio = inicio.bloco,
+          final = inicio.bloco + 3 * dhours(),
+          skeets =
+            search_post(
+              q = "cblol",
+              since = inicio.bloco,
+              until = inicio.bloco + 3 * dhours()
+            )
+        )
+      }
+    )
+  )
+```
+
+
+```{r}
+n.skeets.por.3h <-
+  skeets.cblol.por.3h |>
+  map_dfr(
+    function(bloco)
+      tibble(
+        quando = bloco$inicio,
+        n.skeets = nrow(bloco$skeets)
+      )
+  )
+```
+
+
+```{r}
+blocos.3h.a.refinar <-
+  n.skeets.por.3h |>
+  filter(n.skeets >= 100) |>
+  pull(quando)
+```
+
+
+```{r}
+skeets.3h.ok <-
+  skeets.cblol.por.3h[!blocos.3h.buscas %in% blocos.3h.a.refinar] |>
+  map(\(x) x$skeets) |>
+  list_rbind()
+```
+
+#### Refinando os blocos de 3h com excesso de postagem 
+
+```{r}
+blocos.1h.buscas <-
+  expand_grid(
+    dia = blocos.3h.a.refinar,
+    hora = 0:2 * dhours()
+  ) |>
+  mutate(quando = dia + hora) |>
+  pull(quando)
+```
+
+
+```{r}
+skeets.cblol.por.1h <-
+  blocos.1h.buscas |>
+  map(
+    insistently(
+      \(inicio.bloco) {
+        list(
+          inicio = inicio.bloco,
+          final = inicio.bloco + 1 * dhours(),
+          skeets =
+            search_post(
+              q = "cblol",
+              since = inicio.bloco,
+              until = inicio.bloco + 1 * dhours()
+            )
+        )
+      }
+    )
+  )
+```
+
+
+```{r}
+n.skeets.por.1h <-
+  skeets.cblol.por.1h |>
+  map_dfr(
+    function(bloco)
+      tibble(
+        quando = bloco$inicio,
+        n.skeets = nrow(bloco$skeets)
+      )
+  )
+```
+
+
+```{r}
+blocos.1h.a.refinar <-
+  n.skeets.por.1h |>
+  filter(n.skeets >= 100) |>
+  pull(quando)
+```
+
+
+```{r}
+skeets.1h.ok <-
+  skeets.cblol.por.1h[!blocos.1h.buscas %in% blocos.1h.a.refinar] |>
+  map(\(x) x$skeets) |>
+  list_rbind()
+```
+
+#### Refinando os blocos de 1h com excesso de postagem 
+
+```{r}
+blocos.30min.buscas <-
+  expand_grid(
+    dia = blocos.1h.a.refinar,
+    hora = 0:1 * 30 * dminutes()
+  ) |>
+  mutate(quando = dia + hora) |>
+  pull(quando)
+```
+
+```{r}
+skeets.cblol.por.30min <-
+  blocos.30min.buscas |>
+  map(
+    insistently(
+      \(inicio.bloco) {
+        list(
+          inicio = inicio.bloco,
+          final = inicio.bloco + 30 * dminutes(),
+          skeets =
+            search_post(
+              q = "cblol",
+              since = inicio.bloco,
+              until = inicio.bloco + 30 * dminutes()
+            )
+        )
+      }
+    )
+  )
+```
+
+
+```{r}
+n.skeets.por.30min <-
+  skeets.cblol.por.30min |>
+  map_dfr(
+    function(bloco)
+      tibble(
+        quando = bloco$inicio,
+        n.skeets = nrow(bloco$skeets)
+      )
+  )
+```
+
+
+```{r}
+blocos.30min.a.refinar <-
+  n.skeets.por.30min |>
+  filter(n.skeets >= 100) |>
+  pull(quando)
+```
+
+
+```{r}
+skeets.30min.ok <-
+  skeets.cblol.por.30min[!blocos.30min.buscas %in% blocos.30min.a.refinar] |>
+  map(\(x) x$skeets) |>
+  list_rbind()
+```
+
+#### Refinando os blocos de 30min com excesso de postagem 
+
+```{r}
+blocos.10min.buscas <-
+  expand_grid(
+    dia = blocos.30min.a.refinar,
+    hora = 0:2 * 10 * dminutes()
+  ) |>
+  mutate(quando = dia + hora) |>
+  pull(quando)
+```
+
+
+```{r}
+skeets.cblol.por.10min <-
+  blocos.10min.buscas |>
+  map(
+    insistently(
+      \(inicio.bloco) {
+        list(
+          inicio = inicio.bloco,
+          final = inicio.bloco + 10 * dminutes(),
+          skeets =
+            search_post(
+              q = "cblol",
+              since = inicio.bloco,
+              until = inicio.bloco + 10 * dminutes()
+            )
+        )
+      }
+    )
+  )
+```
+
+
+```{r}
+n.skeets.por.10min <-
+  skeets.cblol.por.10min |>
+  map_dfr(
+    function(bloco)
+      tibble(
+        quando = bloco$inicio,
+        n.skeets = nrow(bloco$skeets)
+      )
+  )
+```
+
+
+```{r}
+blocos.10min.a.refinar <-
+  n.skeets.por.10min |>
+  filter(n.skeets >= 100) |>
+  pull(quando)
+```
+
+
+```{r}
+skeets.10min.ok <-
+  skeets.cblol.por.10min[!blocos.10min.buscas %in% blocos.10min.a.refinar] |>
+  map(\(x) x$skeets) |>
+  list_rbind()
+```
+
+#### Refinando os blocos de 10min com excesso de postagem 
+
+```{r}
+blocos.5min.buscas <-
+  expand_grid(
+    dia = blocos.10min.a.refinar,
+    hora = 0:2 * 5 * dminutes()
+  ) |>
+  mutate(quando = dia + hora) |>
+  pull(quando)
+```
+
+
+```{r}
+skeets.cblol.por.5min <-
+  blocos.5min.buscas |>
+  map(
+    insistently(
+      \(inicio.bloco) {
+        list(
+          inicio = inicio.bloco,
+          final = inicio.bloco + 5 * dminutes(),
+          skeets =
+            search_post(
+              q = "cblol",
+              since = inicio.bloco,
+              until = inicio.bloco + 5 * dminutes()
+            )
+        )
+      }
+    )
+  )
+```
+
+
+```{r}
+n.skeets.por.5min <-
+  skeets.cblol.por.5min |>
+  map_dfr(
+    function(bloco)
+      tibble(
+        quando = bloco$inicio,
+        n.skeets = nrow(bloco$skeets)
+      )
+  )
+```
+
+
+```{r}
+blocos.5min.a.refinar <-
+  n.skeets.por.5min |>
+  filter(n.skeets >= 100) |>
+  pull(quando)
+```
+
+
+```{r}
+skeets.5min.ok <-
+  skeets.cblol.por.5min[!blocos.5min.buscas %in% blocos.5min.a.refinar] |>
+  map(\(x) x$skeets) |>
+  list_rbind()
+```
+
+#### Refinando os blocos de 5min com excesso de postagem 
+
+```{r}
+blocos.1min.buscas <-
+  expand_grid(
+    dia = blocos.5min.a.refinar,
+    hora = 0:4 * 1 * dminutes()
+  ) |>
+  mutate(quando = dia + hora) |>
+  pull(quando)
+```
+
+
+```{r}
+skeets.cblol.por.1min <-
+  blocos.1min.buscas |>
+  map(
+    insistently(
+      \(inicio.bloco) {
+        list(
+          inicio = inicio.bloco,
+          final = inicio.bloco + 1 * dminutes(),
+          skeets =
+            search_post(
+              q = "cblol",
+              since = inicio.bloco,
+              until = inicio.bloco + 1 * dminutes()
+            )
+        )
+      }
+    )
+  )
+```
+
+
+```{r}
+n.skeets.por.1min <-
+  skeets.cblol.por.1min |>
+  map_dfr(
+    function(bloco)
+      tibble(
+        quando = bloco$inicio,
+        n.skeets = nrow(bloco$skeets)
+      )
+  )
+```
+
+
+```{r}
+blocos.1min.a.refinar <-
+  n.skeets.por.1min |>
+  filter(n.skeets >= 100) |>
+  pull(quando)
+```
+
+
+Finalmente não precisou mais refinar!
+
+```{r}
+skeets.1min.ok <-
+  skeets.cblol.por.1min |>
+  map(\(x) x$skeets) |>
+  list_rbind()
+```
+
+
+#### Juntando os blocos de skeets
+
+```{r}
+skeets <-
+  bind_rows(
+    skeets.dias.ok,
+    skeets.12h.ok,
+    skeets.6h.ok,
+    skeets.3h.ok,
+    skeets.1h.ok,
+    skeets.30min.ok,
+    skeets.10min.ok,
+    skeets.5min.ok,
+    skeets.1min.ok
+  )
+nrow(skeets)
+```
+
+
+Por ora, não está precisando rodar este *chunk* aqui.
+
+```{r}
+#| eval: false
+# pra liberar espaço
+rm(
+  skeets.dias.ok,
+  skeets.12h.ok,
+  skeets.6h.ok,
+  skeets.3h.ok,
+  skeets.1h.ok,
+  skeets.30min.ok,
+  skeets.10min.ok,
+  skeets.5min.ok,
+  skeets.1min.ok
+)
+```
+
+### Salvando os skeets baixados
+
+```{r}
+write_rds(skeets, "Dados/skeets-cblol.rds")
+```
+
+
+## Buscando threads desses skeets (inclui replies e reskeets) 
+
+## Juntando todos os skeets 
+
+## Buscando users que deram like em todos esses skeets 
+
+## Juntando todos os users, vindos de threads ou de likes 
+
+## Salvando tudo 
+
+
+
