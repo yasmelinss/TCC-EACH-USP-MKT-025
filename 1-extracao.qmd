@@ -840,12 +840,41 @@ Finalmente não precisou mais refinar!
       skeets.30min.ok,
       skeets.10min.ok,
       skeets.5min.ok,
-      skeets.1min.ok
+      skeets.1min.ok,
+      .id = "bloco"
     )
 ) |> 
   nrow()
 ```
 
+Há repetecos?
+
+```{r}
+any(duplicated(skeets$uri))
+skeets |> 
+  mutate(
+    duplicatas = duplicated(uri) | duplicated(uri, fromLast = TRUE),
+    linha = row_number()
+  ) |> 
+  filter(duplicatas) |> 
+  select(bloco, linha, uri) |> 
+  arrange(uri, bloco, linha) # |> View()
+```
+
+Sim, há.
+
+Eliminando as redundâncias
+
+```{r}
+#| label: elimina-duplicatas
+
+(
+skeets <- 
+  skeets |> 
+  filter(!duplicated(uri))
+) |> 
+  nrow()
+```
 
 Por ora, não está precisando rodar este *chunk* aqui.
 
