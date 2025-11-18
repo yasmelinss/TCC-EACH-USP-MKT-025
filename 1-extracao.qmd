@@ -3,7 +3,7 @@ title: "Script de extração dos *skeets* via API com a biblioteca `{atrrr}`"
 format: 
   html:
     toc: true
-    toc-depth: 4
+    toc-depth: 5
     toc-location: left
 execute: 
   cache: true
@@ -180,6 +180,8 @@ skeets.cblol.por.dia <-
   )
 ```
 
+##### Resultados
+
 Vamos ver como ficou.
 
 ```{r}
@@ -262,6 +264,9 @@ skeets.cblol.por.12h <-
   )
 ```
 
+
+##### Resultados
+
 Quantos skeets por bloco?
 
 ```{r}
@@ -299,13 +304,15 @@ skeets.12h.ok <-
 #### Refinando os blocos de 12h com excesso de postagem
 
 ```{r}
-blocos.6h.buscas <-
-  expand_grid(
-    dia = blocos.12h.a.refinar,
-    hora = 0:1 * 6 * dhours()
-  ) |>
-  mutate(quando = dia + hora) |>
-  pull(quando)
+(
+  blocos.6h.buscas <-
+    expand_grid(
+      dia = blocos.12h.a.refinar,
+      hora = 0:1 * 6 * dhours()
+    ) |>
+    mutate(quando = dia + hora) |>
+    pull(quando)
+)
 ```
 
 
@@ -330,9 +337,11 @@ skeets.cblol.por.6h <-
   )
 ```
 
+##### Resultados
 
 ```{r}
-n.skeets.por.6h <-
+(
+  n.skeets.por.6h <-
   skeets.cblol.por.6h |>
   map_dfr(
     function(bloco)
@@ -341,34 +350,41 @@ n.skeets.por.6h <-
         n.skeets = nrow(bloco$skeets)
       )
   )
+)
 ```
 
 
 ```{r}
-blocos.6h.a.refinar <-
+(
+  blocos.6h.a.refinar <-
   n.skeets.por.6h |>
   filter(n.skeets >= 100) |>
   pull(quando)
+)
 ```
 
 
 ```{r}
-skeets.6h.ok <-
+(
+  skeets.6h.ok <-
   skeets.cblol.por.6h[!blocos.6h.buscas %in% blocos.6h.a.refinar] |>
   map(\(x) x$skeets) |>
   list_rbind()
+)
 ```
 
 #### Refinando os blocos de 6h com excesso de postagem 
 
 ```{r}
-blocos.3h.buscas <-
-  expand_grid(
-    dia = blocos.6h.a.refinar,
-    hora = 0:1 * 3 * dhours()
-  ) |>
-  mutate(quando = dia + hora) |>
-  pull(quando)
+(
+  blocos.3h.buscas <-
+    expand_grid(
+      dia = blocos.6h.a.refinar,
+      hora = 0:1 * 3 * dhours()
+    ) |>
+    mutate(quando = dia + hora) |>
+    pull(quando)
+)
 ```
 
 
@@ -393,45 +409,54 @@ skeets.cblol.por.3h <-
   )
 ```
 
+##### Resultados
 
 ```{r}
-n.skeets.por.3h <-
-  skeets.cblol.por.3h |>
-  map_dfr(
-    function(bloco)
-      tibble(
-        quando = bloco$inicio,
-        n.skeets = nrow(bloco$skeets)
-      )
-  )
+(
+  n.skeets.por.3h <-
+    skeets.cblol.por.3h |>
+    map_dfr(
+      function(bloco)
+        tibble(
+          quando = bloco$inicio,
+          n.skeets = nrow(bloco$skeets)
+        )
+    )
+)
 ```
 
 
 ```{r}
-blocos.3h.a.refinar <-
-  n.skeets.por.3h |>
-  filter(n.skeets >= 100) |>
-  pull(quando)
+(
+  blocos.3h.a.refinar <-
+    n.skeets.por.3h |>
+    filter(n.skeets >= 100) |>
+    pull(quando)
+)
 ```
 
 
 ```{r}
-skeets.3h.ok <-
-  skeets.cblol.por.3h[!blocos.3h.buscas %in% blocos.3h.a.refinar] |>
-  map(\(x) x$skeets) |>
-  list_rbind()
+(
+  skeets.3h.ok <-
+    skeets.cblol.por.3h[!blocos.3h.buscas %in% blocos.3h.a.refinar] |>
+    map(\(x) x$skeets) |>
+    list_rbind()
+)
 ```
 
 #### Refinando os blocos de 3h com excesso de postagem 
 
 ```{r}
-blocos.1h.buscas <-
-  expand_grid(
-    dia = blocos.3h.a.refinar,
-    hora = 0:2 * dhours()
-  ) |>
-  mutate(quando = dia + hora) |>
-  pull(quando)
+(
+  blocos.1h.buscas <-
+    expand_grid(
+      dia = blocos.3h.a.refinar,
+      hora = 0:2 * dhours()
+    ) |>
+    mutate(quando = dia + hora) |>
+    pull(quando)
+)
 ```
 
 
@@ -456,6 +481,7 @@ skeets.cblol.por.1h <-
   )
 ```
 
+##### Resultados
 
 ```{r}
 n.skeets.por.1h <-
@@ -488,13 +514,15 @@ skeets.1h.ok <-
 #### Refinando os blocos de 1h com excesso de postagem 
 
 ```{r}
-blocos.30min.buscas <-
-  expand_grid(
-    dia = blocos.1h.a.refinar,
-    hora = 0:1 * 30 * dminutes()
-  ) |>
-  mutate(quando = dia + hora) |>
-  pull(quando)
+(
+  blocos.30min.buscas <-
+    expand_grid(
+      dia = blocos.1h.a.refinar,
+      hora = 0:1 * 30 * dminutes()
+    ) |>
+    mutate(quando = dia + hora) |>
+    pull(quando)
+)
 ```
 
 ```{r}
@@ -518,45 +546,54 @@ skeets.cblol.por.30min <-
   )
 ```
 
+##### Resultados
 
 ```{r}
-n.skeets.por.30min <-
-  skeets.cblol.por.30min |>
-  map_dfr(
-    function(bloco)
-      tibble(
-        quando = bloco$inicio,
-        n.skeets = nrow(bloco$skeets)
-      )
-  )
+(
+  n.skeets.por.30min <-
+    skeets.cblol.por.30min |>
+    map_dfr(
+      function(bloco)
+        tibble(
+          quando = bloco$inicio,
+          n.skeets = nrow(bloco$skeets)
+        )
+    )
+)
 ```
 
 
 ```{r}
-blocos.30min.a.refinar <-
-  n.skeets.por.30min |>
-  filter(n.skeets >= 100) |>
-  pull(quando)
+(
+  blocos.30min.a.refinar <-
+    n.skeets.por.30min |>
+    filter(n.skeets >= 100) |>
+    pull(quando)
+)
 ```
 
 
 ```{r}
-skeets.30min.ok <-
-  skeets.cblol.por.30min[!blocos.30min.buscas %in% blocos.30min.a.refinar] |>
-  map(\(x) x$skeets) |>
-  list_rbind()
+(
+  skeets.30min.ok <-
+    skeets.cblol.por.30min[!blocos.30min.buscas %in% blocos.30min.a.refinar] |>
+    map(\(x) x$skeets) |>
+    list_rbind()
+)
 ```
 
 #### Refinando os blocos de 30min com excesso de postagem 
 
 ```{r}
-blocos.10min.buscas <-
-  expand_grid(
-    dia = blocos.30min.a.refinar,
-    hora = 0:2 * 10 * dminutes()
-  ) |>
-  mutate(quando = dia + hora) |>
-  pull(quando)
+(
+  blocos.10min.buscas <-
+    expand_grid(
+      dia = blocos.30min.a.refinar,
+      hora = 0:2 * 10 * dminutes()
+    ) |>
+    mutate(quando = dia + hora) |>
+    pull(quando)
+)
 ```
 
 
@@ -581,45 +618,54 @@ skeets.cblol.por.10min <-
   )
 ```
 
+##### Resultados
 
 ```{r}
-n.skeets.por.10min <-
-  skeets.cblol.por.10min |>
-  map_dfr(
-    function(bloco)
-      tibble(
-        quando = bloco$inicio,
-        n.skeets = nrow(bloco$skeets)
-      )
-  )
+(
+  n.skeets.por.10min <-
+    skeets.cblol.por.10min |>
+    map_dfr(
+      function(bloco)
+        tibble(
+          quando = bloco$inicio,
+          n.skeets = nrow(bloco$skeets)
+        )
+    )
+)
 ```
 
 
 ```{r}
-blocos.10min.a.refinar <-
-  n.skeets.por.10min |>
-  filter(n.skeets >= 100) |>
-  pull(quando)
+(
+  blocos.10min.a.refinar <-
+    n.skeets.por.10min |>
+    filter(n.skeets >= 100) |>
+    pull(quando)
+)
 ```
 
 
 ```{r}
-skeets.10min.ok <-
-  skeets.cblol.por.10min[!blocos.10min.buscas %in% blocos.10min.a.refinar] |>
-  map(\(x) x$skeets) |>
-  list_rbind()
+(
+  skeets.10min.ok <-
+    skeets.cblol.por.10min[!blocos.10min.buscas %in% blocos.10min.a.refinar] |>
+    map(\(x) x$skeets) |>
+    list_rbind()
+)
 ```
 
 #### Refinando os blocos de 10min com excesso de postagem 
 
 ```{r}
-blocos.5min.buscas <-
-  expand_grid(
-    dia = blocos.10min.a.refinar,
-    hora = 0:2 * 5 * dminutes()
-  ) |>
-  mutate(quando = dia + hora) |>
-  pull(quando)
+(
+  blocos.5min.buscas <-
+    expand_grid(
+      dia = blocos.10min.a.refinar,
+      hora = 0:2 * 5 * dminutes()
+    ) |>
+    mutate(quando = dia + hora) |>
+    pull(quando)
+)
 ```
 
 
@@ -644,45 +690,54 @@ skeets.cblol.por.5min <-
   )
 ```
 
+##### Resultados
 
 ```{r}
-n.skeets.por.5min <-
-  skeets.cblol.por.5min |>
-  map_dfr(
-    function(bloco)
-      tibble(
-        quando = bloco$inicio,
-        n.skeets = nrow(bloco$skeets)
-      )
-  )
+(
+  n.skeets.por.5min <-
+    skeets.cblol.por.5min |>
+    map_dfr(
+      function(bloco)
+        tibble(
+          quando = bloco$inicio,
+          n.skeets = nrow(bloco$skeets)
+        )
+    )
+)
 ```
 
 
 ```{r}
-blocos.5min.a.refinar <-
-  n.skeets.por.5min |>
-  filter(n.skeets >= 100) |>
-  pull(quando)
+(
+  blocos.5min.a.refinar <-
+    n.skeets.por.5min |>
+    filter(n.skeets >= 100) |>
+    pull(quando)
+)
 ```
 
 
 ```{r}
-skeets.5min.ok <-
-  skeets.cblol.por.5min[!blocos.5min.buscas %in% blocos.5min.a.refinar] |>
-  map(\(x) x$skeets) |>
-  list_rbind()
+(
+  skeets.5min.ok <-
+    skeets.cblol.por.5min[!blocos.5min.buscas %in% blocos.5min.a.refinar] |>
+    map(\(x) x$skeets) |>
+    list_rbind()
+)
 ```
 
 #### Refinando os blocos de 5min com excesso de postagem 
 
 ```{r}
-blocos.1min.buscas <-
-  expand_grid(
-    dia = blocos.5min.a.refinar,
-    hora = 0:4 * 1 * dminutes()
-  ) |>
-  mutate(quando = dia + hora) |>
-  pull(quando)
+(
+  blocos.1min.buscas <-
+    expand_grid(
+      dia = blocos.5min.a.refinar,
+      hora = 0:4 * 1 * dminutes()
+    ) |>
+    mutate(quando = dia + hora) |>
+    pull(quando)
+)
 ```
 
 
@@ -707,54 +762,63 @@ skeets.cblol.por.1min <-
   )
 ```
 
+##### Resultados
 
 ```{r}
-n.skeets.por.1min <-
-  skeets.cblol.por.1min |>
-  map_dfr(
-    function(bloco)
-      tibble(
-        quando = bloco$inicio,
-        n.skeets = nrow(bloco$skeets)
-      )
-  )
+(
+  n.skeets.por.1min <-
+    skeets.cblol.por.1min |>
+    map_dfr(
+      function(bloco)
+        tibble(
+          quando = bloco$inicio,
+          n.skeets = nrow(bloco$skeets)
+        )
+    )
+)
 ```
 
 
 ```{r}
-blocos.1min.a.refinar <-
-  n.skeets.por.1min |>
-  filter(n.skeets >= 100) |>
-  pull(quando)
+(
+  blocos.1min.a.refinar <-
+    n.skeets.por.1min |>
+    filter(n.skeets >= 100) |>
+    pull(quando)
+)
 ```
 
 
 Finalmente não precisou mais refinar!
 
 ```{r}
-skeets.1min.ok <-
-  skeets.cblol.por.1min |>
-  map(\(x) x$skeets) |>
-  list_rbind()
+(
+  skeets.1min.ok <-
+    skeets.cblol.por.1min |>
+    map(\(x) x$skeets) |>
+    list_rbind()
+)
 ```
 
 
 #### Juntando os blocos de skeets
 
 ```{r}
-skeets <-
-  bind_rows(
-    skeets.dias.ok,
-    skeets.12h.ok,
-    skeets.6h.ok,
-    skeets.3h.ok,
-    skeets.1h.ok,
-    skeets.30min.ok,
-    skeets.10min.ok,
-    skeets.5min.ok,
-    skeets.1min.ok
-  )
-nrow(skeets)
+(
+  skeets <-
+    bind_rows(
+      skeets.dias.ok,
+      skeets.12h.ok,
+      skeets.6h.ok,
+      skeets.3h.ok,
+      skeets.1h.ok,
+      skeets.30min.ok,
+      skeets.10min.ok,
+      skeets.5min.ok,
+      skeets.1min.ok
+    )
+) |> 
+  nrow()
 ```
 
 
