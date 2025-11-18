@@ -900,8 +900,10 @@ rm(
 #| label: salva-skeets
 
 write_rds(skeets, "Dados/skeets-cblol.rds")
-```
 
+### pro caso de precisar carregar rápido:
+# skeets <- read_rds("Dados/skeets-cblol.rds")
+```
 
 ## Buscando threads desses skeets (inclui replies e reskeets) 
 
