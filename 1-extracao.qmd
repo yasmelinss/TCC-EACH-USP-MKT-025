@@ -216,10 +216,14 @@ O jeito vai ser refinar a busca nos dias em que deu xabu, particionando cada dia
 Mas antes, vou montar o dataframe com os dias que retornaram direito.
 
 ```{r}
-skeets.dias.ok <-
+#| label: salva-skeets.dias.ok
+
+(
+  skeets.dias.ok <-
   skeets.cblol.por.dia[!dias.buscas %in% dias.a.refinar] |>
   map(\(x) x$skeets) |>
   list_rbind()
+)
 ```
 
 
@@ -295,10 +299,14 @@ blocos.12h.a.refinar <-
 Salvando os skeets de dias sem excesso de skeets.
 
 ```{r}
+#| label: salva-skeets.12h.ok
+
+(
 skeets.12h.ok <-
   skeets.cblol.por.12h[!blocos.12h.buscas %in% blocos.12h.a.refinar] |>
   map(\(x) x$skeets) |>
   list_rbind()
+)
 ```
 
 #### Refinando os blocos de 12h com excesso de postagem
@@ -365,6 +373,8 @@ skeets.cblol.por.6h <-
 
 
 ```{r}
+#| label: salva-skeets.6h.ok
+
 (
   skeets.6h.ok <-
   skeets.cblol.por.6h[!blocos.6h.buscas %in% blocos.6h.a.refinar] |>
@@ -437,6 +447,8 @@ skeets.cblol.por.3h <-
 
 
 ```{r}
+#| label: salva-skeets.3h.ok
+
 (
   skeets.3h.ok <-
     skeets.cblol.por.3h[!blocos.3h.buscas %in% blocos.3h.a.refinar] |>
@@ -505,10 +517,14 @@ blocos.1h.a.refinar <-
 
 
 ```{r}
-skeets.1h.ok <-
-  skeets.cblol.por.1h[!blocos.1h.buscas %in% blocos.1h.a.refinar] |>
-  map(\(x) x$skeets) |>
-  list_rbind()
+#| label: salva-skeets.1h.ok
+
+(
+  skeets.1h.ok <-
+    skeets.cblol.por.1h[!blocos.1h.buscas %in% blocos.1h.a.refinar] |>
+    map(\(x) x$skeets) |>
+    list_rbind()
+)
 ```
 
 #### Refinando os blocos de 1h com excesso de postagem 
@@ -574,6 +590,8 @@ skeets.cblol.por.30min <-
 
 
 ```{r}
+#| label: salva-skeets.30min.ok
+
 (
   skeets.30min.ok <-
     skeets.cblol.por.30min[!blocos.30min.buscas %in% blocos.30min.a.refinar] |>
@@ -646,6 +664,8 @@ skeets.cblol.por.10min <-
 
 
 ```{r}
+#| label: salva-skeets.10min.ok 
+
 (
   skeets.10min.ok <-
     skeets.cblol.por.10min[!blocos.10min.buscas %in% blocos.10min.a.refinar] |>
@@ -718,6 +738,8 @@ skeets.cblol.por.5min <-
 
 
 ```{r}
+#| label: salva-skeets.5min.ok 
+
 (
   skeets.5min.ok <-
     skeets.cblol.por.5min[!blocos.5min.buscas %in% blocos.5min.a.refinar] |>
@@ -778,20 +800,21 @@ skeets.cblol.por.1min <-
 )
 ```
 
-
 ```{r}
 (
   blocos.1min.a.refinar <-
     n.skeets.por.1min |>
     filter(n.skeets >= 100) |>
     pull(quando)
-)
+) |> 
+  length()
 ```
-
 
 Finalmente não precisou mais refinar!
 
 ```{r}
+#| label: salva-skeets.1min.ok 
+
 (
   skeets.1min.ok <-
     skeets.cblol.por.1min |>
@@ -800,10 +823,12 @@ Finalmente não precisou mais refinar!
 )
 ```
 
-
 #### Juntando os blocos de skeets
 
 ```{r}
+#| label: junta-skeets
+#| cache: false
+
 (
   skeets <-
     bind_rows(
@@ -843,6 +868,8 @@ rm(
 ### Salvando os skeets baixados
 
 ```{r}
+#| label: salva-skeets
+
 write_rds(skeets, "Dados/skeets-cblol.rds")
 ```
 
