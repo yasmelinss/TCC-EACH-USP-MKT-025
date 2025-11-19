@@ -5,6 +5,7 @@ format:
     toc: true
     toc-depth: 5
     toc-location: left
+    embed-resources: true
 execute: 
   cache: true
 ---
