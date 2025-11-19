@@ -841,8 +841,7 @@ Finalmente não precisou mais refinar!
       skeets.30min.ok,
       skeets.10min.ok,
       skeets.5min.ok,
-      skeets.1min.ok,
-      .id = "bloco"
+      skeets.1min.ok
     )
 ) |> 
   nrow()
