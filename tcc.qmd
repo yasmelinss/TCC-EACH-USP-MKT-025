@@ -297,7 +297,7 @@ apresentar ciência de dados como campo interdisciplinar que estuda os dados
 
 Em dezembro de 2019, Jack Donsey, então CEO do Twitter Inc., anunciou que a empresa estaria financiando uma equipe de profissionais independentes para o desenvolvimento de um novo protocolo aberto e descentralizado para redes sociais, com a intenção de eventualmente implementá-lo para o próprio Twitter. Em 2021, o projeto se tornou uma organização independente do Twitter, dando origem ao Bluesky Social PCB. Um ano depois, em 2022, Elon Musk adquiriu o Twitter (renomeado como X) e a rede cessou todas relações de serviço com o Bluesky, que seguiu com sua proposta de desenvolver e impulsionar a adoção em larga escala de tecnologias para conversas públicas, abertas e descentralizadas. [@Bluesky2023]
 
-A rede teve um grande aumento de usuários em 30 de agosto de 2024, quando a *X Brasil Internet Ltda.* (antigo Twitter) e outras empresas relacionadas à Elon Musk tiveram seus funcionamentos integralmente suspensos em todo o Brasil por determinação de Alexandre de Moraes, ministro do Supremo Tribunal Federal. O motivo da suspensão foi o desobedecimento de ordens judiciais brasileiras na não nomeação de um representante legal dentro do prazo estipulado pelo ministro na intimação (PET 12.404 DF) de 18 de setembro de 2024. [@G12024]
+A rede teve um grande aumento de usuários em 30 de agosto de 2024, quando a *X Brasil Internet Ltda.* e outras empresas relacionadas à Elon Musk tiveram seus funcionamentos integralmente suspensos em todo o Brasil por determinação de Alexandre de Moraes, ministro do Supremo Tribunal Federal. O motivo da suspensão foi o desobedecimento de ordens judiciais brasileiras na não nomeação de um representante legal dentro do prazo estipulado pelo ministro na intimação (PET 12.404 DF) de 18 de setembro de 2024. [@G12024]
 
 A suspensão do X no Brasil durou cerca de 40 dias, encerrando em 8 de outubro de 2024 após o cumprimento das ordens judiciais pela rede e uma multa de 28,6 milhões de reais. Durante este período, a migração de usuários brasileiros para alternativas como o Bluesky foi impulsionada significativamente. Em 31 agosto de 2024, o Bluesky anunciou que havia batido mais de 1 milhão de novos usuários nos últimos 3 dias e que brasileiros estavam estabelecendo novos recordes de atividade na plataforma. [@G12024]
 
@@ -311,7 +311,7 @@ Ao mesmo tempo em que o X foi suspenso ocorria a 13ª edição do Campeonato Bra
 
 Diante disso, levanta-se a seguinte questão central:
 
-> De que maneira o bloqueio do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre *e-sports* de League of Legends na rede social Bluesky?
+> De que maneira o bloqueio do X no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre *e-sports* de League of Legends na rede social Bluesky?
 
 
 :::callout-note
@@ -325,7 +325,7 @@ Diante disso, levanta-se a seguinte questão central:
 
 ## Objetivo Geral
 
-- Caracterizar como a suspensão das atividades do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre *e-sports* de League of Legends na rede social Bluesky.
+- Caracterizar como a suspensão das atividades do X no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre *e-sports* de League of Legends na rede social Bluesky.
 
 ## Objetivos Específicos
 
