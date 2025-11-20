@@ -146,6 +146,32 @@ format:
 
 ## Revisão Bibliográfica
 
+
+### [Suspensão de Plataformas no Brasil]{.mark}
+
+No século XI, o capitalismo vêm a ser centrado na extração e uso de um tipo de material em particular: dados, cuja recordação se torna cada vez mais acessível por tecnologias que digitalizam atividades e dão lugar para novas indústrias centradas em plataformas digitais [@Srnicek2017]. Segundo @Dijck2019, plataformas digitais são arquiteturas programáticas desenhadas para organizar interações entre usuários, alimentadas por dados, automatizadas e organizadas por algorítmos e interfaces, formalizadas através de relações de posse impulsionadas por modelos de negócios e regidas por termos de uso. Sobre o papel das plataformas digitais nos mercados emergentes de extação de dados, é possível observar que:
+
+> Ao fornecer um espaço digital para que outras pessoas interajam, as plataformas se posicionam de forma a extrair dados de processos naturais (condições climáticas, ciclos de cultivo etc.), de processos de produção (linhas de montagem, fabricação em fluxo contínuo etc.) e de outras empresas e usuários (rastreamento na web, dados de uso etc.). Elas são um aparato extrativo de dados (@Srnicek2017, p. 32, tradução nossa).
+
+A adoção em larga escala de plataformas é capaz de moldar as interações e causar disrupções societais, ao mesmo tempo que estas são moldadas pelo ecossistema em que ganham forma [@Dijck2019]. O potencial de influência dessas é evidente em acontecimentos como a adoção de dados de usuários do Facebook pela Cambridge Analytica para influenciar a eleição de 2016 dos Estados Unidos, bem como a disseminação de notícias falsas que o Projeto de Lei 2630/2020, conhecido por "PL das *Fake News*", busca combater [@Pereira2024]. 
+
+Em resposta à crescente influência das plataformas, Estados mundialmente buscam tomar medidas proteger sua soberania nacional [@Pereira2024], com as legislações europeia e francesa buscando definir uma categoria específica para as plataformas digitais desde 2015 [@Seto2021]. @Urupa2020 destacam como sendo motivadores a regulação de plataformas digitais três fatores principais: o crescimento do poder desses agentes, os problemas envolvendo a relação assímetrica com usuários e a insuficiência dos instrumentos normativos para lidar com problemas, garantir competição e assegurar direitos e deveres legais. Nesse contexto, um dos principais desafios para a regulação é o fato de Estados competirem entre si por controle sobre o digital com seus poderes assimétricos, de forma que, embora tenham a capacidade de determinar a natureza e velocidade da mudança, as organizações globais mantém o poder de controlar a direção da mudança através do digital [@Floridi2019].  Em função disso, as Nações Unidas lançaram em 2019 o “Painel de Alto Nível para a 
+Cooperação Digital”, que inclui recomendações como o asseguramento de bens públicos, o combate contra às violações de direitos humanos e o estabelecimento de um sistema de governança que inclua também usuários e não seja formado apenas por agentes privados (como as plataformas) [@Urupa2020].
+
+No contexto brasileiro, a Lei do Marco Civil da *Internet*, que entrou em vigor em 2014, surge da necessidade de definir os fundamentos de disciplina do uso da internet após uma intensa revolução digital, fundamentando-se em três pilares: neutralidade da rede, privacidade de usuários e liberdade de expressão do pensamento [@Leite2016]. Ainda assim, @Barbosa2023 descreve a regulação de casos envolvendo plataformas digitais no Brasil como mais conservadora em comparação às medidas regulatórias digitais tomadas pela União Europeia, cujas normas buscam extensivamente proibir práticas abusivas e proteger a competitividade. Similarmente, @Seto2021 destaca através da revisão de literatura a possibilidade pouco discutida de o Estado oferecer alternativas públicas ao serviço de plataformas privadas e incentivar iniciativas cidadãs, em vez de somente buscar regular a atuação das existentes.
+
+No Brasil, casos de regulação de plataformas são esparsos, porém de grandes proporções: Em janeiro de 2007, a justiça de São Paulo bloqueou o acesso ao Youtube por 48 horas após um processo movido por Renato Malzoni, que pedia a remoção permanente de um vídeo com cenas íntimas entre ele e a apresentadora de TV Daniela Cicarelli, filmados em uma praia da Espanha por um *paparazzi* e postado na plataforma sem autorização do casal [@Folha2007]. Similarmente, em outubro de 2013, um juíz de São Paulo intimou à bloquear o acesso ao Facebook em todo o país se a plataforma não removesse publicações consideradas ofensivas da modelo e apresentadora de TV Luize Altenhofen, porém o Facebook cumpriu a ordem e o bloqueio não ocorreu [@Estadao2013]. Nestes casos, o Marco Civil da *Internet* que a defende como sendo "essencial ao exercício da cidadania" [@Brasil2014] é colocado em questão pelo poder do Estado de realizar o desligamento repentino de aplicativos ou plataformas digitais, poder esse que pode ser visto como equivalente ao que @Wu2010 descreve como "*master switch*" ou chave mestra da comunicação, um alerta sobre o perigo da existência de tamanho poder para as democracias. 
+
+O caso mais recente de suspensão de plataformas digitais foi o bloqueio da rede social X (antigo Twitter), em função do descumprimento de ordens judiciais pela nomeação de um representante legal no Brasil [@G12024]. O bloqueio durou cerca de 5 semanas, uma das suspensões mais longas de plataformas digitais no país. Esse acontecimento, suas consequências e relevância serão abordados com maior aprofundamento no decorrer da redação.
+
+
+:::callout-note
+Embora não caracterizem plataformas digitais, aplicativos digitais também exercem papel relevante na sociedade e foram alvo de regulações internacionalmente [SOURCE?].
+
+- Mencionar WhatsApp e Telegram?
+:::
+
+
 ### Marketing de Redes Sociais
 
 De acordo com @Kaplan2010, redes sociais são um grupo de aplicativos hospedados na Internet, que se baseiam nos fundamentos ideológicos e tecnológicos da Web 2.0 e que permitem a criação e o intercâmbio de conteúdo gerado pelos usuários. Dessa forma, as redes sociais virtuais se destacam como um mecanismo de comunicação que permite um maior alcance de informações e interações do que aqueles possíveis em canais anteriores à era digital, mudando a forma com a qual pessoas interagem entre si e com marcas. Em particular, a natureza interativa desses canais transformou os consumidores de observadores passivos de conteúdo em participantes ativos que agora criam grandes quantidades de conteúdo por meio de suas conversas, interações e comportamentos on-line [@Malthouse2013].
@@ -170,13 +196,7 @@ A honestidade percebida na forma em que uma personalidade virtual se porta em re
 Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (1956), descrevem vínculos unilaterais com figuras da mídia. Na atualidade e através das redes sociais, esses relacionamentos são cada vez mais comuns, com o número de seguidores e a autoridade percebida dessas personalidades ampliando o impacto das mensagens emocionais propagadas por estes [@Giles2002]. [Outros aspectos, como conhecimento e experiência, auto-confiança, articulação na fala e grau de identificação com o consumidor-alvo demonstrados são características importantes de um influenciador, que afetam a confiabilidade de seu *word-of-mouth* (marketing boca-a-boca) eletrônico [@Forbes2016]. Sendo assim, a multitude de atributos de um influenciador digital, moldados ou não a partir de sua identidade verdadeira, afetam a eficácia do marketing de influência proporcionalmente à sua compatibilidade com a imagem que a marca deseja propagar, juntamente de características gerais que estão diretamente relacionadas à capacidade de influenciar.
 
 
-### Suspensão de Plataformas no Brasil
 
-:::callout-note
-- mencionar Whatsapp em dez/2018
-- legalidade e impacto
-- citar @Dijck2019 de novo
-:::
 
 ### Indústria de *Games* enquanto Indústria Criativa
 
@@ -297,7 +317,7 @@ apresentar ciência de dados como campo interdisciplinar que estuda os dados
 
 Em dezembro de 2019, Jack Donsey, então CEO do Twitter Inc., anunciou que a empresa estaria financiando uma equipe de profissionais independentes para o desenvolvimento de um novo protocolo aberto e descentralizado para redes sociais, com a intenção de eventualmente implementá-lo para o próprio Twitter. Em 2021, o projeto se tornou uma organização independente do Twitter, dando origem ao Bluesky Social PCB. Um ano depois, em 2022, Elon Musk adquiriu o Twitter (renomeado como X) e a rede cessou todas relações de serviço com o Bluesky, que seguiu com sua proposta de desenvolver e impulsionar a adoção em larga escala de tecnologias para conversas públicas, abertas e descentralizadas. [@Bluesky2023]
 
-A rede teve um grande aumento de usuários em 30 de agosto de 2024, quando a *X Brasil Internet Ltda.* (antigo Twitter) e outras empresas relacionadas à Elon Musk tiveram seus funcionamentos integralmente suspensos em todo o Brasil por determinação de Alexandre de Moraes, ministro do Supremo Tribunal Federal. O motivo da suspensão foi o desobedecimento de ordens judiciais brasileiras na não nomeação de um representante legal dentro do prazo estipulado pelo ministro na intimação (PET 12.404 DF) de 18 de setembro de 2024. [@G12024]
+A rede teve um grande aumento de usuários em 30 de agosto de 2024, quando a *X Brasil Internet Ltda.* e outras empresas relacionadas à Elon Musk tiveram seus funcionamentos integralmente suspensos em todo o Brasil por determinação de Alexandre de Moraes, ministro do Supremo Tribunal Federal. O motivo da suspensão foi o desobedecimento de ordens judiciais brasileiras na não nomeação de um representante legal dentro do prazo estipulado pelo ministro na intimação (PET 12.404 DF) de 18 de setembro de 2024. [@G12024]
 
 A suspensão do X no Brasil durou cerca de 40 dias, encerrando em 8 de outubro de 2024 após o cumprimento das ordens judiciais pela rede e uma multa de 28,6 milhões de reais. Durante este período, a migração de usuários brasileiros para alternativas como o Bluesky foi impulsionada significativamente. Em 31 agosto de 2024, o Bluesky anunciou que havia batido mais de 1 milhão de novos usuários nos últimos 3 dias e que brasileiros estavam estabelecendo novos recordes de atividade na plataforma. [@G12024]
 
@@ -311,7 +331,7 @@ Ao mesmo tempo em que o X foi suspenso ocorria a 13ª edição do Campeonato Bra
 
 Diante disso, levanta-se a seguinte questão central:
 
-> De que maneira a queda do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre *e-sports* de League of Legends na rede social Bluesky?
+> De que maneira o bloqueio do X no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre *e-sports* de League of Legends na rede social Bluesky?
 
 
 :::callout-note
@@ -325,7 +345,7 @@ Diante disso, levanta-se a seguinte questão central:
 
 ## Objetivo Geral
 
-- Caracterizar como a suspensão das atividades do Twitter no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre *e-sports* de League of Legends na rede social Bluesky.
+- Caracterizar como a suspensão das atividades do X no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre *e-sports* de League of Legends na rede social Bluesky.
 
 ## Objetivos Específicos
 
