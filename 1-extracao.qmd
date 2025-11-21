@@ -988,6 +988,39 @@ write_rds(usuarios.likes, file = "Dados/usuarios-likes.rds")
 # usuarios.likes <- read_rds("Dados/usuarios-likes.rds")
 ```
 
+## Buscando users que deram reposts em todos esses skeets 
 
+```{r}
+#| label: def-my.get.reposts
 
+my.get.reposts <- 
+  insistently(
+    f = get_reposts, 
+    quiet = FALSE,
+    rate = rate_backoff(max_times = 5)
+  )
+```
+
+```{r}
+#| label: puxa-reposts
+
+usuarios.reposts <- 
+  uri |> 
+  map_dfr(
+    \(uri) {
+      print(uri)
+      limite <- 1000
+      tentativa <- my.get.reposts(uri, limit = limite)
+      while (nrow(tentativa) > limite) {
+        limite <- limite * 2
+        Sys.sleep(1)
+        tentativa <- my.get.reposts(uri, limit = limite)
+      }
+    }
+  )
+
+# para uso temporário
+write_rds(usuarios.reposts, file = "Dados/usuarios-reposts.rds")
+# usuarios.reposts <- read_rds("Dados/usuarios-reposts.rds")
+```
 
