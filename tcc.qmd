@@ -349,7 +349,7 @@ Diante disso, levanta-se a seguinte questão central:
 
 ## Objetivos Específicos
 
-- Mensurar a flutuação no volume de postagens sobre League of Legends antes, durante e após a suspensão do X no Brasil.
+- Mensurar a flutuação no volume de postagens no Bluesky sobre League of Legends antes, durante e após a suspensão do X no Brasil.
 - Caracterizar as dinâmicas de seguidores e influência social de usuários dentro de comunidades associadas à League of Legends.
 
 # Justificativa
