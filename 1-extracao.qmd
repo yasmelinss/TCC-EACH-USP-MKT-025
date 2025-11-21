@@ -880,11 +880,12 @@ Eliminando as redundâncias
 
 ```{r}
 #| label: elimina-duplicatas
+#| dependson: junta-skeets
 
 (
-skeets <- 
-  skeets |> 
-  filter(!duplicated(uri))
+  skeets <- 
+    skeets |> 
+    filter(!duplicated(uri))
 ) |> 
   nrow()
 ```
@@ -911,6 +912,7 @@ rm(
 
 ```{r}
 #| label: salva-skeets
+#| dependson: elimina-duplicatas
 
 write_rds(skeets, "Dados/skeets-cblol.rds")
 
