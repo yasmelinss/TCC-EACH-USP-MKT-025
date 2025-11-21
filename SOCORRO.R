@@ -154,10 +154,22 @@ ggplot(posts_por_dia_e_hora, aes(x = dia, y = hora, fill = n)) +
   scale_fill_viridis_c(option = "magma") +
   labs(
     title = "Mapa de calor de postagens por hora e dia",
-    x = "Hora do dia",
-    y = "Data"
+    x = "Data",
+    y = "Hora do dia"
   ) +
-  theme_minimal()
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  geom_vline(
+    xintercept = as.POSIXct(c("2024-08-31", "2024-10-08")),
+    color = "red",
+    linewidth = 0.9,
+    linetype = "dashed"
+    ) +
+  scale_x_datetime(
+    date_labels = "%d/%m/%Y",
+    date_breaks = "10 days"
+  ) +
+
 
 #Including or excluding observations with the filter function
 install.packages("Hmisc")
