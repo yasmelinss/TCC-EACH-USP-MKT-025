@@ -117,7 +117,7 @@ geom_density(
   ) +
   scale_x_datetime(
     date_labels = "%d/%m/%Y",
-    date_breaks = "10 days"
+    date_breaks = "7 days"
   ) +
 
 geom_vline(
@@ -167,7 +167,7 @@ ggplot(posts_por_dia_e_hora, aes(x = dia, y = hora, fill = n)) +
     ) +
   scale_x_datetime(
     date_labels = "%d/%m/%Y",
-    date_breaks = "10 days"
+    date_breaks = "7 days"
   ) +
 
 
