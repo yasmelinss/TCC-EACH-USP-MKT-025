@@ -150,6 +150,19 @@ Assim, só dá para confiar em buscas que retornaram menos de 100 *skeets*.
 
 ### Segunda tentativa: fatiando
 
+Criando uma função para lidar com possíveis erros no retorno da API
+
+```{r}
+#| label: def-my.search.posts
+
+my.search.post <- 
+  insistently(
+    f = search_post,
+    quiet = FALSE,
+    rate = rate_backoff(max_times = 5)
+  )
+```
+
 #### Fatiando por dia 
 
 A busca vai ser feita individualmente nestes dias:
@@ -161,23 +174,23 @@ A busca vai ser feita individualmente nestes dias:
 Tentando buscar por dia para ver quantos skeets são retornados em cada dia.
 
 ```{r}
+#| label: puxa-skeets-dia
+
 skeets.cblol.por.dia <-
   seq(inicio.busca, final.busca) |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 1 * ddays(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 1 * ddays()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 1 * ddays(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 1 * ddays()
+          )
+      )
+    }
   )
 ```
 
@@ -249,23 +262,23 @@ Quais blocos serão buscados?
 Buscando
 
 ```{r}
+#| label: puxa-skeets-12h
+
 skeets.cblol.por.12h <-
   blocos.12h.buscas |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 12 * dhours(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 12 * dhours()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 12 * dhours(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 12 * dhours()
+          )
+      )
+    }
   )
 ```
 
@@ -326,23 +339,23 @@ skeets.12h.ok <-
 
 
 ```{r}
+#| label: puxa-skeets-6h
+
 skeets.cblol.por.6h <-
   blocos.6h.buscas |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 6 * dhours(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 6 * dhours()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 6 * dhours(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 6 * dhours()
+          )
+      )
+    }
   )
 ```
 
@@ -400,23 +413,23 @@ skeets.cblol.por.6h <-
 
 
 ```{r}
+#| label: puxa-skeets-3h
+
 skeets.cblol.por.3h <-
   blocos.3h.buscas |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 3 * dhours(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 3 * dhours()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 3 * dhours(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 3 * dhours()
+          )
+      )
+    }
   )
 ```
 
@@ -474,23 +487,23 @@ skeets.cblol.por.3h <-
 
 
 ```{r}
+#| label: puxa-skeets-1h
+
 skeets.cblol.por.1h <-
   blocos.1h.buscas |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 1 * dhours(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 1 * dhours()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 1 * dhours(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 1 * dhours()
+          )
+      )
+    }
   )
 ```
 
@@ -543,23 +556,23 @@ blocos.1h.a.refinar <-
 ```
 
 ```{r}
+#| label: puxa-skeets-30min
+
 skeets.cblol.por.30min <-
   blocos.30min.buscas |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 30 * dminutes(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 30 * dminutes()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 30 * dminutes(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 30 * dminutes()
+          )
+      )
+    }
   )
 ```
 
@@ -617,23 +630,23 @@ skeets.cblol.por.30min <-
 
 
 ```{r}
+#| label: puxa-skeets-10min
+
 skeets.cblol.por.10min <-
   blocos.10min.buscas |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 10 * dminutes(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 10 * dminutes()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 10 * dminutes(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 10 * dminutes()
+          )
+      )
+    }
   )
 ```
 
@@ -691,23 +704,23 @@ skeets.cblol.por.10min <-
 
 
 ```{r}
+#| label: puxa-skeets-5min
+
 skeets.cblol.por.5min <-
   blocos.5min.buscas |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 5 * dminutes(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 5 * dminutes()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 5 * dminutes(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 5 * dminutes()
+          )
+      )
+    }
   )
 ```
 
@@ -765,23 +778,23 @@ skeets.cblol.por.5min <-
 
 
 ```{r}
+#| label: puxa-skeets-1min
+
 skeets.cblol.por.1min <-
   blocos.1min.buscas |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 1 * dminutes(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 1 * dminutes()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 1 * dminutes(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 1 * dminutes()
+          )
+      )
+    }
   )
 ```
 
@@ -841,8 +854,7 @@ Finalmente não precisou mais refinar!
       skeets.30min.ok,
       skeets.10min.ok,
       skeets.5min.ok,
-      skeets.1min.ok,
-      .id = "bloco"
+      skeets.1min.ok
     )
 ) |> 
   nrow()
@@ -868,11 +880,12 @@ Eliminando as redundâncias
 
 ```{r}
 #| label: elimina-duplicatas
+#| dependson: junta-skeets
 
 (
-skeets <- 
-  skeets |> 
-  filter(!duplicated(uri))
+  skeets <- 
+    skeets |> 
+    filter(!duplicated(uri))
 ) |> 
   nrow()
 ```
@@ -899,11 +912,38 @@ rm(
 
 ```{r}
 #| label: salva-skeets
+#| dependson: elimina-duplicatas
 
 write_rds(skeets, "Dados/skeets-cblol.rds")
 
 ### pro caso de precisar carregar rápido:
 # skeets <- read_rds("Dados/skeets-cblol.rds")
+```
+
+
+## Versão reduzida
+
+Replies e quotes são interações
+
+```{r}
+autores <- 
+  skeets$author_data |>
+  map_chr(\(x) x$did)
+quando <- 
+  skeets$post_data |>
+  map_chr(\(x) x$createdAt)
+uri <- 
+  skeets$uri
+to <- 
+  skeets$in_reply_to
+
+save(autores, quando, uri, to, file = "Dados/curtos.rda")
+
+### pro caso de precisar
+# load(file = "Dados/curtos.rda")
+
+### pra economizar espaço
+# rm(skeets)
 ```
 
 ## Buscando threads desses skeets (inclui replies e reskeets) 
@@ -912,9 +952,92 @@ write_rds(skeets, "Dados/skeets-cblol.rds")
 
 ## Buscando users que deram like em todos esses skeets 
 
-## Juntando todos os users, vindos de threads ou de likes 
+```{r}
+#| label: def-my.get.likes
+
+my.get.likes <- 
+  insistently(
+    f = get_likes, 
+    quiet = FALSE,
+    rate = rate_backoff(max_times = 5)
+  )
+```
+
+```{r}
+#| label: puxa-likes
+
+usuarios.likes <- 
+  uri |> 
+  map_dfr(
+    \(uri) {
+      print(uri)
+      limite <- 1000
+      tentativa <- my.get.likes(uri, limit = limite)
+      while (nrow(tentativa) > limite) {
+        limite <- limite * 2
+        Sys.sleep(1)
+        tentativa <- my.get.likes(uri, limit = limite)
+      }
+    }
+  )
+
+# para uso temporário
+write_rds(usuarios.likes, file = "Dados/usuarios-likes.rds")
+# usuarios.likes <- read_rds("Dados/usuarios-likes.rds")
+```
+
+## Buscando users que deram reposts em todos esses skeets 
+
+```{r}
+#| label: def-my.get.reposts
+
+my.get.reposts <- 
+  insistently(
+    f = get_reposts, 
+    quiet = FALSE,
+    rate = rate_backoff(max_times = 5)
+  )
+```
+
+```{r}
+#| label: puxa-reposts
+
+usuarios.reposts <- 
+  uri |> 
+  map_dfr(
+    \(uri) {
+      print(uri)
+      limite <- 1000
+      tentativa <- my.get.reposts(uri, limit = limite)
+      while (nrow(tentativa) > limite) {
+        limite <- limite * 2
+        Sys.sleep(1)
+        tentativa <- my.get.reposts(uri, limit = limite)
+      }
+    }
+  )
+
+# para uso temporário
+write_rds(usuarios.reposts, file = "Dados/usuarios-reposts.rds")
+# usuarios.reposts <- read_rds("Dados/usuarios-reposts.rds")
+```
+
+## Juntando todos os users, vindos de posts, de likes ou reposts
 
 ## Salvando tudo 
 
+## Lembrar de usar
 
-
+```{r}
+#| eval: false
+search_post()
+search_feed()
+get_feed()
+get_replies()
+get_reposts()
+get_thread()
+get_likes()
+get_user_info()
+get_actor_likes()
+get_actor_starter_packs()
+```
