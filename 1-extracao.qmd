@@ -150,6 +150,19 @@ Assim, só dá para confiar em buscas que retornaram menos de 100 *skeets*.
 
 ### Segunda tentativa: fatiando
 
+Criando uma função para lidar com possíveis erros no retorno da API
+
+```{r}
+#| label: def-my.search.posts
+
+my.search.post <- 
+  insistently(
+    f = search_post,
+    quiet = FALSE,
+    rate = rate_backoff(max_times = 5)
+  )
+```
+
 #### Fatiando por dia 
 
 A busca vai ser feita individualmente nestes dias:
