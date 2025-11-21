@@ -179,20 +179,18 @@ Tentando buscar por dia para ver quantos skeets são retornados em cada dia.
 skeets.cblol.por.dia <-
   seq(inicio.busca, final.busca) |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 1 * ddays(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 1 * ddays()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 1 * ddays(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 1 * ddays()
+          )
+      )
+    }
   )
 ```
 
@@ -269,20 +267,18 @@ Buscando
 skeets.cblol.por.12h <-
   blocos.12h.buscas |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 12 * dhours(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 12 * dhours()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 12 * dhours(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 12 * dhours()
+          )
+      )
+    }
   )
 ```
 
@@ -348,20 +344,18 @@ skeets.12h.ok <-
 skeets.cblol.por.6h <-
   blocos.6h.buscas |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 6 * dhours(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 6 * dhours()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 6 * dhours(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 6 * dhours()
+          )
+      )
+    }
   )
 ```
 
@@ -424,20 +418,18 @@ skeets.cblol.por.6h <-
 skeets.cblol.por.3h <-
   blocos.3h.buscas |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 3 * dhours(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 3 * dhours()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 3 * dhours(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 3 * dhours()
+          )
+      )
+    }
   )
 ```
 
@@ -500,20 +492,18 @@ skeets.cblol.por.3h <-
 skeets.cblol.por.1h <-
   blocos.1h.buscas |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 1 * dhours(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 1 * dhours()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 1 * dhours(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 1 * dhours()
+          )
+      )
+    }
   )
 ```
 
@@ -571,20 +561,18 @@ blocos.1h.a.refinar <-
 skeets.cblol.por.30min <-
   blocos.30min.buscas |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 30 * dminutes(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 30 * dminutes()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 30 * dminutes(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 30 * dminutes()
+          )
+      )
+    }
   )
 ```
 
@@ -647,20 +635,18 @@ skeets.cblol.por.30min <-
 skeets.cblol.por.10min <-
   blocos.10min.buscas |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 10 * dminutes(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 10 * dminutes()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 10 * dminutes(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 10 * dminutes()
+          )
+      )
+    }
   )
 ```
 
@@ -723,20 +709,18 @@ skeets.cblol.por.10min <-
 skeets.cblol.por.5min <-
   blocos.5min.buscas |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 5 * dminutes(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 5 * dminutes()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 5 * dminutes(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 5 * dminutes()
+          )
+      )
+    }
   )
 ```
 
@@ -799,20 +783,18 @@ skeets.cblol.por.5min <-
 skeets.cblol.por.1min <-
   blocos.1min.buscas |>
   map(
-    insistently(
-      \(inicio.bloco) {
-        list(
-          inicio = inicio.bloco,
-          final = inicio.bloco + 1 * dminutes(),
-          skeets =
-            search_post(
-              q = "cblol",
-              since = inicio.bloco,
-              until = inicio.bloco + 1 * dminutes()
-            )
-        )
-      }
-    )
+    \(inicio.bloco) {
+      list(
+        inicio = inicio.bloco,
+        final = inicio.bloco + 1 * dminutes(),
+        skeets =
+          my.search.post(
+            q = "cblol",
+            since = inicio.bloco,
+            until = inicio.bloco + 1 * dminutes()
+          )
+      )
+    }
   )
 ```
 
