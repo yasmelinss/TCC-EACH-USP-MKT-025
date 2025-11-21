@@ -952,11 +952,9 @@ save(autores, quando, uri, to, file = "Dados/curtos.rda")
 
 ## Buscando users que deram like em todos esses skeets 
 
-## Juntando todos os users, vindos de threads ou de likes 
 ```{r}
 #| label: def-my.get.likes
 
-## Salvando tudo 
 my.get.likes <- 
   insistently(
     f = get_likes, 
@@ -1024,3 +1022,4 @@ write_rds(usuarios.reposts, file = "Dados/usuarios-reposts.rds")
 # usuarios.reposts <- read_rds("Dados/usuarios-reposts.rds")
 ```
 
+## Juntando todos os users, vindos de posts, de likes ou reposts
