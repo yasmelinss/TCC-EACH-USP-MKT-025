@@ -920,6 +920,32 @@ write_rds(skeets, "Dados/skeets-cblol.rds")
 # skeets <- read_rds("Dados/skeets-cblol.rds")
 ```
 
+
+## Versão reduzida
+
+Replies e quotes são interações
+
+```{r}
+autores <- 
+  skeets$author_data |>
+  map_chr(\(x) x$did)
+quando <- 
+  skeets$post_data |>
+  map_chr(\(x) x$createdAt)
+uri <- 
+  skeets$uri
+to <- 
+  skeets$in_reply_to
+
+save(autores, quando, uri, to, file = "Dados/curtos.rda")
+
+### pro caso de precisar
+# load(file = "Dados/curtos.rda")
+
+### pra economizar espaço
+# rm(skeets)
+```
+
 ## Buscando threads desses skeets (inclui replies e reskeets) 
 
 ## Juntando todos os skeets 
