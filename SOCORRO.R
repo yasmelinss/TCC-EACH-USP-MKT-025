@@ -1,6 +1,8 @@
 library(dplyr)
 library(lubridate)
 library(ggplot2)
+library(Hmisc)
+library(tidyverse)
 
 
 
@@ -149,31 +151,43 @@ theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 #Mapa de calor
 
-ggplot(posts_por_dia_e_hora, aes(x = dia, y = hora, fill = n)) +
-  geom_tile() +
-  scale_fill_viridis_c(option = "magma") +
-  labs(
-    title = "Mapa de calor de postagens por hora e dia",
-    x = "Data",
-    y = "Hora do dia"
+ggplot(
+  posts_por_dia_e_hora,
+  aes(
+    x = dia,
+    y = hora,
+    fill = n
+  )
+) +
+geom_tile() +
+scale_fill_viridis_c(option = "magma") +
+labs(
+  title = "Mapa de calor de postagens por hora e dia",
+  x = "Data",
+  y = "Hora do dia"
+) +
+theme_minimal() +
+# coord_fixed(ratio = 0.05) +
+theme(
+  axis.text.x = element_text(
+    angle = 45,
+    hjust = 1,
+    )
+) +
+geom_vline(
+  xintercept = as.POSIXct(c("2024-08-30", "2024-10-08")),
+  color = "red",
+  linewidth = 0.9,
+  linetype = "dashed"
   ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  geom_vline(
-    xintercept = as.POSIXct(c("2024-08-31", "2024-10-08")),
-    color = "red",
-    linewidth = 0.9,
-    linetype = "dashed"
-    ) +
-  scale_x_datetime(
-    date_labels = "%d/%m/%Y",
-    date_breaks = "7 days"
-  ) +
+scale_x_datetime(
+  date_labels = "%d/%m/%Y",
+  date_breaks = "7 days"
+)
+#configurações de exportação específica: width: 800, height: 300.
 
 
 #Including or excluding observations with the filter function
-install.packages("Hmisc")
-library(Hmisc)
 
 dia1 <- as.Date(c("2024-08-29"))
 
