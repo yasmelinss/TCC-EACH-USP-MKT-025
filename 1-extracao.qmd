@@ -1023,3 +1023,21 @@ write_rds(usuarios.reposts, file = "Dados/usuarios-reposts.rds")
 ```
 
 ## Juntando todos os users, vindos de posts, de likes ou reposts
+
+## Salvando tudo 
+
+## Lembrar de usar
+
+```{r}
+#| eval: false
+search_post()
+search_feed()
+get_feed()
+get_replies()
+get_reposts()
+get_thread()
+get_likes()
+get_user_info()
+get_actor_likes()
+get_actor_starter_packs()
+```
