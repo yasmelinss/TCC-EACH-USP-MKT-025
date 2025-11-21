@@ -556,7 +556,7 @@ blocos.1h.a.refinar <-
 ```
 
 ```{r}
-#| label: puxa-skeets- 30min
+#| label: puxa-skeets-30min
 
 skeets.cblol.por.30min <-
   blocos.30min.buscas |>
