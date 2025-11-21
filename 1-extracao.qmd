@@ -953,8 +953,41 @@ save(autores, quando, uri, to, file = "Dados/curtos.rda")
 ## Buscando users que deram like em todos esses skeets 
 
 ## Juntando todos os users, vindos de threads ou de likes 
+```{r}
+#| label: def-my.get.likes
 
 ## Salvando tudo 
+my.get.likes <- 
+  insistently(
+    f = get_likes, 
+    quiet = FALSE,
+    rate = rate_backoff(max_times = 5)
+  )
+```
+
+```{r}
+#| label: puxa-likes
+
+usuarios.likes <- 
+  uri |> 
+  map_dfr(
+    \(uri) {
+      print(uri)
+      limite <- 1000
+      tentativa <- my.get.likes(uri, limit = limite)
+      while (nrow(tentativa) > limite) {
+        limite <- limite * 2
+        Sys.sleep(1)
+        tentativa <- my.get.likes(uri, limit = limite)
+      }
+    }
+  )
+
+# para uso temporário
+write_rds(usuarios.likes, file = "Dados/usuarios-likes.rds")
+# usuarios.likes <- read_rds("Dados/usuarios-likes.rds")
+```
+
 
 
 
