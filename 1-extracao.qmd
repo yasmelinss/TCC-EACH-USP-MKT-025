@@ -18,12 +18,12 @@ library(tidyverse)
 
 # funções utilitárias
 dia.da.semana <- function(w.day) {
-  case_match(
+  dplyr::case_match(
     w.day,
     1 ~ "domingo",
     7 ~ "sábado",
     .default = 
-      case_match(
+      dplyr::case_match(
         w.day, 
         2 ~ "segunda",
         3 ~ "terça",
