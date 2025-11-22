@@ -149,7 +149,7 @@ format:
 
 ### [Suspensão de Plataformas no Brasil]{.mark}
 
-No século XI, o capitalismo vêm a ser centrado na extração e uso de um tipo de material em particular: dados, cuja recordação se torna cada vez mais acessível por tecnologias que digitalizam atividades e dão lugar para novas indústrias centradas em plataformas digitais [@Srnicek2017]. Segundo @Dijck2019, plataformas digitais são arquiteturas programáticas desenhadas para organizar interações entre usuários, alimentadas por dados, automatizadas e organizadas por algorítmos e interfaces, formalizadas através de relações de posse impulsionadas por modelos de negócios e regidas por termos de uso. Sobre o papel das plataformas digitais nos mercados emergentes de extação de dados, é possível observar que:
+No século XI, o capitalismo está centrado na extração e uso de um tipo de material em particular: dados, cuja recordação se torna cada vez mais acessível por tecnologias que digitalizam atividades e dão lugar para novas indústrias centradas em plataformas digitais [@Srnicek2017]. Segundo @Dijck2019, plataformas digitais são arquiteturas programáticas desenhadas para organizar interações entre usuários, alimentadas por dados, automatizadas e organizadas por algorítmos e interfaces, formalizadas através de relações de posse impulsionadas por modelos de negócios e regidas por termos de uso. Sobre o papel das plataformas digitais nos mercados emergentes de extação de dados, é possível observar que:
 
 > Ao fornecer um espaço digital para que outras pessoas interajam, as plataformas se posicionam de forma a extrair dados de processos naturais (condições climáticas, ciclos de cultivo etc.), de processos de produção (linhas de montagem, fabricação em fluxo contínuo etc.) e de outras empresas e usuários (rastreamento na web, dados de uso etc.). Elas são um aparato extrativo de dados (@Srnicek2017, p. 32, tradução nossa).
 
@@ -349,7 +349,7 @@ Diante disso, levanta-se a seguinte questão central:
 
 ## Objetivos Específicos
 
-- Mensurar a flutuação no volume de postagens sobre League of Legends antes, durante e após a suspensão do X no Brasil.
+- Mensurar a flutuação no volume de postagens no Bluesky sobre League of Legends antes, durante e após a suspensão do X no Brasil.
 - Caracterizar as dinâmicas de seguidores e influência social de usuários dentro de comunidades associadas à League of Legends.
 
 # Justificativa
@@ -407,7 +407,20 @@ A centralidade de intermediação de Freeman ($c_i^{BET}$), medida de centralida
 
 ## Tecnologias Utilizadas
 
+:::callout-note
 
+Inicialmente, foi-se realizada uma busca a artigos científicos indexados no Portal de Periódicos da CAPFE, (CAPES Periódicos), com o auxílio do acesso CAFe (Comunidade Academica Federada), que permite que universitários acadêmicos acessem toda a base. A natureza da primeira parte do trabalho é ser descritiva-exploratória, com abordagem quanti-qualitativa, a fim de entregar um embasamento teórico consiso.
+
+Segundo princípios da Netnografia, defendida por @Hide2005, pesquisar utilizando a internet como objeto de estudo explicita o caráter multidisciplinar e multiparadigmático das ciências sociais, que, com a concepção do conceito de etnografia e comunidade online, segundo a mesma autora, "moldou uma geração de estudos".
+
+A Análise de Redes Sociais (ARS) pode ser caracterizado como um método etnografia online, a fim de analisar discursos mediados por computador, com potencial de moldar a compreensão a cerca do fenômeno da utilização da internet por pessoas [@Hide,2005].
+
+
+-Objetivo: descritiva e exploratória (dificilmente aplicada em marketing)
+-Procedimentos técnicos:
+-Estudo de caso da interação de usuários durante a queda do X no BR e Etnografia
+-Persquisa transversal com um recorte no tempo e momento específico.
+:::
 
 ### Ambiente Computacional Estatístico R
 
@@ -442,6 +455,22 @@ Dessa forma, é possível medir dentro do conjunto de dados o quão dominantes n
 - as 5 semanas anteriores à suspensão (26/07/2024 - 30/09/2024);
 - as 5 semanas em que o X esteve indisponível (31/09/2024 - 08/10/2024);
 - as 5 semanas posterior ao retorno da rede (09/10/2024 - 13/11/2024).
+:::
+
+:::callout-note
+Como citar essas fontes no texto abaixo?
+Biblioteca ATRR
+https://cran.r-project.org/web/packages/atrrr/atrrr.pdf
+
+
+Protocolo AT  by Bluesky 
+https://docs.bsky.app/docs/api/app-bsky-feed-get-post-thread
+Repositório: https://github.com/bluesky-social
+
+
+Para a realização desta pesquisa netnográfica, como base para o processo de mineração dos dados, foi-se utilizada a documentação oficial do Protocolo AT utilizado pela Bluesky. Essa etapa teve caráter exploratório, visando compreender o funcionamento estrutural da rede social e orientar a construção  do código de mineração de dados a partir da API.
+
+Durante essa fase exploratória, identificou-se a biblioteca para R chamada `{atrrr}`. Essa biblioteca implemeta o protocolo AT e permite realizar chamadas à API da plataforma, facilitando assim, o processo de extração dos dados necessários para o desenvolvimento da pesquisa.
 :::
 
 :::callout-note
@@ -495,6 +524,9 @@ A partir das métricas estabelecidas durante a mineração de dados, @Bruns2012 
 ## Fonte dos Dados
 
 :::callout-note
+O Bluesky é uma rede social de API aberta, construída a partir do Protocolo AT, uma fundação descentralizada para redes sociais públicas. Lançada ao público oficialmente em 2024, uma das proposta da rede social que jsutificam a escolha da mesma para objeto deste estudo é possuir acesso a sua construção e arquitetura. A abertura do sistema proporciona a interação de seus conjuntos de dados para a moderação de conteúdos de mídia social e gerenciamento de comunidades (tanto partindo de usuários como partindo de pesquisadores). [@Kleppmann2024]
+
+
 - Mencionar BlueSky
 - Caracterizar período
 - Fundamentar porquê do período
