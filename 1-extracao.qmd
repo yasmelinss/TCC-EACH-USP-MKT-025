@@ -20,13 +20,14 @@ library(purrr)
 library(tidyverse)
 
 # funções utilitárias
+
 dia.da.semana <- function(w.day) {
-  dplyr::case_match(
+  case_match(
     w.day,
     1 ~ "domingo",
     7 ~ "sábado",
     .default = 
-      dplyr::case_match(
+      case_match(
         w.day, 
         2 ~ "segunda",
         3 ~ "terça",
