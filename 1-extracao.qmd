@@ -190,6 +190,7 @@ Tentando buscar por dia para ver quantos skeets são retornados em cada dia.
 
 ```{r}
 #| label: puxa-skeets-dia
+#| dependson: def-my.search.posts
 
 skeets.cblol.por.dia <-
   seq(inicio.busca, final.busca) |>
@@ -214,6 +215,9 @@ skeets.cblol.por.dia <-
 Vamos ver como ficou.
 
 ```{r}
+#| label: def-dias-a-refinar
+#| dependson: puxa-skeets-dia
+
 (
   n.skeets.por.dia <-
   skeets.cblol.por.dia |>
@@ -246,6 +250,7 @@ Mas antes, vou montar o dataframe com os dias que retornaram direito.
 
 ```{r}
 #| label: salva-skeets.dias.ok
+#| dependson: def-dias-a-refinar
 
 (
   skeets.dias.ok <-
@@ -262,6 +267,9 @@ Quebrando cada dia em dois blocos de 12h.
 Quais blocos serão buscados?
 
 ```{r}
+#| label: puxa-skeets-12h
+#| dependson: def-my.search.posts, def-dias-a-refinar
+
 (
   blocos.12h.buscas <-
   expand_grid(
@@ -301,6 +309,9 @@ skeets.cblol.por.12h <-
 Quantos skeets por bloco?
 
 ```{r}
+#| label: def-12h-a-refinar
+#| dependson: puxa-skeet-12h
+
 (
   n.skeets.por.12h <-
   skeets.cblol.por.12h |>
@@ -327,6 +338,7 @@ Salvando os skeets de dias sem excesso de skeets.
 
 ```{r}
 #| label: salva-skeets.12h.ok
+#| dependson: puxa-skeets-12h
 
 (
 skeets.12h.ok <-
@@ -339,6 +351,9 @@ skeets.12h.ok <-
 #### Refinando os blocos de 12h com excesso de postagem
 
 ```{r}
+#| label: puxa-skeets-6h
+#| dependson: def-my.search.posts, def-12h-a-refinar
+
 (
   blocos.6h.buscas <-
     expand_grid(
@@ -375,6 +390,8 @@ skeets.cblol.por.6h <-
 ##### Resultados
 
 ```{r}
+#| label: def-6h-a-refinar
+#| dependson: puxa-skeets-6h
 (
   n.skeets.por.6h <-
   skeets.cblol.por.6h |>
@@ -400,6 +417,7 @@ skeets.cblol.por.6h <-
 
 ```{r}
 #| label: salva-skeets.6h.ok
+#| dependson: puxa-skeets-6h
 
 (
   skeets.6h.ok <-
@@ -412,6 +430,9 @@ skeets.cblol.por.6h <-
 #### Refinando os blocos de 6h com excesso de postagem 
 
 ```{r}
+#| label: puxa-skeets-3h
+#| dependson: def-my.search.posts, def-6h-a-refinar
+
 (
   blocos.3h.buscas <-
     expand_grid(
@@ -448,6 +469,9 @@ skeets.cblol.por.3h <-
 ##### Resultados
 
 ```{r}
+#| label: def-3h-a-refinar
+#| dependson: puxa-skeets-3h
+
 (
   n.skeets.por.3h <-
     skeets.cblol.por.3h |>
@@ -473,6 +497,7 @@ skeets.cblol.por.3h <-
 
 ```{r}
 #| label: salva-skeets.3h.ok
+#| dependson: puxa-skeets-3h
 
 (
   skeets.3h.ok <-
@@ -485,6 +510,9 @@ skeets.cblol.por.3h <-
 #### Refinando os blocos de 3h com excesso de postagem 
 
 ```{r}
+#| label: puxa-skeets-1h
+#| dependson: def-my.search.posts, def-3h-a-refinar
+
 (
   blocos.1h.buscas <-
     expand_grid(
@@ -521,6 +549,9 @@ skeets.cblol.por.1h <-
 ##### Resultados
 
 ```{r}
+#| label: def-1h-a-refinar
+#| dependson: puxa-skeets-1h
+
 n.skeets.por.1h <-
   skeets.cblol.por.1h |>
   map_dfr(
@@ -542,6 +573,7 @@ blocos.1h.a.refinar <-
 
 ```{r}
 #| label: salva-skeets.1h.ok
+#| dependson: puxa-skeets-1h
 
 (
   skeets.1h.ok <-
@@ -554,6 +586,9 @@ blocos.1h.a.refinar <-
 #### Refinando os blocos de 1h com excesso de postagem 
 
 ```{r}
+#| label: puxa-skeets-30min
+#| dependson: def-my.search.posts, def-1h-a-refinar
+
 (
   blocos.30min.buscas <-
     expand_grid(
@@ -589,6 +624,9 @@ skeets.cblol.por.30min <-
 ##### Resultados
 
 ```{r}
+#| label: def-30min-a-refinar
+#| dependson: puxa-skeets-30min
+
 (
   n.skeets.por.30min <-
     skeets.cblol.por.30min |>
@@ -614,6 +652,7 @@ skeets.cblol.por.30min <-
 
 ```{r}
 #| label: salva-skeets.30min.ok
+#| dependson: puxa-skeets-30min
 
 (
   skeets.30min.ok <-
@@ -626,6 +665,9 @@ skeets.cblol.por.30min <-
 #### Refinando os blocos de 30min com excesso de postagem 
 
 ```{r}
+#| label: puxa-skeets-10min
+#| dependson: def-my.search.posts, def-30min-a-refinar
+
 (
   blocos.10min.buscas <-
     expand_grid(
@@ -662,6 +704,9 @@ skeets.cblol.por.10min <-
 ##### Resultados
 
 ```{r}
+#| label: def-10min-a-refinar
+#| dependson: puxa-skeets-10min
+
 (
   n.skeets.por.10min <-
     skeets.cblol.por.10min |>
@@ -687,6 +732,7 @@ skeets.cblol.por.10min <-
 
 ```{r}
 #| label: salva-skeets.10min.ok 
+#| dependson: puxa-skeets-10min
 
 (
   skeets.10min.ok <-
@@ -699,6 +745,9 @@ skeets.cblol.por.10min <-
 #### Refinando os blocos de 10min com excesso de postagem 
 
 ```{r}
+#| label: puxa-skeets-5min
+#| dependson: def-my.search.posts, def-10min-a-refinar
+
 (
   blocos.5min.buscas <-
     expand_grid(
@@ -735,6 +784,9 @@ skeets.cblol.por.5min <-
 ##### Resultados
 
 ```{r}
+#| label: def-5min-a-refinar
+#| dependson: puxa-skeets-5min
+
 (
   n.skeets.por.5min <-
     skeets.cblol.por.5min |>
@@ -760,6 +812,7 @@ skeets.cblol.por.5min <-
 
 ```{r}
 #| label: salva-skeets.5min.ok 
+#| dependson: puxa-skeets-5min
 
 (
   skeets.5min.ok <-
@@ -772,6 +825,9 @@ skeets.cblol.por.5min <-
 #### Refinando os blocos de 5min com excesso de postagem 
 
 ```{r}
+#| label: puxa-skeets-1min
+#| dependson: def-my.search.posts, def-5min-a-refinar
+
 (
   blocos.1min.buscas <-
     expand_grid(
@@ -808,6 +864,9 @@ skeets.cblol.por.1min <-
 ##### Resultados
 
 ```{r}
+#| label: def-1min-a-refinar
+#| dependson: puxa-skeets-1min
+
 (
   n.skeets.por.1min <-
     skeets.cblol.por.1min |>
@@ -835,6 +894,7 @@ Finalmente não precisou mais refinar!
 
 ```{r}
 #| label: salva-skeets.1min.ok 
+#| dependson: puxa-skeets-1min
 
 (
   skeets.1min.ok <-
@@ -848,7 +908,7 @@ Finalmente não precisou mais refinar!
 
 ```{r}
 #| label: junta-skeets
-#| cache: false
+#| dependson: salva-skeets.dia.ok, salva-skeets.12h.ok, salva-skeets.6h.ok, salva-skeets.3h.ok, salva-skeets.1h.ok, salva-skeets.30min.ok, salva-skeets.10min.ok, salva-skeets.5min.ok, salva-skeets.1min.ok
 
 (
   skeets <-
@@ -870,6 +930,9 @@ Finalmente não precisou mais refinar!
 Há repetecos?
 
 ```{r}
+#| label: checa-skeets-duplicados
+#| dependson: junta-skeets
+
 any(duplicated(skeets$uri))
 skeets |> 
   mutate(
@@ -886,7 +949,7 @@ Sim, há.
 Eliminando as redundâncias
 
 ```{r}
-#| label: elimina-duplicatas
+#| label: elimina-skeets-duplicados
 #| dependson: junta-skeets
 
 (
@@ -900,7 +963,6 @@ Eliminando as redundâncias
 Por ora, não está precisando rodar este *chunk* aqui.
 
 ```{r}
-#| eval: false
 # pra liberar espaço
 rm(
   skeets.dias.ok,
@@ -913,6 +975,9 @@ rm(
   skeets.5min.ok,
   skeets.1min.ok
 )
+#| label: separa-did-data-uri-to
+#| dependson: elimina-skeets-duplicados
+
 ```
 
 ### Salvando os skeets baixados
