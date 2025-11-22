@@ -1059,20 +1059,35 @@ write_rds(usuarios.reposts, file = "Dados/usuarios-reposts.rds")
 [TO-DO!!!]{.mark}
 
 ```{r}
-#| eval: false
-search_post()
-search_feed()
-get_feed()
-get_replies()
-get_reposts()
-get_thread()
-get_likes()
-get_user_info()
-get_actor_likes()
-get_actor_starter_packs()
 #| label: salva-posts-users
 #| dependson: junta-skeets-threads, junta-users
 
 # Falta fazer
 ```
+
 ## Lembrar de verificar se usou, se precisa usar ou se não precisa
+
+Funções de extração já usadas:
+
+- `search_post()`
+- `get_replies()`
+- `get_reposts()`
+- `get_likes()`
+
+Falta usar:
+
+- `get_follows()`
+- `get_followers()`
+- `get_user_info()`
+
+Descobrir se chega a precisar usar:
+
+- `search_feed()`
+- `get_feed()`
+- `get_thread()`
+- `get_actor_likes()`
+- `get_actor_starter_packs()`
+- `get_list()`
+- `get_own_timeline()`
+
+
