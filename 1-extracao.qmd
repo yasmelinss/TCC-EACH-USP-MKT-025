@@ -42,59 +42,58 @@ dia.da.semana <- function(w.day) {
 
 ### De quando a quando buscar? 
 
+Quando o Twitter foi bloqueado por Big Xande?
+
 ```{r}
+#| label: def-inicio-bloqueio
+
 inicio.bloqueio <- "30-08-2024" |> dmy()
 inicio.busca <- inicio.bloqueio - 4 * dweeks()
-wday(inicio.bloqueio)
 ```
 
-Começou em uma sexta-feira, então precisa marcar o início das semanas a partir das sextas-feiras.
+Começou em uma `r inicio.bloqueio |> wday() |> dia.da.semana()`, que é quando precisa ser o início dos blocos de 7 dias.
+
+Nota: nesse caso, um bloco de 7 dias é diferente de uma semana, pois o bloco não começa necessariamente em um domingo.
+
+Vamos buscar mais quatro blocos de 7 dias antes para estabelecer um baseline de atividade no Bluesky anterior ao bloqueio do Twitter
 
 ```{r}
+#| label: def-inicio-busca
+#| dependson: def-inicio-bloqueio
+
+(inicio.busca <- inicio.bloqueio - 4 * dweeks())
+```
+
+Quando Big Xande liberou de volta o twitter?
+
+```{r}
+#| label: def-final-bloqueio
+
 final.bloqueio <- "08-10-2024" |> dmy()
-wday(final.bloqueio)
 ```
 
-Terminou em uma terça-feira.
+Foi numa `r final.bloqueio |> wday() |> dia.da.semana()`.
+
+O bloqueio durou `r (n.dias.bloqueio <- (final.bloqueio - inicio.bloqueio + 1) |> as.numeric())` dias, então não vai ser um número redondo de blocos de 7 dias, mas sim `r n.dias.bloqueio / 7` blocos de 7 dias, ou seja `r n.dias.bloqueio %/% 7` blocos mais `r n.dias.bloqueio %% 7` dias e caiu o desbloqueio no `r n.dias.bloqueio %% 7`^o^ dia do `r n.dias.bloqueio %/% 7 + 1`^o^ bloco.
 
 ```{r}
-final.bloqueio - inicio.bloqueio + 1
+#| label: def-final-busca
+#| dependson: def-final-bloqueio
+
+(final.busca <- final.bloqueio + 2 * ddays() + 4 * dweeks())
 ```
 
-O bloqueio durou 40 dias, então não vai ser um número redondo de semanas.
+Isso dá `r final.busca - inicio.busca + 1` dias ou `r (final.busca - inicio.busca + 1) / 7` blocos de 7 dias, dos quais:
 
-```{r}
-(final.bloqueio - inicio.bloqueio + 1) / dweeks()
-```
-
-Isso dá 5.7 blocos de 7 dias.
-
-Nota: nesse caso, um bloco de 7 dias é diferente de uma semana, pois o bloco não começa no domingo.
-
-```{r}
-((final.bloqueio - inicio.bloqueio + 1) / dweeks() - 5) * dweeks()
-```
-
-O período do bloqueio será de 5 blocos de 7 dias e mais 5 dias, ou seja 5 blocos inteiros e, no sexto bloco, caiu o desbloqueio no quinto dia.
-
-```{r}
-final.busca <- final.bloqueio + 2 * ddays() + 4 * dweeks()
-(final.busca - inicio.busca + 1) / dweeks()
-```
-
-Em resumo, serão considerados:
-
-- 14 blocos de 7 dias
-    - blocos 1 a 4: 1 mês antes
-    - bloco 5: bloqueia 1o dia desse bloco
-    - blocos 6 a 9: só bluesky
-    - bloco 10: desbloqueia no 5o dia desse bloco
-    - blocos 11 a 14: X voltando a funcionar e bluesky esvaziando
-
+- blocos 1 a 4: 1 mês antes
+- bloco 5: bloqueia 1o dia desse bloco
+- blocos 6 a 9: só bluesky
+- bloco 10: desbloqueia no 5o dia desse bloco
+- blocos 11 a 14: X voltando a funcionar e bluesky esvaziando
 
 ### Por qual termos buscar?
 
-Em princípio, poderia ser `"cblol"` com ou sem o símbolo de *hashtag* ou mais algum outro termos de busca, mas vou ficar só com um mesmo.
+Em princípio, poderia ser `'cblol'` ou `'"#cblol"'` ou mais algum outro termos de busca, mas vou ficar só com `'cblol'` mesmo.
 
 ## Autenticando
 
