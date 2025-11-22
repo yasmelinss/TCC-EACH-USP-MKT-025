@@ -117,11 +117,16 @@ auth(
 )
 ```
 
-## Buscando skeets 
+## Buscando skeets por dia
 
+A busca vai ser feita individualmente por dias e com limite maior do que 100 skeets.
 
 ```{r}
+#| label: puxa-skeets-dia
+#| dependson: def-inicio-busca, def-final.busca
+#| collapse: true
 
+(dias.buscas <- seq(inicio.busca, final.busca))
 
 my.search.post <- 
   insistently(
@@ -130,42 +135,58 @@ my.search.post <-
     rate = rate_backoff(max_times = 5)
   )
 
+dump.cat("=======================")
+dump.cat("buscando skeets por dia")
 
-skeets.cblol.por.dia <-
+skeets.por.dia <- 
   seq(inicio.busca, final.busca) |>
   map(
-    \(inicio.bloco) {
+    \(dia) {
+      skeets <- 
+        my.search.post(
+          q = "cblol",
+          since = dia,
+          until = dia + 1 * ddays(),
+          limit = 6000
+        )
+      dump.cat("dia =", dia, "; n.skeets =", nrow(skeets))
       list(
-        inicio = inicio.bloco,
-        final = inicio.bloco + 1 * ddays(),
-        skeets =
-          my.search.post(
-            q = "cblol",
-            since = inicio.bloco,
-            until = inicio.bloco + 1 * ddays()
-          )
+        dia = dia,
+        skeets = skeets
       )
     }
   )
 ```
 
+Algum dia retornou mais do que 6000 skeets?
 
 ```{r}
+#| label: checa-limite-skeets
 #| dependson: puxa-skeets-dia
 
+skeets.por.dia |> 
+  map_int(\(x) x$skeets |> nrow()) > 6000
 ```
 
+Juntando tudo em um único dataframe
 
 ```{r}
+#| label: juntando-skeets-dia
+#| dependson: puxa-skeets-dia
 
+skeets <- 
+  skeets.por.dia |> 
+  map(\(x) x$skeets) |> 
   list_rbind()
 
+nrow(skeets)
 ```
 
 Há repetecos?
 
 ```{r}
 #| label: checa-skeets-duplicados
+#| dependson: puxa-skeets-dia
 
 any(duplicated(skeets$uri))
 ```
@@ -174,7 +195,7 @@ Separando os dados mais úteis
 
 ```{r}
 #| label: separa-did-data-uri-to
-#| dependson: elimina-skeets-duplicados
+#| dependson: puxa-skeets-dia
 
 autores <- 
   skeets$author_data |>
@@ -182,17 +203,15 @@ autores <-
 quando <- 
   skeets$post_data |>
   map_chr(\(x) x$createdAt)
-uri <- 
-  skeets$uri
-to <- 
-  skeets$in_reply_to
+uri <- skeets$uri
+to <- skeets$in_reply_to
 ```
 
-### Salvando os skeets baixados
+Salvando os skeets baixados
 
 ```{r}
 #| label: salva-skeets
-#| dependson: elimina-duplicatas
+#| dependson: puxa-skeets-dia
 
 write_rds(skeets, "Dados/skeets-cblol.rds")
 save(autores, quando, uri, to, file = "Dados/curtos.rda")
