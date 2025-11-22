@@ -407,7 +407,20 @@ A centralidade de intermediação de Freeman ($c_i^{BET}$), medida de centralida
 
 ## Tecnologias Utilizadas
 
+:::callout-note
 
+Inicialmente, foi-se realizada uma busca a artigos científicos indexados no Portal de Periódicos da CAPFE, (CAPES Periódicos), com o auxílio do acesso CAFe (Comunidade Academica Federada), que permite que universitários acadêmicos acessem toda a base. A natureza da primeira parte do trabalho é ser descritiva-exploratória, com abordagem quanti-qualitativa, a fim de entregar um embasamento teórico consiso.
+
+Segundo princípios da Netnografia, defendida por @Hide2005, pesquisar utilizando a internet como objeto de estudo explicita o caráter multidisciplinar e multiparadigmático das ciências sociais, que, com a concepção do conceito de etnografia e comunidade online, segundo a mesma autora, "moldou uma geração de estudos".
+
+A Análise de Redes Sociais (ARS) pode ser caracterizado como um método etnografia online, a fim de analisar discursos mediados por computador, com potencial de moldar a compreensão a cerca do fenômeno da utilização da internet por pessoas [@Hide,2005].
+
+
+-Objetivo: descritiva e exploratória (dificilmente aplicada em marketing)
+-Procedimentos técnicos:
+-Estudo de caso da interação de usuários durante a queda do X no BR e Etnografia
+-Persquisa transversal com um recorte no tempo e momento específico.
+:::
 
 ### Ambiente Computacional Estatístico R
 
