@@ -903,31 +903,12 @@ Eliminando as redundâncias
   nrow()
 ```
 
+Separando os dados mais úteis
 
 ```{r}
 #| label: separa-did-data-uri-to
 #| dependson: elimina-skeets-duplicados
 
-```
-
-### Salvando os skeets baixados
-
-```{r}
-#| label: salva-skeets
-#| dependson: elimina-duplicatas
-
-write_rds(skeets, "Dados/skeets-cblol.rds")
-
-### pro caso de precisar carregar rápido:
-# skeets <- read_rds("Dados/skeets-cblol.rds")
-```
-
-
-## Versão reduzida
-
-Replies e quotes são interações
-
-```{r}
 autores <- 
   skeets$author_data |>
   map_chr(\(x) x$did)
@@ -938,15 +919,33 @@ uri <-
   skeets$uri
 to <- 
   skeets$in_reply_to
+```
 
+### Salvando os skeets baixados
+
+```{r}
+#| label: salva-skeets
+#| dependson: elimina-duplicatas
+
+write_rds(skeets, "Dados/skeets-cblol.rds")
 save(autores, quando, uri, to, file = "Dados/curtos.rda")
 
-### pro caso de precisar
+### pro caso de precisar carregar rápido:
+# skeets <- read_rds("Dados/skeets-cblol.rds")
 # load(file = "Dados/curtos.rda")
 
-### pra economizar espaço
+### por ora, não está precisando rodar isto pra economizar espaço
 # rm(skeets)
 ```
+
+
+## Versão reduzida
+
+Replies e quotes são interações
+
+
+
+
 
 ## Buscando threads desses skeets (inclui replies e reskeets) 
 
