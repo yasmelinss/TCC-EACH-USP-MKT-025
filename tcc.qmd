@@ -458,6 +458,22 @@ Dessa forma, é possível medir dentro do conjunto de dados o quão dominantes n
 :::
 
 :::callout-note
+Como citar essas fontes no texto abaixo?
+Biblioteca ATRR
+https://cran.r-project.org/web/packages/atrrr/atrrr.pdf
+
+
+Protocolo AT  by Bluesky 
+https://docs.bsky.app/docs/api/app-bsky-feed-get-post-thread
+Repositório: https://github.com/bluesky-social
+
+
+Para a realização desta pesquisa netnográfica, como base para o processo de mineração dos dados, foi-se utilizada a documentação oficial do Protocolo AT utilizado pela Bluesky. Essa etapa teve caráter exploratório, visando compreender o funcionamento estrutural da rede social e orientar a construção  do código de mineração de dados a partir da API.
+
+Durante essa fase exploratória, identificou-se a biblioteca para R chamada `{atrrr}`. Essa biblioteca implemeta o protocolo AT e permite realizar chamadas à API da plataforma, facilitando assim, o processo de extração dos dados necessários para o desenvolvimento da pesquisa.
+:::
+
+:::callout-note
 Comentando a seção abaixo enquanto averiguamos se vamos manter o bskyr ou mudar totalmente para o atrrr
 
 <!-- 
