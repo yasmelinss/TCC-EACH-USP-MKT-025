@@ -854,6 +854,19 @@ Finalmente não precisou mais refinar!
     )
 ) |> 
   nrow()
+
+# Por ora, não está precisando rodar isto pra liberar espaço
+# rm(
+#   skeets.dias.ok,
+#   skeets.12h.ok,
+#   skeets.6h.ok,
+#   skeets.3h.ok,
+#   skeets.1h.ok,
+#   skeets.30min.ok,
+#   skeets.10min.ok,
+#   skeets.5min.ok,
+#   skeets.1min.ok
+# )
 ```
 
 Há repetecos?
@@ -892,18 +905,6 @@ Eliminando as redundâncias
 Por ora, não está precisando rodar este *chunk* aqui.
 
 ```{r}
-# pra liberar espaço
-rm(
-  skeets.dias.ok,
-  skeets.12h.ok,
-  skeets.6h.ok,
-  skeets.3h.ok,
-  skeets.1h.ok,
-  skeets.30min.ok,
-  skeets.10min.ok,
-  skeets.5min.ok,
-  skeets.1min.ok
-)
 #| label: separa-did-data-uri-to
 #| dependson: elimina-skeets-duplicados
 
