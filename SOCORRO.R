@@ -189,7 +189,7 @@ mapa_calor <-
     date_breaks = "7 days"
   )
 ggsave(
-  "mapa_de_calor.png",
+  "Imagens/mapa_de_calor.png",
   plot = mapa_calor,
   width = 8,      # largura em polegadas
   height = 3,      # altura em polegadas
