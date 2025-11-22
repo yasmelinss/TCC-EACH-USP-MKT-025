@@ -995,7 +995,6 @@ usuarios.likes <-
       tentativa <- my.get.likes(uri, limit = limite)
       while (nrow(tentativa) > limite) {
         limite <- limite * 2
-        Sys.sleep(1)
         tentativa <- my.get.likes(uri, limit = limite)
       }
     }
