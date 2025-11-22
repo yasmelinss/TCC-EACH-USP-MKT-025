@@ -524,6 +524,9 @@ A partir das métricas estabelecidas durante a mineração de dados, @Bruns2012 
 ## Fonte dos Dados
 
 :::callout-note
+O Bluesky é uma rede social de API aberta, construída a partir do Protocolo AT, uma fundação descentralizada para redes sociais públicas. Lançada ao público oficialmente em 2024, uma das proposta da rede social que jsutificam a escolha da mesma para objeto deste estudo é possuir acesso a sua construção e arquitetura. A abertura do sistema proporciona a interação de seus conjuntos de dados para a moderação de conteúdos de mídia social e gerenciamento de comunidades (tanto partindo de usuários como partindo de pesquisadores). [@Kleppmann2024]
+
+
 - Mencionar BlueSky
 - Caracterizar período
 - Fundamentar porquê do período
