@@ -984,6 +984,7 @@ Puxando os *likes* dos skeets coletados
 
 ```{r}
 #| label: puxa-likes
+#| dependson: def-my.get.likes, separa-did-data-uri-to, junta-skeets-threads
 
 usuarios.likes <- 
   uri |> 
@@ -1020,6 +1021,7 @@ my.get.reposts <-
 
 ```{r}
 #| label: puxa-reposts
+#| dependson: junta-skeets-threads, def-my.get.reposts, puxa-likes
 
 usuarios.reposts <- 
   uri |> 
