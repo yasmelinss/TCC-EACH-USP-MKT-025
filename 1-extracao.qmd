@@ -224,7 +224,7 @@ save(autores, quando, uri, to, file = "Dados/curtos.rda")
 # rm(skeets)
 ```
 
-## Ainda precisa baixar dados para consefguir calcular KPIs?
+## Ainda precisa baixar dados para conseguir calcular KPIs?
 
 Replies e quotes são interações com um skeets inicial ou com outro reply ou outro quote, então têm que ser contabilizados para calcular métricas de conectividade, de centralidade e outras
 
