@@ -180,10 +180,7 @@ my.search.post <-
 
 #### Fatiando por dia 
 
-A busca vai ser feita individualmente nestes dias:
-
-
-Tentando buscar por dia para ver quantos skeets são retornados em cada dia.
+A busca vai ser feita individualmente nestes dias e vamos ver quantos skeets são retornados em cada dia.
 
 ```{r}
 #| label: puxa-skeets-dia
@@ -210,7 +207,7 @@ skeets.cblol.por.dia <-
 
 ##### Resultados
 
-Vamos ver como ficou.
+Tem muitos dia que retornaram mais do que 100 skeets?
 
 ```{r}
 #| label: def-dias-a-refinar
@@ -257,20 +254,18 @@ Mas antes, vou montar o dataframe com os dias que retornaram direito.
 
 Quebrando cada dia em dois blocos de 12h.
 
-Quais blocos serão buscados?
-
 ```{r}
 #| label: puxa-skeets-12h
 #| dependson: def-my.search.posts, def-dias-a-refinar
 
 (
   blocos.12h.buscas <-
-  expand_grid(
-    dia = dias.a.refinar,
-    hora = 0:1 * 12 * dhours()
-  ) |>
-  mutate(quando = dia + hora) |>
-  pull(quando)
+    expand_grid(
+      dia = dias.a.refinar,
+      hora = 0:1 * 12 * dhours()
+    ) |>
+    mutate(quando = dia + hora) |>
+    pull(quando)
 )
 
 skeets.cblol.por.12h <-
@@ -293,7 +288,7 @@ skeets.cblol.por.12h <-
 
 ##### Resultados
 
-Quantos skeets por bloco?
+Ainda precisa refinar?
 
 ```{r}
 #| label: def-12h-a-refinar
@@ -889,7 +884,7 @@ skeets |>
 
 Sim, há.
 
-Eliminando as redundâncias
+Eliminando as redundâncias:
 
 ```{r}
 #| label: elimina-skeets-duplicados
@@ -938,20 +933,26 @@ save(autores, quando, uri, to, file = "Dados/curtos.rda")
 # rm(skeets)
 ```
 
+## Ainda precisa baixar dados para consefguir calcular KPIs?
 
-## Versão reduzida
+Replies e quotes são interações com um skeets inicial ou com outro reply ou outro quote, então têm que ser contabilizados para calcular métricas de conectividade, de centralidade e outras
 
-Replies e quotes são interações
+Isso cabe aqui ou seria na faxina de dados ou na análise dos dados?
 
+De qualquer forma, tem que ver se precisa puxar mais algum dado do Bluesky ou se só depende dos dados já baixados
 
-
-
+[TO-DO!!! O quê mais que eu tinha que fazer aqui mesmo?]{.mark}
 
 ## Buscando threads desses skeets (inclui replies e reskeets) 
+
+[TO-DO!!!]{.mark}
+
 
 ## Juntando todos os skeets 
 
 ## Buscando users que deram like em todos esses skeets 
+
+Definindo a função de busca de perfis que deram *like* que faz tratamento de erros de busca
 
 ```{r}
 #| label: def-my.get.likes
@@ -963,6 +964,8 @@ my.get.likes <-
     rate = rate_backoff(max_times = 5)
   )
 ```
+
+Puxando os *likes* dos skeets coletados
 
 ```{r}
 #| label: puxa-likes
