@@ -182,9 +182,6 @@ my.search.post <-
 
 A busca vai ser feita individualmente nestes dias:
 
-```{r}
-(dias.buscas <- seq(inicio.busca, final.busca))
-```
 
 Tentando buscar por dia para ver quantos skeets são retornados em cada dia.
 
@@ -192,6 +189,7 @@ Tentando buscar por dia para ver quantos skeets são retornados em cada dia.
 #| label: puxa-skeets-dia
 #| dependson: def-my.search.posts
 
+(dias.buscas <- seq(inicio.busca, final.busca))
 skeets.cblol.por.dia <-
   seq(inicio.busca, final.busca) |>
   map(
@@ -229,11 +227,6 @@ Vamos ver como ficou.
       )
   )
 )
-```
-
-Tem muitos dia que retornaram mais do que 100 skeets?
-
-```{r}
 (
   dias.a.refinar <-
     n.skeets.por.dia |>
@@ -279,12 +272,6 @@ Quais blocos serão buscados?
   mutate(quando = dia + hora) |>
   pull(quando)
 )
-```
-
-Buscando
-
-```{r}
-#| label: puxa-skeets-12h
 
 skeets.cblol.por.12h <-
   blocos.12h.buscas |>
@@ -323,11 +310,7 @@ Quantos skeets por bloco?
       )
   )
 )
-```
 
-Ainda precisa refinar.
-
-```{r}
 blocos.12h.a.refinar <-
   n.skeets.por.12h |>
   filter(n.skeets >= 100) |>
@@ -363,11 +346,6 @@ skeets.12h.ok <-
     mutate(quando = dia + hora) |>
     pull(quando)
 )
-```
-
-
-```{r}
-#| label: puxa-skeets-6h
 
 skeets.cblol.por.6h <-
   blocos.6h.buscas |>
@@ -403,10 +381,7 @@ skeets.cblol.por.6h <-
       )
   )
 )
-```
 
-
-```{r}
 (
   blocos.6h.a.refinar <-
   n.skeets.por.6h |>
@@ -442,11 +417,6 @@ skeets.cblol.por.6h <-
     mutate(quando = dia + hora) |>
     pull(quando)
 )
-```
-
-
-```{r}
-#| label: puxa-skeets-3h
 
 skeets.cblol.por.3h <-
   blocos.3h.buscas |>
@@ -483,10 +453,7 @@ skeets.cblol.por.3h <-
         )
     )
 )
-```
 
-
-```{r}
 (
   blocos.3h.a.refinar <-
     n.skeets.por.3h |>
@@ -522,11 +489,6 @@ skeets.cblol.por.3h <-
     mutate(quando = dia + hora) |>
     pull(quando)
 )
-```
-
-
-```{r}
-#| label: puxa-skeets-1h
 
 skeets.cblol.por.1h <-
   blocos.1h.buscas |>
@@ -561,10 +523,7 @@ n.skeets.por.1h <-
         n.skeets = nrow(bloco$skeets)
       )
   )
-```
 
-
-```{r}
 blocos.1h.a.refinar <-
   n.skeets.por.1h |>
   filter(n.skeets >= 100) |>
@@ -598,10 +557,6 @@ blocos.1h.a.refinar <-
     mutate(quando = dia + hora) |>
     pull(quando)
 )
-```
-
-```{r}
-#| label: puxa-skeets-30min
 
 skeets.cblol.por.30min <-
   blocos.30min.buscas |>
@@ -638,10 +593,7 @@ skeets.cblol.por.30min <-
         )
     )
 )
-```
 
-
-```{r}
 (
   blocos.30min.a.refinar <-
     n.skeets.por.30min |>
@@ -677,11 +629,6 @@ skeets.cblol.por.30min <-
     mutate(quando = dia + hora) |>
     pull(quando)
 )
-```
-
-
-```{r}
-#| label: puxa-skeets-10min
 
 skeets.cblol.por.10min <-
   blocos.10min.buscas |>
@@ -718,10 +665,7 @@ skeets.cblol.por.10min <-
         )
     )
 )
-```
 
-
-```{r}
 (
   blocos.10min.a.refinar <-
     n.skeets.por.10min |>
@@ -757,11 +701,6 @@ skeets.cblol.por.10min <-
     mutate(quando = dia + hora) |>
     pull(quando)
 )
-```
-
-
-```{r}
-#| label: puxa-skeets-5min
 
 skeets.cblol.por.5min <-
   blocos.5min.buscas |>
@@ -798,10 +737,7 @@ skeets.cblol.por.5min <-
         )
     )
 )
-```
 
-
-```{r}
 (
   blocos.5min.a.refinar <-
     n.skeets.por.5min |>
@@ -837,11 +773,6 @@ skeets.cblol.por.5min <-
     mutate(quando = dia + hora) |>
     pull(quando)
 )
-```
-
-
-```{r}
-#| label: puxa-skeets-1min
 
 skeets.cblol.por.1min <-
   blocos.1min.buscas |>
@@ -878,9 +809,7 @@ skeets.cblol.por.1min <-
         )
     )
 )
-```
 
-```{r}
 (
   blocos.1min.a.refinar <-
     n.skeets.por.1min |>
