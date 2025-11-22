@@ -40,6 +40,13 @@ dia.da.semana <- function(w.day) {
 }
 
 `%!in%` <- negate(`%in%`)
+
+# para rastrear enquanto renderiza
+out <- "Dados/dump.txt"
+cat("", file = out)  # zera o arquivo
+dump.cat <- function(...) cat(..., "\n", file = out, append = TRUE)
+dump.print <- function(nome, objeto) dump.cat(nome, "=", objeto)
+
 ```
 
 ## Definindo os parâmetros da busca
@@ -990,13 +997,6 @@ Puxando os *likes* dos skeets coletados
 #| label: puxa-likes
 #| dependson: def-my.get.likes, separa-did-data-uri-to, junta-skeets-threads
 
-dump.cat <- function(..., app = TRUE) cat(..., file = "Dados/dump.txt", append = app)
-
-dump.zera <- function() dump.cat("", app = FALSE)
-
-dump.print <- function(nome, objeto) dump.cat(nome, "=", objeto, "\n")
-
-dump.zera()
 
 usuarios.likes <- 
   uri |> 
