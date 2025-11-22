@@ -850,7 +850,8 @@ Finalmente não precisou mais refinar!
       skeets.30min.ok,
       skeets.10min.ok,
       skeets.5min.ok,
-      skeets.1min.ok
+      skeets.1min.ok,
+      .id = "bloco"
     )
 ) |> 
   nrow()
@@ -902,7 +903,6 @@ Eliminando as redundâncias
   nrow()
 ```
 
-Por ora, não está precisando rodar este *chunk* aqui.
 
 ```{r}
 #| label: separa-did-data-uri-to
