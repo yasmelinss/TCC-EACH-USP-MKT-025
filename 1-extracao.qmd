@@ -107,7 +107,6 @@ auth(
 )
 ```
 
-
 ## Buscando skeets 
 
 ### Primeira tentativa: tudo de uma vez 
@@ -140,7 +139,6 @@ Ué, só 184 skeets?!?
 
 Aqui deu 184 skeets também.
 
-
 ```{r}
 skeets.cblol$uri |> length()
 skeets.hash.cblol$uri |> length()
@@ -164,9 +162,6 @@ Não parece confiável tentar extrair tudo de uma vez.
 No manual do `{atrrr}` aparece o motivo: o próprio protocolo tem uma limitação de 100 buscas no máximo.
 
 Assim, só dá para confiar em buscas que retornaram menos de 100 *skeets*.
-
-
-
 
 ### Segunda tentativa: fatiando
 
@@ -260,7 +255,6 @@ Mas antes, vou montar o dataframe com os dias que retornaram direito.
 )
 ```
 
-
 #### Refinando os dias com excesso de postagem
 
 Quebrando cada dia em dois blocos de 12h.
@@ -301,7 +295,6 @@ skeets.cblol.por.12h <-
     }
   )
 ```
-
 
 ##### Resultados
 
@@ -405,7 +398,6 @@ skeets.cblol.por.6h <-
 )
 ```
 
-
 ```{r}
 #| label: salva-skeets.6h.ok
 
@@ -479,7 +471,6 @@ skeets.cblol.por.3h <-
 )
 ```
 
-
 ```{r}
 #| label: salva-skeets.3h.ok
 
@@ -548,7 +539,6 @@ blocos.1h.a.refinar <-
   filter(n.skeets >= 100) |>
   pull(quando)
 ```
-
 
 ```{r}
 #| label: salva-skeets.1h.ok
@@ -621,7 +611,6 @@ skeets.cblol.por.30min <-
     pull(quando)
 )
 ```
-
 
 ```{r}
 #| label: salva-skeets.30min.ok
@@ -696,7 +685,6 @@ skeets.cblol.por.10min <-
 )
 ```
 
-
 ```{r}
 #| label: salva-skeets.10min.ok 
 
@@ -769,7 +757,6 @@ skeets.cblol.por.5min <-
     pull(quando)
 )
 ```
-
 
 ```{r}
 #| label: salva-skeets.5min.ok 
