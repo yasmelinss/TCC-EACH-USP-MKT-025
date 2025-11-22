@@ -947,8 +947,23 @@ De qualquer forma, tem que ver se precisa puxar mais algum dado do Bluesky ou se
 
 [TO-DO!!!]{.mark}
 
+```{r}
+#| label: puxa-threads
+#| dependson: separa-did-data-uri-to
+
+# falta fazer
+```
 
 ## Juntando todos os skeets 
+
+[TO-DO!!!]{.mark}
+
+```{r}
+#| label: junta-skeets-threads
+#| dependson: elimina-skeets-duplicados, puxa-threads
+
+# falta fazer
+```
 
 ## Buscando users que deram like em todos esses skeets 
 
@@ -1028,8 +1043,18 @@ write_rds(usuarios.reposts, file = "Dados/usuarios-reposts.rds")
 
 ## Juntando todos os users, vindos de posts, de likes ou reposts
 
+[TO-DO!!!]{.mark}
+
+```{r}
+#| label: junta-users
+#| dependson: junta-skeets-threads, puxa-likes, puxa-reposts
+
+# falta fazer
+```
 
 ## Salvando Tudo!!!
+
+[TO-DO!!!]{.mark}
 
 ```{r}
 #| eval: false
@@ -1043,5 +1068,9 @@ get_likes()
 get_user_info()
 get_actor_likes()
 get_actor_starter_packs()
+#| label: salva-posts-users
+#| dependson: junta-skeets-threads, junta-users
+
+# Falta fazer
 ```
 ## Lembrar de verificar se usou, se precisa usar ou se não precisa
