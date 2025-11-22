@@ -1032,7 +1032,6 @@ usuarios.reposts <-
       tentativa <- my.get.reposts(uri, limit = limite)
       while (nrow(tentativa) > limite) {
         limite <- limite * 2
-        Sys.sleep(1)
         tentativa <- my.get.reposts(uri, limit = limite)
       }
     }
