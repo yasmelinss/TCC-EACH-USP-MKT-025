@@ -59,7 +59,6 @@ Quando o Twitter foi bloqueado por Big Xande?
 #| label: def-inicio-bloqueio
 
 inicio.bloqueio <- "30-08-2024" |> dmy()
-inicio.busca <- inicio.bloqueio - 4 * dweeks()
 ```
 
 Começou em uma `r inicio.bloqueio |> wday() |> dia.da.semana()`, que é quando precisa ser o início dos blocos de 7 dias.
