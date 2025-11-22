@@ -15,6 +15,27 @@ execute:
 
 library(atrrr)
 library(tidyverse)
+
+# funções utilitárias
+dia.da.semana <- function(w.day) {
+  case_match(
+    w.day,
+    1 ~ "domingo",
+    7 ~ "sábado",
+    .default = 
+      case_match(
+        w.day, 
+        2 ~ "segunda",
+        3 ~ "terça",
+        4 ~ "quarta",
+        5 ~ "quinta",
+        6 ~ "sexta",
+      ) |> 
+      str_c("-feira"),
+  )
+}
+
+`%!in%` <- negate(`%in%`)
 ```
 
 ## Definindo os parâmetros da busca
@@ -234,7 +255,7 @@ Mas antes, vou montar o dataframe com os dias que retornaram direito.
 
 (
   skeets.dias.ok <-
-  skeets.cblol.por.dia[!dias.buscas %in% dias.a.refinar] |>
+  skeets.cblol.por.dia[dias.buscas %!in% dias.a.refinar] |>
   map(\(x) x$skeets) |>
   list_rbind()
 )
@@ -317,7 +338,7 @@ Salvando os skeets de dias sem excesso de skeets.
 
 (
 skeets.12h.ok <-
-  skeets.cblol.por.12h[!blocos.12h.buscas %in% blocos.12h.a.refinar] |>
+  skeets.cblol.por.12h[blocos.12h.buscas %!in% blocos.12h.a.refinar] |>
   map(\(x) x$skeets) |>
   list_rbind()
 )
@@ -391,7 +412,7 @@ skeets.cblol.por.6h <-
 
 (
   skeets.6h.ok <-
-  skeets.cblol.por.6h[!blocos.6h.buscas %in% blocos.6h.a.refinar] |>
+  skeets.cblol.por.6h[blocos.6h.buscas %!in% blocos.6h.a.refinar] |>
   map(\(x) x$skeets) |>
   list_rbind()
 )
@@ -465,7 +486,7 @@ skeets.cblol.por.3h <-
 
 (
   skeets.3h.ok <-
-    skeets.cblol.por.3h[!blocos.3h.buscas %in% blocos.3h.a.refinar] |>
+    skeets.cblol.por.3h[blocos.3h.buscas %!in% blocos.3h.a.refinar] |>
     map(\(x) x$skeets) |>
     list_rbind()
 )
@@ -535,7 +556,7 @@ blocos.1h.a.refinar <-
 
 (
   skeets.1h.ok <-
-    skeets.cblol.por.1h[!blocos.1h.buscas %in% blocos.1h.a.refinar] |>
+    skeets.cblol.por.1h[blocos.1h.buscas %!in% blocos.1h.a.refinar] |>
     map(\(x) x$skeets) |>
     list_rbind()
 )
@@ -608,7 +629,7 @@ skeets.cblol.por.30min <-
 
 (
   skeets.30min.ok <-
-    skeets.cblol.por.30min[!blocos.30min.buscas %in% blocos.30min.a.refinar] |>
+    skeets.cblol.por.30min[blocos.30min.buscas %!in% blocos.30min.a.refinar] |>
     map(\(x) x$skeets) |>
     list_rbind()
 )
@@ -682,7 +703,7 @@ skeets.cblol.por.10min <-
 
 (
   skeets.10min.ok <-
-    skeets.cblol.por.10min[!blocos.10min.buscas %in% blocos.10min.a.refinar] |>
+    skeets.cblol.por.10min[blocos.10min.buscas %!in% blocos.10min.a.refinar] |>
     map(\(x) x$skeets) |>
     list_rbind()
 )
@@ -756,7 +777,7 @@ skeets.cblol.por.5min <-
 
 (
   skeets.5min.ok <-
-    skeets.cblol.por.5min[!blocos.5min.buscas %in% blocos.5min.a.refinar] |>
+    skeets.cblol.por.5min[blocos.5min.buscas %!in% blocos.5min.a.refinar] |>
     map(\(x) x$skeets) |>
     list_rbind()
 )
