@@ -279,38 +279,74 @@ my.get.likes <-
   )
 ```
 
+Verificando quais likes já foram baixados e eliminando da busca
+
+```{r}
+#| label: corta-likes-ja-baixados
+#| dependson: separa-skeets-curto, junta-skeets-threads
+
+(
+  likes.baixados <- 
+    list.files(
+      path = "Dados/likes", 
+      pattern = "*.rds"
+    ) |> 
+    str_remove("\\..*$") |> 
+    str_replace("^", "at://did:plc:") |> 
+    str_replace("-", "/app.bsky.feed.post/")
+) |> 
+  length()
+
+(
+  likes.a.baixar <- 
+    skeets.curto$uri.post |> 
+    setdiff(likes.baixados)
+) |> 
+  length()
+```
+
 Puxando os *likes* dos skeets coletados
 
 ```{r}
 #| label: puxa-likes
-#| dependson: def-my.get.likes, separa-did-data-uri-to, junta-skeets-threads
+#| dependson: def-my.get.likes, corta-likes-ja-baixados
 
 dump.cat("============================")
 dump.cat("buscando likes")
 
-usuarios.likes <- 
-  map2(
-    skeet$uri,
-    seq_along(skeet$uri),
+likes <- 
+  walk2(
+    likes.a.baixar,
+    seq_along(likes.a.baixar),
     function(uri, i, n) {
       dump.cat("---------")
-      dump.cat("i =", i, "/", n, "; uri=", uri)
-      limite <- 6000
-      tentativa <- my.get.likes(uri, limit = limite)
-      dump.cat("limite =", limite, "; puxou =", nrow(tentativa))
-      while (nrow(tentativa) > limite) {
-        limite <- limite * 2
-        tentativa <- my.get.likes(uri, limit = limite)
-        dump.cat("limite =", limite, "; puxou =", nrow(tentativa))
-      }
+      dump.cat("i =", i, "/", n, "; uri =", uri, "; hora =", Sys.time())
+      # limite <- 6000
+      tic()
+      like <- my.get.likes(uri, limit = Inf)
+      dump.cat("limite =", limite, "; puxou =", nrow(like))
+      # while (nrow(like) > limite) {
+      #   limite <- limite * 2
+      #   like <- my.get.likes(uri, limit = limite)
+      #   dump.cat("limite =", limite, "; puxou =", nrow(like))
+      # }
+      tempo <- toc()
+      nome <- 
+        uri |> 
+        str_remove("at://did:plc:") |> 
+        str_replace("/app.bsky.feed.post/", "-")
+      dump.cat(
+        "puxou =", nrow(like),
+        "; tempo =", tempo[[2]] - tempo[[1]],
+        "; file =", nome
+      )
+      write_rds(
+        like, 
+        file = str_c("Dados/likes/", nome, ".rds")
+      )
     },
-    n = nrow(skeets)
-  ) |> 
-  list_rbind()
-  
-# para uso temporário
-write_rds(usuarios.likes, file = "Dados/usuarios-likes.rds")
-# usuarios.likes <- read_rds("Dados/usuarios-likes.rds")
+    n = length(likes.a.baixar)
+  )
 ```
 
 ## Buscando users que deram reposts em todos esses skeets 
