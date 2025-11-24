@@ -18,6 +18,7 @@ library(dplyr)
 library(lubridate)
 library(purrr)
 library(tidyverse)
+library(tictoc)
 
 # funções utilitárias
 
@@ -260,6 +261,8 @@ De qualquer forma, tem que ver se precisa puxar mais algum dado do Bluesky ou se
 
 Definindo a função de busca de perfis que deram *like* que faz tratamento de erros de busca
 
+[AQUI!!!]{.mark}
+
 ```{r}
 #| label: def-my.get.likes
 
@@ -267,7 +270,7 @@ my.get.likes <-
   insistently(
     f = get_likes, 
     quiet = FALSE,
-    rate = rate_backoff(max_times = 5)
+    rate = rate_backoff(pause_min = 0.1, max_times = 5)
   )
 ```
 
@@ -277,27 +280,37 @@ Puxando os *likes* dos skeets coletados
 #| label: puxa-likes
 #| dependson: def-my.get.likes, separa-did-data-uri-to, junta-skeets-threads
 
+dump.cat("============================")
+dump.cat("buscando likes")
 
 usuarios.likes <- 
-  uri |> 
-  map_dfr(
-    \(uri) {
-      print(uri)
-      limite <- 1000
+  map2(
+    skeet$uri,
+    seq_along(skeet$uri),
+    function(uri, i, n) {
+      dump.cat("---------")
+      dump.cat("i =", i, "/", n, "; uri=", uri)
+      limite <- 6000
       tentativa <- my.get.likes(uri, limit = limite)
+      dump.cat("limite =", limite, "; puxou =", nrow(tentativa))
       while (nrow(tentativa) > limite) {
         limite <- limite * 2
         tentativa <- my.get.likes(uri, limit = limite)
+        dump.cat("limite =", limite, "; puxou =", nrow(tentativa))
       }
-    }
-  )
-
+    },
+    n = nrow(skeets)
+  ) |> 
+  list_rbind()
+  
 # para uso temporário
 write_rds(usuarios.likes, file = "Dados/usuarios-likes.rds")
 # usuarios.likes <- read_rds("Dados/usuarios-likes.rds")
 ```
 
 ## Buscando users que deram reposts em todos esses skeets 
+
+[AQUI!!!]{.mark}
 
 ```{r}
 #| label: def-my.get.reposts
@@ -314,12 +327,12 @@ my.get.reposts <-
 #| label: puxa-reposts
 #| dependson: junta-skeets-threads, def-my.get.reposts, puxa-likes
 
-usuarios.reposts <- 
-  uri |> 
+reposts <- 
+  skeets$uri |> 
   map_dfr(
     \(uri) {
       print(uri)
-      limite <- 1000
+      limite <- 6000
       tentativa <- my.get.reposts(uri, limit = limite)
       while (nrow(tentativa) > limite) {
         limite <- limite * 2
