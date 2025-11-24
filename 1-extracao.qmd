@@ -445,17 +445,6 @@ reposts <-
 # falta fazer
 ```
 
-## Salvando Tudo!!!
-
-[TO-DO!!!]{.mark}
-
-```{r}
-#| label: salva-posts-users
-#| dependson: junta-skeets-threads, junta-users
-
-# Falta fazer
-```
-
 ## Lembrar de verificar se usou, se precisa usar ou se não precisa
 
 Funções de extração já usadas:
