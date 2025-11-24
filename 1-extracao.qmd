@@ -445,6 +445,28 @@ reposts <-
 # falta fazer
 ```
 
+## Buscando *followers*
+
+[TO-DO!!!]{.mark}
+
+```{r}
+#| label: puxa-followers
+#| dependson: junta-users
+
+# falta fazer
+```
+
+## Buscando *follows*
+
+[TO-DO!!!]{.mark}
+
+```{r}
+#| label: puxa-follows
+#| dependson: junta-users
+
+# falta fazer
+```
+
 ## Lembrar de verificar se usou, se precisa usar ou se não precisa
 
 Funções de extração já usadas:
