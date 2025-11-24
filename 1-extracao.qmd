@@ -271,7 +271,7 @@ De qualquer forma, tem que ver se precisa puxar mais algum dado do Bluesky ou se
 # falta fazer
 ```
 
-## Buscando users que deram like em todos esses skeets 
+## Buscando *likes* dos skeets
 
 Definindo a função de busca de perfis que deram *like* que faz tratamento de erros de busca
 
@@ -359,7 +359,7 @@ likes <-
   )
 ```
 
-## Buscando users que deram reposts em todos esses skeets 
+## Buscando *reposts* dos skeets
 
 [AQUI!!!]{.mark}
 
