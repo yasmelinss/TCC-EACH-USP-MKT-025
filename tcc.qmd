@@ -407,13 +407,12 @@ A centralidade de intermediação de Freeman ($c_i^{BET}$), medida de centralida
 
 ## Tecnologias Utilizadas
 
-:::callout-note
+:::callout
+Inicialmente, realizou-se uma busca por artigos científicos indexados no Portal de Periódicos CAPES, com o auxílio do acesso CAFe (Comunidade Acadêmica Federada), que permite que universitários acadêmicos acessem toda a base. A natureza da primeira parte do trabalho é ser descritiva-exploratória, com abordagem quanti-qualitativa, a fim de entregar um embasamento teórico consiso.
 
-Inicialmente, foi-se realizada uma busca a artigos científicos indexados no Portal de Periódicos da CAPFE, (CAPES Periódicos), com o auxílio do acesso CAFe (Comunidade Academica Federada), que permite que universitários acadêmicos acessem toda a base. A natureza da primeira parte do trabalho é ser descritiva-exploratória, com abordagem quanti-qualitativa, a fim de entregar um embasamento teórico consiso.
+Segundo princípios da Netnografia, defendida por @Hide2005, pesquisar utilizando a internet como objeto de estudo explicita o caráter multidisciplinar e multiparadigmático das ciências sociais, que, com a concepção do conceito de netnografia e comunidade online, "moldou uma geração de estudos".
 
-Segundo princípios da Netnografia, defendida por @Hide2005, pesquisar utilizando a internet como objeto de estudo explicita o caráter multidisciplinar e multiparadigmático das ciências sociais, que, com a concepção do conceito de etnografia e comunidade online, segundo a mesma autora, "moldou uma geração de estudos".
-
-A Análise de Redes Sociais (ARS) pode ser caracterizado como um método etnografia online, a fim de analisar discursos mediados por computador, com potencial de moldar a compreensão a cerca do fenômeno da utilização da internet por pessoas [@Hide,2005].
+A Análise de Redes Sociais (ARS) pode ser caracterizada como um método de netnografia online, com objetivo de analisar discursos mediados por computador e com potencial de moldar a compreensão a cerca do fenômeno da utilização da internet por pessoas [@Hide2005].
 
 
 -Objetivo: descritiva e exploratória (dificilmente aplicada em marketing)
@@ -428,7 +427,8 @@ A Análise de Redes Sociais (ARS) pode ser caracterizado como um método etnogra
 Achar alguma bibliografia pertinente como espécie de introdução
 :::
 
-A linguagem R tem se consolidado como uma das principais ferramentas da ciência de dados contemporânea, oferecendo recursos avançados para manuseio de dados, análise estatística, modelagem e visualização de informações. De acordo com @Wickham2017, o R é "uma linguagem poderosa e flexível, projetada para análise estatística e visualização de dados, tornando-se uma das principais ferramentas da ciência de dados moderna”. No presente trabalho, o R é utilizado para realizar a mineração, tratamento e formatação de dados provenientes da rede social Bluesky.
+A linguagem R têm se consolidado como uma das principais ferramentas da ciência de dados contemporânea, oferecendo recursos avançados para manuseio de dados, análise estatística, modelagem e visualização de informações. De acordo com @Wickham2017, o R é "uma linguagem poderosa e flexível, projetada para análise estatística e visualização de dados, tornando-se uma das principais ferramentas da ciência de dados moderna”. No presente trabalho, o R é utilizado para realizar a mineração, tratamento e formatação de dados provenientes da rede social Bluesky.
+
 
 ### Mineração de Dados
 
@@ -468,9 +468,9 @@ https://docs.bsky.app/docs/api/app-bsky-feed-get-post-thread
 Repositório: https://github.com/bluesky-social
 
 
-Para a realização desta pesquisa netnográfica, como base para o processo de mineração dos dados, foi-se utilizada a documentação oficial do Protocolo AT utilizado pela Bluesky. Essa etapa teve caráter exploratório, visando compreender o funcionamento estrutural da rede social e orientar a construção  do código de mineração de dados a partir da API.
+Para a realização desta pesquisa netnográfica, utilizou-se da documentação oficial do Protocolo AT do Bluesky como base para o processo de mineração dos dados. Essa etapa teve caráter exploratório, visando compreender o funcionamento estrutural da rede social e orientar a construção do código de mineração de dados a partir da API.
 
-Durante essa fase exploratória, identificou-se a biblioteca para R chamada `{atrrr}`. Essa biblioteca implemeta o protocolo AT e permite realizar chamadas à API da plataforma, facilitando assim, o processo de extração dos dados necessários para o desenvolvimento da pesquisa.
+Durante a fase exploratória, identificou-se a biblioteca para o R chamada `{atrrr}`. Essa biblioteca implemeta o protocolo AT e permite realizar chamadas à API da plataforma, facilitando assim, o processo de extração dos dados necessários para o desenvolvimento da pesquisa.
 :::
 
 :::callout-note
@@ -524,7 +524,7 @@ A partir das métricas estabelecidas durante a mineração de dados, @Bruns2012 
 ## Fonte dos Dados
 
 :::callout-note
-O Bluesky é uma rede social de API aberta, construída a partir do Protocolo AT, uma fundação descentralizada para redes sociais públicas. Lançada ao público oficialmente em 2024, uma das proposta da rede social que jsutificam a escolha da mesma para objeto deste estudo é possuir acesso a sua construção e arquitetura. A abertura do sistema proporciona a interação de seus conjuntos de dados para a moderação de conteúdos de mídia social e gerenciamento de comunidades (tanto partindo de usuários como partindo de pesquisadores). [@Kleppmann2024]
+O Bluesky é uma rede social de API aberta construída a partir do Protocolo AT, uma fundação descentralizada para redes sociais públicas. Lançada ao público oficialmente em 2024, uma das propostas da rede social que justificam a escolha da mesma para objeto deste estudo é o acesso aberto à sua arquitetura. A abertura do sistema proporciona a interação de seus conjuntos de dados para a moderação de conteúdos de mídia social e gerenciamento de comunidades (tanto partindo de usuários como partindo de pesquisadores). [@Kleppmann2024]
 
 
 - Mencionar BlueSky

@@ -184,12 +184,23 @@ mapa_calor <-
     linewidth = 0.9,
     linetype = "dashed"
   ) +
-  scale_x_datetime(
+  scale_x_date(
     date_labels = "%d/%m/%Y",
     date_breaks = "7 days"
+  ) +
+  annotate(
+    "rect",
+    xmin = as.Date("2024-09-06"),
+    xmax = as.Date("2024-09-07") + 1,
+    ymin = 13,
+    ymax = 19,
+    colour = "green",                   # borda visível
+    fill = scales::alpha("white", 0),   # preenchimento 100% transparente
+    linewidth = 1
   )
+
 ggsave(
-  "Imagens/mapa_de_calor.png",
+  "Imagens/mapa_de_calor2.png",
   plot = mapa_calor,
   width = 8,      # largura em polegadas
   height = 3,      # altura em polegadas
