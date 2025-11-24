@@ -43,11 +43,20 @@ dia.da.semana <- function(w.day) {
 `%!in%` <- negate(`%in%`)
 
 # para rastrear enquanto renderiza
-out <- "Dados/dump.txt"
-cat("", file = out)  # zera o arquivo
-dump.cat <- function(...) cat(..., "\n", file = out, append = TRUE)
-dump.print <- function(nome, objeto) dump.cat(nome, "=", objeto)
-
+dump.file <- ""
+dump.inicia <- function(nome = "") {
+  dump.file <<- 
+    str_c("Dados/", nome, "/dump.txt") |> 
+    str_replace("//", "/")
+  cat("", file = dump.file, append = FALSE)  # zera o arquivo
+}
+dump.inicia()
+dump.cat <- function(...) {
+  cat(..., "\n", file = dump.file, append = TRUE)
+}
+dump.print <- function(nome, objeto) {
+  dump.cat(nome, "=", objeto)
+}
 ```
 
 ## Definindo os parâmetros da busca
@@ -311,6 +320,7 @@ Puxando os *likes* dos skeets coletados
 #| label: puxa-likes
 #| dependson: def-my.get.likes, corta-likes-ja-baixados
 
+dump.inicia("likes")
 dump.cat("============================")
 dump.cat("buscando likes")
 
@@ -395,6 +405,7 @@ Puxando os *reposts* dos skeets coletados
 #| label: puxa-reposts
 #| dependson: def-my.get.reposts, corta-reposts-ja-baixados
 
+dump.inicia("reposts")
 dump.cat("============================")
 dump.cat("buscando reposts")
 
