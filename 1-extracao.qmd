@@ -330,11 +330,11 @@ likes <-
     seq_along(likes.a.baixar),
     function(uri, i, n) {
       dump.cat("---------")
-      dump.cat("i =", i, "/", n, "; uri =", uri, "; hora =", Sys.time())
+      dump.cat("i =", i, "/", n, "; uri =", uri, "; hora =", Sys.time() |> as.character())
       # limite <- 6000
       tic()
       like <- my.get.likes(uri, limit = Inf)
-      dump.cat("limite =", limite, "; puxou =", nrow(like))
+      # dump.cat("limite =", limite, "; puxou =", nrow(like))
       # while (nrow(like) > limite) {
       #   limite <- limite * 2
       #   like <- my.get.likes(uri, limit = limite)
@@ -409,14 +409,13 @@ dump.inicia("reposts")
 dump.cat("============================")
 dump.cat("buscando reposts")
 
-my.get.reposts(uri, limit = Inf)
 reposts <- 
   walk2(
     reposts.a.baixar,
     seq_along(reposts.a.baixar),
     function(uri, i, n) {
       dump.cat("---------")
-      dump.cat("i =", i, "/", n, "; uri =", uri, "; hora =", Sys.time())
+      dump.cat("i =", i, "/", n, "; uri =", uri, "; hora =", Sys.time() |> as.character())
       # limite <- 6000
       tic()
       repost <- my.get.reposts(uri, limit = Inf)
