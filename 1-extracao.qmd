@@ -360,31 +360,78 @@ my.get.reposts <-
   insistently(
     f = get_reposts, 
     quiet = FALSE,
-    rate = rate_backoff(max_times = 5)
+    rate = rate_backoff(pause_min = .1, max_times = 5)
   )
 ```
 
+Verificando quais likes já foram baixados e eliminando da busca
+
+```{r}
+#| label: corta-reposts-ja-baixados
+#| dependson: separa-skeets-curto, junta-skeets-threads
+
+(
+  reposts.baixados <- 
+    list.files(
+      path = "Dados/reposts", 
+      pattern = "*.rds"
+    ) |> 
+    str_remove("\\..*$") |> 
+    str_replace("^", "at://did:plc:") |> 
+    str_replace("-", "/app.bsky.feed.post/")
+) |> 
+  length()
+(
+  reposts.a.baixar <- 
+    skeets.curto$uri.post |> 
+    setdiff(reposts.baixados)
+) |> 
+  length()
+```
+
+Puxando os *reposts* dos skeets coletados
+
 ```{r}
 #| label: puxa-reposts
-#| dependson: junta-skeets-threads, def-my.get.reposts, puxa-likes
+#| dependson: def-my.get.reposts, corta-reposts-ja-baixados
 
+dump.cat("============================")
+dump.cat("buscando reposts")
+
+my.get.reposts(uri, limit = Inf)
 reposts <- 
-  skeets$uri |> 
-  map_dfr(
-    \(uri) {
-      print(uri)
-      limite <- 6000
-      tentativa <- my.get.reposts(uri, limit = limite)
-      while (nrow(tentativa) > limite) {
-        limite <- limite * 2
-        tentativa <- my.get.reposts(uri, limit = limite)
-      }
-    }
+  walk2(
+    reposts.a.baixar,
+    seq_along(reposts.a.baixar),
+    function(uri, i, n) {
+      dump.cat("---------")
+      dump.cat("i =", i, "/", n, "; uri =", uri, "; hora =", Sys.time())
+      # limite <- 6000
+      tic()
+      repost <- my.get.reposts(uri, limit = Inf)
+      # dump.cat("limite =", limite, "; puxou =", nrow(repost))
+      # while (nrow(repost) > limite) {
+      #   limite <- limite * 2
+      #   repost <- my.get.reposts(uri, limit = limite)
+      #   dump.cat("limite =", limite, "; puxou =", nrow(repost))
+      # }
+      tempo <- toc()
+      nome <- 
+        uri |> 
+        str_remove("at://did:plc:") |> 
+        str_replace("/app.bsky.feed.post/", "-")
+      dump.cat(
+        "puxou =", nrow(repost),
+        "; tempo =", tempo[[2]] - tempo[[1]],
+        "; file =", nome
+      )
+      write_rds(
+        repost, 
+        file = str_c("Dados/reposts/", nome, ".rds")
+      )
+    },
+    n = length(reposts.a.baixar)
   )
-
-# para uso temporário
-write_rds(usuarios.reposts, file = "Dados/usuarios-reposts.rds")
-# usuarios.reposts <- read_rds("Dados/usuarios-reposts.rds")
 ```
 
 ## Juntando todos os users, vindos de posts, de likes ou reposts
