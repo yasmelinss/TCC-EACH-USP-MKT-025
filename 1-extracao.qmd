@@ -195,31 +195,36 @@ any(duplicated(skeets$uri))
 Separando os dados mais úteis
 
 ```{r}
-#| label: separa-did-data-uri-to
+#| label: separa-skeets-curto
 #| dependson: puxa-skeets-dia
 
-autores <- 
-  skeets$author_data |>
-  map_chr(\(x) x$did)
-quando <- 
-  skeets$post_data |>
-  map_chr(\(x) x$createdAt)
-uri <- skeets$uri
-to <- skeets$in_reply_to
+skeets.curto <- 
+  skeets |> 
+  mutate(
+    did.autor = 
+      author_data |>
+      map_chr(\(x) x$did),
+    data.post = 
+      post_data |>
+      map_chr(\(x) x$createdAt),
+    uri.post = uri,
+    uri.reply = in_reply_to,
+    .keep = "none"
+  )
 ```
 
 Salvando os skeets baixados
 
 ```{r}
 #| label: salva-skeets
-#| dependson: puxa-skeets-dia
+#| dependson: puxa-skeets-dia, separa-skeets-curto
 
 write_rds(skeets, "Dados/skeets-cblol.rds")
-save(autores, quando, uri, to, file = "Dados/curtos.rda")
+write_rds(skeets.curto, "Dados/skeets-curto.rds")
 
 ### pro caso de precisar carregar rápido:
-# skeets <- read_rds("Dados/skeets-cblol.rds")
-# load(file = "Dados/curtos.rda")
+# skeets <- read_rds("Dados/skeets.rds")
+# skeets.curto <- read_rds("Dados/skeets-curto.rds")
 
 ### por ora, não está precisando rodar isto pra economizar espaço
 # rm(skeets)
@@ -241,7 +246,7 @@ De qualquer forma, tem que ver se precisa puxar mais algum dado do Bluesky ou se
 
 ```{r}
 #| label: puxa-threads
-#| dependson: separa-did-data-uri-to
+#| dependson: separa-skeets-curto
 
 # falta fazer
 ```
