@@ -74,6 +74,26 @@ head(likes_por_dia)
 ```
 
 ```{r}
+#| label: summarise-dados
+
+
+likes_stats <- likes_por_dia |>
+  summarise(
+    media = mean(frequencia),
+    mediana = median(frequencia),
+    minimo = min(frequencia),
+    maximo = max(frequencia),
+    desvio_padrao = sd(frequencia),
+    total_likes = sum(frequencia),
+    dias = n()
+  )
+
+likes_stats
+
+```
+
+
+```{r}
 # criando estrutura do mapa ----
 
 ggplot(
@@ -196,20 +216,4 @@ likes_join <-
 
 
 
-```{r}
-
-likes_stats <- likes_por_dia |>
-  summarise(
-    media = mean(frequencia),
-    mediana = median(frequencia),
-    minimo = min(frequencia),
-    maximo = max(frequencia),
-    desvio_padrao = sd(frequencia),
-    total_likes = sum(frequencia),
-    dias = n()
-  )
-
-likes_stats
-
-```
 
