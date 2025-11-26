@@ -194,3 +194,22 @@ likes_join <-
   left_join(likes_df, skeets.curto, by = c("uri.post" = "uri.post"))
 ```
 
+
+
+```{r}
+
+likes_stats <- likes_por_dia |>
+  summarise(
+    media = mean(frequencia),
+    mediana = median(frequencia),
+    minimo = min(frequencia),
+    maximo = max(frequencia),
+    desvio_padrao = sd(frequencia),
+    total_likes = sum(frequencia),
+    dias = n()
+  )
+
+likes_stats
+
+```
+
