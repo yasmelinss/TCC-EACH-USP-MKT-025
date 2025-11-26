@@ -1,5 +1,33 @@
 ---
-title: "tratamento_likes"
-format: html
+title: "Tratamento de dados de Likes"
+format: 
+  html:
+    toc: true
+    toc-depth: 5
+    toc-location: left
+    embed-resources: true
+execute: 
+  cache: true
 ---
+
+```{r}
+#| label: setup
+
+library(dplyr)
+library(purrr)
+
+```
+
+
+```{r}
+#| label: data-frame-likes
+
+caminho_pasta <- "Dados/likes"
+
+df_likes <- list.files(path = caminho_pasta, pattern = "\\.rds$", full.names = TRUE) |>
+  map(readRDS) |>
+  list_rbind()
+
+head(df_likes)
+```
 
