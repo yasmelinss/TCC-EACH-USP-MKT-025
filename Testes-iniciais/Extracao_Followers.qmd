@@ -60,7 +60,7 @@ querys <-
 posts <-
   search_post(
     q = querys,
-    limit = 10L,
+    limit = 1L,
     since = "2024-08-30",
     until = "2024-09-08"
   )|>
@@ -75,6 +75,19 @@ view(posts)
 
 
 ```{r}
+seguindo <-
+  get_followers(
+    'yasmelinss.bsky.social',
+    limit = Inf
+  )
+
+# para uso temporário
+#write_rds(seguindo, file = "Dados/seguidores_ilha-das-lendas.rds")
+```
+
+
+
+```{r}
 #| label: listagem-seguidores 
 #| dependson: extracao-search-post
 
@@ -86,41 +99,24 @@ safe_erros_get_followers <-
   )
 
 followers <- 
-  posts$author_handle |>
+  seguindo$actor_handle |>
   purrr::map_dfr(
     function(seguidores) {
       safe_erros_get_followers(
-        actor = seguidores,
-        limit = 10
+        actor = seguidores
       ) |>
       dplyr::mutate(from = seguidores)
     }
   ) |>
   dplyr::rename(to = actor_handle) |>
   dplyr::select(from, to)
-  view(followers)
+
+# para uso temporário
+#write_rds(followers, file = "Dados/seguidores_de_seguidores_ilha-das-lendas.rds")
+
 ```
 
 
-```{r}
-#| label: teste-likes
-#| eval: false
-
-likes <- 
-  posts$author_handle |>
-  purrr::map_dfr(
-    function(x) {
-      get_likes(
-        post_url = "https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x",
-      ) |>
-      mutate(from = x)
-
-    }
-  ) |>
-  dplyr::rename(to = actor_handle) |>
-  dplyr::select(from, to)
-  view(likes)
-```
 
 ```{r}
 #| label: listagem-seguidores-de-seguidores
@@ -146,6 +142,9 @@ followers_of_followers <-
   dplyr::rename(to = actor_handle) |>
   dplyr::select(from, to)
 
+
+# para uso temporário
+#write_rds(followers, file = "Dados/seguidores_de_seguidores_de_seguidores_ilha-das-lendas.rds")
 ```
 
 
@@ -204,6 +203,54 @@ ggraph::ggraph(
 
 ```
 
+```{r}
+
+
+library(tidygraph)
+library(ggraph)
+library(igraph)
+library(dplyr)
+
+# Criar grafo
+graph <- graph_from_data_frame(followers, directed = TRUE)
+
+# Transformar em tbl_graph para usar centralidade
+g <- as_tbl_graph(graph) |> 
+  mutate(pagerank = centrality_pagerank())
+
+# Plot
+ggraph(g, layout = "fr") +
+  geom_edge_link(alpha = 0.3) +
+
+  # Nós proporcionais ao PageRank
+  geom_node_point(
+    aes(size = pagerank),
+    color = "lightblue"
+  ) +
+
+  # Texto com duas camadas (borda branca + azul)
+  geom_node_text(
+    aes(label = name),
+    color = "white",
+    size = 3,
+    vjust = 1.1,
+    fontface = "bold"
+  ) +
+  geom_node_text(
+    aes(label = name),
+    color = "blue",
+    size = 3,
+    vjust = 1.1
+  ) +
+
+  # Escala de tamanho ajustada
+  scale_size_continuous(
+    range = c(15, 2),   # <<< aqui você aumenta o tamanho máximo
+    guide = "none"
+  ) +
+  theme_void()
+
+```
 
 ```{r}
 #| label: grafo-de-relacao-seguidores-seguidores
@@ -284,7 +331,6 @@ grafo_tbl <-
 grafo_tbl <- 
   grafo_tbl |>
   mutate(
-    grau = centrality_degree(mode = "all"),
     pagerank = centrality_pagerank()
   ) |>
   arrange(pagerank)|>
@@ -295,31 +341,34 @@ grafo_tbl <-
       NA
     )
   )
+```
 
 
+```{r}
 # 4️⃣ Visualização com ggraph
 ggraph(
   grafo_tbl, 
-  layout = "fr"
-) + # layout Fruchterman-Reingold
+  layout = "stress"
+) + 
+  # layout Fruchterman-Reingold
   geom_edge_link(
-    alpha = 0.8,
+    alpha = 0.1,
     colour = "grey70"
   ) +
   geom_node_point(
     aes(
-      size = grau, 
+      size = 0.1, 
       color = pagerank
     ),
     alpha = 0.8
   ) +
   geom_node_label(
     aes(
-      label = name,
+      label = name
     # width = nchar(name)
     ),
     #height = 3,
-    size = 2.5,
+    size = 3.2,
     repel = TRUE,        # evita sobreposição de rótulos
     color = "black"
   ) +
@@ -335,4 +384,78 @@ ggraph(
     color = "PageRank"
   )
 ```
+
+
+```{r}
+
+
+followers <-
+  readRDS("Dados/seguidores_de_seguidores_ilha-das-lendas.rds")
+
+
+followers_of_followers <-
+  readRDS("Dados/seguidores_de_seguidores_de_seguidores_ilha-das-lendas.rds")
+```
+
+
+```{r}
+rede_total <- dplyr::bind_rows( followers, followers_of_followers ) |> dplyr::distinct()
+
+grafo <- graph_from_data_frame(rede_total, directed = TRUE)
+
+grafo_tbl <- as_tbl_graph(grafo)
+
+
+grafo_tbl <- grafo_tbl |>
+  mutate(
+    grau = centrality_degree(mode = "all"),
+    pagerank = centrality_pagerank()
+  )
+
+
+```
+
+```{r}
+grafo_undirected <- grafo_tbl |> 
+  convert(to_undirected)
+
+grafo_undirected <- grafo_undirected |>
+  mutate(
+    comunidade_leiden = as.factor(group_leiden())
+  )
+
+grafo_tbl <- grafo_tbl |> 
+  mutate(comunidade_leiden = grafo_undirected$comunidade_leiden)
+
+comunidades_df <- grafo_undirected |> 
+  as_tibble() |> 
+  select(name, comunidade_leiden)
+
+# Juntar no grafo original PELO nome do nó
+grafo_tbl <- grafo_tbl |> 
+  left_join(comunidades_df, by = "name")
+```
+
+
+```{r}
+grafo_tbl |> as_tibble() |> glimpse()
+
+
+```
+
+
+
+```{r}
+ggraph(grafo_tbl, layout = "stress") +
+  geom_edge_link(alpha = 0.05) +
+  geom_node_point(
+    aes(color = comunidade_leiden, size = grau),
+    alpha = 0.9
+  ) +
+  theme_void()
+
+
+
+```
+
 

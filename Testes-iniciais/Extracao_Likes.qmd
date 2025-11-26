@@ -95,4 +95,24 @@ View(likes)
 
 ```
 
+```{r}
+#| label: teste-likes
+#| eval: false
+
+likes <- 
+  posts$author_handle |>
+  purrr::map_dfr(
+    function(x) {
+      get_likes(
+        post_url = "https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x",
+      ) |>
+      mutate(from = x)
+
+    }
+  ) |>
+  dplyr::rename(to = actor_handle) |>
+  dplyr::select(from, to)
+  view(likes)
+```
+```
 
