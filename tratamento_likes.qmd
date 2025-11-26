@@ -144,7 +144,17 @@ ggplot(
     color = "red",
     linewidth = 0.9,
     linetype = "dashed"
-  )
+  ) +
+  theme_bw()
+
+#zoom para ver melhor os de valor baixo
+# + 
+#  coord_cartesian(
+#    ylim = c(
+#      0, 
+#      5000
+#    )
+#  )
   
 ```
 
