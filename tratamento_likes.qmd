@@ -131,9 +131,9 @@ ggplot(
 ) +
   geom_col() +
   scale_fill_viridis_c(
-    option = "magma", 
-    direction = -1,
-#    trans = "log2"
+    option = "inferno", 
+    direction = 1,
+    trans = "log10"
     ) +
   labs(
     title = "Frequência de likes por dia",
