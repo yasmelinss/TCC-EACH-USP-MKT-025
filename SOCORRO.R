@@ -10,7 +10,7 @@ library(tidyverse)
 
 
 skeets <-
-  readRDS("skeets-cblol.rds") |>
+  readRDS("Dados/skeets-cblol.rds") |>
   mutate(indexed_at = as.POSIXct(indexed_at))
 
 

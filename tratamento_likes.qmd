@@ -1,0 +1,104 @@
+---
+title: "Tratamento de dados de Likes"
+format: 
+  html:
+    toc: true
+    toc-depth: 5
+    toc-location: left
+    embed-resources: true
+execute: 
+  cache: true
+---
+
+```{r}
+#| label: setup
+
+library(dplyr)
+library(purrr)
+library(Hmisc)
+library(tidyverse)
+```
+
+
+```{r}
+#| label: data-frame-likes
+
+caminho_pasta <- "Dados/likes"
+
+df_likes <- list.files(path = caminho_pasta, pattern = "\\.rds$", full.names = TRUE) |>
+  map(readRDS) |>
+  list_rbind()
+
+head(df_likes)
+```
+
+```{r}
+#| label: likes-por-dia
+
+likes_por_dia <- 
+  df_likes |>
+  mutate(
+    dia = as.Date(created_at)
+    ) |>
+  filter(dia >= "2024-08-10", dia <= "2024-10-31") |>
+  count(dia, name = "frequencia")
+
+head(likes_por_dia)
+```
+
+```{r}
+# criando estrutura do mapa ----
+
+ggplot(
+  likes_por_dia,
+    aes(
+      x = dia, 
+      y = 1, 
+      fill = frequencia
+      )
+    ) +
+  
+  geom_tile() +
+    ggplot2::scale_fill_viridis_c(
+    option = "inferno",
+    trans = "log10"
+  ) +
+  
+  labs(
+    title = "Mapa de calor: Likes por dia",
+    x = "Dia",
+    y = NULL
+  ) +
+  
+  theme_minimal() +
+  ggplot2::theme(
+    axis.text.x = ggplot2::element_text(
+      angle = 45,
+      hjust = 1
+    )
+  ) +
+
+  ggplot2::geom_vline(
+    xintercept = base::as.POSIXct(c("2024-08-30", "2024-10-08")),
+    color = "red",
+    linewidth = 0.9,
+    linetype = "dashed"
+  ) +
+  
+  ggplot2::scale_x_date(
+    date_labels = "%d/%m/%Y",
+    date_breaks = "7 days"
+  )
+
+```
+
+```{r}
+
+ggplot(likes_por_dia, aes(x = dia, y = frequencia)) +
+  geom_col() +
+  labs(
+    title = "Frequência de likes por dia",
+    x = "Dia",
+    y = "Quantidade de likes"
+  ) +
+  theme_minimal()
