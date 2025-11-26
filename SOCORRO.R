@@ -1,3 +1,6 @@
+#Este é um script de teste TODO bagunçado não leve em consideração
+
+
 library(dplyr)
 library(lubridate)
 library(ggplot2)
@@ -41,7 +44,7 @@ ggplot(
     y = "Quantidade de postagens diárias"
   )
 
-#gráfico de densidade POR DIA E HORA
+#gráfico de densidade POR DIA (mas considera HORA)
 ggplot(
   posts_por_dia_e_hora,
   aes(
@@ -230,3 +233,136 @@ data.dia1 <- data |>
 #n de x coisa per group
 
 #seria algo como quantidade de posts por dia.
+
+
+
+
+
+#mapa user activity
+
+#o que eu quis dizer com isso????
+
+
+
+library(ggraph)
+#> Loading required package: ggplot2
+library(tidygraph)
+#>
+#> Attaching package: 'tidygraph'
+#> The following object is masked from 'package:stats':
+#>
+#>     filter
+
+# Create graph of highschool friendships
+graph <- as_tbl_graph(highschool) |>
+  mutate(Popularity = centrality_degree(mode = 'in'))
+
+# plot using ggraph
+ggraph(graph, layout = 'kk') +
+  geom_edge_fan(aes(alpha = after_stat(index)), show.legend = FALSE) +
+  geom_node_point(aes(size = Popularity)) +
+  facet_edges(~year) +
+  theme_graph(foreground = 'steelblue', fg_text_colour = 'white')
+
+
+
+
+
+
+
+
+
+
+
+# MÉTRICAS
+
+library(dplyr)
+
+skeets <-
+  readRDS("skeets-cblol.rds")
+
+library(dplyr)
+
+metricas_vertices <- skeets |>
+  mutate(
+    across(
+      c(likes_dados, likes_recebidos, replies_dados, replies_recebidos, n_postagens),
+      ~ coalesce(.x, 0)
+    )
+  )
+
+
+
+
+# REPLIES E QUOTES
+#Assim, já dá pra calcular alguma métrica de dinâmica entre os actors
+
+
+
+#uri, author_handle, reply_count, repost_count, like_count, quote_count, in_reply_to, in_reply_root, quotes.
+
+
+#tirando os NA
+quotes <- skeets[!is.na(skeets$quotes), ]
+
+
+#é um quote que contêm a query CBLOL.
+
+
+quotes_comuns <- quotes[!is.na(quotes$in_reply_to), ]
+
+
+são quotes que se respondem.
+
+
+
+Estabelecendo grandezas
+
+Likes - peso 1
+replie - peso 2
+repost - peso 2
+quote -peso 3
+post próprio - peso 4
+
+
+Já com relação às métricas dos vértices
+(que dariam larguras das bolinha e uma posição de maior
+centralidade ou "perifericidade" na representação gráfica do grafo)
+
+
+#SOMA LIKES
+skeets <-
+  readRDS("Dados/skeets-cblol.rds")
+
+likes_dados <-
+  skeets |>
+   filter(like_count > 0) |>
+  count(like_count) |>
+  mutate(produto = like_count * n)
+
+likes_dados |>
+  summarise(total = sum(produto))
+
+
+
+#Lendo os LIKES
+
+
+library(dplyr)
+library(purrr)
+
+caminho_pasta <- "Dados/likes/likes"
+
+df_final_tidy <- list.files(path = caminho_pasta, pattern = "\\.rds$", full.names = TRUE) |>
+  map(readRDS) |>
+  list_rbind()
+
+head(df_final_tidy)
+dim(df_final_tidy)
+
+
+
+
+
+
+
