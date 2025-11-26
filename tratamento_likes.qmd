@@ -17,6 +17,7 @@ library(dplyr)
 library(purrr)
 library(Hmisc)
 library(tidyverse)
+library(grDevices)
 ```
 
 
@@ -120,15 +121,35 @@ ggplot(
 
 ```{r}
 
-ggplot(likes_por_dia, aes(x = dia, y = frequencia)) +
+ggplot(
+  likes_por_dia,
+  aes(
+    x = dia,
+    y = frequencia,
+    fill = frequencia
+  )
+) +
   geom_col() +
+  scale_fill_viridis_c(
+    option = "magma", 
+    direction = -1,
+#    trans = "log2"
+    ) +
   labs(
     title = "Frequência de likes por dia",
-    x = "Dia",
-    y = "Quantidade de likes"
+    fill = "Likes"
   ) +
-  theme_minimal()
+  ggplot2::geom_vline(
+    xintercept = base::as.POSIXct(c(inicio.bloqueio, final.bloqueio)),
+    color = "red",
+    linewidth = 0.9,
+    linetype = "dashed"
+  )
+  
 ```
+
+
+
 
 
 
@@ -145,7 +166,7 @@ likes_df_2 <-
 
     df <- read_rds(arq)
 
-    nome <- basename(arq) |> str_remove("\\.rds$")
+    nome <- basename(arq) |> str_remove("*.rds")
 
     uri_post <- nome |>
       str_replace("^", "at://did:plc:") |>
