@@ -129,3 +129,37 @@ ggplot(likes_por_dia, aes(x = dia, y = frequencia)) +
   ) +
   theme_minimal()
 ```
+
+
+
+
+# 
+
+
+```{r}
+#| label: juntando-uri
+
+# não fuunciona
+likes_df_2 <- 
+  map_df(caminho_pasta, function(arq) {
+
+    df <- read_rds(arq)
+
+    nome <- basename(arq) |> str_remove("\\.rds$")
+
+    uri_post <- nome |>
+      str_replace("^", "at://did:plc:") |>
+      str_replace("-", "/app.bsky.feed.post/")
+
+    df |> mutate(uri.post = uri_post)
+  })
+
+```
+
+```{r}
+#| label: fazendo-join
+
+likes_join <- 
+  left_join(likes_df, skeets.curto, by = c("uri.post" = "uri.post"))
+```
+
