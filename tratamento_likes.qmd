@@ -23,24 +23,50 @@ library(tidyverse)
 ```{r}
 #| label: data-frame-likes
 
-caminho_pasta <- "Dados/likes"
+caminho_pasta <-
+  "Dados/likes"
 
-df_likes <- list.files(path = caminho_pasta, pattern = "\\.rds$", full.names = TRUE) |>
+df_likes <- 
+  list.files(
+    path = caminho_pasta, 
+    pattern = "\\.rds$", 
+    full.names = TRUE
+    ) |>
+  
   map(readRDS) |>
-  list_rbind()
+    list_rbind()
 
 head(df_likes)
 ```
+
+
+```{r}
+#| label: períodos
+ 
+inicio.bloqueio <- "30-08-2024" |> dmy()
+(inicio.busca <- inicio.bloqueio - 4 * dweeks())
+
+final.bloqueio <- "08-10-2024" |> dmy()
+(final.busca <- final.bloqueio + 2 * ddays() + 4 * dweeks())
+
+```
+
 
 ```{r}
 #| label: likes-por-dia
 
 likes_por_dia <- 
   df_likes |>
+  
   mutate(
-    dia = as.Date(created_at)
+    dia = dmy(
+      format(
+        created_at, 
+        "%d/%m/%Y"
+        )
+      )
     ) |>
-  filter(dia >= "2024-08-10", dia <= "2024-10-31") |>
+  filter(dia >= inicio.busca, dia <= final.busca) |>
   count(dia, name = "frequencia")
 
 head(likes_por_dia)
@@ -79,7 +105,7 @@ ggplot(
   ) +
 
   ggplot2::geom_vline(
-    xintercept = base::as.POSIXct(c("2024-08-30", "2024-10-08")),
+    xintercept = base::as.POSIXct(c(inicio.bloqueio, final.bloqueio)),
     color = "red",
     linewidth = 0.9,
     linetype = "dashed"
@@ -102,3 +128,4 @@ ggplot(likes_por_dia, aes(x = dia, y = frequencia)) +
     y = "Quantidade de likes"
   ) +
   theme_minimal()
+```
