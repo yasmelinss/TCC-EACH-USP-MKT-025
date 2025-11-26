@@ -1,0 +1,88 @@
+---
+title: "Primeiro Teste de Raspagem no Bluesky"
+author: "Yasmin Messias Lins"
+lang: pt-br
+format: html
+execute: 
+  cache: false
+---
+
+```{r}
+library(ggplot2)
+
+### Criar um conjunto de dados exemplo
+data <- data.frame(
+  x = rnorm(100),
+  y = rnorm(100)
+)
+### Criar um gráfico de dispersão
+ggplot(data, aes(x = x, y = y)) +
+  geom_point() +
+  labs(title = "Gráfico de Dispersão")
+```
+Ele oferece uma série de funções chamadas "verbos", que representam operações comuns de manipulação de dados (filter, select etc.).
+
+```{r}
+library(dplyr)
+### Criar um data frame exemplo
+data <- data.frame(
+  grupo = rep(c("A", "B"), each = 5),
+  valor = c(10, 20, 15, 25, 30, 5, 10, 15, 20, 25)
+)
+### Filtrar e sumarizar os dados
+resumo <- data |>
+  filter(valor > 15) |>
+  group_by(grupo) |>
+  summarise(media_valor = mean(valor))
+print(resumo)
+```
+Dados "tidy" são aqueles onde cada variável está em uma coluna, cada observação está em uma linha e cada valor está em uma célula. 
+
+```{r}
+library(tidyr)
+### Criar um data frame exemplo
+data <- data.frame(
+  id = 1:3,
+  tratamento_A = c(NA, 3, 1),
+  tratamento_B = c(2, NA, 4)
+)
+### Transformar o data frame em formato tidy
+data_tidy <- data |>
+  pivot_longer(cols = starts_with("tratamento"), names_to = "tratamento", values_to = "resultado")
+print(data_tidy)
+```
+
+Uma vez que você entenda os conceitos fundamentais, o purrr possibilita a substituição de muitos loops for por um código que é mais simples de escrever e mais legível.
+
+
+```{r}
+library(purrr)
+### Criar uma lista de números
+numeros <- list(1, 2, 3, 4, 5)
+### Aplicar uma função a cada elemento da lista
+resultados <- map(numeros, function(x) x^2)
+print(resultados)
+```
+
+Responsável pela criação de data frames modernos, que são mais eficientes e oferecem uma melhor experiência de impressão e ajudam a manter um código mais limpo e legível.
+
+```{r}
+library(tibble)
+### Criar um tibble
+data <- tibble(
+  x = 1:5,
+  y = 6:10
+)
+### Mostrar o tibble
+print(data)
+
+```
+```{r}
+ 
+tibble(
+  x = 1:5, 
+  y = 1, 
+  z = x ^ 2 + y
+)
+```
+

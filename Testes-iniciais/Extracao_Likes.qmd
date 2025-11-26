@@ -1,0 +1,118 @@
+---
+title: "Arquivo de extração de dados - teste 4"
+author: "Yasmin Messias Lins"
+lang: pt-br
+format: html
+# format: 
+#   pdf:
+#     geometry:
+#       - top=1in
+#       - bottom=1in
+#       - left=1in
+#       - right=1in
+#       - heightrounded
+execute: 
+  cache: true
+---
+
+# SETUP
+```{r}
+#| label: setup
+#| warning: false
+
+#library(bskyr)
+library(tidyverse)
+#library(readr)
+library(jsonlite)
+library(atrrr)
+#library(ggplot2)
+library(igraph)
+library(ggraph)
+library(tidygraph)
+```
+
+# Autenticação
+
+```{r}
+#| label: autentica
+
+auth(
+  user = 'yasmelinss.bsky.social',
+  password = read_lines("senha.txt"),
+  overwrite = TRUE
+)
+```
+
+# Glossário
+
+
+# Extração
+
+```{r}
+#| label: extracao-search-post
+
+querys <- 
+  c('cblol','lol')
+
+posts <-
+  search_post(
+    q = querys,
+    limit = 10L,
+    since = "2024-08-30",
+    until = "2024-09-08"
+  ) |>
+  select(
+    handle = author_handle,
+    like_count,
+    uri 
+  ) |>
+  filter(like_count > 0)
+
+view(posts)
+```
+
+```{r}
+#| label: estracao-get-likes
+
+safe_get_likes <- 
+  purrr::possibly(
+    get_likes, 
+    otherwise = tibble()
+    )
+
+likes <- 
+  posts$uri |> 
+  purrr::map_dfr(
+    function(curtida) {
+    url <- convert_at_to_http(curtida)
+    safe_get_likes(post_url = url) |>
+      dplyr::mutate(uri_post = curtida) #está renomeando?
+   }
+  )
+
+
+View(likes)
+
+```
+
+```{r}
+#| label: teste-likes
+#| eval: false
+
+likes <- 
+  posts$author_handle |>
+  purrr::map_dfr(
+    function(x) {
+      get_likes(
+        post_url = "https://bsky.app/profile/prokopetz.bsky.social/post/3m2wq3l3au22x",
+      ) |>
+      mutate(from = x)
+
+    }
+  ) |>
+  dplyr::rename(to = actor_handle) |>
+  dplyr::select(from, to)
+  view(likes)
+```
+```
+

@@ -1,0 +1,461 @@
+---
+title: "Arquivo de extração de dados - teste 3"
+author: "Yasmin Messias Lins"
+lang: pt-br
+format: html
+# format: 
+#   pdf:
+#     geometry:
+#       - top=1in
+#       - bottom=1in
+#       - left=1in
+#       - right=1in
+#       - heightrounded
+execute: 
+  cache: true
+---
+
+# SETUP
+```{r}
+#| label: setup
+#| warning: false
+
+#library(bskyr)
+library(tidyverse)
+#library(readr)
+library(jsonlite)
+library(atrrr)
+#library(ggplot2)
+library(igraph)
+library(ggraph)
+library(tidygraph)
+library(kableExtra)
+
+```
+
+# Autenticação
+
+```{r}
+#| label: autentica
+#| include: false
+
+auth(
+  user = 'yasmelinss.bsky.social',
+  password = read_lines("senha.txt"),
+  overwrite = TRUE
+)
+```
+
+# Glossário
+
+
+# Extração
+
+```{r}
+#| label: extracao-search-post
+
+querys <- 
+  c('cblol','lol')
+
+posts <-
+  search_post(
+    q = querys,
+    limit = 1L,
+    since = "2024-08-30",
+    until = "2024-09-08"
+  )|>
+  select(
+    author_handle, 
+    like_count
+  )
+
+kable(posts)
+view(posts)
+```
+
+
+```{r}
+seguindo <-
+  get_followers(
+    'yasmelinss.bsky.social',
+    limit = Inf
+  )
+
+# para uso temporário
+#write_rds(seguindo, file = "Dados/seguidores_ilha-das-lendas.rds")
+```
+
+
+
+```{r}
+#| label: listagem-seguidores 
+#| dependson: extracao-search-post
+
+
+safe_erros_get_followers <-
+  purrr::possibly(
+    atrrr::get_followers, 
+    otherwise = tibble()
+  )
+
+followers <- 
+  seguindo$actor_handle |>
+  purrr::map_dfr(
+    function(seguidores) {
+      safe_erros_get_followers(
+        actor = seguidores
+      ) |>
+      dplyr::mutate(from = seguidores)
+    }
+  ) |>
+  dplyr::rename(to = actor_handle) |>
+  dplyr::select(from, to)
+
+# para uso temporário
+#write_rds(followers, file = "Dados/seguidores_de_seguidores_ilha-das-lendas.rds")
+
+```
+
+
+
+```{r}
+#| label: listagem-seguidores-de-seguidores
+#| dependson: listagem-seguidores
+
+safe_erros_get_followers <- 
+  purrr::possibly(
+    get_followers, 
+    otherwise = tibble()
+    )
+
+followers_of_followers <- 
+  followers$to |>
+    purrr::map_dfr(
+      function(.x) {
+        safe_erros_get_followers(
+          actor = .x,
+          limit = 10
+        ) |>
+        dplyr::mutate(from = .x)
+      }
+    ) |>
+  dplyr::rename(to = actor_handle) |>
+  dplyr::select(from, to)
+
+
+# para uso temporário
+#write_rds(followers, file = "Dados/seguidores_de_seguidores_de_seguidores_ilha-das-lendas.rds")
+```
+
+
+
+# Gráfico
+
+```{r}
+#| label: grafo-de-relacao-seguidores
+#| dependson: listagem-seguidores
+
+graph <- 
+  igraph::graph_from_data_frame(
+    followers,
+    directed = TRUE
+    )
+
+# Use ggraph to visualize the network.
+ggraph::ggraph(
+  graph, 
+  layout = 'fr'
+) +
+  ggraph::geom_edge_link() +
+  ggraph::geom_node_point(
+    aes(
+      size = tidygraph::centrality_pagerank()
+    ), 
+    color = "lightblue"
+  ) +
+  ggraph::geom_node_text(
+    aes(
+      label = name, 
+      size = tidygraph::centrality_pagerank(), 
+      family = "mono", 
+      fontface = "bold"
+    ),
+    vjust = 1, 
+    hjust = 1, 
+    check_overlap = T, 
+    color = "white", 
+    show.legend = F
+  ) +
+  ggraph::geom_node_text(
+    aes(
+      label = name, 
+      size = tidygraph::centrality_pagerank(), 
+      family = "mono"
+      ),
+    vjust = 1, 
+    hjust = 1, 
+    check_overlap = T, 
+    color = "blue", 
+    show.legend = F
+    ) +
+  ggplot2::theme_void() +
+  ggplot2::theme(legend.position = "bottom")
+
+```
+
+```{r}
+
+
+library(tidygraph)
+library(ggraph)
+library(igraph)
+library(dplyr)
+
+# Criar grafo
+graph <- graph_from_data_frame(followers, directed = TRUE)
+
+# Transformar em tbl_graph para usar centralidade
+g <- as_tbl_graph(graph) |> 
+  mutate(pagerank = centrality_pagerank())
+
+# Plot
+ggraph(g, layout = "fr") +
+  geom_edge_link(alpha = 0.3) +
+
+  # Nós proporcionais ao PageRank
+  geom_node_point(
+    aes(size = pagerank),
+    color = "lightblue"
+  ) +
+
+  # Texto com duas camadas (borda branca + azul)
+  geom_node_text(
+    aes(label = name),
+    color = "white",
+    size = 3,
+    vjust = 1.1,
+    fontface = "bold"
+  ) +
+  geom_node_text(
+    aes(label = name),
+    color = "blue",
+    size = 3,
+    vjust = 1.1
+  ) +
+
+  # Escala de tamanho ajustada
+  scale_size_continuous(
+    range = c(15, 2),   # <<< aqui você aumenta o tamanho máximo
+    guide = "none"
+  ) +
+  theme_void()
+
+```
+
+```{r}
+#| label: grafo-de-relacao-seguidores-seguidores
+#| dependson: listagem-seguidores-de-seguidores
+
+graph <- 
+  igraph::graph_from_data_frame(
+    followers_of_followers, 
+    directed = TRUE
+    )
+
+# Use ggraph to visualize the network.
+ggraph::ggraph(
+  graph, 
+  layout = 'fr'
+  ) +
+  ggraph::geom_edge_link() +
+  ggraph::geom_node_point(
+    aes(
+      size = tidygraph::centrality_pagerank()
+    ), 
+    color = "lightblue"
+  ) +
+  ggraph::geom_node_text(
+    aes(
+      label = name, 
+      size = tidygraph::centrality_pagerank(),
+      family = "mono", 
+      fontface = "bold"
+      ),
+      vjust = 1, 
+    hjust = 1, 
+    check_overlap = T, 
+    color = "white", 
+    show.legend = F
+  ) +
+  ggraph::geom_node_text(
+    aes(
+      label = name, 
+      size = tidygraph::centrality_pagerank(), 
+      family = "mono"
+    ),
+    vjust = 1, 
+    hjust = 1, 
+    check_overlap = T, 
+    color = "blue", 
+    show.legend = F
+  ) +
+  ggplot2::theme_void() +
+  ggplot2::theme(legend.position = "bottom")
+
+```
+
+
+```{r}
+#| label: grafo-de-relacao-seguidores-seguidores-colorido
+#| dependson: listagem-seguidores-de-seguidores
+
+rede_total <- 
+  dplyr::bind_rows(
+    followers, 
+    followers_of_followers
+    ) |>
+    dplyr::distinct()
+
+# Cria o grafo a partir da tabela de arestas
+grafo <- 
+  graph_from_data_frame(
+    rede_total, 
+    directed = TRUE
+  )
+
+# Converte para formato tidygraph (facilita análise e mapeamentos)
+grafo_tbl <-
+  as_tbl_graph(grafo)
+
+# Calcula medidas de centralidade (opcional, mas útil)
+grafo_tbl <- 
+  grafo_tbl |>
+  mutate(
+    pagerank = centrality_pagerank()
+  ) |>
+  arrange(pagerank)|>
+  mutate(
+    name = if_else(
+      row_number() <= 10, 
+      name, 
+      NA
+    )
+  )
+```
+
+
+```{r}
+# 4️⃣ Visualização com ggraph
+ggraph(
+  grafo_tbl, 
+  layout = "stress"
+) + 
+  # layout Fruchterman-Reingold
+  geom_edge_link(
+    alpha = 0.1,
+    colour = "grey70"
+  ) +
+  geom_node_point(
+    aes(
+      size = 0.1, 
+      color = pagerank
+    ),
+    alpha = 0.8
+  ) +
+  geom_node_label(
+    aes(
+      label = name
+    # width = nchar(name)
+    ),
+    #height = 3,
+    size = 3.2,
+    repel = TRUE,        # evita sobreposição de rótulos
+    color = "black"
+  ) +
+  scale_size_continuous(
+    range = c(2, 10)
+  ) +
+  scale_color_viridis_c(option = "plasma") +
+  theme_void() +
+  labs(
+    title = "Rede de Seguidores e Seguidores-dos-Seguidores",
+    subtitle = "Nós = contas | Arestas = relações de seguir",
+    size = "Grau",
+    color = "PageRank"
+  )
+```
+
+
+```{r}
+
+
+followers <-
+  readRDS("Dados/seguidores_de_seguidores_ilha-das-lendas.rds")
+
+
+followers_of_followers <-
+  readRDS("Dados/seguidores_de_seguidores_de_seguidores_ilha-das-lendas.rds")
+```
+
+
+```{r}
+rede_total <- dplyr::bind_rows( followers, followers_of_followers ) |> dplyr::distinct()
+
+grafo <- graph_from_data_frame(rede_total, directed = TRUE)
+
+grafo_tbl <- as_tbl_graph(grafo)
+
+
+grafo_tbl <- grafo_tbl |>
+  mutate(
+    grau = centrality_degree(mode = "all"),
+    pagerank = centrality_pagerank()
+  )
+
+
+```
+
+```{r}
+grafo_undirected <- grafo_tbl |> 
+  convert(to_undirected)
+
+grafo_undirected <- grafo_undirected |>
+  mutate(
+    comunidade_leiden = as.factor(group_leiden())
+  )
+
+grafo_tbl <- grafo_tbl |> 
+  mutate(comunidade_leiden = grafo_undirected$comunidade_leiden)
+
+comunidades_df <- grafo_undirected |> 
+  as_tibble() |> 
+  select(name, comunidade_leiden)
+
+# Juntar no grafo original PELO nome do nó
+grafo_tbl <- grafo_tbl |> 
+  left_join(comunidades_df, by = "name")
+```
+
+
+```{r}
+grafo_tbl |> as_tibble() |> glimpse()
+
+
+```
+
+
+
+```{r}
+ggraph(grafo_tbl, layout = "stress") +
+  geom_edge_link(alpha = 0.05) +
+  geom_node_point(
+    aes(color = comunidade_leiden, size = grau),
+    alpha = 0.9
+  ) +
+  theme_void()
+
+
+
+```
+
+
