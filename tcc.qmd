@@ -192,9 +192,7 @@ Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (19
 
 ### Indústria de *Games* enquanto Indústria Criativa
 
-:::callout
-Jogos eletrônicos ou *games*, além de servirem como passa-tempo e atividade de lazer, representam um ambiente de dados empíricos valiosos para a criação de conhecimento, exercendo papel central na mídia, redes e cenário sociotécnico da atualidade [@Taylor2019]. Segundo dados do 12º Relatório PGB [@PGB2025], desenvolvido pela Go Gamers e SX Group em parceria com a ESPM e Blend New Research e aplicada nos países Argentina, Chile, Colômbia, México Peru e Brasil, 82,8% dos participantes relataram ter o costume de jogar algum tipo de jogo digital, um crescimento de 8,9% em relação à edição anterior (73,9%), de 2024.
-:::
+Jogos eletrônicos ou *games*, além de servirem como passa-tempo e atividade de lazer, representam um ambiente de dados empíricos valiosos para a criação de conhecimento, exercendo papel central na mídia, redes e cenário sociotécnico da atualidade [@Taylor2019]. Segundo dados do 12º Relatório PGB [@PGB2025], desenvolvido pela Go Gamers e SX Group em parceria com a ESPM e Blend New Research e aplicada nos países Argentina, Chile, Colômbia, México, Peru e Brasil, 82,8% dos participantes relataram ter o costume de jogar algum tipo de jogo digital, um crescimento de 8,9% em relação à edição anterior (73,9%), de 2024.
 
 @Terranova2000 incentiva o debate sobre como trabalhos culturais e técnicos da internet são uma característica predominante da economia pós-industrial, em que indivíduos contribuem com esforços laborais para plataformas comercializadas desde a produção de vídeos no YouTube à criação de postagens em páginas pessoais de redes de networking social. No contexto de jogos eletrônicos, essas plataformas ofereceram algumas das primeiras oportunidades e normas para a monetização do ato de jogar, bem como de atividades criativas na criação de conteúdo através de jogos eletrônicos, amplamente descrito por *user generated content* (UGC) [@Taylor2019].
 
