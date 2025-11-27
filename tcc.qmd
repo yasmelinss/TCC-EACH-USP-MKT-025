@@ -147,6 +147,7 @@ format:
 ## Revisão Bibliográfica
 
 
+
 ### Suspensão de Plataformas no Brasil
 
 No século XI, o capitalismo está centrado na extração e uso de um tipo de material em particular: dados, cuja recordação se torna cada vez mais acessível por tecnologias que digitalizam atividades e dão lugar para novas indústrias centradas em plataformas digitais [@Srnicek2017]. Segundo @Dijck2019, plataformas digitais são arquiteturas programáticas desenhadas para organizar interações entre usuários, alimentadas por dados, automatizadas e organizadas por algoritmos e interfaces, formalizadas através de relações de posse impulsionadas por modelos de negócios e regidas por termos de uso. Sobre o papel das plataformas digitais nos mercados emergentes de extração de dados, é possível observar que:
@@ -164,6 +165,7 @@ No Brasil, casos de regulação de plataformas digitais são esparsos, porém de
 O caso mais recente de suspensão de plataformas digitais foi o bloqueio da rede social X (antigo Twitter), em função do descumprimento de ordens judiciais pela nomeação de um representante legal no Brasil [@G12024]. O bloqueio durou cerca de 5 semanas, uma das suspensões mais longas de plataformas digitais no país. Esse acontecimento, suas consequências e relevância serão abordados com maior aprofundamento no decorrer da redação.
 
 
+
 ### Marketing de Redes Sociais
 
 De acordo com @Kaplan2010, redes sociais são um grupo de aplicativos hospedados na Internet, que se baseiam nos fundamentos ideológicos e tecnológicos da Web 2.0 e que permitem a criação e o intercâmbio de conteúdo gerado pelos usuários. Dessa forma, as redes sociais virtuais se destacam como um mecanismo de comunicação que permite um maior alcance de informações e interações do que aqueles possíveis em canais anteriores à era digital, mudando a forma com a qual pessoas interagem entre si e com marcas. Em particular, a natureza interativa desses canais transformou os consumidores de observadores passivos de conteúdo em participantes ativos que agora criam grandes quantidades de conteúdo por meio de suas conversas, interações e comportamentos on-line [@Malthouse2013].
@@ -177,16 +179,14 @@ Com a instalação das redes sociais no cotidiano dos consumidores, @Tuten2015 a
 >Os canais de redes sociais oferecem aos consumidores um acesso sem precedentes. Os consumidores discutem, contribuem, colaboram e compartilham — com as marcas e entre si. A cultura do marketing mudou para uma cultura informal, focada na crença de que os clientes estão no controle. O guru do marketing Peter Drucker disse uma vez a famosa frase: “O objetivo de uma empresa é criar um cliente”. Com o alcance e a influência da comunidade nas mídias sociais, podemos expandir essa definição: o objetivo de uma empresa é criar clientes que criem outros clientes. Essa participação no processo é o novo quinto P do marketing (op.cit., p. 21, tradução nossa).
 
 
+
 #### Influenciadores digitais ou *Social Media Influencers*
-
-
 
 Em explorar como as relações sociais são construídas em ambientes virtuais, @Baym2010 descrevem como um espaço (plataforma) e práticas (linguagem, hábitos, nacionalidade ou interesses) em comum contribuem para a formação de comunidades em redes sociais, que desenvolvem normas próprias e as perpetuam através da interação entre membros. Sites de networking social como o Facebook tendem a incentivar o surgimento de comunidades na incorporação de ferramentas para auto-apresentação, que fornecem categorias com as quais criar identidades, incluindo dados demográficos como idade, local de residência e interesses gerais. Tais ferramentas também podem ter o resultado não-intencional de facilitar na construção de identidades falsas ou alteradas, levando a um entendimento geral construído ao longo do tempo da distinção entre personalidades *on-line* e *off-line* [@Baym2010].
 
 A honestidade percebida na forma em que uma personalidade virtual se porta em relação a sua comunidade é crucial para sua reputação e influência, fazendo com que outros usuários a vejam como semelhantes a eles e considerem mais valiosas suas opiniões ou recomendações [@Forbes2016]. Esse princípio, sustentado pela teoria de aprendizagem social, é o que dá origem aos influenciadores de redes sociais (social media influencer - SMI), representando um novo tipo de endossantes independentes que moldam as atitudes do público por meio de blogs, postagens e do uso de outras mídias sociais [@Freberg2011]. Atuando como pseudo-celebridades altamente segmentadas, estes influenciadores digitais representam para o marketing de influência uma ferramenta de relações públicas bem-sucedida que permite que as marcas e os consumidores se conectem em um nível mais pessoal [@Glucksman2017]. 
 
 Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (1956), descrevem vínculos unilaterais com figuras da mídia. Na atualidade e através das redes sociais, esses relacionamentos são cada vez mais comuns, com o número de seguidores e a autoridade percebida dessas personalidades ampliando o impacto das mensagens emocionais propagadas por estes [@Giles2002]. [Outros aspectos, como conhecimento e experiência, auto-confiança, articulação na fala e grau de identificação com o consumidor-alvo demonstrados são características importantes de um influenciador, que afetam a confiabilidade de seu *word-of-mouth* (marketing boca-a-boca) eletrônico [@Forbes2016]. Sendo assim, a multitude de atributos de um influenciador digital, moldados ou não a partir de sua identidade verdadeira, afetam a eficácia do marketing de influência proporcionalmente à sua compatibilidade com a imagem que a marca deseja propagar, juntamente de características gerais que estão diretamente relacionadas à capacidade de influenciar.
-
 
 
 
@@ -202,18 +202,7 @@ A transmissão de jogos eletrônicos como uma atividade monetizada surge de uma 
 
 
 
-:::callout-note
-dar um jeito de falar sobre a BGS?
-:::
-
-
 ### Indústria de *E-Sports*
-
-:::callout-note
-- Pedir referências para a Branca
-- Ver se ela conhece alguém que estude o tópico
-- Procurar alguém que estude
-:::
 
 Existe um extenso debate sobre a diferenciação ou a semelhança dos esportes eletrônicos com os esportes tradicionais [@Wollesen2025; @Block2021]. O presente trabalho não busca expandir a discussão da classificação ou não dos esportes eletrônicos como esportes. Pelo contrário, ele já carrega essa premissa e busca expandir os horizontes da aplicação do cenário a partir disso. Utiliza-se então da definição dos autores @Juho2017, em que *e-sports* referem-se a partidas competitivas (amadoras ou profissionais) de vídeo games que podem ser coordenadas por instituições que realizam torneios, onde os *players* (jogadores) ou *pro-players* (jogadores profissionais) costumeiramente pertencem a times que podem ser patrocinados por outras instituições, gerando assim, um negócio.
 
@@ -224,15 +213,6 @@ Transmissões online (*streaming*) e eventos híbridos (campeonatos com torcida 
 Em sua *Motivation Scale for Sport Consumption* (Escala de Motivação de Consumo de Esportes), @Trail2001 identificam conquistas (sentir-se realizado com o sucesso do time), escapismo (uma fuga da vida comum), interação social, aquisição de conhecimento, habilidades físicas dos jogadores e atração física como os construtos motivacionais mais positivamente correlacionados ao consumo de mídias esportivas tradicionais e aos fãs de esportes tradicionais. Aplicada ao consumo de *e-sports*, muitos dos motivos permanecem os mesmos [@Cheung2011], porém a aquisição de conhecimento se destaca como o construto motivacional mais associado à intenção de assistir *e-sports* [@Macey2025].
 
 No ambiente virtual das redes sociais, os torneios de *e-sports* são promovidos em grande parte por *mídias propagáveis* como memes, análises, clipes e reações [@Taylor2019]. De acordo com @Jenkins2015, propagabilidade se refere ao potencial cultural e técnico de públicos compartilharem conteúdos por motivos próprios, com ou sem a permissão dos detentores de direitos autorais. Aspectos que influenciam a propagabilidade de mídias incluem o fácil acesso, portabilidade, reutilizabilidade, relevância para públicos amplos e participação em um fluxo constante de material [@Jenkins2015]. A troca social inerente aos esportes, ampliada pelo fácil acesso à transmissão, reprodução e veiculação dos *e-sports* fazem deles mídias altamente propagáveis, em que fãs não são apenas consumidores ou telespectadores mas produtores ativos de conteúdo.
-
-
-:::callout-note
-A partir de dados apresentados pelo site TwitchTracker.com, a plataforma Twitch obteve no primeiro semestre de 2025 mais de 10 bilhões de horas de conteúdo assistido, 2,5% a menos comparado com o mesmo período do ano passado. Das views, 33,5% da audiência da Twitch é impulsionada pelos 5 Games mais assistidos pelos usuários. São eles: Just Chatting - 15,9% (categoria de streamers que comentam ou reagem a partidas de jogos ou assuntos variados relacionados); League of Legends - 5,5%; Grand Theft Auto V - 3,7%; Counter-Strike - 3,7%; Dota 2 - 3,1%; e Valorant - 3,1%.
-
-AGUARDANDO REF
-
-Em 2024, na 11º edição do relatório, 81,2% alegaram ter o costume de jogar jogos do universo de *e-sports* e 88,3% de assistir a partidas ou campeonatos de *e-sports* [@PGB2024]
-:::
 
 
 
@@ -246,11 +226,6 @@ Devido a complexidade das partidas e o nível de habilidade demandado, um grande
 Em 2025, o cenário competitivo de League of Legends foi formado por cinco ligas regionais: Coréia do Sul (LCK), Américas (LTA), Europa, Oriente Médio e África (LEC), China (LPL) e Ásia-Pacífico (LCP), nas quais times de uma mesma região competem entre si por vagas nas competições internacionais [@LoL2025]. Anunciada em Junho de 2024 e fundada em 31 de outubro de 2024, a liga de LoL das Américas (LTA) uniu as principais ligas americanas América do Norte (LCS), Campeonato Brasileiro de League of Legends (CBLOL) e Liga Latinoamérica (LLA) em um único ecossistema com duas conferências: LTA Norte (baseada na LCS) e LTA Sul (baseada no CBLOL) [@Riot2024LTA]. No entanto, o fim da união LTA foi anunciado em menos de um ano após sua fundação, em 29 de Setembro de 2025, com a declaração do retorno do CBLOL e LCS como ligas independentes em 2026, assegurando uma vaga no *Worlds* para o time brasileiro vencedor da liga regional [@CBLOL2025].
 :::
 
-:::callout-note
-Em 2025, foi criado o canal de trasmissão *Ilha das Lendas*, onde um grupo de ex-jogadores fazem *co-stream* de todas as ligas de LoL, cujas transmissões ao vivo chegam a alcançar 150 mil telespectadores simultaneamentente, enquanto as lives oficiais chegam a 20 mil. Apesar de o Brasil e a América Latina estiverem enquadrados como liga *minor* até recentemente, o engajamento dos fãs e os números de telespectadores em transmissões ao vivo demonstram o grande público consumidor de eventos de *e-sports* de LoL no Brasil, evidenciado pelo retorno da liga brasileira após união com a norte e latino americanas.
-
-BUSCANDO REF
-:::
 
 
 
@@ -262,12 +237,6 @@ A necessidade de estudar dados como uma ciência à parte e não apenas através
 
 A Ciência de Dados é por natureza um campo interdisciplinar, tendo aplicações comuns em diversas ciências pela forma que transforma dados desordenados em informações úteis que apoiam ou guiam decisões. De acordo com @Ozsu2024, o sucesso da ciência de dados é evidente em campos como as ciências da saúde, onde a análise de teias sociais permite o rastreamento de epidemias; em sistemas financeiros, em que a análise de grandes volumes de dados podem guiar investimentos e até mesmo para a indústria de atendimento ao consumidor, na qual o avanço de *chatterbots* auxilia no atendimento.
 
-:::callout-note
-commenting-out o parágrafo sobre big data
-<!-- Big Data é um conceito relevante para a ciência de dados, porém definições do termo variam. Os autores @Gandomi2015 destacam três 'V's que surgem em comum ao longo de diferentes conceituações de Big Data: volume, variedade e velocidade. Volume se refere a magnitude dos dados, com a definição do volume mínimo necessário para que dados sejam considerados Big Data variando de acordo com o tempo, em vista que a evolução de capacidades de armazenamento pode fazer com que volumes considerados grandes hoje sejam pequenos no futuro. Variedade se refere a heterogeneidade de um banco de dados, com estes sendo geralmente não-estruturados e altamente variados. Por último, velocidade se refere à rapidez com que os dados são gerados e à velocidade com que devem ser analisados e utilizados, amplificada pela proliferação de dispositivos digitais como *smartphones* e sensores.-->
-:::
-
-Para estudos de análise de marketing, a Ciência de Dados aplicada a contextos de Big Data (bem como em conjuntos de dados menores ou segmentados) é capaz de perfilar os clientes mais promissores de forma a melhor guiar esforços de propaganda através da análise dos históricos de navegação e hábitos *online* de uma grande quantidade de pessoas. Além disso, é possível identificar alternativas atraentes para um produto do ponto de vista do consumidor com embasamento estatístico, bem como refinar algoritmos de recomendação para melhor prever o que um consumidor estaria mais propenso a adquirir com base em suas compras anteriores.Através da análise de redes sociais e do monitoramento das conexões entre usuários, empresas são capazes de até mesmo avaliar associações de marca como o quão sustentável ela aparenta ser do ponto de vista de um consumidor médio, facilitando ações de marca reativas ou preditivas. [@Chintagunta2016]
 
 De acordo com @Tabani2020, embora a análise de marketing seja um tópico altamente relevante na atualidade, o potencial dela em negócios reais ainda não é totalmente realizado em razão do crescente volume e complexidade de dados disponíveis através das redes sociais, ferramentas digitais e aplicações de software. O artigo aponta que barreiras na adoção desta abordagem incluem a falta de estratégias abrangentes, expertise, recursos e dados de qualidade, dentre outros fatores. @Hauser2007 descreve que para alcançar entendimentos práticos e aplicáveis para o marketing, é o papel do analista de dados minerar, analisar, interpretar e apresentar a informação de forma a convertê-lá em inteligência acionável, de forma a acompanhar, segmentar e modelar o 'DNA informático' do consumidor. Neste contexto, é evidente que as informações em si não são tão úteis para organizações quanto a inteligência de mercado necessária para analisá-las. 
 
@@ -326,12 +295,6 @@ Diante disso, levanta-se a seguinte questão central:
 > De que maneira o bloqueio do X no Brasil influenciou as dinâmicas de engajamento e produção de conteúdo sobre *e-sports* de League of Legends na rede social Bluesky?
 
 
-:::callout-note
-- Caracterizar o fenômeno
-  - Bloqueio do Twitter no Brasil numa data específica (XX/XX/XXXX)
-  - Transferência parcial do fluxo de postagens sobre e-Sports (qual?) para o BlueSky
-  - O que mais???
-:::
 
 # Objetivos
 
@@ -364,10 +327,6 @@ Unir BlueSky, redes sociais, queda do X e LoL e apontar a significância
 --->
 
 # Metodologia
-
-:::callout-note
-- PARÁGRAFO INTRODUTÓRIO
-:::
 
 [A Extração de Informações consiste na extração automática de informações estruturadas como entidades, relações entre entidades e atributos descrevendo entidades de fontes desordenadas, que permite buscas mais aprofundadas do que as possíveis por buscas de palavras-chave]{.mark} [@Sarawagi2008]. [Para a Extração de Informações disponíveis *on-line*]{.mark}, esses dados podem ser acessados através de uma interface de programação de aplicações (API) própria do *site* (plataformas) em que são hospedados, porém grandes fontes como Facebook, Google e X têm recentemente limitado ou restringido o acesso gratuito às suas APIs em virtude do valor comercial dessas informações, dificultando a obtenção de dados reais para fins acadêmicos [@Batrinca2014]. Dentre as redes sociais mais relevantes atualmente, o Bluesky se destaca como uma das únicas que ainda permite acesso irrestrito e gratuito à sua API até o momento desta redação, desde que utilize-se de uma autenticação única atrelada a uma conta na plataforma.
  
