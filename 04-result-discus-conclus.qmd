@@ -1,0 +1,17 @@
+# Resultados
+
+# Discussão
+
+# Conclusão
+
+## Principais achados
+
+## [Limitações e Trabalhos futuros]{.mark}
+
+A metodologia de coleta de dados deste estudo limitou-se à extração de *skeets* que continham o termo exato "CBLOL" em sua sigla. Para pesquisas futuras, sugere-se que futuras investigações expandam a abrangência da análise realizada neste trabalho. Uma forma de enriquecer o estudo seria desenvolvendo métodos para identificar e incorporar interações contextuais e discursivas que gravitam em torno do tema, como *skeets* que utilizam variações do termo CBLOL e termos associados, ou que são partes de respostas, citações ou *threads* onde o tema está implícito ou sendo diretamente comentado, permitindo uma análise de maior amplitude sobre o tópico na plataforma digital.
+
+O presente estudo utilizou como métrica principal as curtidas ao longo de um período de 15 semanas. No entanto, as *threads*, que representam "fios" de diálogo entre usuários e incluem todas as respostas e citações com um mesmo *skeet* inicial, foram pouco utilizadas na análise pela dificuldade de automatizar a filtragem dos conteúdos presentes nestas para garantir que tivessem associação comprovável com o objeto de estudo. Se inclusas na mineração de dados de forma confiável, estas poderiam ampliar significativamente o volume de dados para análise.
+
+Alternativamente, uma abordagem distinta para o mapeamento da comunidade brasileira de *e-sports* de LoL no Bluesky seria a construção de grafos centrados em atores relevantes. O canal de trasmissão Ilha das Lendas, onde um grupo de ex-jogadores fazem *co-stream* de todas as ligas de LoL, possui um perfil no Bluesky desde 29 de agosto de 2024 e continuou ativo durante toda a suspensão do X no Brasil, atingindo mais de 34,5 mil seguidores. Utilizando os seguidores como métrica principal, torna-se viável identificar outros influenciadores conectados a esse perfil e analisar sequencialmente suas listas de seguindo e seguidores, de forma a construir uma representação gráfica da comunidade como um todo, em que a aplicação de medidas de centralidade nos vértices permitiria determinar quais atores teoricamente detêm maior poder de influência e disseminação de informação na rede.
+
+Outra possibilidade para a análise de redes sociais no Bluesky seria a aplicação da análise de sentimentos (também conhecida como mineração de opiniões),  que consiste no processo de analisar computacionalmente e identificar opiniões e julgamentos de um texto linguístico [@Chakraborty2023]. Enquanto este estudo focou em métricas quantitativas de engajamento, a implementação computacional da identificação de julgamentos em textos linguísticos ofereceria uma camada qualitativa aos dados. A aplicação desta técnica, como evidenciada em estudos do X antes das restrições de sua API [@Messaoudi2022; @Bian2016; @Bhattacharjee2017], permitiria não apenas medir a evolução do volume de interações, mas também classificar a polaridade das opiniões da comunidade.

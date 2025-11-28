@@ -1,0 +1,3 @@
+# Referência Bibliográfica
+
+\printbibliography[heading=none]

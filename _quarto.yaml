@@ -1,0 +1,152 @@
+project:
+  type: book
+book:
+  chapters:
+    - index.qmd
+    # - 01-revisao.qmd
+    - 02-probl-objet-justif.qmd
+    - 03-metodol.qmd
+    - 04-result-discus-conclus.qmd
+    - 05-bibliogr.qmd
+  appendices:
+    - 06-apend-scripts.qmd
+bibliography:
+  - tcc.bib
+#
+#######################################
+### introduzir isto na versão para a banca em diante
+titulo: "Análise de redes sociais: O impacto do bloqueio do X em 2024 na comunidade brasileira de e-sports de League of Legends do Bluesky"
+autores:
+  nome1:
+    longo: "Yasmin Messias Lins"
+    curto: "Lins, Y. M."
+  nome2:
+    longo: "Thales de Fante Romão"
+    curto: "Romão, T. F."
+orientador: "Prof. Dr. Marcelo Ventura Freire"
+date: last-modified
+date-format: "YYYY"
+versao: "Original"
+# versao: "Corrigida"
+tituloingles: "Social network analysis: The impact of X's ban in 2024 on Bluesky's Brazilian League of Legends esports community"
+dedicatoria1: |
+  dedicatoria 1 \\
+  dedicatoria 1 \\
+  dedicatoria 1
+dedicatoria2: |
+  dedicatoria 2 \\
+  dedicatoria 2 \\
+  dedicatoria 2
+agradecimento1: |
+  agradecimento 1 \\
+  agradecimento 1 \\
+  agradecimento 1
+agradecimento2: |
+  agradecimento 2 \\
+  agradecimento 2 \\
+  agradecimento 2
+resumo: |
+  resumo em um único parágrafo compridão entre 500 e 150 palavras
+palavraschave: Palavra chave 1. Palavra chave 2.
+resumoingles: |
+  abstract in a long paragraph with 500 to 1500 words
+palavraschaveingles: Keyword 1. Keyword 2.
+#######################################
+#
+# escolha entre gerar html ou gerar pdf
+format:
+  #################################################################
+  ### versão para renderizar rápido
+  #################################################################
+  # html:
+  #   lang: pt-BR
+  #   toc: true
+  #   toc-location: left
+  #   # toc-location: right
+  #   toc-title: "Sumário"
+  #   toc-depth: 3
+  #   embed-resources: true
+  #   # minimal: true
+  #################################################################
+  ### versão impressa, quer como rascunho, quer como versão final
+  #################################################################
+  pdf:
+    ####################
+    ### opções comuns para todas as versões
+    ####################
+    documentclass: abntex2
+    # precisa executar `tinytex::tlmgr_install("babel-portuges")`
+    #   se der erro de que o babel não encontra a opção "brazil"
+    cite-method: biblatex
+    biblatexoptions:
+      - backend=biber
+      - style=abnt
+      - justify
+      - giveninits
+      - backref=true
+      - backrefstyle=three
+      - citecounter=true
+    latex-max-runs: 2
+    toc: true
+    toc-depth: 4
+    toc-title: "Sumário"
+    number-sections: true
+    # fig-cap-location: bottom
+    ####################
+    ### opções para a versão rascunho
+    ####################
+    # classoption:
+    #   - article
+    #   - a4paper
+    #   - openany
+    #   - oneside
+    # latex-max-runs: 4
+    # include-in-header:
+    #   text: |
+    #     \setlrmarginsandblock{3cm}{3cm}{*}
+    #     \setulmarginsandblock{3cm}{3cm}{*}
+    #     \checkandfixthelayout
+    #     \usepackage{titlesec}
+    #     \titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+    #     \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+    #     \setcounter{secnumdepth}{4}
+    #     \usepackage{indentfirst}
+    # include-before-body:
+    #   text: |
+    #     \DoubleSpacing
+    # fig-pos: H
+    ####################
+    ### opções para a versão para a banca
+    ####################
+    include-before-body:
+      - capa.tex
+      # - text: |
+      #     \DoubleSpacing
+    # lof: false
+    # lof-title: "Lista de Figuras"
+    # lot: false
+    # lot-title: "Lista de Tabelas"
+    # include-in-header:
+    #   text: |
+    #     \usepackage{titlesec}
+    #     \titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+    #     \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+    #     \setcounter{secnumdepth}{4}
+    #     \usepackage{indentfirst}
+    ####################
+    ### opções para a versão para o depósito
+    ####################
+    # include-before-body:
+    #   file:
+    #     - capa.tex
+    # lof: true
+    # lof-title: "Lista de Figuras"
+    # lot: true
+    # lot-title: "Lista de Tabelas"
+    # include-in-header:
+    #   text: |
+    #     \usepackage{titlesec}
+    #     \titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+    #     \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+    #     \setcounter{secnumdepth}{4}
+    #     \usepackage{indentfirst}
