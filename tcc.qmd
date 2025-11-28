@@ -243,12 +243,6 @@ Para a obtenção dos dados de redes sociais, a mineração é uma tática comum
 @Gandomi2015 explicam a análise de influência social como outra técnica na análise de redes sociais, que agrupa métodos de modelação e avaliação da influência de usuários e conexões em uma rede social. Métodos de análise de influência social são amplamente úteis em esforços de *brand awareness* e adoção de marca, auxiliando no marketing de influência. Adicionalmente, os autores descrevem o método de *previsão de conexões* como a análise de dados passados para tentar prever interações futuras, de forma a levar em consideração a natureza dinâmica e imprevisível das dinâmicas de redes sociais.
 
 :::callout-note
-NÃO VAMOS USAR ANÁLISE DE SENTIMENTO
-<!-- 
-A análise de sentimentos (também conhecida como mineração de opiniões) é o processo de analisar computacionalmente e identificar opiniões e julgamentos de um texto linguístico, podendo ser implementada em propósitos diferentes como *baseada em aspectos*, *a nível de documento* e *a nível de frase* [@Chakraborty2023]. A análise de sentimentos *baseada em aspectos* é capaz de classificar textos em aspectos diferentes e determinar sentimentos correspondentes por associação. O módulo *a nível de documento* analisa um documento inteiro, enquanto aquele *a nível de frase* limita-se a sentenças curtas como as de postagens em microblogues, que tendem a ter baixos limites de caracteres. 
-@Bian2016 apontam que existem duas abordagens gerais para a análise de sentimentos: a primeira se baseia em um léxico como o Harvard General Inquirer, SentiWordNet ou Linguistic Inquiry, que associam escolhas de palavras a opiniões e atitudes. Esta abordagem visa descobrir a estrutura temática por trás de grandes conjuntos de documentos não-estruturados, através da análise das palavras por um algorítmo estatístico. A segunda abordagem, baseada em classificações, é um método supervisionado que requer conjuntos rotulados para o treinamento de um algorítmo. 
---->
-
 apresentar ciência de dados como campo interdisciplinar que estuda os dados 
     - definir ciência de dados como área interdisciplinar (estatística, computação, conhecimento de domínio)
     - objetivo: transformar dados em informação útil para apoiar decisões
@@ -314,9 +308,7 @@ Um dos maiores contribuidores em volume de *user generated content* nas redes so
  
 [No Brasil, a 11ª edição do relatório da Pesquisa Games Brasil (2024) evidencia uma grande participação no mundo dos *e-sports*, com 81,2% dos respondentes relatando ter o costume de jogar jogos da categoria e 88,3% de assistir a partidas ou campeonatos relacionados]{.mark} [@PGB2024]. A união desses diversos fatores, pareados com a prominência dos jogos eletrônicos e dos *e-sports* na sociedade brasileira, fazem da discussão acerca de *e-sports* de League of Legends nas redes sociais um tópico com grande volume de dados digitais empíricos valiosos para a criação de conhecimento social. Portanto, a suspensão do X no Brasil, por coincidir com o CBLOL, torna possível examinar como as dinâmicas de engajamento e produção de conteúdo dessa comunidade no BlueSky foram afetadas pela migração através da análise de redes sociais e representa uma oportunidade de observar a construção da expressão *on-line* de uma rede de relacionamentos já existente, de forma a gerar uma melhor compreensão do impacto desse acontecimento digital. [Ao mesmo tempo, representa também uma oportunidade de observar a construção da expressão *on-line* de uma rede de relacionamentos já existente.]{.mark}
 
-<!--
-Unir BlueSky, redes sociais, queda do X e LoL e apontar a significância
---->
+
 
 # Metodologia
 
@@ -348,19 +340,7 @@ A centralidade de intermediação de Freeman ($c_i^{BET}$), medida de centralida
 
 ## Tecnologias Utilizadas
 
-:::callout
-Inicialmente, realizou-se uma busca por artigos científicos indexados no Portal de Periódicos CAPES, com o auxílio do acesso CAFe (Comunidade Acadêmica Federada), que permite que universitários acadêmicos acessem toda a base. A natureza da primeira parte do trabalho é ser descritiva-exploratória, com abordagem quanti-qualitativa, a fim de entregar um embasamento teórico consiso.
 
-Segundo princípios da Netnografia, defendida por @Hide2005, pesquisar utilizando a internet como objeto de estudo explicita o caráter multidisciplinar e multiparadigmático das ciências sociais, que, com a concepção do conceito de netnografia e comunidade *on-line*, "moldou uma geração de estudos".
-
-A Análise de Redes Sociais (ARS) pode ser caracterizada como um método de netnografia online, com objetivo de analisar discursos mediados por computador e com potencial de moldar a compreensão a cerca do fenômeno da utilização da internet por pessoas [@Hide2005].
-
-
--Objetivo: descritiva e exploratória (dificilmente aplicada em marketing)
--Procedimentos técnicos:
--Estudo de caso da interação de usuários durante a queda do X no BR e Etnografia
--Persquisa transversal com um recorte no tempo e momento específico.
-:::
 
 ### Ambiente Computacional Estatístico R
 
@@ -455,7 +435,7 @@ A partir das métricas estabelecidas durante a mineração de dados, @Bruns2012 
 - porcentagem de postagens contribuídas por usuários líderes em atividade vs. porcentagem de URLs em postagens.
 
 ::: callout
-No presente trabalho, utilizou-se como métrica principal de propagação de opiniões as curtidas (*likes*) em postagens (*skeets*) com o termo CBLOL. Essa escolha é baseada na premissa que curtidas representam um engajamento ativo e singular e que demonstram concordância ou aprovação em relação a um conteúdo pontual, enquanto a métrica de seguidores é indicativa somente de alcance potencial sem garantir engajamento ou influência real. @Moon2022 demonstram que o número de seguidores não é sempre proporcional ao engajamento para campanhas de marketing de influência, com uma uma curva de formato U inverso sendo mais representativa da relação entre número de seguidores e engajamento, onde o engajamento é mais alto para influenciadores com um número moderado de seguidores. Além disso, estudos relevam que usuários de redes sociais tendem a engajar mais (em termos de curtidas e *reposts*) conteúdos de contas que seguem menos pessoas, por as interpretarem como mais autônomas [@Valsesia2020]. Em contraste, curtidas representam uma forma ativa de engajamento com peso menor que os comentários por necessitarem de menos esforço [Moon2022], cujos números ainda tendem a ser significantemente menores do que o total de seguidores, demonstrando a passividade destes em muitos casos [@Avelino2020]. A união destes fatores, portanto, evidencia as curtidas como sendo a métrica mais apropriada para medir a resposta efetiva do público e a dinâmica real de disseminação do conteúdo em redes sociais.
+No presente trabalho, utilizou-se da quantidade de curtidas (*likes*) em postagens (*skeets*) com o termo CBLOL como métrica principal para a propagação de opiniões. Essa escolha é baseada na premissa que curtidas representam um engajamento ativo e singular e que demonstram concordância ou aprovação em relação a um conteúdo pontual, enquanto a métrica de seguidores é indicativa somente de alcance potencial sem garantir engajamento ou influência real. Conforme demonstrado por @Moon2022, o número de seguidores não é sempre proporcional ao engajamento para campanhas de marketing de influência, com uma uma curva de formato U inverso sendo mais representativa da relação entre número de seguidores e engajamento, onde o engajamento é mais alto para influenciadores com um número moderado de seguidores. Adicionalmente, estudos revelam que usuários de redes sociais tendem a engajar mais (em termos de curtidas e *reposts*) conteúdos de contas que seguem menos pessoas, interpretando-as como mais autônomas [@Valsesia2020]. Ademais, embora as curtidas exijam menos esforço de interação do que os comentários [@Moon2022], elas se mostram superiores aos seguidores como métrica de interesse ativo. O número de seguidores frequentemente representa uma audiência passiva, visto que o volume de curtidas em perfis tende a ser significativamente mais baixo [@Avelino2020]. A união destes fatores, portanto, justifica as curtidas como sendo a métrica escolhida como mais apropriada para para mensurar a resposta efetiva do público e a dinâmica de disseminação na rede.
 :::
 
 
@@ -483,19 +463,15 @@ O Bluesky é uma rede social de API aberta construída a partir do Protocolo AT,
 
 ## Principais achados
 
-## Limitações e Trabalhos futuros
+## [Limitações e Trabalhos futuros]{.mark}
 
-- threads
-- análise de sentimentos
-- ilha das lendas
+A metodologia de coleta de dados deste estudo limitou-se à extração de *skeets* que continham o termo exato "CBLOL" em sua sigla. Para pesquisas futuras, sugere-se que futuras investigações expandam a abrangência da análise realizada neste trabalho. Uma forma de enriquecer o estudo seria desenvolvendo métodos para identificar e incorporar interações contextuais e discursivas que gravitam em torno do tema, como *skeets* que utilizam variações do termo CBLOL e termos associados, ou que são partes de respostas, citações ou *threads* onde o tema está implícito ou sendo diretamente comentado, permitindo uma análise de maior amplitude sobre o tópico na plataforma digital.
 
-:::callout-note
-Em 2025, foi criado o canal de trasmissão *Ilha das Lendas*, onde um grupo de ex-jogadores fazem *co-stream* de todas as ligas de LoL, cujas transmissões ao vivo chegam a alcançar 150 mil telespectadores simultaneamentente, enquanto as lives oficiais chegam a 20 mil. Apesar de o Brasil e a América Latina estiverem enquadrados como liga *minor* até recentemente, o engajamento dos fãs e os números de telespectadores em transmissões ao vivo demonstram o grande público consumidor de eventos de *e-sports* de LoL no Brasil, evidenciado pelo retorno da liga brasileira após união com a norte e latino americanas.
+O presente estudo utilizou como métrica principal as curtidas ao longo de um período de 15 semanas. No entanto, as *threads*, que representam "fios" de diálogo entre usuários e incluem todas as respostas e citações com um mesmo *skeet* inicial, foram pouco utilizadas na análise pela dificuldade de automatizar a filtragem dos conteúdos presentes nestas para garantir que tivessem associação comprovável com o objeto de estudo. Se inclusas na mineração de dados de forma confiável, estas poderiam ampliar significativamente o volume de dados para análise.
 
-BUSCANDO REF
-:::
+Alternativamente, uma abordagem distinta para o mapeamento da comunidade brasileira de *e-sports* de LoL no Bluesky seria a construção de grafos centrados em atores relevantes. O canal de trasmissão Ilha das Lendas, onde um grupo de ex-jogadores fazem *co-stream* de todas as ligas de LoL, possui um perfil no Bluesky desde 29 de agosto de 2024 e continuou ativo durante toda a suspensão do X no Brasil, atingindo mais de 34,5 mil seguidores. Utilizando os seguidores como métrica principal, torna-se viável identificar outros influenciadores conectados a esse perfil e analisar sequencialmente suas listas de seguindo e seguidores, de forma a construir uma representação gráfica da comunidade como um todo, em que a aplicação de medidas de centralidade nos vértices permitiria determinar quais atores teoricamente detêm maior poder de influência e disseminação de informação na rede.
 
-- grau de entrada e saída
+Outra possibilidade para a análise de redes sociais no Bluesky seria a aplicação da análise de sentimentos (também conhecida como mineração de opiniões),  que consiste no processo de analisar computacionalmente e identificar opiniões e julgamentos de um texto linguístico [@Chakraborty2023]. Enquanto este estudo focou em métricas quantitativas de engajamento, a implementação computacional da identificação de julgamentos em textos linguísticos ofereceria uma camada qualitativa aos dados. A aplicação desta técnica, como evidenciada em estudos do X antes das restrições de sua API [@Messaoudi2022; @Bian2016; @Bhattacharjee2017], permitiria não apenas medir a evolução do volume de interações, mas também classificar a polaridade das opiniões da comunidade.
 
 # Referências
 

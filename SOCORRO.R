@@ -10,7 +10,7 @@ library(tidyverse)
 
 
 skeets <-
-  readRDS("Dados/skeets-cblol.rds") |>
+  readRDS("skeets-cblol.rds") |>
   mutate(indexed_at = as.POSIXct(indexed_at))
 
 
@@ -312,22 +312,21 @@ quotes <- skeets[!is.na(skeets$quotes), ]
 quotes_comuns <- quotes[!is.na(quotes$in_reply_to), ]
 
 
-são quotes que se respondem.
+#são quotes que se respondem.
 
 
+#Estabelecendo grandezas
 
-Estabelecendo grandezas
-
-Likes - peso 1
-replie - peso 2
-repost - peso 2
-quote -peso 3
-post próprio - peso 4
+#Likes - peso 1
+#replie - peso 2
+#repost - peso 2
+#quote -peso 3
+#post próprio - peso 4
 
 
-Já com relação às métricas dos vértices
-(que dariam larguras das bolinha e uma posição de maior
-centralidade ou "perifericidade" na representação gráfica do grafo)
+#Já com relação às métricas dos vértices
+#(que dariam larguras das bolinha e uma posição de maior
+#centralidade ou "perifericidade" na representação gráfica do grafo)
 
 
 #SOMA LIKES
@@ -353,12 +352,86 @@ library(purrr)
 
 caminho_pasta <- "Dados/likes/likes"
 
-df_final_tidy <- list.files(path = caminho_pasta, pattern = "\\.rds$", full.names = TRUE) |>
+df_likes <- list.files(path = caminho_pasta, pattern = "\\.rds$", full.names = TRUE) |>
   map(readRDS) |>
   list_rbind()
 
-head(df_final_tidy)
-dim(df_final_tidy)
+head(df_likes)
+
+
+#fazendo aquelas coisas do Thales
+library(scales)
+skeets <-
+  readRDS("Dados/skeets-cblol.rds")
+
+#- o número de postagens no conjunto de dados;
+total_print <- nrow(skeets)
+total_print
+
+#- o número de usuários únicos que contribuem para o conjunto de dados;
+
+dids <- skeets |>
+  select(uri) |>
+    mutate(
+      did = uri |>
+        str_remove("^at://") |>
+        str_remove("/app.*$")
+    )
+
+skeets_unicos <-
+  dids |>
+    distinct(
+      did,
+      .keep_all = TRUE
+    )
+
+qnt_skeets_unicos_print <- nrow(skeets_unicos)
+qnt_skeets_unicos_print
+
+#- a porcentagem de postagens originais no conjunto de dados (ou seja, postagens que não são respostas nem reposts);
+
+  roots <-
+    skeets |>
+      select(
+        uri,
+        author_handle,
+        in_reply_root
+      )
+
+  posts_originais <- roots[!complete.cases(roots), ]
+  qnt_posts_originais_print <- nrow(posts_originais)
+  qnt_posts_originais_print
+
+  porcentagem <- (qnt_posts_originais_print/total) * 100
+  sprintf("%.1f%%", porcentagem)
+
+#- a porcentagem de respostas genuínas no conjunto de dados (ou seja, respostas que não são reposts);
+
+  respostas <-
+    skeets |>
+    select(
+      uri,
+      author_handle,
+      in_reply_to,
+      quotes
+    )
+
+
+  reply_sem_na <- respostas |>
+    filter(!is.na(in_reply_to))
+
+
+  posts_nao_quotes <- reply_sem_na[!complete.cases(reply_sem_na), ]
+  posts_nao_quotes_mas_resposta_print<- nrow(posts_nao_quotes)
+  posts_nao_quotes_mas_resposta_print
+
+  porcentagem <- (posts_nao_quotes_mas_resposta_print/total) * 100
+  sprintf("%.1f%%", porcentagem)
+
+
+
+#- a porcentagem de reposts no conjunto de dados;
+  #puxar repost
 
 
 
