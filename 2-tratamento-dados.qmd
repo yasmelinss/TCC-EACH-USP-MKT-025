@@ -102,7 +102,7 @@ Montando a matriz de likes dados
 ```{r}
 #| label: monta-matriz-likes
 
-all.actors <- 
+all.actors.likes <- 
   tibble(
     did = 
       c(likes$from.actor, likes$to.actor) |> 
@@ -110,24 +110,24 @@ all.actors <-
       sort()
   ) |> 
   mutate(num = row_number())
-all.actors |> write_rds("Dados/all-actors-likes.rds")
+all.actors.likes |> write_rds("Dados/all-actors-likes.rds")
 
 matriz.likes <- 
   likes |> 
   left_join(
-    all.actors,
+    all.actors.likes,
     by = c("from.actor" = "did")
   ) |> 
-  rename(from.actor.num = num) |> 
+  rename(actor.influenced.num = num) |> 
   left_join(
-    all.actors,
+    all.actors.likes,
     by = c("to.actor" = "did")
   ) |> 
-  rename(to.actor.num = num) |> 
+  rename(actor.influencer.num = num) |> 
   select(
     data.skeet, 
-    from.actor.num, 
-    to.actor.num
+    actor.influencer.num,
+    actor.influenced.num
   )
 matriz.likes |> write_rds("Dados/matriz-likes.rds")
 ```
