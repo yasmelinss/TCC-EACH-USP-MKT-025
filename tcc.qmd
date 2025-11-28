@@ -243,12 +243,6 @@ Para a obtenção dos dados de redes sociais, a mineração é uma tática comum
 @Gandomi2015 explicam a análise de influência social como outra técnica na análise de redes sociais, que agrupa métodos de modelação e avaliação da influência de usuários e conexões em uma rede social. Métodos de análise de influência social são amplamente úteis em esforços de *brand awareness* e adoção de marca, auxiliando no marketing de influência. Adicionalmente, os autores descrevem o método de *previsão de conexões* como a análise de dados passados para tentar prever interações futuras, de forma a levar em consideração a natureza dinâmica e imprevisível das dinâmicas de redes sociais.
 
 :::callout-note
-NÃO VAMOS USAR ANÁLISE DE SENTIMENTO
-<!-- 
-A análise de sentimentos (também conhecida como mineração de opiniões) é o processo de analisar computacionalmente e identificar opiniões e julgamentos de um texto linguístico, podendo ser implementada em propósitos diferentes como *baseada em aspectos*, *a nível de documento* e *a nível de frase* [@Chakraborty2023]. A análise de sentimentos *baseada em aspectos* é capaz de classificar textos em aspectos diferentes e determinar sentimentos correspondentes por associação. O módulo *a nível de documento* analisa um documento inteiro, enquanto aquele *a nível de frase* limita-se a sentenças curtas como as de postagens em microblogues, que tendem a ter baixos limites de caracteres. 
-@Bian2016 apontam que existem duas abordagens gerais para a análise de sentimentos: a primeira se baseia em um léxico como o Harvard General Inquirer, SentiWordNet ou Linguistic Inquiry, que associam escolhas de palavras a opiniões e atitudes. Esta abordagem visa descobrir a estrutura temática por trás de grandes conjuntos de documentos não-estruturados, através da análise das palavras por um algorítmo estatístico. A segunda abordagem, baseada em classificações, é um método supervisionado que requer conjuntos rotulados para o treinamento de um algorítmo. 
---->
-
 apresentar ciência de dados como campo interdisciplinar que estuda os dados 
     - definir ciência de dados como área interdisciplinar (estatística, computação, conhecimento de domínio)
     - objetivo: transformar dados em informação útil para apoiar decisões
@@ -314,9 +308,7 @@ Um dos maiores contribuidores em volume de *user generated content* nas redes so
  
 [No Brasil, a 11ª edição do relatório da Pesquisa Games Brasil (2024) evidencia uma grande participação no mundo dos *e-sports*, com 81,2% dos respondentes relatando ter o costume de jogar jogos da categoria e 88,3% de assistir a partidas ou campeonatos relacionados]{.mark} [@PGB2024]. A união desses diversos fatores, pareados com a prominência dos jogos eletrônicos e dos *e-sports* na sociedade brasileira, fazem da discussão acerca de *e-sports* de League of Legends nas redes sociais um tópico com grande volume de dados digitais empíricos valiosos para a criação de conhecimento social. Portanto, a suspensão do X no Brasil, por coincidir com o CBLOL, torna possível examinar como as dinâmicas de engajamento e produção de conteúdo dessa comunidade no BlueSky foram afetadas pela migração através da análise de redes sociais e representa uma oportunidade de observar a construção da expressão *on-line* de uma rede de relacionamentos já existente, de forma a gerar uma melhor compreensão do impacto desse acontecimento digital. [Ao mesmo tempo, representa também uma oportunidade de observar a construção da expressão *on-line* de uma rede de relacionamentos já existente.]{.mark}
 
-<!--
-Unir BlueSky, redes sociais, queda do X e LoL e apontar a significância
---->
+
 
 # Metodologia
 
@@ -348,19 +340,7 @@ A centralidade de intermediação de Freeman ($c_i^{BET}$), medida de centralida
 
 ## Tecnologias Utilizadas
 
-:::callout
-Inicialmente, realizou-se uma busca por artigos científicos indexados no Portal de Periódicos CAPES, com o auxílio do acesso CAFe (Comunidade Acadêmica Federada), que permite que universitários acadêmicos acessem toda a base. A natureza da primeira parte do trabalho é ser descritiva-exploratória, com abordagem quanti-qualitativa, a fim de entregar um embasamento teórico consiso.
 
-Segundo princípios da Netnografia, defendida por @Hide2005, pesquisar utilizando a internet como objeto de estudo explicita o caráter multidisciplinar e multiparadigmático das ciências sociais, que, com a concepção do conceito de netnografia e comunidade *on-line*, "moldou uma geração de estudos".
-
-A Análise de Redes Sociais (ARS) pode ser caracterizada como um método de netnografia online, com objetivo de analisar discursos mediados por computador e com potencial de moldar a compreensão a cerca do fenômeno da utilização da internet por pessoas [@Hide2005].
-
-
--Objetivo: descritiva e exploratória (dificilmente aplicada em marketing)
--Procedimentos técnicos:
--Estudo de caso da interação de usuários durante a queda do X no BR e Etnografia
--Persquisa transversal com um recorte no tempo e momento específico.
-:::
 
 ### Ambiente Computacional Estatístico R
 
