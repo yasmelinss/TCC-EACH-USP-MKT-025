@@ -19,6 +19,7 @@
 *.run.xml
 # este é exceção
 !capa.tex
+!preamble.tex
 # arquivos de output
 *.pdf
 *.html
