@@ -150,6 +150,6 @@ skeets.separados <-
   skeets |> 
   group_by(is.na(uri.reply)) |> # FALSE = reply/quote e TRUE = original
   group_split(.keep = FALSE) |> 
-  set_names(c("reply.quote", "original"))
+  # set_names(c("reply.quote", "original"))
 ```
 
