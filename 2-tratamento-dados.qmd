@@ -14,6 +14,35 @@ library(tidyverse)
 
 ## Lendo likes
 
+```{r}
+#| label: carrega-likes
+
+likes <-
+  list.files(
+    path = "Dados/likes", 
+    pattern = "*.rds",
+    full.names = TRUE
+  ) |> 
+  map(
+    \(nome) {
+      read_rds(nome) |> 
+      mutate(
+        to_actor = 
+          nome |> 
+          str_remove("\\..*$") |> 
+          str_replace("Dados/likes/", "did:plc:") |> 
+          str_remove("-.*$"),
+        from_actor = 
+          actor_data |> 
+          map_chr(\(x) x$did),
+        data = created_at,
+        .keep = "none"
+      )
+    }
+  ) |> 
+  list_rbind()
+```
+
 ## Montando a matriz de likes dados
 
 ## Calculando as medidas de centralidade
