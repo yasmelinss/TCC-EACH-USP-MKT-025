@@ -15,6 +15,7 @@ execute:
 #| warning: false
 
 library(tidyverse)
+`%!in%` <- negate(`%in%`)
 ```
 
 ## Lendo skeets
