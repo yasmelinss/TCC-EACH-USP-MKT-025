@@ -93,15 +93,27 @@ likes.actors |>
 
 ```{r}
 
+all.actors <- 
+  c(likes$from.actor, likes$to.actor) |> 
+  unique() |> 
+  sort()
+
 matriz_likes <- 
   likes |> 
+  mutate(
+    from.actor = 
+      from.actor |> 
+      factor(levels = all.actors),
+    to.actor = 
+      to.actor |> 
+      factor(levels = all.actors),
+  ) |> 
   count(from.actor, to.actor) |>
   pivot_wider(
     names_from = to.actor,
     values_from = n,
     values_fill = 0
-  ) |> 
-  as.data.frame()
+  )
 
 matriz_likes
 ```
