@@ -83,8 +83,10 @@ liked.actors |>
 
 # quem curtiu ou foi curtido
 likes.actors <- 
-  c(liker.actors)
-
+  c(liker.actors$from.actor, liked.actors) |> 
+  unique()
+likes.actors |> 
+  write_rds("Dados/likes-actors.rds")
 ```
 
 ## Montando a matriz de likes dados
