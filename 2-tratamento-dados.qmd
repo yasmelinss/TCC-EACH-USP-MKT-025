@@ -1,6 +1,13 @@
 ---
-title: "Tratamento dos dados"
-format: html
+title: "Tratamento dos dados de *likes* em *skeets*"
+format: 
+  html:
+    toc: true
+    toc-depth: 5
+    toc-location: left
+    embed-resources: true
+execute: 
+  cache: true
 ---
 
 ```{r}
@@ -8,11 +15,11 @@ format: html
 #| warning: false
 
 library(tidyverse)
+`%!in%` <- negate(`%in%`)
 ```
+## Dados de likes
 
-## Lendo skeets
-
-## Lendo likes
+Montando lista de likes
 
 ```{r}
 #| label: carrega-likes
@@ -26,21 +33,55 @@ likes <-
   map(
     \(nome) {
       read_rds(nome) |> 
-      mutate(
-        to_actor = 
-          nome |> 
-          str_remove("\\..*$") |> 
-          str_replace("Dados/likes/", "did:plc:") |> 
-          str_remove("-.*$"),
-        from_actor = 
-          actor_data |> 
-          map_chr(\(x) x$did),
-        data = created_at,
-        .keep = "none"
-      )
+        mutate(
+          uri.skeet = 
+            nome |> 
+            str_remove("\\..*$") |> 
+            str_replace("^", "at://did:plc:") |> 
+            str_replace("-", "/app.bsky.feed.post/"),
+          data.skeet = created_at,
+          to.actor =
+            nome |> 
+            str_remove("\\..*$") |> 
+            str_replace("Dados/likes/", "did:plc:") |> 
+            str_remove("-.*$"),
+          from.actor = 
+            actor_data |> 
+            map_chr(\(x) x$did),
+          from.handle =
+            actor_data |> 
+            map_chr(\(x) x$handle),
+          .keep = "none"
+        )
     }
   ) |> 
-  list_rbind()
+  list_rbind() 
+
+likes |> 
+  write_rds("Dados/likes.rds")
+```
+
+Criando listas de actors
+
+```{r}
+#| label: criando-liker-actors
+
+liker.actors <- 
+  likes |> 
+  select(from.actor, from.handle) |> 
+  unique()
+liker.actors |> 
+  write_rds("Dados/liker-actors.rds")
+
+liked.actors <- 
+  likes$to.actor |> 
+  unique()
+liked.actors |> 
+  write_rds("Dados/liked-actors.rds")
+
+likes.actors <- 
+  c(liker.actors)
+
 ```
 
 ## Montando a matriz de likes dados
