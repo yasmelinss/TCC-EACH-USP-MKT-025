@@ -68,7 +68,7 @@ Lendo skeets
 #| label: confere-actors
 
 skeets <- read_rds("Dados/skeets-curto.rds")
-all.actors <- 
+all.actors.skeets <- 
   c(
     skeets$did.autor,
     skeets$uri.reply |> 
@@ -81,10 +81,15 @@ likes.actors <-
   c(liker.actors$from.actor, liked.actors) |> 
   unique() |> 
   sort()
-any(all.actors %!in% likes.actors)
-any(likes.actors %!in% all.actors)
+sum(all.actors.skeets %!in% likes.actors)
+sum(likes.actors %!in% all.actors.skeets)
+skeets$uri.reply |> 
+  str_remove("^at://") |> 
+  str_remove("/app.bsky.feed.post/.*$") |> 
+  unique() |> 
+  setdiff(likes.actors) |> 
+  length()
 ```
 
-Há `r skeets$uri.reply |> str_remove("^at://") |> str_remove("/app.bsky.feed.post/.*$") |> unique() |> setdiff(likes.actors) |> length()` autores de skeets que receberam replies curtidos que não estão nos likes
-
+Há `r skeets$uri.reply |> str_remove("^at://") |> str_remove("/app.bsky.feed.post/.*$") |> unique() |> setdiff(likes.actors) |> length()` autores de skeets sem "cblol" que estão nos skeets não estão nos likes porque eceberam replies com "cblol" curtidos 
 
