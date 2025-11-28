@@ -63,7 +63,6 @@ No processo de raspagem de dados, foi solicitado o *App Pasword*, uma prática m
 - Achar alguma bibliografia pertinente como espécie de introdução
 - Mencionar bibliotecas do R 
 -->
-:::
 
 ### Análise de Dados em Rede
 
