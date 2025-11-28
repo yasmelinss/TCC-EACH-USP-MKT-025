@@ -96,8 +96,7 @@ liked.actors <- read_rds("Dados/liked-actors.rds")
 likes.actors <- read_rds("Dados/likes-actors.rds")
 ```
 
-
-## Montando a matriz de likes dados
+Montando a matriz de likes dados
 
 ```{r}
 
@@ -126,8 +125,7 @@ matriz_likes <-
 matriz_likes
 ```
 
-
-## Calculando as medidas de centralidade
+Calculando as medidas de centralidade em função dos likes
 
 ## Dados de skeets
 
