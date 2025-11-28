@@ -32,6 +32,12 @@ likes.actors <- read_rds("Dados/likes-actors.rds")
 
 ## Criticando lista de likers
 
+```{r}
+liker.actors |> 
+  group_by(from.handle == "handle.invalid") |> 
+  summarise(quantos = n())
+```
+
 `r sum(liker.actors$from.handle == "handle.invalid")` actors não tềm mais handles válidos, então esses actors serão agrupados erradamente como um único actor se agrupar por handle.
 
 Dos `r liker.actors |> nrow()` actors que curtiram skeets com "cblol" e  `r liked.actors |> length()` actors postaram skeets com "cblol" que foram curtidos, `r c(liker.actors$from.actor, liked.actors) |> unique() |> length()` curtiram e foram curtidos e `r setdiff(liker.actors$from.actor, liked.actors) |> length()` curtiram mas não foram curtidos e `r setdiff(liked.actors, liker.actors$from.actor) |> length()` foram curtidos mas não curtiram.
