@@ -99,27 +99,31 @@ likes.actors <- read_rds("Dados/likes-actors.rds")
 Montando a matriz de likes dados
 
 ```{r}
-
 all.actors <- 
-  c(likes$from.actor, likes$to.actor) |> 
-  unique() |> 
-  sort()
-
-matriz_likes <- 
-  likes |> 
-  mutate(
-    from.actor = 
-      from.actor |> 
-      factor(levels = all.actors),
-    to.actor = 
-      to.actor |> 
-      factor(levels = all.actors),
+  tibble(
+    did = 
+      c(likes$from.actor, likes$to.actor) |> 
+      unique() |> 
+      sort()
   ) |> 
-  count(from.actor, to.actor) |>
-  pivot_wider(
-    names_from = to.actor,
-    values_from = n,
-    values_fill = 0
+  mutate(num = row_number())
+
+lista.likes.matriz <- 
+  likes |> 
+  left_join(
+    all.actors,
+    by = c("from.actor" = "did")
+  ) |> 
+  rename(from.actor.num = num) |> 
+  left_join(
+    all.actors,
+    by = c("to.actor" = "did")
+  ) |> 
+  rename(to.actor.num = num) |> 
+  select(
+    data.skeet, 
+    from.actor.num, 
+    to.actor.num
   )
 
 matriz_likes
