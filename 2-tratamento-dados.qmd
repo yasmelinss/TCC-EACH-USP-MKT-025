@@ -61,11 +61,12 @@ likes |>
   write_rds("Dados/likes.rds")
 ```
 
-Criando listas de actors
+Criando listas de actors relacionados com likes
 
 ```{r}
 #| label: criando-liker-actors
 
+# quem curtiu
 liker.actors <- 
   likes |> 
   select(from.actor, from.handle) |> 
@@ -73,12 +74,14 @@ liker.actors <-
 liker.actors |> 
   write_rds("Dados/liker-actors.rds")
 
+# quem foi curtido
 liked.actors <- 
   likes$to.actor |> 
   unique()
 liked.actors |> 
   write_rds("Dados/liked-actors.rds")
 
+# quem curtiu ou foi curtido
 likes.actors <- 
   c(liker.actors)
 
