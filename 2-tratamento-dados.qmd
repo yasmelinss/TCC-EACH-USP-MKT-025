@@ -125,8 +125,33 @@ lista.likes.matriz <-
     from.actor.num, 
     to.actor.num
   )
+```
 
-matriz_likes
+Testando 
+
+```{r}
+matriz_likes_20240907 <- 
+  lista.likes.matriz |> 
+  filter(date(data.skeet) == ymd("2024-09-07")) |> 
+  count(
+    from.actor.num, 
+    to.actor.num, 
+    name = "quantos"
+  )
+
+matriz_likes_20240907
+
+matriz_likes_20240907 |> 
+  group_by(from.actor.num) |> 
+  summarise(quantos = sum(quantos)) |> 
+  left_join(all.actors, by = c("from.actor.num" = "num")) |> 
+  rename(from.actor = did)
+
+matriz_likes_20240907 |> 
+  group_by(to.actor.num) |> 
+  summarise(quantos = sum(quantos)) |> 
+  left_join(all.actors, by = c("to.actor.num" = "num")) |> 
+  rename(to.actor = did)
 ```
 
 Calculando as medidas de centralidade em função dos likes
