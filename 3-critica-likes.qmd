@@ -24,6 +24,9 @@ library(tidyverse)
 #| label: carrega-likes
 
 likes <- read_rds("Dados/likes.rds")
+liker.actors <- read_rds("Dados/liker-actors.rds")
+liked.actors <- read_rds("Dados/liked-actors.rds")
+likes.actors <- read_rds("Dados/likes-actors.rds")
 ```
 
 
