@@ -86,5 +86,21 @@ likes.actors <-
 
 ## Montando a matriz de likes dados
 
+```{r}
+
+matriz_likes <- 
+  likes |> 
+  count(from.actor, to.actor) |>
+  pivot_wider(
+    names_from = to.actor,
+    values_from = n,
+    values_fill = 0
+  ) |> 
+  as.data.frame()
+
+matriz_likes
+```
+
+
 ## Calculando as medidas de centralidade
 
