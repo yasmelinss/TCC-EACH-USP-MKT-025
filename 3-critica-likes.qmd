@@ -107,7 +107,7 @@ Vendo como está para um dia específico (a final do campeonato, com muita ativi
 
 ```{r}
 matriz.likes.20240907 <- 
-  lista.likes.matriz |> 
+  matriz.likes |> 
   filter(date(data.skeet) == ymd("2024-09-07")) |> 
   count(
     from.actor.num, 
@@ -122,32 +122,32 @@ Parece ok
 Testando algumas medidas de centralidade em função dos likes
 
 ```{r}
-matriz.likes.20240907.entrando <- 
+matriz.likes.20240907.saindo <- 
   matriz.likes.20240907 |> 
   group_by(from.actor.num) |> 
   summarise(quantos = sum(quantos)) |> 
   left_join(all.actors, by = c("from.actor.num" = "num")) |> 
   rename(
     from.actor = did,
-    arestas.entrando = quantos
+    arestas.saindo = quantos
   )
-matriz.likes.20240907.entrando
+matriz.likes.20240907.saindo
 
-matriz.likes.20240907.saindo <- 
+matriz.likes.20240907.entrando <- 
   matriz.likes.20240907 |> 
   group_by(to.actor.num) |> 
   summarise(quantos = sum(quantos)) |> 
   left_join(all.actors, by = c("to.actor.num" = "num")) |> 
   rename(
     to.actor = did,
-    arestas.saindo = quantos
+    arestas.entrando = quantos
   )
-matriz.likes.20240907.saindo
+matriz.likes.20240907.entrando
 
 matriz.likes.20240907.saldo <- 
   full_join(
-    matriz.likes.20240907.entrando,
     matriz.likes.20240907.saindo,
+    matriz.likes.20240907.entrando,
     by = c("from.actor.num" = "to.actor.num"),
     keep = TRUE
   ) |> 
