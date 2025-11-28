@@ -115,8 +115,6 @@ format:
       - preamble.tex
     include-before-body:
       - capa.tex
-      - text: |
-          \DoubleSpacing
     # lof: false
     # lof-title: "Lista de Figuras"
     # lot: false
