@@ -41,7 +41,24 @@ liker.actors |>
 
 `r sum(liker.actors$from.handle == "handle.invalid")` actors não têm mais handles válidos, então esses actors serão agrupados erradamente como um único actor se agrupar por handle.
 
-Dos `r liker.actors |> nrow()` actors que curtiram skeets com "cblol" e  `r liked.actors |> length()` actors postaram skeets com "cblol" que foram curtidos, `r c(liker.actors$from.actor, liked.actors) |> unique() |> length()` curtiram e foram curtidos e `r setdiff(liker.actors$from.actor, liked.actors) |> length()` curtiram mas não foram curtidos e `r setdiff(liked.actors, liker.actors$from.actor) |> length()` foram curtidos mas não curtiram.
+```{r}
+likes.liker.liked <- 
+  tibble(
+    actor = 
+      c(liker.actors$from.actor, liked.actors) |> 
+      unique() |> 
+      sort()
+  ) |> 
+  mutate(
+    curtiu = actor %in% liker.actors$from.actor,
+    foi.curtido = actor %in% liked.actors
+  ) |> 
+  with(table(curtiu, foi.curtido)) |> 
+  addmargins()
+likes.liker.liked
+```
+
+Dos `r likes.liker.liked[2,3]` actors que curtiram skeets com "cblol" e dos `r likes.liker.liked[3,2]` actors postaram skeets com "cblol" que foram curtidos, `r likes.liker.liked[2,2]` curtiram e foram curtidos e `r likes.liker.liked[2,1]` curtiram mas não foram curtidos e `r likes.liker.liked[1,2]` foram curtidos mas não curtiram.
 
 ## Vendo se falta algum actor
 
