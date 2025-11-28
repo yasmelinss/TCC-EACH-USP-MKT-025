@@ -61,6 +61,27 @@ likes |>
   write_rds("Dados/likes.rds")
 ```
 
+Criando listas de actors
+
+```{r}
+#| label: criando-liker-actors
+
+liker.actors <- 
+  likes |> 
+  select(from.actor, from.handle) |> 
+  unique()
+liker.actors |> 
+  write_rds("Dados/liker-actors.rds")
+
+liked.actors <- 
+  likes$to.actor |> 
+  unique()
+liked.actors |> 
+  write_rds("Dados/liked-actors.rds")
+
+likes.actors <- 
+  c(liker.actors)
+
 ```
 
 ## Montando a matriz de likes dados
