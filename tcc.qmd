@@ -479,19 +479,13 @@ O Bluesky é uma rede social de API aberta construída a partir do Protocolo AT,
 
 ## Principais achados
 
-## Limitações e Trabalhos futuros
+## [Limitações e Trabalhos futuros]{.mark}
 
-- threads
-- análise de sentimentos
-- ilha das lendas
+Ao centralizar a extração de dados em *skeets* com o termo 'CBLOL', foi identificada uma limitação na identificação de *skeets*, respostas, citações ou *threads* relacionadas ao tema mas que não utilizam o termo explicitamente, seja por deixá-lo implícito ou por serem postagens que respondem diretamente à conteúdos atrelados ao CBLOL, fazendo da repetição do termo redundante. Por esse motivo, as *threads*, que representam 'fios' de diálogo entre usuários e incluem todas as respostas e citações com um mesmo *skeet* inicial, foram pouco utilizadas na análise pela dificuldade de automatizar a filtragem dos conteúdos presentes nestas para garantir que tivessem associação comprovável com o objeto de estudo.
 
-:::callout-note
-Em 2025, foi criado o canal de trasmissão *Ilha das Lendas*, onde um grupo de ex-jogadores fazem *co-stream* de todas as ligas de LoL, cujas transmissões ao vivo chegam a alcançar 150 mil telespectadores simultaneamentente, enquanto as lives oficiais chegam a 20 mil. Apesar de o Brasil e a América Latina estiverem enquadrados como liga *minor* até recentemente, o engajamento dos fãs e os números de telespectadores em transmissões ao vivo demonstram o grande público consumidor de eventos de *e-sports* de LoL no Brasil, evidenciado pelo retorno da liga brasileira após união com a norte e latino americanas.
+Outra forma de alcançar os objetivos deste trabalho poderia centralizar o canal de trasmissão Ilha das Lendas, onde um grupo de ex-jogadores fazem *co-stream* de todas as ligas de LoL. O canal possui um perfil no Bluesky desde 29 de agosto de 2024 e continuou ativo durante toda a suspensão do X no Brasil, atingindo mais de 34,5 mil seguidores. Utilizando os seguidores como métrica, um grafo centrado no perfil Ilha das Lendas pode potencialmente sinalizar outros influenciadores relevantes no tópico de CBLOL na comunidade do Bluesky, os quais podem ter sua rede de seguidores e seguindo analisadas de forma a construir uma representação gráfica da comunidade como um todo, identificando os vértices com maior grau de centralidade como aqueles que detêm maior poder de influência.
 
-BUSCANDO REF
-:::
-
-- grau de entrada e saída
+Outra possibilidade para a análise de redes sociais no Bluesky seria a análise de sentimentos (também conhecida como mineração de opiniões), que consiste no processo de analisar computacionalmente e identificar opiniões e julgamentos de um texto linguístico, podendo ser implementada em propósitos diferentes como *baseada em aspectos*, *a nível de documento* e *a nível de frase* [@Chakraborty2023]. A análise de sentimentos *baseada em aspectos* é capaz de classificar textos em aspectos diferentes e determinar sentimentos correspondentes por associação. O módulo *a nível de documento* analisa um documento inteiro, enquanto aquele *a nível de frase* limita-se a sentenças curtas como as de postagens em microblogues, que tendem a ter baixos limites de caracteres. A análise de sentimento *a nível de frase*, portanto, se aplicada à *skeets* do Bluesky obtidos à partir de mineração de dados, poderia ampliar o entendimento de dinâmicas de engajamento em redes sociais ou ser empregada na mineração de opiniões, como evidenciado pelo uso de técnicas semelhantes no X antes das restrições à sua API [@Messaoudi2022; @Bian2016; @Bhattacharjee2017].
 
 # Referências
 
