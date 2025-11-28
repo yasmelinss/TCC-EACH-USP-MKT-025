@@ -4,7 +4,7 @@
 
 No século XI, o capitalismo está centrado na extração e uso de um tipo de material em particular: dados, cuja recordação se torna cada vez mais acessível por tecnologias que digitalizam atividades e dão lugar para novas indústrias centradas em plataformas digitais [@Srnicek2017]. Segundo @Dijck2019, plataformas digitais são arquiteturas programáticas desenhadas para organizar interações entre usuários, alimentadas por dados, automatizadas e organizadas por algoritmos e interfaces, formalizadas através de relações de posse impulsionadas por modelos de negócios e regidas por termos de uso. Sobre o papel das plataformas digitais nos mercados emergentes de extração de dados, é possível observar que:
 
-> Ao fornecer um espaço digital para que outras pessoas interajam, as plataformas se posicionam de forma a extrair dados de processos naturais (condições climáticas, ciclos de cultivo etc.), de processos de produção (linhas de montagem, fabricação em fluxo contínuo etc.) e de outras empresas e usuários (rastreamento na web, dados de uso etc.). Elas são um aparato extrativo de dados (@Srnicek2017, p. 32, tradução nossa).
+> Ao fornecer um espaço digital para que outras pessoas interajam, as plataformas se posicionam de forma a extrair dados de processos naturais (condições climáticas, ciclos de cultivo etc.), de processos de produção (linhas de montagem, fabricação em fluxo contínuo etc.) e de outras empresas e usuários (rastreamento na web, dados de uso etc.). Elas são um aparato extrativo de dados [@Srnicek2017, p. 32 tradução nossa].
 
 A adoção em larga escala de plataformas é capaz de moldar as interações e causar disrupções societais, ao mesmo tempo que estas são moldadas pelo ecossistema em que ganham forma [@Dijck2019]. O potencial de influência dessas é evidente em acontecimentos como a adoção de dados de usuários do Facebook pela Cambridge Analytica para influenciar a eleição de 2016 dos Estados Unidos, bem como a disseminação de notícias falsas que o Projeto de Lei 2630/2020, conhecido por "PL das *Fake News*", busca combater [@Pereira2024]. 
 
@@ -38,7 +38,7 @@ Em explorar como as relações sociais são construídas em ambientes virtuais, 
 
 A honestidade percebida na forma em que uma personalidade virtual se porta em relação a sua comunidade é crucial para sua reputação e influência, fazendo com que outros usuários a vejam como semelhantes a eles e considerem mais valiosas suas opiniões ou recomendações [@Forbes2016]. Esse princípio, sustentado pela teoria de aprendizagem social, é o que dá origem aos influenciadores de redes sociais (social media influencer - SMI), representando um novo tipo de endossantes independentes que moldam as atitudes do público por meio de blogs, postagens e do uso de outras mídias sociais [@Freberg2011]. Atuando como pseudo-celebridades altamente segmentadas, estes influenciadores digitais representam para o marketing de influência uma ferramenta de relações públicas bem-sucedida que permite que as marcas e os consumidores se conectem em um nível mais pessoal [@Glucksman2017]. 
 
-Os relacionamentos parassociais, inicialmente conceituados por Horton e Wohl (1956), descrevem vínculos unilaterais com figuras da mídia. Na atualidade e através das redes sociais, esses relacionamentos são cada vez mais comuns, com o número de seguidores e a autoridade percebida dessas personalidades ampliando o impacto das mensagens emocionais propagadas por estes [@Giles2002]. [Outros aspectos, como conhecimento e experiência, auto-confiança, articulação na fala e grau de identificação com o consumidor-alvo demonstrados são características importantes de um influenciador, que afetam a confiabilidade de seu *word-of-mouth* (marketing boca-a-boca) eletrônico [@Forbes2016]. Sendo assim, a multitude de atributos de um influenciador digital, moldados ou não a partir de sua identidade verdadeira, afetam a eficácia do marketing de influência proporcionalmente à sua compatibilidade com a imagem que a marca deseja propagar, juntamente de características gerais que estão diretamente relacionadas à capacidade de influenciar.
+Os relacionamentos parassociais, inicialmente conceituados por @Horton1956, descrevem vínculos unilaterais com figuras da mídia. Na atualidade e através das redes sociais, esses relacionamentos são cada vez mais comuns, com o número de seguidores e a autoridade percebida dessas personalidades ampliando o impacto das mensagens emocionais propagadas por estes [@Giles2002]. [Outros aspectos, como conhecimento e experiência, auto-confiança, articulação na fala e grau de identificação com o consumidor-alvo demonstrados são características importantes de um influenciador, que afetam a confiabilidade de seu *word-of-mouth* (marketing boca-a-boca) eletrônico [@Forbes2016]. Sendo assim, a multitude de atributos de um influenciador digital, moldados ou não a partir de sua identidade verdadeira, afetam a eficácia do marketing de influência proporcionalmente à sua compatibilidade com a imagem que a marca deseja propagar, juntamente de características gerais que estão diretamente relacionadas à capacidade de influenciar.
 
 
 
@@ -95,11 +95,6 @@ Para a obtenção dos dados de redes sociais, a mineração é uma tática comum
 @Gandomi2015 explicam a análise de influência social como outra técnica na análise de redes sociais, que agrupa métodos de modelação e avaliação da influência de usuários e conexões em uma rede social. Métodos de análise de influência social são amplamente úteis em esforços de *brand awareness* e adoção de marca, auxiliando no marketing de influência. Adicionalmente, os autores descrevem o método de *previsão de conexões* como a análise de dados passados para tentar prever interações futuras, de forma a levar em consideração a natureza dinâmica e imprevisível das dinâmicas de redes sociais.
 
 :::callout-note
-apresentar ciência de dados como campo interdisciplinar que estuda os dados 
-    - definir ciência de dados como área interdisciplinar (estatística, computação, conhecimento de domínio)
-    - objetivo: transformar dados em informação útil para apoiar decisões
-- qual é a relação com marketing? uso de dados digitais para compreender comportamento do consumidor, segmentação, monitoramento de marcas etc.
-
 - workflow de projetos pontuais em ciência de dados
     - entendimento do problema de negócios
     - coleta de dados: introduz raspagem em linhas gerais
@@ -111,6 +106,7 @@ apresentar ciência de dados como campo interdisciplinar que estuda os dados
     - [Brodie, 2023](https://arxiv.org/abs/2306.16177)
     - [Cao, 2020](https://arxiv.org/abs/2007.03606) 
     - [R4DS](https://r4ds.hadley.nz/) para workflow de data science
+
 :::
 
 
