@@ -17,10 +17,9 @@ execute:
 library(tidyverse)
 `%!in%` <- negate(`%in%`)
 ```
+## Dados de likes
 
-## Lendo skeets
-
-## Lendo likes
+Montando lista de likes
 
 ```{r}
 #| label: carrega-likes
