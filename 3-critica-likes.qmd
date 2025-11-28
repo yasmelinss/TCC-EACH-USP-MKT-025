@@ -62,7 +62,7 @@ Dos `r likes.liker.liked[2,3]` actors que curtiram skeets com "cblol" e dos `r l
 
 ## Vendo se falta algum actor
 
-## Lendo skeets
+Lendo skeets
 
 ```{r}
 #| label: confere-actors
