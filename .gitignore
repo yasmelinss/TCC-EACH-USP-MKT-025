@@ -7,6 +7,7 @@
 *_files/
 # arquivos cache a ignorar
 *_cache/
+.quarto/
 # arquivos temporários do latex a ignorar
 *.aux
 *.bcf
@@ -21,6 +22,7 @@
 # arquivos de output
 *.pdf
 *.html
+_book/
 # arquivo de autenticação
 senha.txt
 # diretório de dados
