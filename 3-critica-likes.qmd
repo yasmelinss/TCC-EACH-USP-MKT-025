@@ -16,6 +16,7 @@ execute:
 
 library(tidyverse)
 `%!in%` <- negate(`%in%`)
+options(scipen = 99)
 ```
 
 ## Carregando dados
