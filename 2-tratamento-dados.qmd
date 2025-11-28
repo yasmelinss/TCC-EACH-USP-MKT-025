@@ -88,6 +88,7 @@ likes.actors |> write_rds("Dados/likes-actors.rds")
 Ou carregando do disco o já processado: só executa se avaliado manualmente
 
 ```{r}
+#| label: recarrega-dados-likes
 #| eval: false
 
 likes <- read_rds("Dados/likes.rds")
@@ -169,6 +170,8 @@ skeets <- read_rds("Dados/skeets-curto.rds")
 Separando os skeets com "cblol" em iniciais e replies/quotes
 
 ```{r}
+#| label: separando-skeets-iniciais-replies-quotes
+
 skeets.separados <- 
   skeets |> 
   group_by(is.na(uri.reply)) |> # FALSE = reply/quote e TRUE = original
