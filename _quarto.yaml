@@ -3,7 +3,7 @@ project:
 book:
   chapters:
     - index.qmd
-    # - 01-revisao.qmd
+    - 01-revisao.qmd
     - 02-probl-objet-justif.qmd
     - 03-metodol.qmd
     - 04-result-discus-conclus.qmd
