@@ -93,3 +93,87 @@ skeets$uri.reply |>
 
 Há `r skeets$uri.reply |> str_remove("^at://") |> str_remove("/app.bsky.feed.post/.*$") |> unique() |> setdiff(likes.actors) |> length()` autores de skeets sem "cblol" que estão nos skeets não estão nos likes porque eceberam replies com "cblol" curtidos 
 
+## Verificando a matriz de likes
+
+Carregando
+
+```{r}
+#| label: carrega-matriz-likes
+
+matriz_likes <- read_rds("Dados/matriz-likes.rds")
+```
+
+Vendo como está para um dia específico (a final do campeonato, com muita atividade)
+
+```{r}
+matriz.likes.20240907 <- 
+  lista.likes.matriz |> 
+  filter(date(data.skeet) == ymd("2024-09-07")) |> 
+  count(
+    from.actor.num, 
+    to.actor.num, 
+    name = "quantos"
+  )
+matriz.likes.20240907
+```
+
+Parece ok
+
+Testando algumas medidas de centralidade em função dos likes
+
+```{r}
+matriz.likes.20240907.entrando <- 
+  matriz.likes.20240907 |> 
+  group_by(from.actor.num) |> 
+  summarise(quantos = sum(quantos)) |> 
+  left_join(all.actors, by = c("from.actor.num" = "num")) |> 
+  rename(
+    from.actor = did,
+    arestas.entrando = quantos
+  )
+matriz.likes.20240907.entrando
+
+matriz.likes.20240907.saindo <- 
+  matriz.likes.20240907 |> 
+  group_by(to.actor.num) |> 
+  summarise(quantos = sum(quantos)) |> 
+  left_join(all.actors, by = c("to.actor.num" = "num")) |> 
+  rename(
+    to.actor = did,
+    arestas.saindo = quantos
+  )
+matriz.likes.20240907.saindo
+
+matriz.likes.20240907.saldo <- 
+  full_join(
+    matriz.likes.20240907.entrando,
+    matriz.likes.20240907.saindo,
+    by = c("from.actor.num" = "to.actor.num"),
+    keep = TRUE
+  ) |> 
+  mutate(
+    across(
+      c(arestas.saindo,arestas.entrando),
+      \(x) if_else(x |> is.na(), 0, x)
+    ),
+    saldo.arestas = arestas.saindo - arestas.entrando,
+    spread.arestas = arestas.saindo + arestas.entrando - abs(saldo.arestas),
+  ) |>
+  rename(
+    actor = from.actor,
+    actor.num = from.actor.num
+  ) |> 
+  select(
+    actor, 
+    actor.num, 
+    arestas.saindo, 
+    arestas.entrando,
+    saldo.arestas, 
+    spread.arestas
+  )
+matriz.likes.20240907.saldo |> 
+  view()
+```
+
+Parece que tá funcionando
+
