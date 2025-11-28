@@ -218,7 +218,7 @@ Atualmente, League of Legends (LoL) se destaca como um dos jogos eletrônicos e 
 
 Devido a complexidade das partidas e o nível de habilidade demandado, um grande cenário competitivo vem crescendo ao redor do jogo ao passar dos anos. De acordo com @Cauteruccio2023, o principal evento de *e-sports* de League of Legends é o LoL World Championship (também conhecido como *Worlds*), onde as melhores equipes do mundo participam e disputam os campeonatos competindo por prêmios multimilionários em formato de torneio. As transmissões ao vivo das ligas geralmente são transmitidas por diferentes serviços *streamings* como Twitch e Youtube e o número de visualizações são expressivos, com mais de 99 milhões contabilizadas mundialmente durante a final do Worlds de 2018 [@Cauteruccio2023].
 
-Em 2025, o cenário competitivo de League of Legends foi formado por cinco ligas regionais: Coréia do Sul (LCK), Américas (LTA), Europa, Oriente Médio e África (LEC), China (LPL) e Ásia-Pacífico (LCP), nas quais times de uma mesma região competem entre si por vagas nas competições internacionais [@LoL2025]. Anunciada em Junho de 2024 e fundada em 31 de outubro de 2024, a Liga de LoL das Américas (LTA) uniu as principais ligas americanas América do Norte -- LCS, Campeonato Brasileiro de League of Legends -- CBLOL e Liga Latinoamérica -- LLA em um único ecossistema com duas conferências: LTA Norte (baseada na LCS) e LTA Sul (baseada no CBLOL), com ambas integrando ex-equipes da LLA [@Riot2024LTA]. No entanto, o fim da união LTA foi anunciado em menos de um ano após sua fundação, em 29 de Setembro de 2025, com a declaração do retorno do CBLOL e LCS como ligas independentes a partir de 2026, assegurando uma vaga no *Worlds* para o time brasileiro vencedor da liga regional [@CBLOL2025].
+Durante 2025, o cenário competitivo de League of Legends foi formado por cinco ligas regionais: Coréia do Sul (LCK), Américas (LTA), Europa, Oriente Médio e África (LEC), China (LPL) e Ásia-Pacífico (LCP), nas quais times de uma mesma região competem entre si por vagas nas competições internacionais [@LoL2025]. Anunciada em Junho de 2024 e fundada em 31 de outubro de 2024, a Liga de LoL das Américas (LTA) uniu as principais ligas americanas América do Norte -- LCS, Campeonato Brasileiro de League of Legends -- CBLOL e Liga Latinoamérica -- LLA em um único ecossistema com duas conferências: LTA Norte (baseada na LCS) e LTA Sul (baseada no CBLOL), com ambas integrando ex-equipes da LLA [@Riot2024LTA]. No entanto, o fim da união LTA foi anunciado em menos de um ano após sua fundação, em 29 de Setembro de 2025, com a declaração do retorno do CBLOL e LCS como ligas independentes a partir de 2026, assegurando uma vaga no *Worlds* para o time brasileiro vencedor da liga regional [@CBLOL2025].
 
 
 
@@ -351,7 +351,7 @@ A centralidade de intermediação de Freeman ($c_i^{BET}$), medida de centralida
 :::callout
 Inicialmente, realizou-se uma busca por artigos científicos indexados no Portal de Periódicos CAPES, com o auxílio do acesso CAFe (Comunidade Acadêmica Federada), que permite que universitários acadêmicos acessem toda a base. A natureza da primeira parte do trabalho é ser descritiva-exploratória, com abordagem quanti-qualitativa, a fim de entregar um embasamento teórico consiso.
 
-Segundo princípios da Netnografia, defendida por @Hide2005, pesquisar utilizando a internet como objeto de estudo explicita o caráter multidisciplinar e multiparadigmático das ciências sociais, que, com a concepção do conceito de netnografia e comunidade online, "moldou uma geração de estudos".
+Segundo princípios da Netnografia, defendida por @Hide2005, pesquisar utilizando a internet como objeto de estudo explicita o caráter multidisciplinar e multiparadigmático das ciências sociais, que, com a concepção do conceito de netnografia e comunidade *on-line*, "moldou uma geração de estudos".
 
 A Análise de Redes Sociais (ARS) pode ser caracterizada como um método de netnografia online, com objetivo de analisar discursos mediados por computador e com potencial de moldar a compreensão a cerca do fenômeno da utilização da internet por pessoas [@Hide2005].
 
@@ -479,9 +479,19 @@ O Bluesky é uma rede social de API aberta construída a partir do Protocolo AT,
 
 ## Principais achados
 
-## Limitações
+## Limitações e Trabalhos futuros
 
-## Trabalhos futuros
+- threads
+- análise de sentimentos
+- ilha das lendas
+
+:::callout-note
+Em 2025, foi criado o canal de trasmissão *Ilha das Lendas*, onde um grupo de ex-jogadores fazem *co-stream* de todas as ligas de LoL, cujas transmissões ao vivo chegam a alcançar 150 mil telespectadores simultaneamentente, enquanto as lives oficiais chegam a 20 mil. Apesar de o Brasil e a América Latina estiverem enquadrados como liga *minor* até recentemente, o engajamento dos fãs e os números de telespectadores em transmissões ao vivo demonstram o grande público consumidor de eventos de *e-sports* de LoL no Brasil, evidenciado pelo retorno da liga brasileira após união com a norte e latino americanas.
+
+BUSCANDO REF
+:::
+
+- grau de entrada e saída
 
 # Referências
 
