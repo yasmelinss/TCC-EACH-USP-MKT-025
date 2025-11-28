@@ -57,8 +57,8 @@ likes <-
   ) |> 
   list_rbind() 
 
-likes |> 
-  write_rds("Dados/likes.rds")
+likes |> write_rds("Dados/likes.rds")
+# likes <- read_rds("Dados/likes.rds")
 ```
 
 Criando listas de actors relacionados com likes
@@ -71,22 +71,22 @@ liker.actors <-
   likes |> 
   select(from.actor, from.handle) |> 
   unique()
-liker.actors |> 
-  write_rds("Dados/liker-actors.rds")
+liker.actors |> write_rds("Dados/liker-actors.rds")
+# liker.actors <- read_rds("Dados/liker-actors.rds")
 
 # quem foi curtido
 liked.actors <- 
   likes$to.actor |> 
   unique()
-liked.actors |> 
-  write_rds("Dados/liked-actors.rds")
+liked.actors |> write_rds("Dados/liked-actors.rds")
+# liked.actors <- read_rds("Dados/liked-actors.rds")
 
 # quem curtiu ou foi curtido
 likes.actors <- 
   c(liker.actors$from.actor, liked.actors) |> 
   unique()
-likes.actors |> 
-  write_rds("Dados/likes-actors.rds")
+likes.actors |> write_rds("Dados/likes-actors.rds")
+# likes.actors <- read_rds("Dados/likes-actors.rds")
 ```
 
 ## Montando a matriz de likes dados
