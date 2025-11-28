@@ -1,42 +1,42 @@
 ---
 #######################################
 ### introduzir isto na versão para a banca em diante
-# titulo: "Análise de redes sociais: O impacto do bloqueio do X em 2024 na comunidade brasileira de e-sports de League of Legends do Bluesky"
-# autores: 
-#   nome1: 
-#     longo: "Yasmin Messias Lins"
-#     curto: "Lins, Y. M."
-#   nome2:
-#     longo: "Thales de Fante Romão"
-#     curto: "Romão, T. F."
-# orientador: "Prof. Dr. Marcelo Ventura Freire"
-# date: last-modified
-# date-format: "YYYY"
-# versao: "Original"
-# # versao: "Corrigida"
-# tituloingles: "Social network analysis: The impact of X's ban in 2024 on Bluesky's Brazilian League of Legends esports community"
-# dedicatoria1: |
-#   dedicatoria 1 \\
-#   dedicatoria 1 \\
-#   dedicatoria 1 
-# dedicatoria2: |
-#   dedicatoria 2 \\
-#   dedicatoria 2 \\
-#   dedicatoria 2 
-# agradecimento1: |
-#   agradecimento 1 \\
-#   agradecimento 1 \\
-#   agradecimento 1 
-# agradecimento2: |
-#   agradecimento 2 \\
-#   agradecimento 2 \\
-#   agradecimento 2 
-# resumo: |
-#   resumo em um único parágrafo compridão entre 500 e 150 palavras
-# palavraschave: Palavra chave 1. Palavra chave 2.
-# resumoingles: |
-#   abstract in a long paragraph with 500 to 1500 words
-# palavraschaveingles: Keyword 1. Keyword 2.
+titulo: "Análise de redes sociais: O impacto do bloqueio do X em 2024 na comunidade brasileira de e-sports de League of Legends do Bluesky"
+autores:
+  nome1:
+    longo: "Yasmin Messias Lins"
+    curto: "Lins, Y. M."
+  nome2:
+    longo: "Thales de Fante Romão"
+    curto: "Romão, T. F."
+orientador: "Prof. Dr. Marcelo Ventura Freire"
+date: last-modified
+date-format: "YYYY"
+versao: "Original"
+# versao: "Corrigida"
+tituloingles: "Social network analysis: The impact of X's ban in 2024 on Bluesky's Brazilian League of Legends esports community"
+dedicatoria1: |
+  dedicatoria 1 \\
+  dedicatoria 1 \\
+  dedicatoria 1
+dedicatoria2: |
+  dedicatoria 2 \\
+  dedicatoria 2 \\
+  dedicatoria 2
+agradecimento1: |
+  agradecimento 1 \\
+  agradecimento 1 \\
+  agradecimento 1
+agradecimento2: |
+  agradecimento 2 \\
+  agradecimento 2 \\
+  agradecimento 2
+resumo: |
+  resumo em um único parágrafo compridão entre 500 e 150 palavras
+palavraschave: Palavra chave 1. Palavra chave 2.
+resumoingles: |
+  abstract in a long paragraph with 500 to 1500 words
+palavraschaveingles: Keyword 1. Keyword 2.
 #######################################
 #
 # referências bibliográficas
@@ -46,101 +46,103 @@ format:
   #################################################################
   ### versão para renderizar rápido
   #################################################################
-  html:
-    lang: pt-BR
-    toc: true
-    toc-location: left
-    # toc-location: right
-    toc-title: "Sumário"
-    toc-depth: 3
-    embed-resources: true
-    # minimal: true
+  # html:
+  #   lang: pt-BR
+  #   toc: true
+  #   toc-location: left
+  #   # toc-location: right
+  #   toc-title: "Sumário"
+  #   toc-depth: 3
+  #   embed-resources: true
+  #   # minimal: true
   #################################################################
   ### versão impressa, quer como rascunho, quer como versão final
   #################################################################
-  # pdf:
-  #   ####################
-  #   ### opções comuns para todas as versões
-  #   #################### 
-  #   documentclass: abntex2
-  #   # precisa executar `tinytex::tlmgr_install("babel-portuges")`
-  #   #   se der erro de que o babel não encontra a opção "brazil"
-  #   cite-method: biblatex
-  #   biblatexoptions:
-  #     - backend=biber
-  #     - style=abnt
-  #     - justify
-  #     - giveninits
-  #     - backref=true
-  #     - backrefstyle=three
-  #     - citecounter=true
-  #   toc: true
-  #   toc-depth: 4
-  #   toc-title: "Sumário"
-  #   number-sections: true
-  #   # fig-cap-location: bottom
-  #   ####################
-  #   ### opções para a versão rascunho
-  #   #################### 
-  #   classoption: 
-  #     - article
-  #     - a4paper
-  #     - openany
-  #     - oneside
-  #   latex-max-runs: 4
-  #   include-in-header: 
-  #     text: |
-  #       \setlrmarginsandblock{3cm}{3cm}{*}
-  #       \setulmarginsandblock{3cm}{3cm}{*}
-  #       \checkandfixthelayout
-  #       \usepackage{titlesec}
-  #       \titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
-  #       \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
-  #       \setcounter{secnumdepth}{4}
-  #       \usepackage{indentfirst}
-  #   include-before-body:
-  #     text: |
-  #       \DoubleSpacing
-  #   fig-pos: H
-  #   ####################
-  #   ### opções para a versão para a banca
-  #   #################### 
-  #   # include-before-body:
-  #   #   file: 
-  #   #     - capa.tex
-  #   #   text: |
-  #   #     \DoubleSpacing
-  #   # lof: true
-  #   # lof-title: "Lista de Figuras"
-  #   # lot: true
-  #   # lot-title: "Lista de Tabelas"
-  #   # include-in-header:
-  #   #   text: |
-  #   #     \usepackage{titlesec}
-  #   #     \titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
-  #   #     \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
-  #   #     \setcounter{secnumdepth}{4}
-  #   #     \usepackage{indentfirst}
-  #   ####################
-  #   ### opções para a versão para o depósito
-  #   #################### 
-  #   # include-before-body:
-  #   #   file: 
-  #   #     - capa.tex
-  #   # lof: true
-  #   # lof-title: "Lista de Figuras"
-  #   # lot: true
-  #   # lot-title: "Lista de Tabelas"
-  #   # include-in-header:
-  #   #   text: |
-  #   #     \usepackage{titlesec}
-  #   #     \titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
-  #   #     \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
-  #   #     \setcounter{secnumdepth}{4}
-  #   #     \usepackage{indentfirst}
+  pdf:
+    ####################
+    ### opções comuns para todas as versões
+    ####################
+    documentclass: abntex2
+    # precisa executar `tinytex::tlmgr_install("babel-portuges")`
+    #   se der erro de que o babel não encontra a opção "brazil"
+    cite-method: biblatex
+    biblatexoptions:
+      - backend=biber
+      - style=abnt
+      - justify
+      - giveninits
+      - backref=true
+      - backrefstyle=three
+      - citecounter=true
+    latex-max-runs: 4
+    toc: true
+    toc-depth: 4
+    toc-title: "Sumário"
+    number-sections: true
+    # fig-cap-location: bottom
+    ####################
+    ### opções para a versão rascunho
+    ####################
+    # classoption:
+    #   - article
+    #   - a4paper
+    #   - openany
+    #   - oneside
+    # latex-max-runs: 4
+    # include-in-header:
+    #   text: |
+    #     \setlrmarginsandblock{3cm}{3cm}{*}
+    #     \setulmarginsandblock{3cm}{3cm}{*}
+    #     \checkandfixthelayout
+    #     \usepackage{titlesec}
+    #     \titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+    #     \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+    #     \setcounter{secnumdepth}{4}
+    #     \usepackage{indentfirst}
+    # include-before-body:
+    #   text: |
+    #     \DoubleSpacing
+    # fig-pos: H
+    ####################
+    ### opções para a versão para a banca
+    ####################
+    include-before-body:
+      - capa.tex
+      - text: |
+          \DoubleSpacing
+    lof: true
+    lof-title: "Lista de Figuras"
+    lot: true
+    lot-title: "Lista de Tabelas"
+    include-in-header:
+      text: |
+        \usepackage{titlesec}
+        \titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+        \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+        \setcounter{secnumdepth}{4}
+        \usepackage{indentfirst}
+    ####################
+    ### opções para a versão para o depósito
+    ####################
+    # include-before-body:
+    #   file:
+    #     - capa.tex
+    # lof: true
+    # lof-title: "Lista de Figuras"
+    # lot: true
+    # lot-title: "Lista de Tabelas"
+    # include-in-header:
+    #   text: |
+    #     \usepackage{titlesec}
+    #     \titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+    #     \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+    #     \setcounter{secnumdepth}{4}
+    #     \usepackage{indentfirst}
 ---
 
 \textual
+
+\mainmatter
 
 # Introdução
 
@@ -473,7 +475,9 @@ Alternativamente, uma abordagem distinta para o mapeamento da comunidade brasile
 
 Outra possibilidade para a análise de redes sociais no Bluesky seria a aplicação da análise de sentimentos (também conhecida como mineração de opiniões),  que consiste no processo de analisar computacionalmente e identificar opiniões e julgamentos de um texto linguístico [@Chakraborty2023]. Enquanto este estudo focou em métricas quantitativas de engajamento, a implementação computacional da identificação de julgamentos em textos linguísticos ofereceria uma camada qualitativa aos dados. A aplicação desta técnica, como evidenciada em estudos do X antes das restrições de sua API [@Messaoudi2022; @Bian2016; @Bhattacharjee2017], permitiria não apenas medir a evolução do volume de interações, mas também classificar a polaridade das opiniões da comunidade.
 
-# Referências
+\backmatter
+
+\printbibliography
 
 \appendix
 
