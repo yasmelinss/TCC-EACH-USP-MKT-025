@@ -1,6 +1,13 @@
 ---
-title: "Tratamento dos dados"
-format: html
+title: "Tratamento dos dados de *likes* em *skeets*"
+format: 
+  html:
+    toc: true
+    toc-depth: 5
+    toc-location: left
+    embed-resources: true
+execute: 
+  cache: true
 ---
 
 ```{r}
