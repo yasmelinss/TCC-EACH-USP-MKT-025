@@ -17,14 +17,6 @@ Outro grupo de medidas radiais são as de centralidade de proximidade. A medida 
 A centralidade de intermediação de Freeman ($c_i^{BET}$), medida de centralidade medial mais conhecida, mede o quanto um vértice $i$ está presente nos caminhos mais curtos da rede e é dada por $c_i^{BET}=\sum_{j,k}\frac{b_{jik}}{b_{jk}}$, onde $b_{jk}$ é o número de caminhos mais curtos entre os vértices $j$ e $k$ e $b_{jik}$ é o número de caminhos mais curtos entre $j$ e $k$ que passem pelo vértice $i$ [@Aggarwal2011]. Essa medida se baseia na suposição de que uma pessoa que está estrategicamente posicionada entre duas comunidades possui um potencial de controle sob as comunicações destas e, portanto, ocupa uma posição central [@Freeman1978].
 
 
-:::callout-note
-- técnicas utilizadas neste trabalho
-  - análise de frequência e exploratória: contagem de palavras, bigramas, visualização
-  - análise de conectividade: análise de índices de conexão, de centralidade
-  - análise de sentimentos (???)
-:::
-
-
 
 ## Tecnologias Utilizadas
 
@@ -36,7 +28,6 @@ O ambiente computacional estatístico R, sua linguagem e de programação e suas
 
 
 ### Mineração de Dados
-
 
 :::callout-note
 Em seu artigo sobre abordagens quantitativas para a comparação de padrões comunicativos no Twitter (atual X), @Bruns2012 utilizam uma API de busca através da plataforma *yourTwapperkeeper* para extrair um conjunto de dados de postagens (*tweets*) que contenham palavras-chave ou *hashtags* determinadas pelo operador. No Bluesky, um processo equivalente pode ser realizado através do pacote '{atrrr}' do R para acessar a API da rede e buscar postagens e informações de usuários dentro de um critério estabelecido.
@@ -59,78 +50,28 @@ Desses grupos, foram calculadas as métricas:
 Dessa forma, é possível medir dentro do conjunto de dados o quão dominantes na conversa geral são os usuários mais ativos e observar diferenças nos padrões de atividades dos três grupos [@Bruns2012]. O mesmo processo pode ser aplicado à critérios ou hashtags não relacionados ao tema de pesquisa para inseri-lo em um contexto mais amplo. Ademais, para analisar o impacto da suspensão do X nas dinâmicas de comunidade no Bluesky, pode-se dividir conjuntos de dados entre períodos temporais, realizando a mesma coleta de dados para:
 :::
 
-
 - as 5 semanas anteriores à suspensão (26/07/2024 - 30/09/2024);
 - as 5 semanas em que o X esteve indisponível (31/09/2024 - 08/10/2024);
 - as 5 semanas posterior ao retorno da rede (09/10/2024 - 13/11/2024).
 
-:::callout-note
-Como citar essas fontes no texto abaixo?
-Biblioteca ATRR
-https://cran.r-project.org/web/packages/atrrr/atrrr.pdf
-
-
-Protocolo AT  by Bluesky 
-https://docs.bsky.app/docs/api/app-bsky-feed-get-post-thread
-Repositório: https://github.com/bluesky-social
-
-
-Para a realização desta pesquisa netnográfica, utilizou-se da documentação oficial do Protocolo AT do Bluesky como base para o processo de mineração dos dados. Essa etapa teve caráter exploratório, visando compreender o funcionamento estrutural da rede social e orientar a construção do código de mineração de dados a partir da API.
-
-Durante a fase exploratória, identificou-se a biblioteca para o R chamada `{atrrr}`. Essa biblioteca implemeta o protocolo AT e permite realizar chamadas à API da plataforma, facilitando assim, o processo de extração dos dados necessários para o desenvolvimento da pesquisa.
-:::
-
-:::callout-note
-Comentando a seção abaixo enquanto averiguamos se vamos manter o bskyr ou mudar totalmente para o atrrr
 
 <!-- 
-#### Pacote `{bskyr}` do RStudio
-
-Tendo sua versão 0.3.0 disponibilizada em 22 de julho de 2025, o `{bskyr}` é um pacote do R Studio que providencia uma interface com a Bluesky Social API via HTTP (*HyperText Transfer Protocol*), permitindo extrações de dados da rede [@bskyr]. APIs como a API Bluesky Social permitem que um *software* cliente enviem uma solicitação a um *software* servidor e receba dele uma resposta.
-
-As APIs de HTTP são ferramentas que permitem a comunicação entre diferentes sistemas, funcionando como pontes entre cliente e servidor. No caso do Bluesky, essa comunicação utiliza um conjunto de protocolos chamado XRPC (*eXtensible Remote Procedure Call*), que define como essas trocas devem acontecer, no qual cada função da API possui um endpoint — ou seja, um endereço específico na web — identificado por um código chamado NSID (*NameSpace IDentifier*) responsável por organizar e padronizar essas interações. As mensagens trocadas seguem formatos estruturados, geralmente em JSON (*JavaScript Object Notation*), o que garante que ambos os lados da comunicação “falem a mesma língua”. Esse tipo de arquitetura é comum em redes abertas e descentralizadas, como o próprio Bluesky, favorecendo a interoperabilidade e a consistência na troca de dados [@bskyr].
-
-O conteúdo da biblioteca está em sua documentação [@bskyr]. A seguir, algumas das funções que pretendemos utilizar:
-
-- `bs_auth()`: autentica um usuário
-- `bs_search_posts()`: encontra posts específicos dentro de um critério de pesquisa
-- outros
-
-
-Os dois tipos de requisições que podem ser expressos em Léxicos são "consulta" (HTTP GET) e "procedimento" (HTTP POST). Seguindo a semântica HTTP REST, as consultas (GET) podem ser armazenadas em cache e não devem alterar o estado do recurso. Os procedimentos não podem ser armazenados em cache e podem alterar o estado.[Protocolo usado no API HTTP (XRPC)](https://atproto.com/pt/specs/xrpc) 
-
-Lista de NSID importantes:
-
-
 #### App Paswords
 
 No processo de raspagem de dados, foi solicitado o *App Pasword*, uma prática mais segura para reduzir riscos quando *logamos* como clientes em partes terceiras e em aplicações web. São usadas como a chave de acesso assim como a senha, mas concede permissões restritas, impedindo ações destrutivas. [Protocolo usado no API HTTP (XRPC)](https://atproto.com/pt/specs/xrpc)
 
 - Achar alguma bibliografia pertinente como espécie de introdução
 - Mencionar bibliotecas do R 
-
 -->
 :::
 
 ### Análise de Dados em Rede
-
-A partir das métricas estabelecidas durante a mineração de dados, @Bruns2012 realiza as seguintes análises, que servem como embasamento para a análise de padrões comunicativos:
-
-- contribuições relativas dos três grupos de usuários;
-- longetividade do termo em comparação à porcentagem de posts contribuídos pelo grupo de 90% dos usuários;
-- porcentagens relativas dos diferentes tipos de postagens;
-- porcentagem de URLs em posts vs. porcentagem de *reposts*;
-- porcentagem de postagens contribuídas por usuários líderes em atividade vs. porcentagem de URLs em postagens.
 
 ::: callout
 No presente trabalho, utilizou-se da quantidade de curtidas (*likes*) em postagens (*skeets*) com o termo CBLOL como métrica principal para a propagação de opiniões. Essa escolha é baseada na premissa que curtidas representam um engajamento ativo e singular e que demonstram concordância ou aprovação em relação a um conteúdo pontual, enquanto a métrica de seguidores é indicativa somente de alcance potencial sem garantir engajamento ou influência real. Conforme demonstrado por @Moon2022, o número de seguidores não é sempre proporcional ao engajamento para campanhas de marketing de influência, com uma uma curva de formato U inverso sendo mais representativa da relação entre número de seguidores e engajamento, onde o engajamento é mais alto para influenciadores com um número moderado de seguidores. Adicionalmente, estudos revelam que usuários de redes sociais tendem a engajar mais (em termos de curtidas e *reposts*) conteúdos de contas que seguem menos pessoas, interpretando-as como mais autônomas [@Valsesia2020]. Ademais, embora as curtidas exijam menos esforço de interação do que os comentários [@Moon2022], elas se mostram superiores aos seguidores como métrica de interesse ativo. O número de seguidores frequentemente representa uma audiência passiva, visto que o volume de curtidas em perfis tende a ser significativamente mais baixo [@Avelino2020]. A união destes fatores, portanto, justifica as curtidas como sendo a métrica escolhida como mais apropriada para para mensurar a resposta efetiva do público e a dinâmica de disseminação na rede.
 :::
 
 
-:::callout-note
-- Achar alguma bibliografia pertinente como espécie de introdução
-- Mencionar bibliotecas do R
-:::
 
 ## Fonte dos Dados
 
