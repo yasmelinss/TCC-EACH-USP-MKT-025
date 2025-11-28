@@ -110,6 +110,7 @@ all.actors <-
       sort()
   ) |> 
   mutate(num = row_number())
+all.actors |> write_rds("Dados/all-actors-likes.rds")
 
 matriz.likes <- 
   likes |> 
