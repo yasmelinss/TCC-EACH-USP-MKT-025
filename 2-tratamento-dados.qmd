@@ -1,0 +1,20 @@
+---
+title: "Tratamento dos dados"
+format: html
+---
+
+```{r}
+#| label: setup
+#| warning: false
+
+library(tidyverse)
+```
+
+## Lendo skeets
+
+## Lendo likes
+
+## Montando a matriz de likes dados
+
+## Calculando as medidas de centralidade
+
