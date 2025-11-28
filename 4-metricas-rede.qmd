@@ -1,0 +1,84 @@
+---
+title: "Metricas de rede"
+format: 
+  html:
+    toc: true
+    toc-depth: 5
+    toc-location: left
+    embed-resources: true
+execute: 
+  cache: true
+---
+
+```{r}
+#| label: setup
+#| warning: false
+
+library(tidyverse)
+`%!in%` <- negate(`%in%`)
+options(scipen = 99)
+```
+
+## Carregando dados
+
+```{r}
+#| label: carrega-likes
+
+likes <- read_rds("Dados/likes.rds")
+liker.actors <- read_rds("Dados/liker-actors.rds")
+liked.actors <- read_rds("Dados/liked-actors.rds")
+likes.actors <- read_rds("Dados/likes-actors.rds")
+```
+
+## Verificando a matriz de likes para todos os dias
+
+fazendo períodos
+
+```{r}
+#| label: períodos
+ 
+inicio.bloqueio <- "30-08-2024" |> dmy()
+(inicio.busca <- inicio.bloqueio - 4 * dweeks())
+
+final.bloqueio <- "08-10-2024" |> dmy()
+(final.busca <- final.bloqueio + 2 * ddays() + 4 * dweeks())
+
+dias.periodo <- seq.Date(from = inicio.busca, to = final.busca, by = "day")
+```
+fazendo uma matriz para cada dia
+
+```{r}
+#| label: matriz-cada-dia
+
+
+matriz.lista.dias <- 
+  map(
+    dias.periodo,
+    ~matriz.likes |>
+        filter(date(data.skeet) == .x) |> 
+        count(
+          from.actor.num, 
+          to.actor.num, 
+          name = "quantos"
+        )
+  )
+  
+names(matriz.lista.dias) <- dias.periodo |> format("%Y-%m-%d")
+
+```
+
+salvando
+
+```{r}
+
+walk(
+  names(matriz.lista.dias),
+  ~ write_rds(
+      matriz.lista.dias[[.x]],
+      paste0("Dados/matrizes-dia/", .x, "-likes.rds")
+    )
+)
+
+```
+
+fazendo entrada e saída

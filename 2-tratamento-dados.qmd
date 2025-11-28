@@ -63,7 +63,7 @@ likes |> write_rds("Dados/likes.rds")
 Criando listas de actors relacionados com likes
 
 ```{r}
-#| label: criando-liker-actors
+#| label: criando-likes-actors
 
 # quem curtiu
 liker.actors <- 
@@ -102,7 +102,7 @@ Montando a matriz de likes dados
 ```{r}
 #| label: monta-matriz-likes
 
-all.actors <- 
+all.actors.likes <- 
   tibble(
     did = 
       c(likes$from.actor, likes$to.actor) |> 
@@ -110,23 +110,24 @@ all.actors <-
       sort()
   ) |> 
   mutate(num = row_number())
+all.actors.likes |> write_rds("Dados/all-actors-likes.rds")
 
 matriz.likes <- 
   likes |> 
   left_join(
-    all.actors,
+    all.actors.likes,
     by = c("from.actor" = "did")
   ) |> 
-  rename(from.actor.num = num) |> 
+  rename(actor.influenced.num = num) |> 
   left_join(
-    all.actors,
+    all.actors.likes,
     by = c("to.actor" = "did")
   ) |> 
-  rename(to.actor.num = num) |> 
+  rename(actor.influencer.num = num) |> 
   select(
     data.skeet, 
-    from.actor.num, 
-    to.actor.num
+    actor.influencer.num,
+    actor.influenced.num
   )
 matriz.likes |> write_rds("Dados/matriz-likes.rds")
 ```
@@ -141,6 +142,55 @@ Carregando a versão curta
 skeets <- read_rds("Dados/skeets-curto.rds")
 ```
 
+Montando lista de envolvidos em skeets
+
+```{r}
+#| label: criando-skeets-actors
+
+all.actors.skeets <- 
+  tibble(
+    did =
+      c(
+        skeets$did.autor,
+        skeets$uri.post |> 
+          str_remove("at://") |> 
+          str_remove("/app.bsky.feed.post/.*$"),
+        skeets$uri.reply |> 
+          str_remove("at://") |> 
+          str_remove("/app.bsky.feed.post/.*$")
+      ) |> 
+      unique() |> 
+      sort()
+  ) |> 
+  mutate(num = row_number())
+all.actors.likes |> write_rds("Dados/all-actors-likes.rds")
+  
+matriz.skeets <- 
+  skeets |> 
+  left_join(
+    all.actors.skeets,
+    by = c("did.autor" = "did")
+  ) |> 
+  rename(actor.influenced.num = num) |> 
+  mutate(
+    did.replied.to = 
+      uri.reply |> 
+      str_remove("at://") |> 
+      str_remove("/app.bsky.feed.post/.*$")
+  ) |> 
+  left_join(
+    all.actors.skeets,
+    by = c("did.replied.to" = "did")
+  ) |> 
+  rename(actor.influencer.num = num) |> 
+  select(
+    data.post, 
+    actor.influencer.num,
+    actor.influenced.num
+  )
+matriz.skeets |> write_rds("Dados/matriz-skeets.rds")
+```
+
 Separando os skeets com "cblol" em iniciais e replies/quotes
 
 ```{r}
@@ -150,6 +200,6 @@ skeets.separados <-
   skeets |> 
   group_by(is.na(uri.reply)) |> # FALSE = reply/quote e TRUE = original
   group_split(.keep = FALSE) |> 
-  set_names(c("reply.quote", "original"))
+  # set_names(c("reply.quote", "original"))
 ```
 
