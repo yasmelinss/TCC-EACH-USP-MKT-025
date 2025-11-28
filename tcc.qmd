@@ -349,6 +349,8 @@ O ambiente computacional estatístico R, sua linguagem e de programação e suas
 
 ### Mineração de Dados
 
+
+:::callout-note
 Em seu artigo sobre abordagens quantitativas para a comparação de padrões comunicativos no Twitter (atual X), @Bruns2012 utilizam uma API de busca através da plataforma *yourTwapperkeeper* para extrair um conjunto de dados de postagens (*tweets*) que contenham palavras-chave ou *hashtags* determinadas pelo operador. No Bluesky, um processo equivalente pode ser realizado através do pacote '{atrrr}' do R para acessar a API da rede e buscar postagens e informações de usuários dentro de um critério estabelecido.
 
 Para descrever os padrões comunicativos que podem ser observados dentro deste conjunto de interações, utiliza-se de um catálogo de métricas, divididas entre três grupos em razão 1:9:90 [@Bruns2012]:
@@ -367,6 +369,8 @@ Desses grupos, foram calculadas as métricas:
 - a porcentagem de postagens no conjunto de dados que contêm URLs.
 
 Dessa forma, é possível medir dentro do conjunto de dados o quão dominantes na conversa geral são os usuários mais ativos e observar diferenças nos padrões de atividades dos três grupos [@Bruns2012]. O mesmo processo pode ser aplicado à critérios ou hashtags não relacionados ao tema de pesquisa para inseri-lo em um contexto mais amplo. Ademais, para analisar o impacto da suspensão do X nas dinâmicas de comunidade no Bluesky, pode-se dividir conjuntos de dados entre períodos temporais, realizando a mesma coleta de dados para:
+:::
+
 
 - as 5 semanas anteriores à suspensão (26/07/2024 - 30/09/2024);
 - as 5 semanas em que o X esteve indisponível (31/09/2024 - 08/10/2024);

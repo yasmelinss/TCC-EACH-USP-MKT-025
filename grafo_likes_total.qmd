@@ -1,0 +1,55 @@
+---
+title: "grafo_likes_total"
+format: html
+---
+
+```{r}
+library(tidyverse)
+library(tidygraph)
+library(igraph)
+library(ggplot2)
+library(ggraph)
+library(kableExtra)
+```
+
+```{r}
+readRDS("Dados/likes.rds")
+```
+
+
+```{r}
+g <- 
+  likes |>
+  select(from.actor, to.actor) |> 
+  as.data.frame() |> 
+  graph_from_data_frame(directed = TRUE)
+
+```
+  
+  
+```{r}
+
+g_tbl <- as_tbl_graph(g) |>
+  mutate(deg = centrality_degree()) 
+
+ggraph(g_tbl, layout = "fr") +
+  geom_edge_link(alpha = 0.1) +
+  geom_node_point(aes(size = deg)) +
+  theme_void()
+
+```
+  
+  
+```{r}
+
+g <- graph_from_adjacency_matrix(
+  matriz_likes,
+  mode = "directed",
+  weighted = TRUE
+)
+
+plot(g)
+
+
+```
+
