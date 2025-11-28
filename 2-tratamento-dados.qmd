@@ -63,7 +63,7 @@ likes |> write_rds("Dados/likes.rds")
 Criando listas de actors relacionados com likes
 
 ```{r}
-#| label: criando-liker-actors
+#| label: criando-likes-actors
 
 # quem curtiu
 liker.actors <- 
