@@ -6,7 +6,7 @@
 
 ## Principais achados
 
-## [Limitações e Trabalhos futuros]{.mark}
+## Limitações e Trabalhos Futuros
 
 A metodologia de coleta de dados deste estudo limitou-se à extração de *skeets* que continham o termo exato "CBLOL" em sua sigla. Para pesquisas futuras, sugere-se que futuras investigações expandam a abrangência da análise realizada neste trabalho. Uma forma de enriquecer o estudo seria desenvolvendo métodos para identificar e incorporar interações contextuais e discursivas que gravitam em torno do tema, como *skeets* que utilizam variações do termo CBLOL e termos associados, ou que são partes de respostas, citações ou *threads* onde o tema está implícito ou sendo diretamente comentado, permitindo uma análise de maior amplitude sobre o tópico na plataforma digital.
 
