@@ -111,6 +111,8 @@ format:
     ####################
     ### opções para a versão para a banca
     ####################
+    include-in-header:
+      - preamble.tex
     include-before-body:
       - capa.tex
       - text: |
