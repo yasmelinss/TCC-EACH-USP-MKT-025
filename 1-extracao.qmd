@@ -228,11 +228,11 @@ Salvando os skeets baixados
 #| label: salva-skeets
 #| dependson: puxa-skeets-dia, separa-skeets-curto
 
-write_rds(skeets, "Dados/skeets-cblol.rds")
+write_rds(skeets, "Dados/skeets-longo.rds")
 write_rds(skeets.curto, "Dados/skeets-curto.rds")
 
 ### pro caso de precisar carregar rápido:
-# skeets <- read_rds("Dados/skeets.rds")
+# skeets <- read_rds("Dados/skeets-longo.rds")
 # skeets.curto <- read_rds("Dados/skeets-curto.rds")
 
 ### por ora, não está precisando rodar isto pra economizar espaço
