@@ -18,9 +18,8 @@ library(tidyverse)
 library(tidygraph)
 library(ggraph)
 library(igraph)
-
-
 ```
+
 ```{r}
 ## 5.2 e 5.3. Construindo o grafo do dia 37
 
@@ -118,7 +117,7 @@ set.seed(123)
 ggraph::ggraph(grafo_filtrado, layout = "fr") +
 geom_edge_link(aes(alpha = weight), show.legend = FALSE) +
 geom_node_point(aes(size = grau_in)) +
-geom_node_text(aes(label = handle),
+geom_node_text(aes(label = handle.x),
 repel = TRUE,
 size = 3) +
 scale_size_continuous(name = "Likes recebidos (grau in)",
