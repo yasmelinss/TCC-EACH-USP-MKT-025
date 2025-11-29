@@ -6,7 +6,7 @@ library(scales)
 
 # lendo arquivo ----
 skeets <-
-  base::readRDS("skeets-cblol.rds") |>
+  base::readRDS("Dados/skeets-cblol.rds") |>
   dplyr::mutate(indexed_at = base::as.POSIXct(indexed_at))
 
 #somar 1 ao objeto
@@ -81,9 +81,10 @@ mapa_calor <-
 
 # exportando imagem ----
 ggplot2::ggsave(
-  filename = "Imagens/mapa_de_calor3.png",
+  filename = "img/mapa_de_calor3.png",
   plot = mapa_calor,
   width = 8,
   height = 3,
   dpi = 300
 )
+2
