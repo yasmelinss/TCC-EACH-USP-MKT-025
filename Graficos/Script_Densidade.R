@@ -3,7 +3,7 @@ library(lubridate)
 library(ggplot2)
 
 skeets <-
-  readRDS("skeets-cblol.rds") |>
+  readRDS("Dados/skeets-cblol.rds") |>
   mutate(
     indexed_at = as.POSIXct(
       indexed_at
@@ -48,9 +48,10 @@ mapa_densidade <-
 
 
 ggsave(
-  "Imagens/densidade.png",
+  "img/densidade.png",
   plot = mapa_densidade,
   width = 4,      # largura em polegadas
   height = 4,      # altura em polegadas
   dpi = 300        # resolução
 )
+
