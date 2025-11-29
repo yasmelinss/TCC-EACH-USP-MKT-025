@@ -252,5 +252,5 @@ metricas_todos_dias <-
     }
   )
 
-saveRDS(metricas_todos_dias, "Dados/metricas-todos-dias" )
+saveRDS(metricas_todos_dias, "Dados/metricas-todos-dias.rds" )
 ```
