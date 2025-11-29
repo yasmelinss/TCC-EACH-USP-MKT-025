@@ -27,8 +27,8 @@ library(igraph)
 edges_dia37 <- 
   dia37 |>
   rename(
-    from   = actor.influencer.num,
-    to     = actor.influenced.num,
+    from   = actor.influenced.num,
+    to     = actor.influencer.num,
     weight = quantos
   ) |>
   mutate(
@@ -129,7 +129,6 @@ ggtitle("Rede de likes – dia selecionado (todos os atores)")
 
 ```{r}
 # selecionar top 30 nós por grau_in
-#ele usa a nomenclatura grau in mas o resultado é grau_out
 
 top_nos <- 
   grafo_dia37 |>
@@ -145,17 +144,16 @@ ggraph(top_nos, layout = "fr") +
   geom_node_text(aes(label = handle.x),
                  repel = TRUE,
                  size = 3) +
-  scale_size_continuous(name = "Likes dados (grau out)",
+  scale_size_continuous(name = "Likes dados (grau in)",
                         range = c(3, 12)) +
   theme_void() +
-  ggtitle("Rede de likes – top 30 atores que mais curtem")
+  ggtitle("Rede de likes – top 30 atores que mais são curtidos")
 
 ```
 
 
 ```{r}
 # top 30 por grau_out (quem mais dá like)
-#ele usa a nomenclatura grau_out mas o resultado é grau_in
 
 top_influencers <-
 grafo_dia37 |>
@@ -174,7 +172,7 @@ size = 3) +
 scale_size_continuous(name = "Likes distribuídos (grau out)",
 range = c(3, 12)) +
 theme_void() +
-ggtitle("Rede de likes – top 30 atores que mais são curtidos")
+ggtitle("Rede de likes – top 30 atores que mais curtem")
 
 ```
 
@@ -202,4 +200,13 @@ dim(matriz_adj)
 saveRDS(matriz_adj, "Dados/matriz-adjacencia-dia37.rds")
 ```
 
+```{r}
+metri
+
+```
+
+
 Fazendo com todos os dias
+
+
+
