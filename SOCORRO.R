@@ -350,7 +350,7 @@ likes_dados |>
 library(dplyr)
 library(purrr)
 
-caminho_pasta <- "Dados/likes/likes"
+caminho_pasta <- "Dados/likes"
 
 df_likes <- list.files(path = caminho_pasta, pattern = "\\.rds$", full.names = TRUE) |>
   map(readRDS) |>
@@ -433,9 +433,23 @@ qnt_skeets_unicos_print
 #- a porcentagem de reposts no conjunto de dados;
   #puxar repost
 
+# - a média
 
+#estatisticas
+estatisticas_gerais <- readRDS("Dados/matriz-likes.rds")
 
+  estatisticas_gerais <- df |>
+    summarise(
+      media_dados = mean(likes_dados),
+      mediana_dados = median(likes_dados),
+      total_dados = sum(likes_dados),
 
+      media_recebidos = mean(likes_recebidos),
+      mediana_recebidos = median(likes_recebidos),
+      total_recebidos = sum(likes_recebidos),
 
+      dias = n()
+    )
 
+  estatisticas_gerais
 
