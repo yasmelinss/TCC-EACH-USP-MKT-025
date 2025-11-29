@@ -146,13 +146,12 @@ all.actors.skeets <-
     did =
       c(
         skeets$did.autor,
-        skeets$uri.post |> 
-          str_remove("at://") |> 
-          str_remove("/app.bsky.feed.post/.*$"),
-        skeets$uri.reply |> 
-          str_remove("at://") |> 
-          str_remove("/app.bsky.feed.post/.*$")
+        skeets$uri.post,
+        skeets$uri.reply,
+        skeets$uri.quote
       ) |> 
+      str_remove("^at://") |> 
+      str_remove("/app.*$") |> 
       unique() |> 
       sort()
   ) |> 
@@ -161,6 +160,8 @@ all.actors.likes |> write_rds("Dados/all-actors-likes.rds")
   
 matriz.skeets <- 
   skeets |> 
+  # se nem é reply e nem é quote, não é uma interação
+  filter(!is.na(uri.reply) | !is.na(uri.quote)) |>
   left_join(
     all.actors.skeets,
     by = c("did.autor" = "did")
@@ -170,17 +171,41 @@ matriz.skeets <-
     did.replied.to = 
       uri.reply |> 
       str_remove("at://") |> 
-      str_remove("/app.bsky.feed.post/.*$")
+      str_remove("/app.*$"),
+    did.quoted = 
+      uri.quote |> 
+      str_remove("at://") |> 
+      str_remove("/app.*$")
   ) |> 
   left_join(
     all.actors.skeets,
     by = c("did.replied.to" = "did")
   ) |> 
-  rename(actor.influencer.num = num) |> 
+  rename(num.replied = num) |> 
+  left_join(
+    all.actors.skeets,
+    by = c("did.quoted" = "did")
+  ) |> 
+  rename(num.quoted = num) |> 
+  mutate(
+    actor.influencer.num = 
+      case_when(
+        !is.na(num.replied) ~ num.replied,
+        !is.na(num.quoted) ~ num.quoted,
+        .default = NA
+      ),
+    influence = 
+      case_when(
+        !is.na(num.replied) ~ "reply",
+        !is.na(num.quoted) ~ "quote",
+        .default = NA
+      ),
+  ) |> 
   select(
     data.post, 
     actor.influencer.num,
-    actor.influenced.num
+    actor.influenced.num,
+    influence
   )
 matriz.skeets |> write_rds("Dados/matriz-skeets.rds")
 ```
@@ -192,12 +217,21 @@ Separando os skeets com "cblol" em iniciais e replies/quotes
 
 skeets.separados <- 
   skeets |> 
-  group_by(is.na(uri.reply)) |> # FALSE = reply/quote e TRUE = original
-  group_split(.keep = FALSE) |> 
-  # set_names(c("reply.quote", "original"))
+  mutate(
+    tipo = 
+      case_when(
+        !is.na(uri.reply) ~ "reply",
+        !is.na(uri.quote) ~ "quote",
+        .default = "skeet"
+      )
+  ) |> # count(tipo)
+  group_by(tipo) |>
+  group_split(.keep = TRUE) |> # length()
+  set_names(c("quote", "reply", "skeet"))
+skeets.separados$quote |> write_rds("Dados/skeets-quote.rds")
+skeets.separados$reply |> write_rds("Dados/skeets-reply.rds")
+skeets.separados$skeet |> write_rds("Dados/skeets-iniciais.rds")
 ```
-
-
 
 ## Dicionário de actors
 
