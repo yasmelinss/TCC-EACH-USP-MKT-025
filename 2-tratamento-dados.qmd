@@ -125,7 +125,6 @@ matriz.likes <-
 matriz.likes |> write_rds("Dados/matriz-likes.rds")
 ```
 
-
 ## Dados de skeets
 
 Carregando a versão curta
