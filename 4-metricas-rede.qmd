@@ -17,6 +17,10 @@ execute:
 library(tidyverse)
 `%!in%` <- negate(`%in%`)
 options(scipen = 99)
+library(tidygraph)
+library(ggraph)
+
+
 ```
 
 ## Carregando dados
@@ -109,7 +113,7 @@ Da matriz 1 a 27 - não há likes (ninguém curtiu ou foi curtido)
 
 A partir do dia 28 - há likes
 
-exemplo do dia 85 - 2024-10-26
+exemplo do dia 37  07-09-2024
 
 ```{r}
 
@@ -123,7 +127,7 @@ Testando algumas medidas de centralidade em função dos likes
 lendo matriz com todos os actors que curtem
 
 ```{r}
-all.actors.likes <- readRDS("Dados/all-actors-likes.rds")
+dicionario <- readRDS("Dados/dicionario.rds")
 ```
 
 
@@ -135,7 +139,7 @@ dia37.influencer <-
   group_by(actor.influencer.num) |> 
   summarise(quantos = sum(quantos)) |> 
   left_join(
-    all.actors.likes |> select(num, handle),
+    dicionario |> select(num, handle),
     by = c("actor.influencer.num" = "num")
   ) |> 
   rename(
@@ -152,7 +156,7 @@ dia37.influenced <-
   group_by(actor.influenced.num) |> 
   summarise(quantos = sum(quantos)) |> 
   left_join(
-    all.actors.likes |> select(num, handle),
+    dicionario |> select(num, handle),
     by = c("actor.influenced.num" = "num")
   ) |> 
   rename(
@@ -194,6 +198,7 @@ matriz.likes.dia37.saldo <-
 
 
  view(matriz.likes.dia37.saldo)
+ 
 
 #matriz.likes.dia37.saldo |> write_rds("Dados/matrizes-likes-dia-in-out-degree/dia37.rds")
 ```
@@ -202,9 +207,179 @@ matriz.likes.dia37.saldo <-
 Fazendo o Grafo desse dia (novo arquivo)
 
 ```{r}
+matriz.likes.dia37.saldo |> head(20)
+```
+
+
+
+
+```{r}
+## 5.2 e 5.3. Construindo o grafo já com os handles
+
+# edges: quem curte (from) → quem recebe like (to)
+edges_dia37 <- 
+  dia37 |>
+  rename(
+    from   = actor.influencer.num,
+    to     = actor.influenced.num,
+    weight = quantos
+  ) |>
+  mutate(
+    from = as.character(from),
+    to   = as.character(to)
+  )
+
+# nodes: todos os IDs que aparecem em from ou to
+nodes_dia37 <- 
+  tibble(name = unique(c(edges_dia37$from, edges_dia37$to))) |>
+  left_join(
+    dicionario |>
+      mutate(num = as.character(num)) |>
+      select(name = num, handle),
+    by = "name"
+  )
+
+# construindo o grafo com tidygraph
+grafo_dia37 <- 
+  tidyverse::tbl_graph(
+    nodes = nodes_dia37,
+    edges = edges_dia37,
+    directed = TRUE
+  )
+
+# conferindo nós e arestas
+grafo_dia37
+grafo_dia37 |> activate(nodes) |> as_tibble() |> head()
+grafo_dia37 |> activate(edges) |> as_tibble() |> head()
 
 ```
 
+
+
+```{r}
+grafo_dia37 <- 
+  grafo_dia37 |>
+  mutate(
+    grau_in    = centrality_degree(mode = "in",  loops = FALSE),
+    grau_out   = centrality_degree(mode = "out", loops = FALSE),
+    betweenness = centrality_betweenness(),
+    eigen       = centrality_eigen()
+  )
+
+
+
+```
+
+
+```{r}
+
+metricas_dia37 <-
+grafo_dia37 |>
+activate(nodes) |>
+as_tibble()
+
+metricas_dia37 |> arrange(desc(grau_in)) |> head(20)
+
+```
+
+
+mantendo quem recebu 5 curtidas por dia
+
+```{r}
+
+grafo_filtrado <-
+grafo_dia37 |>
+activate(nodes) |>
+filter(grau_in >= 5)
+
+grafo_filtrado
+```
+
+
+```{r}
+
+set.seed(123)
+
+ggraph::ggraph(grafo_dia37, layout = "fr") +
+geom_edge_link(aes(alpha = weight), show.legend = FALSE) +
+geom_node_point(aes(size = grau_in)) +
+geom_node_text(aes(label = handle),
+repel = TRUE,
+size = 3) +
+scale_size_continuous(name = "Likes recebidos (grau in)",
+range = c(2, 10)) +
+theme_void() +
+ggtitle("Rede de likes – dia selecionado (todos os atores)")
+
+```
+
+```{r}
+# selecionar top 30 nós por grau_in
+
+top_nos <-
+grafo_dia37 |>
+activate(nodes) |>
+arrange(desc(grau_in)) |>
+slice(1:30)
+
+set.seed(123)
+
+ggraph(top_nos, layout = "fr") +
+geom_edge_link(aes(alpha = weight), show.legend = FALSE) +
+geom_node_point(aes(size = grau_in)) +
+geom_node_text(aes(label = handle),
+repel = TRUE,
+size = 3) +
+scale_size_continuous(name = "Likes recebidos (grau in)",
+range = c(3, 12)) +
+theme_void() +
+ggtitle("Rede de likes – top 30 atores mais curtidos")
+
+
+
+```
+```{r}
+# top 30 por grau_out (quem mais dá like)
+#revisar pq achoq ue tá ao contrário
+
+top_influencers <-
+grafo_dia37 |>
+activate(nodes) |>
+arrange(desc(grau_out)) |>
+slice(1:30)
+
+set.seed(123)
+
+ggraph(top_influencers, layout = "fr") +
+geom_edge_link(aes(alpha = weight), show.legend = FALSE) +
+geom_node_point(aes(size = grau_out)) +
+geom_node_text(aes(label = handle),
+repel = TRUE,
+size = 3) +
+scale_size_continuous(name = "Likes distribuídos (grau out)",
+range = c(3, 12)) +
+theme_void() +
+ggtitle("Rede de likes – top 30 atores que mais curtem")
+
+
+```
+
+
+```{r}
+write_rds(metricas_dia37, "Dados/metricas-dia37.rds")
+```
+
+```{r}
+matriz_adj <-
+grafo_dia37 |>
+as_adj_matrix(sparse = FALSE, weights = "weight")
+
+dim(matriz_adj)
+```
+
+```{r}
+saveRDS(matriz_adj, "Dados/matriz-adjacencia-dia37.rds")
+```
 
 Fazendo com todos os dias
 
