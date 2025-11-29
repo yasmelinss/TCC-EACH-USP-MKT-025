@@ -21,6 +21,19 @@ library(igraph)
 ```
 
 ```{r}
+#| label: carrega-metricas
+
+all.actors.likes <- read_rds("Dados/all-actors-likes-2.rds")
+matriz.likes <- read_rds("Dados/matriz-likes.rds")
+vetor.matrizes.dias.likes <- readRDS("Dados/vetor-matrizes-dias-likes.rds")
+dia37 <- readRDS(vetor.matrizes.dias.likes[[37]])
+metricas_agregadas_dia37 <- read_rds("Dados/metricas_agregadas_dia37.rds")
+
+#metricas_todos_dias <- ("Dados/metricas-todos-dias.rds")
+```
+
+
+```{r}
 ## 5.2 e 5.3. Construindo o grafo do dia 37
 
 # edges: quem curte (from) → quem recebe like (to)
@@ -165,7 +178,7 @@ set.seed(123)
 
 ggraph(top_influencers, layout = "fr") +
 geom_edge_link(aes(alpha = weight), show.legend = FALSE) +
-geom_node_point(aes(size = grau_out)) +
+geom_node_point(aes(size = grau_out), alpha = 0.4) +
 geom_node_text(aes(label = handle.x),
 repel = TRUE,
 size = 3) +
@@ -176,6 +189,75 @@ ggtitle("Rede de likes – top 30 atores que mais curtem")
 
 ```
 
+```{r}
+library(viridis)
+
+top_influencers <-
+  grafo_dia37 |>
+  activate(nodes) |>
+  arrange(desc(grau_out)) |>
+  slice(1:30)
+
+set.seed(123)
+
+top_influencers <- ggraph(top_influencers, layout = "fr") +
+  
+  # Arestas mais discretas
+  geom_edge_link(
+    color = "grey60",
+    alpha = 0.3,
+    show.legend = FALSE
+  ) +
+  
+  # Nós coloridos pelo grau_out
+  geom_node_point(
+    aes(size = grau_out, color = grau_out),
+    alpha = 0.8
+  ) +
+  
+  # Labels com repel e cor branca
+  geom_node_text(
+    aes(label = handle.x),
+    repel = TRUE,
+    size = 3,
+    color = "white",
+    bg.color = "black",     # fundo do label
+    bg.r = 0.15             # borda arredondada
+  ) +
+  
+  # Escalas bonitas
+  scale_color_viridis_c(
+    name = "Likes distribuídos",
+    option = "plasma"
+  ) +
+  
+  scale_size_continuous(
+    name = " ",
+    range = c(4, 14)
+  ) +
+  
+  # Tema dark para destacar nós coloridos
+  theme_void() +
+  theme(
+    plot.background = element_rect(fill = "black", color = NA),
+    legend.position = "right",
+    plot.title  = element_text(color = "white", size = 16, face = "bold"),
+#  legend.text  = element_text(color = "white"),
+  legend.title = element_text(color = "white")
+  ) +
+  
+  ggtitle("Rede de likes – top 30 atores que mais curtem")
+
+# exportando imagem ----
+ggplot2::ggsave(
+  filename = "img/top30curtem.png",
+  plot = top_influencers,
+  width = 10,
+  height = 7,
+  dpi = 300
+)
+
+```
 
 ```{r}
 write_rds(metricas_dia37, "Dados/metricas-dia37.rds")
