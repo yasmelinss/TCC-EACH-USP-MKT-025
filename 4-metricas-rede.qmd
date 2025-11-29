@@ -58,8 +58,6 @@ fazendo uma matriz para cada dia
 ```{r}
 #| label: matriz-cada-dia
 
-matriz.likes <- readRDS("Dados/matriz-likes.rds")
-
 matriz.lista.dias <- 
   map(
     dias.periodo,
@@ -100,6 +98,7 @@ vetor.matrizes.dias.likes <-
     pattern = "\\.rds$",
     full.names = TRUE
   )
+saveRDS(vetor.matrizes.dias.likes, "Dados/vetor-matrizes-dias-likes.rds")
 
 ```
 
@@ -127,7 +126,6 @@ all.actors.likes <-
         TRUE ~ handle
       )
     ) |>
-    
     group_by(did) |> 
     filter(n() == 1 | n() > 1 & !is.na(handle)) |> 
     ungroup() |> 
@@ -150,6 +148,7 @@ all.actors.likes <-
             str_c(".", seq(n()))
         )
     )
+saveRDS(all.actors.likes, "Dados/all-actors-likes-2.rds")
 ```
 
 
