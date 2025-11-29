@@ -113,8 +113,8 @@ exemplo do dia 85 - 2024-10-26
 
 ```{r}
 
-dia85 <- readRDS(vetor.matrizes.dias.likes[[85]])
-dia85
+dia37 <- readRDS(vetor.matrizes.dias.likes[[37]])
+dia37
 
 ```
 
@@ -130,8 +130,8 @@ all.actors.likes <- readRDS("Dados/all-actors-likes.rds")
 criando matriz influencer do dia 85 
 
 ```{r}
-dia85.influencer <- 
-  dia85 |> 
+dia37.influencer <- 
+  dia37 |> 
   group_by(actor.influencer.num) |> 
   summarise(quantos = sum(quantos)) |> 
   left_join(
@@ -141,14 +141,14 @@ dia85.influencer <-
   rename(
     arestas.influencer = quantos
   )
-dia85.influencer
+dia37.influencer
 ```
 
 criando matriz influenced do dia 85  
 
 ```{r}
-dia85.influenced <- 
-  dia85 |> 
+dia37.influenced <- 
+  dia37 |> 
   group_by(actor.influenced.num) |> 
   summarise(quantos = sum(quantos)) |> 
   left_join(
@@ -158,16 +158,16 @@ dia85.influenced <-
   rename(
     arestas.influenced = quantos
   )
-dia85.influenced
+dia37.influenced
 ```
 
 Juntando as duas e criando contas de arestas
 
 ```{r}
-matriz.likes.dia85.saldo <- 
+matriz.likes.dia37.saldo <- 
   full_join(
-    dia85.influenced,
-    dia85.influencer,
+    dia37.influenced,
+    dia37.influencer,
     by = c("actor.influenced.num" = "actor.influencer.num"),
     keep = TRUE
   ) |> 
@@ -193,9 +193,9 @@ matriz.likes.dia85.saldo <-
 
 
 
- view(matriz.likes.dia85.saldo)
+ view(matriz.likes.dia37.saldo)
 
-#matriz.likes.dia85.saldo |> write_rds("Dados/matrizes-likes-dia-in-out-degree/dia85.rds")
+#matriz.likes.dia37.saldo |> write_rds("Dados/matrizes-likes-dia-in-out-degree/dia37.rds")
 ```
 
 
