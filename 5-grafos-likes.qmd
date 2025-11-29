@@ -1,0 +1,206 @@
+---
+title: "5-grafos-likes"
+format: 
+  html:
+    toc: true
+    toc-depth: 5
+    toc-location: left
+    embed-resources: true
+execute: 
+  cache: true
+---
+
+```{r}
+#| label: setup
+#| warning: false
+
+library(tidyverse)
+library(tidygraph)
+library(ggraph)
+library(igraph)
+
+
+```
+```{r}
+## 5.2 e 5.3. Construindo o grafo do dia 37
+
+# edges: quem curte (from) → quem recebe like (to)
+edges_dia37 <- 
+  dia37 |>
+  rename(
+    from   = actor.influencer.num,
+    to     = actor.influenced.num,
+    weight = quantos
+  ) |>
+  mutate(
+    from = as.character(from),
+    to   = as.character(to)
+  )
+
+# nodes: todos os IDs que aparecem em from ou to
+nodes_dia37 <- 
+  tibble(name = unique(c(edges_dia37$from, edges_dia37$to))) |>
+  left_join(
+    all.actors.likes |>
+      mutate(num = as.character(num)) |>
+      select(name = num, handle),
+    by = "name"
+  )
+
+# construindo o grafo com tidygraph
+grafo_dia37 <- 
+  tbl_graph(
+    nodes = nodes_dia37,
+    edges = edges_dia37,
+    directed = TRUE
+  )
+
+```
+
+
+
+```{r}
+grafo_dia37 <- 
+  grafo_dia37 |>
+  activate(nodes) |>
+  left_join(
+    metricas_agregadas_dia37 |> 
+      mutate(actor.num = as.character(actor.num)),
+    by = c("name" = "actor.num")
+  ) |>
+  mutate(
+    grau_in    = centrality_degree(mode = "in",  loops = FALSE),
+    grau_out   = centrality_degree(mode = "out", loops = FALSE),
+    betweenness = centrality_betweenness(),
+    eigen       = centrality_eigen()
+  )
+```
+
+Aí você passa a ter tudo junto:
+
+in_degree / out_degree (baseados em soma de likes)
+
+grau_in / grau_out (baseados em número de conexões diferentes)
+
+
+NAO RODAR?
+```{r}
+
+metricas_dia37 <-
+grafo_dia37 |>
+activate(nodes) |>
+as_tibble()
+
+metricas_dia37 |> arrange(desc(grau_in)) |> head(20) |>
+write_rds("Dados/metricas_dia37")
+
+```
+
+
+mantendo quem recebeu 5 curtidas por dia
+(nunca uso, mas existe. ggraph(grafo_filtrado, layout = "fr") +)
+
+```{r}
+#as operações abaixo devem agir sobre os nós do grafo
+grafo_filtrado <-
+grafo_dia37 |>
+activate(nodes) |>
+filter(grau_in >= 5)
+
+grafo_filtrado
+```
+
+
+```{r}
+
+set.seed(123)
+
+ggraph::ggraph(grafo_filtrado, layout = "fr") +
+geom_edge_link(aes(alpha = weight), show.legend = FALSE) +
+geom_node_point(aes(size = grau_in)) +
+geom_node_text(aes(label = handle),
+repel = TRUE,
+size = 3) +
+scale_size_continuous(name = "Likes recebidos (grau in)",
+range = c(2, 10)) +
+theme_void() +
+ggtitle("Rede de likes – dia selecionado (todos os atores)")
+
+```
+
+```{r}
+# selecionar top 30 nós por grau_in
+#ele usa a nomenclatura grau in mas o resultado é grau_out
+
+top_nos <- 
+  grafo_dia37 |>
+  activate(nodes) |>
+  filter(rank(-grau_in) <= 30)
+
+
+set.seed(123)
+
+ggraph(top_nos, layout = "fr") +
+  geom_edge_link(aes(alpha = weight), show.legend = FALSE) +
+  geom_node_point(aes(size = grau_in)) +
+  geom_node_text(aes(label = handle.x),
+                 repel = TRUE,
+                 size = 3) +
+  scale_size_continuous(name = "Likes dados (grau out)",
+                        range = c(3, 12)) +
+  theme_void() +
+  ggtitle("Rede de likes – top 30 atores que mais curtem")
+
+```
+
+
+```{r}
+# top 30 por grau_out (quem mais dá like)
+#ele usa a nomenclatura grau_out mas o resultado é grau_in
+
+top_influencers <-
+grafo_dia37 |>
+activate(nodes) |>
+arrange(desc(grau_out)) |>
+slice(1:30)
+
+set.seed(123)
+
+ggraph(top_influencers, layout = "fr") +
+geom_edge_link(aes(alpha = weight), show.legend = FALSE) +
+geom_node_point(aes(size = grau_out)) +
+geom_node_text(aes(label = handle.x),
+repel = TRUE,
+size = 3) +
+scale_size_continuous(name = "Likes distribuídos (grau out)",
+range = c(3, 12)) +
+theme_void() +
+ggtitle("Rede de likes – top 30 atores que mais curtem")
+
+```
+
+
+```{r}
+write_rds(metricas_dia37, "Dados/metricas-dia37.rds")
+```
+
+```{r}
+#weight
+
+matriz_adj <- 
+  grafo_dia37 |>
+  as.igraph() |>
+  get.adjacency(
+    sparse = FALSE,
+    attr = "weight",
+    edges = FALSE
+  )
+
+dim(matriz_adj)
+```
+
+```{r}
+saveRDS(matriz_adj, "Dados/matriz-adjacencia-dia37.rds")
+```
+
+Fazendo com todos os dias

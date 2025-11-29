@@ -19,6 +19,7 @@ library(tidyverse)
 options(scipen = 99)
 library(tidygraph)
 library(ggraph)
+library(igraph)
 
 
 ```
@@ -28,10 +29,13 @@ library(ggraph)
 ```{r}
 #| label: carrega-likes
 
+# likes
 likes <- read_rds("Dados/likes.rds")
 liker.actors <- read_rds("Dados/liker-actors.rds")
 liked.actors <- read_rds("Dados/liked-actors.rds")
 likes.actors <- read_rds("Dados/likes-actors.rds")
+all.actors.likes <- read_rds("Dados/all-actors-likes.rds")
+matriz.likes <- read_rds("Dados/matriz-likes.rds")
 ```
 
 ## Verificando a matriz de likes para todos os dias
@@ -99,7 +103,9 @@ vetor.matrizes.dias.likes <-
 
 ```
 
-numero de matrizes (98 dias)
+não precisa rodar
+
+quantidade de matrizes (98 dias)
 
 ```{r}
 
@@ -107,280 +113,144 @@ n_arquivos <- length(list.files("Dados/matrizes-dia"))
 n_arquivos
 
 ```
-Vendo como está para um dia específico (dia 2024-10-22 exemplo)
+
+Modificando/Limpando all.actors.likes
+
+```{r}
+#| label: limpando-handles
+
+all.actors.likes <-
+  all.actors.likes |>
+    mutate(
+      handle = case_when(
+        did == "did:plc:uk7niqvqdgr74qhwb4vrg3vi" ~ "LTA_SUL",
+        TRUE ~ handle
+      )
+    ) |>
+    
+    group_by(did) |> 
+    filter(n() == 1 | n() > 1 & !is.na(handle)) |> 
+    ungroup() |> 
+    mutate(
+      handle = 
+        if_else(
+          is.na(handle), 
+          "handle.missing", 
+          handle
+        )
+    ) |> 
+    group_by(handle) |> # só missing e invalid é que sejam juntados 
+    mutate(
+      handle =
+        if_else(
+          n() == 1 + 0 * nchar(handle),
+          handle |> 
+            str_remove(fixed(".bsky.social")),
+          handle |> 
+            str_c(".", seq(n()))
+        )
+    )
+```
+
+
+Vendo como está para um dia específico e tirando medidas de centralidade em função dos likes
 
 Da matriz 1 a 27 - não há likes (ninguém curtiu ou foi curtido)
 
 A partir do dia 28 - há likes
 
-exemplo do dia 37  07-09-2024
+exemplo do dia [37] = 07-09-2024
+
+
 
 ```{r}
-
 dia37 <- readRDS(vetor.matrizes.dias.likes[[37]])
-dia37
 
-```
-
-Testando algumas medidas de centralidade em função dos likes
-
-lendo matriz com todos os actors que curtem
-
-```{r}
-dicionario <- readRDS("Dados/dicionario.rds")
-```
-
-
-criando matriz influencer do dia 85 
-
-```{r}
-dia37.influencer <- 
-  dia37 |> 
-  group_by(actor.influencer.num) |> 
-  summarise(quantos = sum(quantos)) |> 
-  left_join(
-    dicionario |> select(num, handle),
-    by = c("actor.influencer.num" = "num")
-  ) |> 
-  rename(
-    arestas.influencer = quantos
-  )
-dia37.influencer
-```
-
-criando matriz influenced do dia 85  
-
-```{r}
-dia37.influenced <- 
-  dia37 |> 
-  group_by(actor.influenced.num) |> 
-  summarise(quantos = sum(quantos)) |> 
-  left_join(
-    dicionario |> select(num, handle),
-    by = c("actor.influenced.num" = "num")
-  ) |> 
-  rename(
-    arestas.influenced = quantos
-  )
-dia37.influenced
-```
-
-Juntando as duas e criando contas de arestas
-
-```{r}
-matriz.likes.dia37.saldo <- 
-  full_join(
-    dia37.influenced,
-    dia37.influencer,
-    by = c("actor.influenced.num" = "actor.influencer.num"),
-    keep = TRUE
-  ) |> 
-  mutate(
-    across(
-      c(arestas.influenced,arestas.influencer),
-      \(x) if_else(x |> is.na(), 0, x)
-    ),
-    saldo.arestas = arestas.influenced - arestas.influencer,
-    spread.arestas = arestas.influenced + arestas.influencer - abs(saldo.arestas),
-  ) |>
-  select(
-    actor.influenced.num,
-    handle.x,
-    arestas.influenced,
-    actor.influencer.num,
-    handle.y,
-    arestas.influencer,
-    saldo.arestas,
-    spread.arestas
-  )
-
-
-
-
- view(matriz.likes.dia37.saldo)
- 
-
-#matriz.likes.dia37.saldo |> write_rds("Dados/matrizes-likes-dia-in-out-degree/dia37.rds")
-```
-
-
-Fazendo o Grafo desse dia (novo arquivo)
-
-```{r}
-matriz.likes.dia37.saldo |> head(20)
-```
-
-
-
-
-```{r}
-## 5.2 e 5.3. Construindo o grafo já com os handles
-
-# edges: quem curte (from) → quem recebe like (to)
-edges_dia37 <- 
+# in-degree: quem RECEBE likes (actor.influenced.num)
+in_dia37 <- 
   dia37 |>
-  rename(
-    from   = actor.influencer.num,
-    to     = actor.influenced.num,
-    weight = quantos
+  group_by(actor.influenced.num) |>
+  summarise(
+    in_degree = sum(quantos),
+    .groups = "drop"
   ) |>
-  mutate(
-    from = as.character(from),
-    to   = as.character(to)
-  )
+  rename(actor.num = actor.influenced.num)
 
-# nodes: todos os IDs que aparecem em from ou to
-nodes_dia37 <- 
-  tibble(name = unique(c(edges_dia37$from, edges_dia37$to))) |>
+# out-degree: quem DÁ likes (actor.influencer.num)
+out_dia37 <- 
+  dia37 |>
+  group_by(actor.influencer.num) |>
+  summarise(
+    out_degree = sum(quantos),
+    .groups = "drop"
+  ) |>
+  rename(actor.num = actor.influencer.num)
+
+# junta in + out por ator
+metricas_agregadas_dia37 <- 
+  full_join(in_dia37, out_dia37, by = "actor.num") |>
+  replace_na(list(in_degree = 0, out_degree = 0)) |>
+  mutate(
+    saldo  = in_degree - out_degree,
+    spread = in_degree + out_degree - abs(saldo)
+  ) |>
   left_join(
-    dicionario |>
-      mutate(num = as.character(num)) |>
-      select(name = num, handle),
-    by = "name"
+    all.actors.likes |> select(num, did, handle),
+    by = c("actor.num" = "num")
+  ) |>
+  relocate(did, handle, .after = actor.num) |>
+  arrange(desc(in_degree))
+
+saveRDS(metricas_agregadas_dia37, "Dados/metricas_agregadas_dia37.rds")
+```
+
+```{r}
+#TODOS OS DIAS
+
+# matriz.lista.dias já tem names com datas no formato "YYYY-MM-DD"
+
+metricas_todos_dias <- 
+  imap_dfr(
+    matriz.lista.dias,
+    ~ {
+      dia <- .x      # data.frame desse dia
+      data_str <- .y # nome da lista, ex: "2024-09-07"
+      
+      # in-degree: quem recebe likes
+      in_dia <- 
+        dia |>
+        group_by(actor.influenced.num) |>
+        summarise(
+          in_degree = sum(quantos),
+          .groups = "drop"
+        ) |>
+        rename(actor.num = actor.influenced.num)
+      
+      # out-degree: quem dá likes
+      out_dia <- 
+        dia |>
+        group_by(actor.influencer.num) |>
+        summarise(
+          out_degree = sum(quantos),
+          .groups = "drop"
+        ) |>
+        rename(actor.num = actor.influencer.num)
+      
+      # junta in + out para o dia
+      full_join(in_dia, out_dia, by = "actor.num") |>
+        replace_na(list(in_degree = 0, out_degree = 0)) |>
+        mutate(
+          saldo  = in_degree - out_degree,
+          spread = in_degree + out_degree - abs(saldo),
+          data   = ymd(data_str)
+        ) |>
+        left_join(
+          all.actors.likes |> select(num, did, handle),
+          by = c("actor.num" = "num")
+        ) |>
+        relocate(data, actor.num, did, handle)
+    }
   )
 
-# construindo o grafo com tidygraph
-grafo_dia37 <- 
-  tidyverse::tbl_graph(
-    nodes = nodes_dia37,
-    edges = edges_dia37,
-    directed = TRUE
-  )
-
-# conferindo nós e arestas
-grafo_dia37
-grafo_dia37 |> activate(nodes) |> as_tibble() |> head()
-grafo_dia37 |> activate(edges) |> as_tibble() |> head()
-
+saveRDS(metricas_todos_dias, "Dados/metricas-todos-dias" )
 ```
-
-
-
-```{r}
-grafo_dia37 <- 
-  grafo_dia37 |>
-  mutate(
-    grau_in    = centrality_degree(mode = "in",  loops = FALSE),
-    grau_out   = centrality_degree(mode = "out", loops = FALSE),
-    betweenness = centrality_betweenness(),
-    eigen       = centrality_eigen()
-  )
-
-
-
-```
-
-
-```{r}
-
-metricas_dia37 <-
-grafo_dia37 |>
-activate(nodes) |>
-as_tibble()
-
-metricas_dia37 |> arrange(desc(grau_in)) |> head(20)
-
-```
-
-
-mantendo quem recebu 5 curtidas por dia
-
-```{r}
-
-grafo_filtrado <-
-grafo_dia37 |>
-activate(nodes) |>
-filter(grau_in >= 5)
-
-grafo_filtrado
-```
-
-
-```{r}
-
-set.seed(123)
-
-ggraph::ggraph(grafo_dia37, layout = "fr") +
-geom_edge_link(aes(alpha = weight), show.legend = FALSE) +
-geom_node_point(aes(size = grau_in)) +
-geom_node_text(aes(label = handle),
-repel = TRUE,
-size = 3) +
-scale_size_continuous(name = "Likes recebidos (grau in)",
-range = c(2, 10)) +
-theme_void() +
-ggtitle("Rede de likes – dia selecionado (todos os atores)")
-
-```
-
-```{r}
-# selecionar top 30 nós por grau_in
-
-top_nos <-
-grafo_dia37 |>
-activate(nodes) |>
-arrange(desc(grau_in)) |>
-slice(1:30)
-
-set.seed(123)
-
-ggraph(top_nos, layout = "fr") +
-geom_edge_link(aes(alpha = weight), show.legend = FALSE) +
-geom_node_point(aes(size = grau_in)) +
-geom_node_text(aes(label = handle),
-repel = TRUE,
-size = 3) +
-scale_size_continuous(name = "Likes recebidos (grau in)",
-range = c(3, 12)) +
-theme_void() +
-ggtitle("Rede de likes – top 30 atores mais curtidos")
-
-
-
-```
-```{r}
-# top 30 por grau_out (quem mais dá like)
-#revisar pq achoq ue tá ao contrário
-
-top_influencers <-
-grafo_dia37 |>
-activate(nodes) |>
-arrange(desc(grau_out)) |>
-slice(1:30)
-
-set.seed(123)
-
-ggraph(top_influencers, layout = "fr") +
-geom_edge_link(aes(alpha = weight), show.legend = FALSE) +
-geom_node_point(aes(size = grau_out)) +
-geom_node_text(aes(label = handle),
-repel = TRUE,
-size = 3) +
-scale_size_continuous(name = "Likes distribuídos (grau out)",
-range = c(3, 12)) +
-theme_void() +
-ggtitle("Rede de likes – top 30 atores que mais curtem")
-
-
-```
-
-
-```{r}
-write_rds(metricas_dia37, "Dados/metricas-dia37.rds")
-```
-
-```{r}
-matriz_adj <-
-grafo_dia37 |>
-as_adj_matrix(sparse = FALSE, weights = "weight")
-
-dim(matriz_adj)
-```
-
-```{r}
-saveRDS(matriz_adj, "Dados/matriz-adjacencia-dia37.rds")
-```
-
-Fazendo com todos os dias
-
- 
