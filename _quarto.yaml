@@ -2,7 +2,7 @@ project:
   type: book
 book:
   chapters:
-    - index.qmd
+    - index.qmd # o qual inclui 00-introducao.qmd
     - 01-revisao.qmd
     - 02-probl-objet-justif.qmd
     - 03-metodol.qmd
