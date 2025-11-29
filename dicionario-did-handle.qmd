@@ -52,7 +52,7 @@ liker.actors |>
 
 `r sum(liker.actors$from.handle == "handle.invalid")` actors não têm mais handles válidos, então esses actors serão agrupados erradamente como um único actor se agrupar por handle.
 
-tirando sufixo e filtrando handle.invalid, depois colocando sufixo nos handles diferentes (está indo nos handles diferentes?)
+tirando sufixo e filtrando handle.invalid, depois colocando sufixo nos handles diferentes (está indo nos dids diferentes?)
 
 ```{r}
 
@@ -67,7 +67,7 @@ dicionario <- likes |>
     )
   ) |>
   #filtro pra ficar mais fácil de ver
-  filter(handle == "handle.invalid") |>
+ # filter(handle == "handle.invalid") |>
     add_count(handle, name = "n_handle") |>
       mutate(
         handle = case_when(
@@ -75,7 +75,11 @@ dicionario <- likes |>
           n_handle > 1 ~ paste0("handle.invalid", row_number()),
           TRUE ~ handle
         )
-      )
+      ) |>
+    select (
+      did,
+      handle
+    )
 ```
 
 
