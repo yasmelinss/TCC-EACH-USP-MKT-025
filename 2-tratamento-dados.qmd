@@ -369,9 +369,14 @@ likes.actors <- read_rds("Dados/likes-actors.rds")
 all.actors.likes <- read_rds("Dados/all-actors-likes.rds")
 matriz.likes <- read_rds("Dados/matriz-likes.rds")
 # skeets
+skeets.longo <- read_rds("Dados/skeets-longo.rds")
 matriz.skeets <- read_rds("Dados/matriz-skeets.rds")
 all.actors.likes <- read_rds("Dados/all-actors-likes.rds")
-skeets.separados$original <- read_rds("Dados/skeets-iniciais.rds")
-skeets.separados$reply.quote <- read_rds("Dados/skeets-reply-quote.rds")
+skeets.separados <- 
+  list(
+    quote = read_rds("Dados/skeets-quote.rds"),
+    reply = read_rds("Dados/skeets-reply.rds"),
+    skeet = read_rds("Dados/skeets-iniciais.rds")
+  )
 ```
 
