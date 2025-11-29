@@ -85,18 +85,6 @@ likes.actors <-
 likes.actors |> write_rds("Dados/likes-actors.rds")
 ```
 
-Ou carregando do disco o já processado: só executa se avaliado manualmente
-
-```{r}
-#| label: recarrega-dados-likes
-#| eval: false
-
-likes <- read_rds("Dados/likes.rds")
-liker.actors <- read_rds("Dados/liker-actors.rds")
-liked.actors <- read_rds("Dados/liked-actors.rds")
-likes.actors <- read_rds("Dados/likes-actors.rds")
-```
-
 Montando a matriz de likes dados
 
 ```{r}
@@ -138,41 +126,6 @@ matriz.likes <-
     actor.influenced.num
   )
 matriz.likes |> write_rds("Dados/matriz-likes.rds")
-```
-
-
-tirando sufixo, depois colocando sufixo nos handles.inavalids e mantendo a numeração de dids.
-
-```{r}
-
-dicionario <- 
-  all.actors.likes |>
-  distinct(
-    did = did, 
-    handle = handle,
-    num = num
-  ) |>
-  mutate(
-    handle = str_remove(
-      handle,
-      "\\.bsky\\.social$"
-    )
-  ) |>
-  # filtro pra ficar mais fácil de ver
-  # filter(handle == "handle.invalid") |>
-  add_count(handle, name = "n_handle") |>
-  mutate(
-    handle = case_when(
-      # numera did
-      n_handle > 1 ~ paste0("handle.invalid", row_number()),
-      TRUE ~ handle
-    )
-  ) |>
-  select (
-    did,
-    handle,
-    num
-  )
 ```
 
 
@@ -245,5 +198,150 @@ skeets.separados <-
   group_by(is.na(uri.reply)) |> # FALSE = reply/quote e TRUE = original
   group_split(.keep = FALSE) |> 
   # set_names(c("reply.quote", "original"))
+```
+
+
+
+## Dicionário de actors
+
+Precisa:
+
+- juntar todos os did's já encontrados com os handles quando presentes
+- numerar sequencialmente os "handle.invalid" de did's diferentes
+- criar um "handle.missing" quando is.na(handle)
+- remover o ".bsky.social" de quem tiver
+- colar os handles dos did's que mudaram de handle pelo meio do caminho
+
+Buscando os skeets longos
+
+```{r}
+#| label: carrega-skeets-longo
+
+skeets.longo <- read_rds("Dados/skeets-longo.rds")
+```
+
+Montando a lista de did's e handles
+
+```{r}
+#| label: monta-did-handle
+
+did.handle.unicos <- 
+  bind_rows(
+    skeets.longo |> select(did = uri, handle = author_handle),
+    skeets.longo |> select(did = uri, handle = author_handle),
+    skeets.longo |> select(did = in_reply_to),
+    skeets.longo |> select(did = quotes),
+  ) |> 
+  filter(!is.na(did)) |> 
+  mutate(
+    did =
+      did |> 
+      str_remove("^at://") |> 
+      str_remove("/app.*$")
+  ) |> 
+  bind_rows(
+    likes |> select(did = from.actor, handle = from.handle),
+    likes |> select(did = to.actor),
+  ) |> 
+  arrange(did, handle) |> 
+  distinct()
+```
+
+Tem muita gente com múltiplos handles?
+
+```{r}
+did.handle.unicos |> 
+  group_by(did) |> 
+  summarise(
+    quantos.handles = n(),
+    any.handle.na = any(is.na(handle)),
+    any.handle.invalid = any(handle == "handle.invalid")
+  ) |> 
+  count(
+    quantos.handles,
+    any.handle.na,
+    any.handle.invalid,
+  )
+```
+
+```{r}
+did.handle.unicos |> 
+  group_by(did) |> 
+  filter((n() == 1) | (n() > 1 & !is.na(handle))) |> 
+  summarise(
+    quantos.handles = n(),
+    any.handle.na = any(is.na(handle)),
+    any.handle.invalid = any(handle == "handle.invalid")
+  ) |> 
+  count(
+    quantos.handles,
+    any.handle.na,
+    any.handle.invalid,
+  )
+```
+
+Não. Só há 3 situações:
+
+- ou apenas handle NA, 
+- ou apenas handle inválido 
+- ou apenas um único handle válido
+
+Montando o dicionários de handles
+
+- numerar sequencialmente os "handle.invalid" de did's diferentes
+- criar um "handle.missing" quando is.na(handle)
+- remover o ".bsky.social" de quem tiver
+- colar os handles dos did's que mudaram de handle pelo meio do caminho
+
+```{r}
+#| label: monta-dicionario-handles
+
+dicionario.handles <- 
+  did.handle.unicos |> 
+  group_by(did) |> 
+  filter(n() == 1 | n() > 1 & !is.na(handle)) |> 
+  ungroup() |> 
+  mutate(
+    handle = 
+      if_else(
+        is.na(handle), 
+        "handle.missing", 
+        handle
+      )
+  ) |> 
+  group_by(handle) |> # só missing e invalid é que sejam juntados 
+  mutate(
+    handle =
+      if_else(
+        n() == 1 + 0 * nchar(handle),
+        handle |> 
+          str_remove(fixed(".bsky.social")),
+        handle |> 
+          str_c(".", seq(n()))
+      )
+  )
+dicionario.handles |> write_rds("Dados/dicionario-handles.rds")
+```
+
+## Se precisar, carregando do disco o que já foi processado
+
+Só executa se avaliado manualmente
+
+```{r}
+#| label: recarrega-dados
+#| eval: false
+
+# likes
+likes <- read_rds("Dados/likes.rds")
+liker.actors <- read_rds("Dados/liker-actors.rds")
+liked.actors <- read_rds("Dados/liked-actors.rds")
+likes.actors <- read_rds("Dados/likes-actors.rds")
+all.actors.likes <- read_rds("Dados/all-actors-likes.rds")
+matriz.likes <- read_rds("Dados/matriz-likes.rds")
+# skeets
+matriz.skeets <- read_rds("Dados/matriz-skeets.rds")
+all.actors.likes <- read_rds("Dados/all-actors-likes.rds")
+skeets.separados$original <- read_rds("Dados/skeets-iniciais.rds")
+skeets.separados$reply.quote <- read_rds("Dados/skeets-reply-quote.rds")
 ```
 
