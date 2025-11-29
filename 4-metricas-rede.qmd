@@ -17,6 +17,10 @@ execute:
 library(tidyverse)
 `%!in%` <- negate(`%in%`)
 options(scipen = 99)
+library(tidygraph)
+library(ggraph)
+
+
 ```
 
 ## Carregando dados
@@ -123,7 +127,7 @@ Testando algumas medidas de centralidade em função dos likes
 lendo matriz com todos os actors que curtem
 
 ```{r}
-all.actors.likes <- readRDS("Dados/all-actors-likes.rds")
+dicionario <- readRDS("Dados/dicionario.rds")
 ```
 
 
@@ -135,7 +139,7 @@ dia37.influencer <-
   group_by(actor.influencer.num) |> 
   summarise(quantos = sum(quantos)) |> 
   left_join(
-    all.actors.likes |> select(num, handle),
+    dicionario |> select(num, handle),
     by = c("actor.influencer.num" = "num")
   ) |> 
   rename(
@@ -152,7 +156,7 @@ dia37.influenced <-
   group_by(actor.influenced.num) |> 
   summarise(quantos = sum(quantos)) |> 
   left_join(
-    all.actors.likes |> select(num, handle),
+    dicionario |> select(num, handle),
     by = c("actor.influenced.num" = "num")
   ) |> 
   rename(
@@ -208,10 +212,7 @@ matriz.likes.dia37.saldo |> head(20)
 
 
 
-```{r}
 
-
-```
 ```{r}
 ## 5.2 e 5.3. Construindo o grafo já com os handles
 
@@ -232,7 +233,7 @@ edges_dia37 <-
 nodes_dia37 <- 
   tibble(name = unique(c(edges_dia37$from, edges_dia37$to))) |>
   left_join(
-    all.actors.likes |>
+    dicionario |>
       mutate(num = as.character(num)) |>
       select(name = num, handle),
     by = "name"
@@ -240,7 +241,7 @@ nodes_dia37 <-
 
 # construindo o grafo com tidygraph
 grafo_dia37 <- 
-  tbl_graph(
+  tidyverse::tbl_graph(
     nodes = nodes_dia37,
     edges = edges_dia37,
     directed = TRUE
@@ -299,7 +300,7 @@ grafo_filtrado
 
 set.seed(123)
 
-ggraph(grafo_dia37, layout = "fr") +
+ggraph::ggraph(grafo_dia37, layout = "fr") +
 geom_edge_link(aes(alpha = weight), show.legend = FALSE) +
 geom_node_point(aes(size = grau_in)) +
 geom_node_text(aes(label = handle),
