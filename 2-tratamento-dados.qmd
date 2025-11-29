@@ -17,6 +17,7 @@ execute:
 library(tidyverse)
 `%!in%` <- negate(`%in%`)
 ```
+
 ## Dados de likes
 
 Montando lista de likes
@@ -102,12 +103,8 @@ all.actors.likes <-
     by = "did"
   ) |>
   mutate(num = row_number())
-
 all.actors.likes |> write_rds("Dados/all-actors-likes.rds")
-```
 
-
-```{r}
 matriz.likes <- 
   likes |> 
   left_join(
