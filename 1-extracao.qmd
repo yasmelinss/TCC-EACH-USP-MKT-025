@@ -217,8 +217,8 @@ skeets.curto <-
       uri |>
       str_replace("^at://([^/]*)/app.*$", "\\1"),
     data.post = 
-      post_data |>
-      map_chr(\(x) x$createdAt),
+      indexed_at |> 
+      ymd_hms(),
     .keep = "none"
   )
 ```

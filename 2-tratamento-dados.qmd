@@ -339,6 +339,7 @@ dicionario.handles <-
         handle
       )
   ) |> 
+  arrange(handle) |> 
   group_by(handle) |> # só missing e invalid é que sejam juntados 
   mutate(
     handle =
@@ -352,6 +353,11 @@ dicionario.handles <-
   )
 dicionario.handles |> write_rds("Dados/dicionario-handles.rds")
 ```
+
+Temos `r sum(str_sub(dicionario.handles$handle, 1, 14) == "handle.missing")` did's sem handle.  Vale a pena tentar puxar os dados desses did's com a 
+`r dicionario.handles$did[12]`
+
+`r which(str_sub(dicionario.handles$handle, 1, 14) == "handle.missing")`
 
 ## Se precisar, carregando do disco o que já foi processado
 
@@ -379,4 +385,3 @@ skeets.separados <-
     skeet = read_rds("Dados/skeets-iniciais.rds")
   )
 ```
-
