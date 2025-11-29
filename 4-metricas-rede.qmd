@@ -50,6 +50,7 @@ fazendo uma matriz para cada dia
 ```{r}
 #| label: matriz-cada-dia
 
+matriz.likes <- readRDS("Dados/matriz-likes.rds")
 
 matriz.lista.dias <- 
   map(
@@ -57,8 +58,8 @@ matriz.lista.dias <-
     ~matriz.likes |>
         filter(date(data.skeet) == .x) |> 
         count(
-          from.actor.num, 
-          to.actor.num, 
+          actor.influenced.num, 
+          actor.influencer.num, 
           name = "quantos"
         )
   )
@@ -81,4 +82,130 @@ walk(
 
 ```
 
-fazendo entrada e saída
+criando um vetor das matrizes
+
+```{r}
+
+vetor.matrizes.dias.likes <- 
+  list.files(
+    path = "Dados/matrizes-dia",
+    pattern = "\\.rds$",
+    full.names = TRUE
+  )
+
+```
+
+numero de matrizes (98 dias)
+
+```{r}
+
+n_arquivos <- length(list.files("Dados/matrizes-dia"))
+n_arquivos
+
+```
+Vendo como está para um dia específico (dia 2024-10-22 exemplo)
+
+Da matriz 1 a 27 - não há likes (ninguém curtiu ou foi curtido)
+
+A partir do dia 28 - há likes
+
+exemplo do dia 85 - 2024-10-26
+
+```{r}
+
+dia85 <- readRDS(vetor.matrizes.dias.likes[[85]])
+dia85
+
+```
+
+Testando algumas medidas de centralidade em função dos likes
+
+lendo matriz com todos os actors que curtem
+
+```{r}
+all.actors.likes <- readRDS("Dados/all-actors-likes.rds")
+```
+
+
+criando matriz influencer do dia 85 
+
+```{r}
+dia85.influencer <- 
+  dia85 |> 
+  group_by(actor.influencer.num) |> 
+  summarise(quantos = sum(quantos)) |> 
+  left_join(
+    all.actors.likes |> select(num, handle),
+    by = c("actor.influencer.num" = "num")
+  ) |> 
+  rename(
+    arestas.influencer = quantos
+  )
+dia85.influencer
+```
+
+criando matriz influenced do dia 85  
+
+```{r}
+dia85.influenced <- 
+  dia85 |> 
+  group_by(actor.influenced.num) |> 
+  summarise(quantos = sum(quantos)) |> 
+  left_join(
+    all.actors.likes |> select(num, handle),
+    by = c("actor.influenced.num" = "num")
+  ) |> 
+  rename(
+    arestas.influenced = quantos
+  )
+dia85.influenced
+```
+
+Juntando as duas e criando contas de arestas
+
+```{r}
+matriz.likes.dia85.saldo <- 
+  full_join(
+    dia85.influenced,
+    dia85.influencer,
+    by = c("actor.influenced.num" = "actor.influencer.num"),
+    keep = TRUE
+  ) |> 
+  mutate(
+    across(
+      c(arestas.influenced,arestas.influencer),
+      \(x) if_else(x |> is.na(), 0, x)
+    ),
+    saldo.arestas = arestas.influenced - arestas.influencer,
+    spread.arestas = arestas.influenced + arestas.influencer - abs(saldo.arestas),
+  ) |>
+  select(
+    actor.influenced.num,
+    handle.x,
+    arestas.influenced,
+    actor.influencer.num,
+    handle.y,
+    arestas.influencer,
+    saldo.arestas,
+    spread.arestas
+  )
+
+
+
+
+ view(matriz.likes.dia85.saldo)
+
+#matriz.likes.dia85.saldo |> write_rds("Dados/matrizes-likes-dia-in-out-degree/dia85.rds")
+```
+
+
+Fazendo o Grafo desse dia (novo arquivo)
+
+```{r}
+
+```
+
+
+Fazendo com todos os dias
+
+ 
