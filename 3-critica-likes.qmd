@@ -107,11 +107,11 @@ Vendo como está para um dia específico (a final do campeonato, com muita ativi
 
 ```{r}
 matriz.likes.20240907 <- 
-  matriz.likes |> 
+  matriz_likes |> 
   filter(date(data.skeet) == ymd("2024-09-07")) |> 
   count(
-    from.actor.num, 
-    to.actor.num, 
+    actor.influencer.num, 
+    actor.influenced.num, 
     name = "quantos"
   )
 matriz.likes.20240907
@@ -177,3 +177,4 @@ matriz.likes.20240907.saldo |>
 
 Parece que tá funcionando
 
+ 
