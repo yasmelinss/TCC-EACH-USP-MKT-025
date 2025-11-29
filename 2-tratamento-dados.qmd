@@ -109,9 +109,17 @@ all.actors.likes <-
       unique() |> 
       sort()
   ) |> 
+  left_join(
+    likes |> distinct(did = from.actor, handle = from.handle),
+    by = "did"
+  ) |>
   mutate(num = row_number())
-all.actors.likes |> write_rds("Dados/all-actors-likes.rds")
 
+all.actors.likes |> write_rds("Dados/all-actors-likes.rds")
+```
+
+
+```{r}
 matriz.likes <- 
   likes |> 
   left_join(
@@ -133,34 +141,38 @@ matriz.likes |> write_rds("Dados/matriz-likes.rds")
 ```
 
 
-tirando sufixo e filtrando handle.invalid, depois colocando sufixo nos handles diferentes (está indo nos dids diferentes?)
+tirando sufixo, depois colocando sufixo nos handles.inavalids e mantendo a numeração de dids.
 
 ```{r}
 
-dicionario <- likes |>
+dicionario <- 
+  all.actors.likes |>
   distinct(
-    did = from.actor, 
-    handle = from.handle) |>
+    did = did, 
+    handle = handle,
+    num = num
+  ) |>
   mutate(
     handle = str_remove(
       handle,
       "\\.bsky\\.social$"
     )
   ) |>
-  #filtro pra ficar mais fácil de ver
- # filter(handle == "handle.invalid") |>
-    add_count(handle, name = "n_handle") |>
-      mutate(
-        handle = case_when(
-          #numera did
-          n_handle > 1 ~ paste0("handle.invalid", row_number()),
-          TRUE ~ handle
-        )
-      ) |>
-    select (
-      did,
-      handle
+  # filtro pra ficar mais fácil de ver
+  # filter(handle == "handle.invalid") |>
+  add_count(handle, name = "n_handle") |>
+  mutate(
+    handle = case_when(
+      # numera did
+      n_handle > 1 ~ paste0("handle.invalid", row_number()),
+      TRUE ~ handle
     )
+  ) |>
+  select (
+    did,
+    handle,
+    num
+  )
 ```
 
 
