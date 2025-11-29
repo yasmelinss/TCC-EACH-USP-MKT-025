@@ -210,14 +210,15 @@ Separando os dados mais úteis
 skeets.curto <- 
   skeets |> 
   mutate(
+    uri.post = uri,
+    uri.reply = in_reply_to,
+    uri.quote = quotes,
     did.autor = 
-      author_data |>
-      map_chr(\(x) x$did),
+      uri |>
+      str_replace("^at://([^/]*)/app.*$", "\\1"),
     data.post = 
       post_data |>
       map_chr(\(x) x$createdAt),
-    uri.post = uri,
-    uri.reply = in_reply_to,
     .keep = "none"
   )
 ```
