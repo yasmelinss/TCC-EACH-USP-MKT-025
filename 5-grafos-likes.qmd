@@ -174,7 +174,7 @@ size = 3) +
 scale_size_continuous(name = "Likes distribuídos (grau out)",
 range = c(3, 12)) +
 theme_void() +
-ggtitle("Rede de likes – top 30 atores que mais curtem")
+ggtitle("Rede de likes – top 30 atores que mais são curtidos")
 
 ```
 
