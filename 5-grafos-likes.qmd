@@ -410,3 +410,166 @@ ggplot2::ggsave(
 write_rds(metricas_dia37, "Dados/metricas-dia37.rds")
 ```
 
+
+
+
+#TODOS os dias
+
+```{r}
+library(tidyverse)
+library(tidygraph)
+library(ggraph)
+library(viridis)
+library(purrr)
+library(patchwork)
+
+# dicionário de atores (ajuste o nome do arquivo se for outro)
+all.actors.likes <- read_rds("Dados/all-actors-likes.rds")
+
+# vetor com os caminhos das matrizes por dia
+vetor.matrizes.dias.likes <- read_rds("Dados/vetor-matrizes-dias-likes.rds")
+
+```
+
+2️⃣ Função que monta o grafo de um dia
+
+Ela recebe o índice do vetor (idx) e devolve um tbl_graph.
+
+```{r}
+
+monta_grafo_dia <- function(idx) {
+  # 1) carregar matriz do dia
+  dia <- readRDS(vetor.matrizes.dias.likes[[idx]])
+  
+  # 2) edges: quem curte (from) → quem recebe (to)
+  edges <- 
+    dia |>
+    rename(
+      from   = actor.influenced.num,
+      to     = actor.influencer.num,
+      weight = quantos
+    ) |>
+    mutate(
+      from = as.character(from),
+      to   = as.character(to)
+    )
+  
+  # 3) nodes: IDs únicos + handle
+  nodes <- 
+    tibble(name = unique(c(edges$from, edges$to))) |>
+    left_join(
+      all.actors.likes |>
+        mutate(num = as.character(num)) |>
+        select(name = num, handle),
+      by = "name"
+    )
+  
+  # 4) grafo com métricas básicas
+  grafo <- 
+    tbl_graph(
+      nodes = nodes,
+      edges = edges,
+      directed = TRUE
+    ) |>
+    activate(nodes) |>
+    mutate(
+      grau_in  = centrality_degree(mode = "in"),
+      grau_out = centrality_degree(mode = "out")
+    )
+  
+  grafo
+}
+
+```
+
+3️⃣ Função que gera o gráfico (ggraph) de um dia
+
+Aqui você escolhe já o filtro (ex: só nós com grau_in >= 5) e o estilo.
+
+```{r}
+
+plota_rede_dia <- function(idx) {
+  g <- 
+    monta_grafo_dia(idx) |>
+    activate(nodes) |>
+    filter(grau_in >= 100)   # filtro opcional
+  
+  # extrair a data a partir do nome do arquivo (ex: "2024-09-07-likes.rds")
+  data_lab <- basename(vetor.matrizes.dias.likes[[idx]]) |>
+    stringr::str_remove("-likes.rds")
+  
+  set.seed(123)
+  
+  p <- 
+    ggraph(g, layout = "fr") +
+    geom_edge_link(
+      aes(alpha = weight),
+      color = "black",
+      show.legend = FALSE
+    ) +
+    geom_node_point(
+      aes(size = grau_in, color = grau_in),
+      alpha = 0.8
+    ) +
+    geom_node_text(
+      aes(label = handle),
+      repel = TRUE,
+      size = 2.5,
+      color = "black"
+    ) +
+    scale_color_viridis_c(
+      option = "plasma",
+      name   = "Likes recebidos"
+    ) +
+    scale_size_continuous(
+      range = c(3, 10),
+      name  = "Grau in"
+    ) +
+    theme_void() +
+    theme(
+      plot.background = element_rect(fill = "white", color = NA),
+      legend.position = "none",   # sem legenda em cada painel, se for agrupar
+      plot.title = element_text(color = "black", size = 12, face = "bold")
+    ) +
+    ggtitle(paste("Dia", data_lab))
+  
+  p
+}
+
+
+```
+
+4️⃣ Gerar gráficos para todos os dias de uma vez
+
+Aqui você cria uma lista de ggplots, um por dia.
+
+```{r}
+
+indices <- seq_along(vetor.matrizes.dias.likes)
+
+plots_todos <- map(indices, plota_rede_dia)
+
+```
+
+5️⃣ SALVAR: várias figuras separadas ou uma figura agrupada
+🔹 5.1. Salvar uma imagem por dia
+
+Bom se você quiser escolher manualmente quais incluir no Quarto.
+
+```{r}
+dir.create("img/grafos_dias_2", showWarnings = FALSE)
+
+walk2(
+  plots_todos,
+  indices,
+  ~ ggsave(
+      filename = file.path("img/grafos_dias_2", paste0("rede-dia-", .y, ".png")),
+      plot     = .x,
+      width    = 8,
+      height   = 6,
+      dpi      = 300
+    )
+)
+
+```
+
