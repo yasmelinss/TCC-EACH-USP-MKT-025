@@ -18,7 +18,21 @@ library(tidyverse)
 library(tidygraph)
 library(ggraph)
 library(igraph)
+library(viridis)
 ```
+
+```{r}
+#| label: carrega-metricas
+
+all.actors.likes <- read_rds("Dados/all-actors-likes-2.rds")
+matriz.likes <- read_rds("Dados/matriz-likes.rds")
+vetor.matrizes.dias.likes <- readRDS("Dados/vetor-matrizes-dias-likes.rds")
+dia37 <- readRDS(vetor.matrizes.dias.likes[[37]])
+metricas_agregadas_dia37 <- read_rds("Dados/metricas_agregadas_dia37.rds")
+
+#metricas_todos_dias <- ("Dados/metricas-todos-dias.rds")
+```
+
 
 ```{r}
 ## 5.2 e 5.3. Construindo o grafo do dia 37
@@ -82,9 +96,8 @@ in_degree / out_degree (baseados em soma de likes)
 grau_in / grau_out (baseados em número de conexões diferentes)
 
 
-NAO RODAR?
 ```{r}
-
+#as operações abaixo devem agir sobre os nós do grafo
 metricas_dia37 <-
 grafo_dia37 |>
 activate(nodes) |>
@@ -100,11 +113,11 @@ mantendo quem recebeu 5 curtidas por dia
 (nunca uso, mas existe. ggraph(grafo_filtrado, layout = "fr") +)
 
 ```{r}
-#as operações abaixo devem agir sobre os nós do grafo
+
 grafo_filtrado <-
 grafo_dia37 |>
 activate(nodes) |>
-filter(grau_in >= 5)
+filter(grau_in >= 100)
 
 grafo_filtrado
 ```
@@ -128,6 +141,70 @@ ggtitle("Rede de likes – dia selecionado (todos os atores)")
 ```
 
 ```{r}
+
+set.seed(123)
+
+preto <- ggraph(grafo_filtrado, layout = "fr") +
+  
+  # Arestas suaves e discretas
+  geom_edge_link(
+    aes(alpha = weight),
+    color = "grey70",
+    width = 0.8,
+    show.legend = FALSE
+  ) +
+  
+  # Nós com cor proporcional ao grau_in
+  geom_node_point(
+    aes(size = grau_in, color = grau_in),
+    alpha = 0.85
+  ) +
+  
+  # Labels com boa visibilidade
+  geom_node_text(
+    aes(label = handle.x),
+    repel = TRUE,
+    size = 3,
+    color = "black"  # mais visível sobre fundo escuro
+  ) +
+  
+  # Gradiente bonito, científico e daltonismo-friendly
+  scale_color_viridis_c(
+    option = "plasma",
+    name = "Likes recebidos"
+  ) +
+  
+  # Tamanho proporcional ao grau
+  scale_size_continuous(
+    range = c(3, 12),
+    name = "Grau (in-degree)"
+  ) +
+  
+  # Tema escuro “clean”
+  theme_void() +
+  theme(
+    plot.background = element_rect(fill = "white", color = NA),
+    legend.position = "right",
+    legend.title = element_text(color = "black", size = 10),
+    legend.text  = element_text(color = "black", size = 8),
+    plot.title   = element_text(color = "black", size = 16, face = "bold")
+  ) +
+  
+  ggtitle("Rede de likes – dia selecionado > 100")
+
+# exportando imagem ----
+ggplot2::ggsave(
+  filename = "img/rede_do_dia.png",
+  plot = preto,
+  width = 10,
+  height = 7,
+  dpi = 300
+)
+
+```
+
+
+```{r}
 # selecionar top 30 nós por grau_in
 
 top_nos <- 
@@ -138,16 +215,48 @@ top_nos <-
 
 set.seed(123)
 
-ggraph(top_nos, layout = "fr") +
-  geom_edge_link(aes(alpha = weight), show.legend = FALSE) +
-  geom_node_point(aes(size = grau_in)) +
-  geom_node_text(aes(label = handle.x),
-                 repel = TRUE,
-                 size = 3) +
-  scale_size_continuous(name = "Likes dados (grau in)",
-                        range = c(3, 12)) +
+top_influencers <- ggraph(top_nos, layout = "fr") +
+  
+  # Arestas mais discretas
+  geom_edge_link(
+    color = "grey60",
+    alpha = 0.8,
+    show.legend = FALSE
+  ) +
+  
+  # Nós coloridos pelo grau_out
+  geom_node_point(
+    aes(size = grau_in, color = grau_in),
+    alpha = 0.8
+  ) +
+  
+  # Labels com repel e cor branca
+  geom_node_text(
+    aes(label = handle.x),
+    repel = TRUE,
+    size = 3,
+    color = "white",
+    bg.color = "black",     # fundo do label
+    bg.r = 0.15             # borda arredondada
+  ) +
+  # Escalas bonitas
+  scale_color_viridis_c(
+    name = "Likes recebidos",
+    option = "inferno"
+  ) +
+  scale_size_continuous(
+    name = "Likes recebidos (grau in)",
+    range = c(4, 14)
+  ) +
   theme_void() +
-  ggtitle("Rede de likes – top 30 atores que mais são curtidos")
+  theme(
+    plot.background = element_rect(fill = "white", color = NA),
+    legend.position = "right",
+    plot.title = element_text(color = "black", size = 16, face = "bold")
+  ) +
+  ggtitle("Rede de likes – top 30 atores que mais recebem curtida no dia 07/09/2024")
+
+
 
 ```
 
@@ -155,58 +264,142 @@ ggraph(top_nos, layout = "fr") +
 ```{r}
 # top 30 por grau_out (quem mais dá like)
 
-top_influencers <-
-grafo_dia37 |>
-activate(nodes) |>
-arrange(desc(grau_out)) |>
-slice(1:30)
+top_influenced <-
+  grafo_dia37 |>
+  activate(nodes) |>
+  arrange(desc(grau_out)) |>
+  slice(1:30)
 
 set.seed(123)
 
-ggraph(top_influencers, layout = "fr") +
-geom_edge_link(aes(alpha = weight), show.legend = FALSE) +
-geom_node_point(aes(size = grau_out)) +
-geom_node_text(aes(label = handle.x),
-repel = TRUE,
-size = 3) +
-scale_size_continuous(name = "Likes distribuídos (grau out)",
-range = c(3, 12)) +
-theme_void() +
-ggtitle("Rede de likes – top 30 atores que mais curtem")
+top_influenced <- ggraph(top_influenced, layout = "fr") +
+  
+  # Arestas mais discretas
+  geom_edge_link(
+    color = "grey60",
+    alpha = 0.8,
+    show.legend = FALSE
+  ) +
+  
+  # Nós coloridos pelo grau_out
+  geom_node_point(
+    aes(size = grau_out, color = grau_out),
+    alpha = 0.8
+  ) +
+  
+  # Labels com repel e cor branca
+  geom_node_text(
+    aes(label = handle.x),
+    repel = TRUE,
+    size = 3,
+    color = "white",
+    bg.color = "black",     # fundo do label
+    bg.r = 0.15             # borda arredondada
+  ) +
+  
+  # Escalas bonitas
+  scale_color_viridis_c(
+    name = "Likes distribuídos",
+    option = "inferno"
+  ) +
+  
+  scale_size_continuous(
+    name = "Likes distribuídos (grau out)",
+    range = c(4, 14)
+  ) +
+  
+  # Tema dark para destacar nós coloridos
+  theme_void() +
+  theme(
+    plot.background = element_rect(fill = "white", color = NA),
+    legend.position = "right",
+    plot.title = element_text(color = "black", size = 16, face = "bold")
+  ) +
+  
+  ggtitle("Rede de likes – top 30 atores que mais curtem no dia 07/09/2024")
+
+# exportando imagem ----
+ggplot2::ggsave(
+  filename = "img/top30out.png",
+  plot = top_influenced,
+  width = 10,
+  height = 7,
+  dpi = 300
+)
 
 ```
 
+```{r}
+library(viridis)
+
+top_influencers <-
+  grafo_dia37 |>
+  activate(nodes) |>
+  arrange(desc(grau_out)) |>
+  slice(1:30)
+
+set.seed(123)
+
+top_influencers <- ggraph(top_influencers, layout = "fr") +
+  
+  # Arestas mais discretas
+  geom_edge_link(
+    color = "grey60",
+    alpha = 0.3,
+    show.legend = FALSE
+  ) +
+  
+  # Nós coloridos pelo grau_out
+  geom_node_point(
+    aes(size = grau_out, color = grau_out),
+    alpha = 0.8
+  ) +
+  
+  # Labels com repel e cor branca
+  geom_node_text(
+    aes(label = handle.x),
+    repel = TRUE,
+    size = 3,
+    color = "white",
+    bg.color = "black",     # fundo do label
+    bg.r = 0.15             # borda arredondada
+  ) +
+  
+  # Escalas bonitas
+  scale_color_viridis_c(
+    name = "Likes distribuídos",
+    option = "plasma"
+  ) +
+  
+  scale_size_continuous(
+    name = " ",
+    range = c(4, 14)
+  ) +
+  
+  # Tema dark para destacar nós coloridos
+  theme_void() +
+  theme(
+    plot.background = element_rect(fill = "black", color = NA),
+    legend.position = "right",
+    plot.title  = element_text(color = "white", size = 16, face = "bold"),
+#  legend.text  = element_text(color = "white"),
+  legend.title = element_text(color = "white")
+  ) +
+  
+  ggtitle("Rede de likes – top 30 atores que mais curtem")
+
+# exportando imagem ----
+ggplot2::ggsave(
+  filename = "img/top30curtem.png",
+  plot = top_influencers,
+  width = 10,
+  height = 7,
+  dpi = 300
+)
+
+```
 
 ```{r}
 write_rds(metricas_dia37, "Dados/metricas-dia37.rds")
 ```
-
-```{r}
-#weight
-
-matriz_adj <- 
-  grafo_dia37 |>
-  as.igraph() |>
-  get.adjacency(
-    sparse = FALSE,
-    attr = "weight",
-    edges = FALSE
-  )
-
-dim(matriz_adj)
-```
-
-```{r}
-saveRDS(matriz_adj, "Dados/matriz-adjacencia-dia37.rds")
-```
-
-```{r}
-metri
-
-```
-
-
-Fazendo com todos os dias
-
-
 
