@@ -1,10 +1,369 @@
 # Resultados
 
+<<<<<<< HEAD
+## Descritivas
+
+
+### Medidas descritivas — Posts da query "CBLOL"
+
+`skeets.longo`
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+#| label: medidas-skeets
+
+library(tidyverse)
+library(dplyr)
+library(lubridate)
+library(knitr)
+
+skeets.longo <- read_rds("Dados/skeets-longo.rds")
+
+# Selecionar colunas relevantes
+skeets_desc <- skeets.longo |>
+  select(reply_count, repost_count, like_count, quote_count, indexed_at)
+
+# Calcular medidas descritivas com arredondamento para PDF
+descr_pdf <- skeets_desc |>
+  summarise(
+    n_posts          = n(),
+
+    media_respostas    = round(mean(reply_count, na.rm = TRUE), 2),
+    mediana_respostas  = round(median(reply_count, na.rm = TRUE), 2),
+    desvio_respostas   = round(sd(reply_count, na.rm = TRUE), 2),
+    maximo_respostas   = round(max(reply_count, na.rm = TRUE), 0),
+  )
+descr2_pdf <- skeets_desc |>
+  summarise(
+
+    media_reposts      = round(mean(repost_count, na.rm = TRUE), 2),
+    mediana_reposts    = round(median(repost_count, na.rm = TRUE), 2),
+    desvio_reposts     = round(sd(repost_count, na.rm = TRUE), 2),
+    maximo_reposts     = round(max(repost_count, na.rm = TRUE), 0),
+)
+descr3_pdf <- skeets_desc |>
+  summarise(
+    media_likes        = round(mean(like_count, na.rm = TRUE), 2),
+    mediana_likes      = round(median(like_count, na.rm = TRUE), 2),
+    desvio_likes       = round(sd(like_count, na.rm = TRUE), 2),
+    maximo_likes       = round(max(like_count, na.rm = TRUE), 0),
+)
+descr4_pdf <- skeets_desc |>
+  summarise(
+    media_quotes       = round(mean(quote_count, na.rm = TRUE), 2),
+    mediana_quotes     = round(median(quote_count, na.rm = TRUE), 2),
+    desvio_quotes      = round(sd(quote_count, na.rm = TRUE), 2),
+    maximo_quotes      = round(max(quote_count, na.rm = TRUE), 0)
+  )
+
+descr_pdf |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Medidas descritivas dos posts contendo a palavra-chave 'CBLOL' - respostas"
+  )
+descr2_pdf |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Medidas descritivas dos posts contendo a palavra-chave 'CBLOL' - reposts"
+  )
+descr3_pdf |>
+  kable(    
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Medidas descritivas dos posts contendo a palavra-chave 'CBLOL' - likes"
+    )
+descr4_pdf |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Medidas descritivas dos posts contendo a palavra-chave 'CBLOL' - quotes"
+  )
+```
+
+- AQUI FICARIA LEGAL COLOCAR A IMAGEM DE DENSIDADE E MAPA DE CALOR
+
+### Medidas descritivas — Likes extraidos desses posts
+
+`matriz.like`
+
+(A) Gerais
+
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+#| label: medidas-likes
+
+matriz.likes <- read_rds("Dados/matriz-likes.rds")
+
+gerais_matriz <- matriz.likes |>
+  summarise(
+    total_linhas     = n(),
+    dias_unicos      = n_distinct(as.Date(data.skeet)), #ver melhor
+    atores_influencers = n_distinct(actor.influencer.num),
+    atores_influenced  = n_distinct(actor.influenced.num),
+    atores_totais    = n_distinct(c(actor.influencer.num, actor.influenced.num)),
+    pares_interacao  = n_distinct(paste(actor.influencer.num, actor.influenced.num, sep = "_"))
+  )
+
+gerais_matriz |>
+  t() |>
+  as.data.frame() |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    col.names = c("Valor"),
+    caption = "Descritivas gerais da matriz de likes"
+  ) |>
+  kableExtra::kable_styling(latex_options = "hold_position")
+
+
+```
+
+
+(B) Graus
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+#| label: medidas-likes-grau
+
+graus_totais <- matriz.likes |>
+  summarise(
+    media_likes_dados     = round(mean(table(actor.influenced.num)), 2),
+    mediana_likes_dados   = round(median(table(actor.influenced.num)), 2),
+    desvio_likes_dados    = round(sd(table(actor.influenced.num)), 2),
+    max_likes_dados       = max(table(actor.influenced.num)),
+    min_likes_dados       = min(table(actor.influenced.num)),
+
+    media_likes_recebidos   = round(mean(table(actor.influencer.num)), 2),
+    mediana_likes_recebidos = round(median(table(actor.influencer.num)), 2),
+    desvio_likes_recebidos  = round(sd(table(actor.influencer.num)), 2),
+    max_likes_recebidos     = max(table(actor.influencer.num)),
+    min_likes_recebidos     = min(table(actor.influencer.num))
+  )
+
+graus_totais |>
+  t() |>
+  as.data.frame() |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    col.names = c("Valor"),
+    caption = "Distribuição geral dos likes dados (out-degree) e recebidos (in-degree)"
+  ) 
+
+```
+
+
+(C) Top 10 atores mais ativos e mais curtidos
+
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+#| label: medidas-likes-top10
+
+dicionario.handles <- read_rds("Dados/dicionario.rds") |>
+  mutate(num = as.character(num))
+
+# top 10 que mais curtiram (out-degree)
+top_out <- matriz.likes |>
+  mutate(actor.influencer.num = as.character(actor.influencer.num)) |>
+  count(actor.influencer.num, name = "likes_recebidos") |>
+  left_join(
+    dicionario.handles |> select(num, handle),
+    by = c("actor.influencer.num" = "num")
+  ) |>
+  select(handle, likes_recebidos) |>
+  arrange(desc(likes_recebidos)) |>
+  slice(1:10)
+
+# top 10 mais curtidos (in-degree)
+top_in <- matriz.likes |>
+  mutate(actor.influenced.num = as.character(actor.influenced.num)) |>
+  count(actor.influenced.num, name = "likes_dados") |>
+  left_join(
+    dicionario.handles |> select(num, handle),
+    by = c("actor.influenced.num" = "num")
+  ) |>
+  select(handle, likes_dados) |>
+  arrange(desc(likes_dados)) |>
+  slice(1:10)
+
+top_out |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Top 10 atores que mais foram curtidos (out-degree)"
+  )
+
+top_in |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Top 10 atores que mais curtiram (in-degree)"
+  )
+
+```
+
+
+(D) Grau médio, densidade simples e razão entre nós e arestas
+
+##### Medidas simples de estrutura da rede
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+#| label: medidas-geral
+
+# número de nós
+n_atores <- matriz.likes |>
+  summarise(n = n_distinct(c(actor.influencer.num, actor.influenced.num))) |>
+  pull()
+
+# número de arestas (interações únicas)
+n_arestas <- matriz.likes |>
+  summarise(n = n_distinct(paste(actor.influencer.num, actor.influenced.num))) |>
+  pull()
+
+# densidade simples (não-direcionada aproximada)
+densidade_simples <- round(n_arestas / (n_atores * (n_atores - 1)), 6)
+
+medidas_rede <- tibble::tibble(
+  atores_totais   = n_atores,
+  arestas_unicas  = n_arestas,
+  densidade       = densidade_simples,
+  grau_medio      = round(n_arestas / n_atores, 3)
+)
+
+medidas_rede |>
+  kable(
+    format = "latex", 
+    booktabs = TRUE,
+    caption = "Medidas gerais de estrutura da rede de likes"
+  )
+```
+
+### GRAFOS
+
+### Medidas descritivas - graus 
+
+Analisando o dia 07/09/2024
+
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+#| label: medidas-grafo-37
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+# carregar a métrica agregada (ou usar o objeto já criado)
+metricas_agregadas_dia37 <- readRDS("Dados/metricas_agregadas_dia37.rds")
+
+# selecionar os 20 primeiros
+top20_dia37 <- metricas_agregadas_dia37 |>
+  arrange(desc(in_degree)) |>
+  slice(1:20) |>
+  select(actor.num, handle, in_degree, out_degree, saldo, spread) 
+
+# tabela horizontal compatível com PDF/LaTeX
+top20_dia37 |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Top 20 atores com maior in-degree (likes recebidos) no dia 37"
+  ) 
+```
+
+Para caracterizar o papel de cada ator na rede de interações analisada, foram calculadas quatro métricas derivadas da estrutura direcional do grafo de likes: grau de entrada (in-degree), grau de saída (out-degree), saldo de interações e spread, adotando-se a convenção de que o in-degree representa likes dados (influência recebida) e o out-degree representa likes recebidos (influência dada).
+
+O grau de entrada (in-degree) corresponde ao número total de likes dados por cada ator. Em termos de teoria de redes, essa métrica contabiliza as arestas que chegam ao nó, consideradas aqui como ações iniciadas pelo ator. Assim, um in-degree elevado indica perfis altamente ativos na plataforma, que engajam frequentemente com conteúdos de outros atores.
+
+O grau de saída (out-degree), por sua vez, representa o total de likes recebidos por um ator, isto é, as arestas que partem do nó. Dessa forma, o out-degree expressa o nível de visibilidade ou popularidade de cada perfil, refletindo o quanto ele atrai atenção e engajamento da comunidade.
+
+O saldo de interações, definido como a diferença entre likes dados e likes recebidos (saldo = in-degree − out-degree), possibilita identificar o equilíbrio entre ação e atenção recebida. Valores positivos de saldo indicam perfis mais ativos do que populares, ou seja, que distribuem mais engajamento do que recebem. Valores negativos revelam perfis que recebem mais interações do que produzem, caracterizando atores altamente visíveis na rede.
+
+A métrica spread quantifica a parte das interações que ocorre de forma simétrica ou equilibrada, isto é, a interseção entre likes dados e recebidos. Essa medida capta a reciprocidade nas relações: valores elevados indicam atores que participam de interações mais equilibradas e bilaterais, enquanto valores baixos sugerem relações predominantemente unilaterais (atores que apenas recebem ou apenas distribuem likes).
+
+No conjunto, essas quatro métricas permitem compreender a dinâmica individual dentro da rede, destacando quem são os atores mais ativos, quem são os mais populares, quem mantém trocas de engajamento mais equilibradas e quem participa de interações assimétricas. Essa análise fornece insights essenciais sobre padrões de circulação de atenção e comportamento social na plataforma durante o período analisado.
+
+![Grafo de curtidas (likes) - 31/08/2024 a 06/09/2024](Graficos/GRAFOS-14-PERIODO-OUT-500/grafo-periodo5-out.png)
+
+```{r}
+#| label: top_ativos
+top_ativos <- metricas_agregadas_dia37 |>
+  arrange(desc(in_degree)) |>
+  slice(1:5) |>
+  select(handle, in_degree)
+
+top_ativos |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Top 20 atores com maior in-degree (likes recebidos) no dia 37"
+  ) 
+```
+
+```{r}
+#| label: top_populares
+top_populares <- metricas_agregadas_dia37 |>
+  arrange(desc(out_degree)) |>
+  slice(1:5) |>
+  select(handle, out_degree)
+
+top_populares |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Top 20 atores com maior in-degree (likes recebidos) no dia 37"
+  ) 
+```
+
+```{r}
+#| label: top_equilibrados
+top_equilibrados <- metricas_agregadas_dia37 |>
+  arrange(desc(spread)) |>
+  slice(1:5) |>
+  select(handle, in_degree, out_degree, spread)
+
+top_equilibrados |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Top 20 atores com maior in-degree (likes recebidos) no dia 37"
+  ) 
+```
+
+```{r}
+#| label: top_assimetricos
+top_assimetricos <- metricas_agregadas_dia37 |>
+  arrange(desc(saldo)) |>
+  slice(1:5) |>
+  select(handle, in_degree, out_degree, saldo)
+
+top_assimetricos |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Top 20 atores com maior in-degree (likes recebidos) no dia 37"
+  ) 
+```
+
+- thales revise
+
+A análise das métricas de interação do dia 37 revela padrões claros de comportamento na rede. Os valores de in_degree, definidos como o total de likes dados por cada ator, evidenciam perfis extremamente ativos. Os destaques são ilhadaslendas.com (10.706 likes), LTA_SUL (10.521 likes) e pain.gg (3.881 likes), indicando contas que interagem intensamente com outros usuários.
+
+Em contraste, o out_degree, entendido como o volume de likes recebidos, apresenta valores significativamente menores. Apenas alguns perfis receberam quantidades expressivas de likes, como pereirawesley.bsky.social (56 likes) e pain.gg (26 likes). Isso sugere uma estrutura de engajamento assimétrica, em que a maioria dos atores distribui muito mais interações do que recebe.
+
+O spread, que reflete a parte recíproca da atividade (interações tanto de ida quanto de volta), confirma essa assimetria. Embora a maior parte dos atores apresente valores baixos, alguns perfis, como pereirawesley.bsky.social, mantêm um nível de reciprocidade mais elevado, indicando trocas mais equilibradas de engajamento.
+
+Por fim, o saldo de interações (likes dados menos likes recebidos) é fortemente positivo para a maioria dos principais atores, revelando que grande parte da atividade consiste em engajamento unilateral. Perfis como ilhadaslendas.com e LTA_SUL apresentam saldos superiores a 10 mil, demonstrando altíssima atividade com baixa reciprocidade.
+
+No conjunto, esses indicadores mostram que o dia 37 foi marcado por alta intensidade de engajamento ativo, mas com baixa redistribuição de atenção, caracterizando uma rede onde poucos recebem likes enquanto muitos distribuem. Esse comportamento reforça a presença de dinâmicas assimétricas típicas de redes sociais, como o predomínio de comportamento de broadcasting ou apoio coletivo mais do que interações bilaterais.
+
 # Discussão
+
+
 
 # Conclusão
 
 ## Principais achados
+
+  
 
 ## Limitações e Trabalhos Futuros
 

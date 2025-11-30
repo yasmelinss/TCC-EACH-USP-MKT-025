@@ -210,3 +210,75 @@ metricas_todos_dias <-
 
 saveRDS(metricas_todos_dias, "Dados/metricas-todos-dias.rds" )
 ```
+
+
+
+# por 14 periodos
+
+```{r}
+#| label: separa-14-periodos
+
+periodos_idx <- list(
+  periodo1  = 2:8,
+  periodo2  = 9:15,
+  periodo3  = 16:22,
+  periodo4  = 23:29,
+  periodo5  = 30:36,
+  periodo6  = 37:43,
+  periodo7  = 44:50,
+  periodo8  = 51:57,
+  periodo9  = 58:64,
+  periodo10 = 65:71,
+  periodo11 = 72:78,
+  periodo12 = 79:85,
+  periodo13 = 86:92,
+  periodo14 = 92:98
+)
+```
+
+```{r}
+matriz_periodos <- imap(
+  periodos_idx,
+  ~ matriz.lista.dias[.x] |>
+    bind_rows() |>
+    group_by(actor.influencer.num, actor.influenced.num) |>
+    summarise(
+      quantos = sum(quantos),
+      .groups = "drop"
+    )
+)
+
+# nomes são "periodo1", "periodo2", "periodo3"...
+names(matriz_periodos)
+```
+
+
+# por 3 periodos
+```{r}
+#| label: separa-tres-periodos
+
+periodos3_idx <- list(
+  periodo1 = 1:32,
+  periodo2 = 33:65,
+  periodo3 = 66:98
+)
+```
+
+```{r}
+
+matriz_3_periodos <- imap(
+  periodos_idx,
+  ~ matriz.lista.dias[.x] |>
+    bind_rows() |>
+    group_by(actor.influencer.num, actor.influenced.num) |>
+    summarise(
+      quantos = sum(quantos),
+      .groups = "drop"
+    )
+)
+
+# nomes são "periodo1", "periodo2", "periodo3"
+names(matriz_3_periodos)
+
+
+```

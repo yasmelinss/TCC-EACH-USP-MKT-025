@@ -28,58 +28,45 @@ O ambiente computacional estatístico R, sua linguagem e de programação e suas
 
 O Rstudio é a IDE (Integrated Development Environment), ou Ambiente Integrado de Desenvolvimento utilizada nesse estudo para facilitar o uso da linguagem R. O RStudio oferece uma inteface gráfica organizada e integrada para que, em um único ambiente, recursos como editor de scripts, console interativo, visualização de objetos, gerenciamento de pacotes e ferramentas de produção de relatórios possam ser utilizados. Entre suas principais funcionalidades estão alocadas o editor de texto, console, painel de ambiente, Histórico, painel de visualização gráfico, gerenciador de pacotes, integração com ferramentas para ciência de dados (como markdown e Quarto) e integração com sistemas de versionamento (Git).
 
+## Fonte dos Dados
+
+O Bluesky é uma rede social de API aberta construída a partir do Protocolo AT, uma fundação descentralizada para redes sociais públicas. Lançada ao público oficialmente em 2024, uma das propostas da rede social que justificam a escolha da mesma para objeto deste estudo é o acesso aberto à sua arquitetura. A abertura do sistema proporciona a interação de seus conjuntos de dados para a moderação de conteúdos de mídia social e gerenciamento de comunidades (tanto partindo de usuários como partindo de pesquisadores). [@Kleppmann2024] Dessa forma, considerando sua arquitetura aberta e a disponibilidade ampla de dados para análise, a plataforma Bluesky foi selecionada como fonte provedora dos dados utilizados neste estudo.
+
 
 ### Mineração de Dados
 
-:::callout-note
 Em seu artigo sobre abordagens quantitativas para a comparação de padrões comunicativos no Twitter (atual X), @Bruns2012 utilizam uma API de busca através da plataforma *yourTwapperkeeper* para extrair um conjunto de dados de postagens (*tweets*) que contenham palavras-chave ou *hashtags* determinadas pelo operador. No Bluesky, um processo equivalente pode ser realizado através do pacote '{atrrr}' do R para acessar a API da rede e buscar postagens e informações de usuários dentro de um critério estabelecido.
 
-Para descrever os padrões comunicativos que podem ser observados dentro deste conjunto de interações, utiliza-se de um catálogo de métricas, divididas entre três grupos em razão 1:9:90 [@Bruns2012]:
+Em nosso presente estudo, a palavra chave ou *query* escolhida para a extração das postagens delimitadas foi CBLOL. Este termo foi escolhido estratégicamente pois considera-se, em primeira análise, o recorte brasileiro que este termo pode inferir nas extrações. Seguidamente, CBOL é a principal liga profissional de esports do jogo League of Legends no Brasil. Organizado pela desenvolvedora Riot Games, o campeonato reúne equipes profissionais que competem em temporadas regulares e fases eliminatórias, com o objetivo de conquistar o título nacional e, em muitos casos, garantir vagas em competições internacionais. Os perfis do CBLOL transmitiram as finais do *Worlds* durante o período de suspensão do X.
 
-- o 1% de usuários líderes em atividade;
-- os 9% seguintes de usuários mais ativos;
-- os 90% restantes de usuários.
+-A extração das postagens e likes dos skeets no perído escolhido
 
-Desses grupos, foram calculadas as métricas:
+::: callout
+- as 5 semanas anteriores à suspensão (27/07/2024 – 30/08/2024);
+- as 5 semanas e 3 dias em que o X esteve indisponível (31/08/2024 – 08/10/2024);
+- as 5 semanas posteriores ao retorno da rede (09/10/2024 – 12/11/2024).
 
-- o número de postagens no conjunto de dados;
-- o número de usuários únicos que contribuem para o conjunto de dados;
-- a porcentagem de postagens originais no conjunto de dados (ou seja, postagens que não são respostas nem *reposts*);
-- a porcentagem de respostas genuínas no conjunto de dados (ou seja, respostas que não são *reposts*);
-- a porcentagem de *reposts* no conjunto de dados;
-- a porcentagem de postagens no conjunto de dados que contêm URLs.
-
-Dessa forma, é possível medir dentro do conjunto de dados o quão dominantes na conversa geral são os usuários mais ativos e observar diferenças nos padrões de atividades dos três grupos [@Bruns2012]. O mesmo processo pode ser aplicado à critérios ou hashtags não relacionados ao tema de pesquisa para inseri-lo em um contexto mais amplo. Ademais, para analisar o impacto da suspensão do X nas dinâmicas de comunidade no Bluesky, pode-se dividir conjuntos de dados entre períodos temporais, realizando a mesma coleta de dados para:
+fundamentar o porquê do periodo
 :::
 
-- as 5 semanas anteriores à suspensão (26/07/2024 - 30/09/2024);
-- as 5 semanas em que o X esteve indisponível (31/09/2024 - 08/10/2024);
-- as 5 semanas posterior ao retorno da rede (09/10/2024 - 13/11/2024).
+- foi utilizando este código (ver como "anexa" um código(é o código 1-extracao.qmd)) que estará em anexo (ver como anexa o anexo)
 
+### Tratamento dos dados
 
-<!-- 
-#### App Paswords
-
-No processo de raspagem de dados, foi solicitado o *App Pasword*, uma prática mais segura para reduzir riscos quando *logamos* como clientes em partes terceiras e em aplicações web. São usadas como a chave de acesso assim como a senha, mas concede permissões restritas, impedindo ações destrutivas. [Protocolo usado no API HTTP (XRPC)](https://atproto.com/pt/specs/xrpc)
-
-- Achar alguma bibliografia pertinente como espécie de introdução
-- Mencionar bibliotecas do R 
--->
+- separa-se os dados por likes e skeets e trata cada um
+- com os arquivos de dados, substituimos o nome de cada um com seu respectivo did para facilitar
+- Criando listas de actors (ou didids) relacionados com likes
+- Montando a matriz de likes dados
+- Montando lista de likers envolvidos em skeets
+- Aqui vamos linkar o arquivo 2-tratamento de dados.qmd e anexar em anexo. 
 
 ### Análise de Dados em Rede
 
 No presente trabalho, utilizou-se da quantidade de curtidas (*likes*) em postagens (*skeets*) com o termo CBLOL como métrica principal para a propagação de opiniões. Essa escolha é baseada na premissa que curtidas representam um engajamento ativo e singular e que demonstram concordância ou aprovação em relação a um conteúdo pontual, enquanto a métrica de seguidores é indicativa somente de alcance potencial sem garantir engajamento ou influência real. Conforme demonstrado por @Moon2022, o número de seguidores não é sempre proporcional ao engajamento para campanhas de marketing de influência, com uma uma curva de formato U inverso sendo mais representativa da relação entre número de seguidores e engajamento, onde o engajamento é mais alto para influenciadores com um número moderado de seguidores. Adicionalmente, estudos revelam que usuários de redes sociais tendem a engajar mais (em termos de curtidas e *reposts*) conteúdos de contas que seguem menos pessoas, interpretando-as como mais autônomas [@Valsesia2020]. Ademais, embora as curtidas exijam menos esforço de interação do que os comentários [@Moon2022], elas se mostram superiores aos seguidores como métrica de interesse ativo. O número de seguidores frequentemente representa uma audiência passiva, visto que o volume de curtidas em perfis tende a ser significativamente mais baixo [@Avelino2020]. A união destes fatores, portanto, justifica as curtidas como sendo a métrica escolhida como mais apropriada para para mensurar a resposta efetiva do público e a dinâmica de disseminação na rede.
 
+- Aqui entra o arquivo 4-metricas-rede
 
 
-## Fonte dos Dados
+### Análise de Dados em Rede - Visualizações 
 
-:::callout-note
-O Bluesky é uma rede social de API aberta construída a partir do Protocolo AT, uma fundação descentralizada para redes sociais públicas. Lançada ao público oficialmente em 2024, uma das propostas da rede social que justificam a escolha da mesma para objeto deste estudo é o acesso aberto à sua arquitetura. A abertura do sistema proporciona a interação de seus conjuntos de dados para a moderação de conteúdos de mídia social e gerenciamento de comunidades (tanto partindo de usuários como partindo de pesquisadores). [@Kleppmann2024]
-
-
-- Mencionar BlueSky
-- Caracterizar período
-- Fundamentar porquê do período
-:::
-
+- Aqui entra o arquivo 5-grafos-likes

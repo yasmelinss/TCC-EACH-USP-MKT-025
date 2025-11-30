@@ -372,7 +372,7 @@ plota_rede_dia <- function(idx) {
     theme_void() +
     theme(
       plot.background = element_rect(fill = "white", color = NA),
-      legend.position = "none",
+      legend.position = "right",
       plot.title = element_text(color = "black", size = 12, face = "bold")
     ) +
     ggtitle(paste("Dia", data_lab))
@@ -465,7 +465,7 @@ plota_rede_dia <- function(idx) {
   theme_void() +
   theme(
     plot.background = element_rect(fill = "white", color = NA),
-    legend.position = "none",
+    legend.position = "right",
     plot.title = element_text(color = "black", size = 12, face = "bold")
   ) +
   ggtitle(paste("Dia", data_lab))
@@ -505,3 +505,428 @@ walk2(
 )
 
 ```
+
+
+#por 3 Periodos
+
+
+```{r}
+
+grafos_3_periodos <- imap(
+  matriz_3_periodos,
+  ~ {
+    edges <- 
+      .x |>
+      rename(
+        from   = actor.influencer.num,
+        to     = actor.influenced.num,
+        weight = quantos
+      ) |>
+      mutate(
+        from = as.character(from),
+        to   = as.character(to)
+      )
+    
+    nodes <- 
+      tibble(name = unique(c(edges$from, edges$to))) |>
+      left_join(
+        all.actors.likes |>
+          mutate(num = as.character(num)) |>
+          select(name = num, handle),
+        by = "name"
+      )
+    
+    tbl_graph(
+      nodes   = nodes,
+      edges   = edges,
+      directed = TRUE
+    )
+  }
+)
+
+#metricas
+
+grafos_3_periodos <- imap(
+  grafos_3_periodos,
+  ~ .x |>
+    activate(nodes) |>
+    mutate(
+      grau_in     = centrality_degree(mode = "in",  loops = FALSE),
+      grau_out    = centrality_degree(mode = "out", loops = FALSE),
+      betweenness = centrality_betweenness(),
+      eigen       = centrality_eigen()
+    )
+)
+
+```
+
+
+##IN
+
+```{r}
+
+metricas_p1 <- grafos_3_periodos$periodo1 |> activate(nodes) |> as_tibble()
+metricas_p1 |> arrange(desc(grau_in)) |> head(20)
+
+```
+```{r}
+metricas_p2 <- grafos_3_periodos$periodo2 |> activate(nodes) |> as_tibble()
+metricas_p2 |> arrange(desc(grau_in)) |> head(20)
+
+```
+```{r}
+metricas_p3 <- grafos_3_periodos$periodo3 |> activate(nodes) |> as_tibble()
+metricas_p3 |> arrange(desc(grau_in)) |> head(20)
+```
+
+
+plotando e salvando
+
+
+```{r}
+dir.create("img/GRAFOS-PERIODO-IN", showWarnings = FALSE)
+
+limiar_in <- 100  # corte de likes recebidos
+
+walk(
+  names(grafos_3_periodos),
+  ~ {
+    periodo_nome <- .x
+    g_full       <- grafos_periodos[[.x]]
+    
+    # pega o intervalo de dias desse período
+    idx_periodo  <- periodos3_idx[[periodo_nome]]
+    data_inicio  <- dias.periodo[min(idx_periodo)]
+    data_fim     <- dias.periodo[max(idx_periodo)]
+    
+    data_lab <- paste0(
+      format(data_inicio, "%d/%m/%Y"),
+      " a ",
+      format(data_fim, "%d/%m/%Y")
+    )
+    
+    set.seed(123)  # layout reprodutível
+    
+    # 1) layout com o grafo COMPLETO
+    layout_full <- create_layout(g_full, layout = "fr")
+    
+    # 2) FILTRA o layout: só nós com grau_in >= limiar_in
+    layout_filt <- 
+      layout_full |>
+      dplyr::filter(!is.na(grau_in), grau_in >= limiar_in)
+    
+    # se quiser inspecionar quantos nós sobraram:
+    # nrow(layout_filt)
+    
+    p <-
+      ggraph(layout_filt) +
+      geom_edge_link(
+        aes(alpha = weight),
+        color = "black",
+        show.legend = FALSE
+      ) +
+      geom_node_point(
+        aes(size = grau_in, color = grau_in),
+        alpha = 0.8
+      ) +
+      geom_node_text(
+        aes(label = handle),
+        repel     = TRUE,
+        size      = 2.5,
+        color     = "black",
+        bg.color  = "white",
+        bg.r      = 0.15
+      ) +
+      scale_color_viridis_c(
+        option = "plasma",
+        name   = "quantidade likes"
+      ) +
+      scale_size_continuous(
+        range = c(3, 10),
+        name  = "quantidade likes"
+      ) +
+      theme_void() +
+      theme(
+        plot.background = element_rect(fill = "white", color = NA),
+        legend.position = "none",
+        plot.title      = element_text(color = "black", size = 12, face = "bold")
+      ) +
+      ggtitle(paste0(
+        "Rede de likes – ", periodo_nome,
+        "\n(", data_lab, ")",
+        "\nNós com grau_in \u2265 ", limiar_in
+      ))
+    
+    ggsave(
+      filename = file.path("img/GRAFOS-PERIODO-IN",
+                           paste0("grafo-", periodo_nome,
+                                  "-in", limiar_in, ".png")),
+      plot   = p,
+      width  = 8,
+      height = 6,
+      dpi    = 300
+    )
+  }
+)
+```
+
+
+##OUT
+
+```{r}
+
+metricas_p1 <- grafos_3_periodos$periodo1 |> activate(nodes) |> as_tibble()
+metricas_p1 |> arrange(desc(grau_out)) |> head(20)
+
+```
+```{r}
+metricas_p2 <- grafos_periodos$periodo2 |> activate(nodes) |> as_tibble()
+metricas_p2 |> arrange(desc(grau_out)) |> head(20)
+
+```
+```{r}
+metricas_p3 <- grafos_periodos$periodo3 |> activate(nodes) |> as_tibble()
+metricas_p3 |> arrange(desc(grau_out)) |> head(20)
+```
+
+
+plotando e salvando
+
+
+```{r}
+dir.create("img/GRAFOS-PERIODO-OUT", showWarnings = FALSE)
+
+limiar_in <- 100  # corte de likes recebidos
+
+walk(
+  names(grafos_3_periodos),
+  ~ {
+    periodo_nome <- .x
+    g_full       <- grafos_periodos[[.x]]
+    
+    # pega o intervalo de dias desse período
+    idx_periodo  <- periodos3_idx[[periodo_nome]]
+    data_inicio  <- dias.periodo[min(idx_periodo)]
+    data_fim     <- dias.periodo[max(idx_periodo)]
+    
+    data_lab <- paste0(
+      format(data_inicio, "%d/%m/%Y"),
+      " a ",
+      format(data_fim, "%d/%m/%Y")
+    )
+    
+    set.seed(123)  # layout reprodutível
+    
+    # 1) layout com o grafo COMPLETO
+    layout_full <- create_layout(g_full, layout = "fr")
+    
+    # 2) FILTRA o layout: só nós com grau_in >= limiar_in
+    layout_filt <- 
+      layout_full |>
+      dplyr::filter(!is.na(grau_out), grau_out >= limiar_in)
+    
+    p <-
+      ggraph(layout_filt) +
+      geom_edge_link(
+        aes(alpha = weight),
+        color = "black",
+        show.legend = FALSE
+      ) +
+      geom_node_point(
+        aes(size = grau_in, color = grau_in),
+        alpha = 0.8
+      ) +
+      geom_node_text(
+        aes(label = handle),
+        repel     = TRUE,
+        size      = 2.5,
+        color     = "black",
+        bg.color  = "white",
+        bg.r      = 0.15
+      ) +
+      scale_color_viridis_c(
+        option = "plasma",
+        name   = "quantidade likes"
+      ) +
+      theme_void() +
+      theme(
+        plot.background = element_rect(fill = "white", color = NA),
+        legend.position = "right",
+        plot.title      = element_text(color = "black", size = 12, face = "bold")
+      ) +
+      ggtitle(paste0(
+        "Rede de likes – ", periodo_nome,
+        "\n(", data_lab, ")",
+        "\nNós com grau_out \u2265 ", limiar_in
+      ))
+    
+    ggsave(
+      filename = file.path("img/GRAFOS-PERIODO-OUT",
+      paste0("grafo-", periodo_nome,"-in", limiar_in, ".png")),
+      plot   = p,
+      width  = 8,
+      height = 6,
+      dpi    = 300
+    )
+  }
+)
+```
+
+# 14 PERIODOS
+
+```{r}
+
+grafos_periodos <- imap(
+  matriz_periodos,
+  ~ {
+    edges <- 
+      .x |>
+      dplyr::rename(
+        from   = actor.influencer.num,
+        to     = actor.influenced.num,
+        weight = quantos
+      ) |>
+      dplyr::mutate(
+        from = as.character(from),
+        to   = as.character(to)
+      )
+    
+    nodes <- 
+      tibble::tibble(name = unique(c(edges$from, edges$to))) |>
+      dplyr::left_join(
+        all.actors.likes |>
+          dplyr::mutate(num = as.character(num)) |>
+          dplyr::select(name = num, handle),
+        by = "name"
+      )
+    
+    tidygraph::tbl_graph(
+      nodes   = nodes,
+      edges   = edges,
+      directed = TRUE
+    ) |>
+      tidygraph::activate(nodes) |>
+      dplyr::mutate(
+        grau_in  = tidygraph::centrality_degree(mode = "in"),
+        grau_out = tidygraph::centrality_degree(mode = "out")
+      )
+  }
+)
+
+names(grafos_periodos)
+# agora deve ter "periodo1" ... "periodo15"
+
+```
+
+
+# OUT 14 PERIODOS
+
+```{r}
+metricas_periodos <- imap(
+  grafos_periodos,
+  ~ .x |> 
+    activate(nodes) |> 
+    as_tibble()
+)
+```
+
+```{r}
+top20_out_periodos <- imap(
+  metricas_periodos,
+  ~ .x |> arrange(desc(grau_out)) |> slice(1:20)
+)
+```
+
+
+plotando e salvando
+
+```{r}
+
+dir.create("img/GRAFOS-14-PERIODO-OUT-500", showWarnings = FALSE)
+
+limiar_out <- 500  # corte de likes dados
+
+walk(
+  names(grafos_periodos),
+  ~ {
+    periodo_nome <- .x
+    g_full       <- grafos_periodos[[.x]]
+    
+    # pega o intervalo de dias desse período
+    idx_periodo  <- periodos_idx[[periodo_nome]]
+    data_inicio  <- dias.periodo[min(idx_periodo)]
+    data_fim     <- dias.periodo[max(idx_periodo)]
+    
+    data_lab <- paste0(
+      format(data_inicio, "%d/%m/%Y"),
+      " a ",
+      format(data_fim, "%d/%m/%Y")
+    )
+    
+    # 🔸 1) filtra nós no GRAFO (não no layout)
+    g_filt <- 
+      g_full |>
+      activate(nodes) |>
+      filter(!is.na(grau_out), grau_out >= limiar_out)
+    
+
+    
+    set.seed(123)  # layout reprodutível
+    
+    p <-
+      ggraph(g_filt, layout = "fr") +
+      geom_edge_link(
+        aes(alpha = weight),
+        color = "black",
+        show.legend = FALSE
+      ) +
+      geom_node_point(
+        aes(size = grau_in, color = grau_in),
+        alpha = 0.8
+      ) +
+      geom_node_text(
+        aes(label = handle),
+        repel     = TRUE,
+        size      = 2.5,
+        color     = "black",
+        bg.color  = "white",
+        bg.r      = 0.15
+      ) +
+      scale_color_viridis_c(
+        option = "plasma",
+        name   = "quantidade likes"
+      ) +
+      theme_void() +
+      theme(
+        plot.background = element_rect(fill = "white", color = NA),
+        legend.position = "right",
+        plot.title      = element_text(color = "black", size = 12, face = "bold")
+      ) +
+      ggtitle(paste0(
+        "Rede de likes – ", periodo_nome,
+        "\n(", data_lab, ")",
+        "\nNós com grau_out \u2265 ", limiar_out
+      ))
+    
+    ggsave(
+      filename = file.path(
+        "img/GRAFOS-14-PERIODO-OUT-500",
+        paste0("grafo-", periodo_nome, "-out", ".png")
+      ),
+      plot   = p,
+      width  = 8,
+      height = 6,
+      dpi    = 300
+    )
+  }
+)
+
+
+```
+
+```{r}
+
+length(grafos_periodos)
+length(periodos_idx)
+```
+
