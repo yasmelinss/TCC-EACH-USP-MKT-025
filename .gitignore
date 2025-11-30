@@ -28,6 +28,8 @@ _book/
 senha.txt
 # diretório de dados
 Dados/
+Dados_old/
+*.zip
 # diretório de imagens
 Imagens/
 img/
