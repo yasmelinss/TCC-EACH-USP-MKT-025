@@ -1,5 +1,213 @@
 # Resultados
 
+## Descritivas
+
+
+### Medidas descritivas — Posts da query "CBLOL"
+
+`skeets.longo`
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+#| label: medidas-skeets
+
+library(tidyverse)
+library(dplyr)
+library(lubridate)
+library(knitr)
+
+skeets.longo <- read_rds("Dados/skeets-longo.rds")
+
+# Selecionar colunas relevantes
+skeets_desc <- skeets.longo |>
+  select(reply_count, repost_count, like_count, quote_count, indexed_at)
+
+# Calcular medidas descritivas com arredondamento para PDF
+descr_pdf <- skeets_desc |>
+  summarise(
+    n_posts          = n(),
+
+    media_respostas    = round(mean(reply_count, na.rm = TRUE), 2),
+    mediana_respostas  = round(median(reply_count, na.rm = TRUE), 2),
+    desvio_respostas   = round(sd(reply_count, na.rm = TRUE), 2),
+    maximo_respostas   = round(max(reply_count, na.rm = TRUE), 0),
+
+    media_reposts      = round(mean(repost_count, na.rm = TRUE), 2),
+    mediana_reposts    = round(median(repost_count, na.rm = TRUE), 2),
+    desvio_reposts     = round(sd(repost_count, na.rm = TRUE), 2),
+    maximo_reposts     = round(max(repost_count, na.rm = TRUE), 0),
+
+    media_likes        = round(mean(like_count, na.rm = TRUE), 2),
+    mediana_likes      = round(median(like_count, na.rm = TRUE), 2),
+    desvio_likes       = round(sd(like_count, na.rm = TRUE), 2),
+    maximo_likes       = round(max(like_count, na.rm = TRUE), 0),
+
+    media_quotes       = round(mean(quote_count, na.rm = TRUE), 2),
+    mediana_quotes     = round(median(quote_count, na.rm = TRUE), 2),
+    desvio_quotes      = round(sd(quote_count, na.rm = TRUE), 2),
+    maximo_quotes      = round(max(quote_count, na.rm = TRUE), 0)
+  )
+
+# Tabela no formato PDF (LaTeX)
+descr_pdf |>
+  t() |>
+  as.data.frame() |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    col.names = c("Valor"),
+    caption = "Medidas descritivas dos posts contendo a palavra-chave 'CBLOL'"
+  )
+
+
+```
+
+### Medidas descritivas — Likes extraidos desses posts
+
+`matriz.like`
+
+Gerais
+
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+#| label: medidas-likes
+
+matriz.likes <- read_rds("Dados/matriz-likes.rds")
+
+gerais_matriz <- matriz.likes |>
+  summarise(
+    total_linhas     = n(),
+    dias_unicos      = n_distinct(as.Date(data.skeet)), #ver melhor
+    atores_influencers = n_distinct(actor.influencer.num),
+    atores_influenced  = n_distinct(actor.influenced.num),
+    atores_totais    = n_distinct(c(actor.influencer.num, actor.influenced.num)),
+    pares_interacao  = n_distinct(paste(actor.influencer.num, actor.influenced.num, sep = "_"))
+  )
+
+gerais_matriz |>
+  t() |>
+  as.data.frame() |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    col.names = c("Valor"),
+    caption = "Descritivas gerais da matriz de likes"
+  )
+
+
+```
+
+Graus
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+#| label: medidas-likes-grau
+graus_totais <- matriz.likes |>
+  summarise(
+    media_likes_dados     = round(mean(table(actor.influenced.num)), 2),
+    mediana_likes_dados   = round(median(table(actor.influenced.num)), 2),
+    desvio_likes_dados    = round(sd(table(actor.influenced.num)), 2),
+    max_likes_dados       = max(table(actor.influenced.num)),
+    min_likes_dados       = min(table(actor.influenced.num)),
+
+    media_likes_recebidos   = round(mean(table(actor.influencer.num)), 2),
+    mediana_likes_recebidos = round(median(table(actor.influencer.num)), 2),
+    desvio_likes_recebidos  = round(sd(table(actor.influencer.num)), 2),
+    max_likes_recebidos     = max(table(actor.influencer.num)),
+    min_likes_recebidos     = min(table(actor.influencer.num))
+  )
+
+graus_totais |>
+  t() |>
+  as.data.frame() |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    col.names = c("Valor"),
+    caption = "Distribuição geral dos likes dados (out-degree) e recebidos (in-degree)"
+  )
+
+```
+
+
+Outras
+
+(C) Top 10 atores mais ativos e mais curtidos
+
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+#| label: medidas-likes-top10
+
+# top 10 que mais curtiram (out-degree)
+top_out <- matriz.likes |>
+  count(actor.influencer.num, name = "likes_dados") |>
+  arrange(desc(likes_dados)) |>
+  slice(1:10)
+
+# top 10 mais curtidos (in-degree)
+top_in <- matriz.likes |>
+  count(actor.influenced.num, name = "likes_recebidos") |>
+  arrange(desc(likes_recebidos)) |>
+  slice(1:10)
+
+top_out |>
+  kable(
+    format = "latex", booktabs = TRUE,
+    caption = "Top 10 atores que mais foram curtidos (out-degree)"
+  )
+
+top_in |>
+  kable(
+    format = "latex", booktabs = TRUE,
+    caption = "Top 10 atores que mais curtiram (in-degree)"
+  )
+```
+
+
+(D) Grau médio, densidade simples e razão entre nós e arestas
+
+#### Medidas simples de estrutura da rede
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+#| label: medidas-geral
+
+# número de nós
+n_atores <- matriz.likes |>
+  summarise(n = n_distinct(c(actor.influencer.num, actor.influenced.num))) |>
+  pull()
+
+# número de arestas (interações únicas)
+n_arestas <- matriz.likes |>
+  summarise(n = n_distinct(paste(actor.influencer.num, actor.influenced.num))) |>
+  pull()
+
+# densidade simples (não-direcionada aproximada)
+densidade_simples <- round(n_arestas / (n_atores * (n_atores - 1)), 6)
+
+medidas_rede <- tibble::tibble(
+  atores_totais   = n_atores,
+  arestas_unicas  = n_arestas,
+  densidade       = densidade_simples,
+  grau_medio      = round(n_arestas / n_atores, 3)
+)
+
+medidas_rede |>
+  kable(
+    format = "latex", booktabs = TRUE,
+    caption = "Medidas gerais de estrutura da rede de likes"
+  )
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Discussão
 
 # Conclusão
