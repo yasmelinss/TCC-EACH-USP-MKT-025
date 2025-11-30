@@ -81,7 +81,7 @@ mapa_calor <-
 
 # exportando imagem ----
 ggplot2::ggsave(
-  filename = "img/mapa_de_calor3.png",
+  filename = "graficos/mapa_de_calor3.png",
   plot = mapa_calor,
   width = 8,
   height = 3,
