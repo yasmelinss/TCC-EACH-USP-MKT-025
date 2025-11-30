@@ -117,7 +117,7 @@ mantendo quem recebeu 5 curtidas por dia
 grafo_filtrado <-
 grafo_dia37 |>
 activate(nodes) |>
-filter(grau_in >= 100)
+filter(grau_in >= 1000)
 
 grafo_filtrado
 ```
@@ -136,7 +136,7 @@ size = 3) +
 scale_size_continuous(name = "Likes recebidos (grau in)",
 range = c(2, 10)) +
 theme_void() +
-ggtitle("Rede de likes – dia selecionado (todos os atores)")
+ggtitle("Rede de likes – dia selecionado (alguns atores)")
 
 ```
 
@@ -149,15 +149,15 @@ preto <- ggraph(grafo_filtrado, layout = "fr") +
   # Arestas suaves e discretas
   geom_edge_link(
     aes(alpha = weight),
-    color = "grey70",
-    width = 0.8,
+    color = "black",
+    width = 0.5,
     show.legend = FALSE
   ) +
   
   # Nós com cor proporcional ao grau_in
   geom_node_point(
     aes(size = grau_in, color = grau_in),
-    alpha = 0.85
+    alpha = 0.8
   ) +
   
   # Labels com boa visibilidade
@@ -256,7 +256,14 @@ top_influencers <- ggraph(top_nos, layout = "fr") +
   ) +
   ggtitle("Rede de likes – top 30 atores que mais recebem curtida no dia 07/09/2024")
 
-
+# exportando imagem ----
+ggplot2::ggsave(
+  filename = "img/top30out.png",
+  plot = top_influencers,
+  width = 10,
+  height = 7,
+  dpi = 300
+)
 
 ```
 
