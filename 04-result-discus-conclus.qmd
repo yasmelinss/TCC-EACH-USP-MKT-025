@@ -97,7 +97,7 @@ A Figura abaixo apresenta um mapa de calor que descreve a distribuição tempora
 
 
 \vspace{1cm}
-```{r, echo=FALSE, out.width="80%", fig.pos="H", fig.cap: "Mapa de calor das postagens.}
+```{r, echo=FALSE, out.width="80%", fig.pos="H"}
 knitr::include_graphics("graficos/mapa_de_calor3.png")
 ```
 \vspace{1cm}
@@ -112,7 +112,7 @@ A Figura abaixo apresenta a distribuição temporal desses posts por meio de uma
 
 
 \vspace{1cm}
-```{r, echo=FALSE, out.width="80%", fig.pos="H", fig.cap: "Mapa de densidade das postagens.}
+```{r, echo=FALSE, out.width="80%", fig.pos="H"}
 knitr::include_graphics("graficos/densidade.png")
 ```
 \vspace{1cm}
@@ -129,7 +129,7 @@ Após o dia 08/10, nota-se um declínio acentuado na densidade das postagens, co
 
 A matriz de likes constitui a base de dados relacional utilizada para a construção da rede de interações entre os atores. Cada linha dessa matriz representa um evento individual de engajamento, isto é, um like realizado em determinado momento. As três colunas principais são: `data.skeet`, que registra a data e horário da interação; `actor.influencer.num`, qidentifica numericamente o ator que recebeu essa interação, e `actor.influenced.num`, que identifica numericamente o ator que realizou o like.
 
-
+\vspace{1cm}
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: medidas-likes
 
@@ -155,12 +155,12 @@ gerais_matriz |>
     caption = "Descritivas gerais da matriz de likes"
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
-
+\vspace{1cm}
 
 
 Medidas de Grau
 
-
+\vspace{1cm}
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: medidas-likes-grau
 
@@ -189,14 +189,14 @@ graus_totais |>
     caption = "Distribuição geral dos likes dados (out-degree) e recebidos (in-degree)"
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
-
+\vspace{1cm}
 
 
 
 Top 10 atores mais ativos e mais curtidos
 
 
-
+\vspace{1cm}
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: medidas-likes-top10
 
@@ -226,14 +226,20 @@ top_in <- matriz.likes |>
   select(handle, likes_dados) |>
   arrange(desc(likes_dados)) |>
   slice(1:10)
+```
 
+\vspace{1cm}
+```{r echo=FALSE, warning=FALSE, message=FALSE}
 top_out |>
   kable(
     format = "latex",
     booktabs = TRUE,
     caption = "Top 10 atores que mais foram curtidos (out-degree)"
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
-
+```
+\vspace{1cm}
+\vspace{1cm}
+```{r echo=FALSE, warning=FALSE, message=FALSE}
 top_in |>
   kable(
     format = "latex",
@@ -242,7 +248,7 @@ top_in |>
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
 
 ```
-
+\vspace{1cm}
 
 
 TEXTO TESTE
@@ -338,7 +344,7 @@ knitr::include_graphics("Graficos/GRAFOS-14-PERIODO-OUT-500/grafo-periodo5-out.p
 ```
 \vspace{1cm}
 
-
+\vspace{1cm}
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: top_populares
 
@@ -354,13 +360,13 @@ top_ativos |>
     caption = "atores mais engajados - dia 07/09/2024"
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
-
+\vspace{1cm}
 
 
 A análise das métricas de interação do dia 07/09/2024 revela padrões de comportamento na rede. Os valores de in_degree, definidos como o total de likes recebidos por cada ator, evidenciam perfis extremamente populares. Os destaques são ilhadaslendas.com (10.706 likes), LTA_SUL (10.521 likes) e pain.gg (3.881 likes), indicando contas que interagem intensamente com outros usuários.
 
 
-
+\vspace{1cm}
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: top_ativos
 top_populares <- metricas_agregadas_dia37 |>
@@ -375,13 +381,13 @@ top_populares |>
     caption = "Atores mais populares - dia 07/09/2024"
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
-
+\vspace{1cm}
 
 
 Em contraste, o out_degree, entendido como o volume de likes dados, apresenta valores significativamente menores. Perfis como mipandy.bsky.social (607 likes), mandscosplayer.vlr.social (395 likes) e dadosdolol.bsky.social (381) são os mais expressivos nesse recorte.
 
 
-
+\vspace{1cm}
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: top_equilibrados
 top_equilibrados <- metricas_agregadas_dia37 |>
@@ -396,13 +402,13 @@ top_equilibrados |>
     caption = "Atores mais equilibrados - dia 07/09/2024"
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
-
+\vspace{1cm}
 
 
 O spread, que reflete a parte recíproca da atividade (interações tanto de ida quanto de volta), confirma essa assimetria. Embora a maior parte dos atores apresente valores baixos, alguns perfis, como dadosdolol.bsky.social, mantêm um nível de reciprocidade mais elevado, indicando trocas mais equilibradas de engajamento.
 
 
-
+\vspace{1cm}
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: top_assimetricos
 top_assimetricos <- metricas_agregadas_dia37 |>
@@ -417,7 +423,7 @@ top_assimetricos |>
     caption = "Atores mais assimetricos - dia 07/09/2024"
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
-
+\vspace{1cm}
 
 
 Por fim, o saldo de interações (likes dados menos likes recebidos) é fortemente positivo para a maioria dos principais atores, revelando que grande parte da atividade consiste em engajamento unilateral. Perfis como ilhadaslendas.com e LTA_SUL apresentam saldos superiores a 10 mil, demonstrando altíssima atividade com baixa reciprocidade.
