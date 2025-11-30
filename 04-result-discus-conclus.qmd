@@ -246,6 +246,7 @@ Analisando o dia 07/09/2024
 
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
+#| label: medidas-grafo-37
 library(dplyr)
 library(knitr)
 library(kableExtra)
@@ -281,6 +282,78 @@ A métrica spread quantifica a parte das interações que ocorre de forma simét
 No conjunto, essas quatro métricas permitem compreender a dinâmica individual dentro da rede, destacando quem são os atores mais ativos, quem são os mais populares, quem mantém trocas de engajamento mais equilibradas e quem participa de interações assimétricas. Essa análise fornece insights essenciais sobre padrões de circulação de atenção e comportamento social na plataforma durante o período analisado.
 
 ![Grafo de curtidas (likes) - 31/08/2024 a 06/09/2024](Graficos/GRAFOS-14-PERIODO-OUT-500/grafo-periodo5-out.png)
+
+```{r}
+#| label: top_ativos
+top_ativos <- metricas_agregadas_dia37 |>
+  arrange(desc(in_degree)) |>
+  slice(1:5) |>
+  select(handle, in_degree)
+
+top_ativos |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Top 20 atores com maior in-degree (likes recebidos) no dia 37"
+  ) 
+```
+
+```{r}
+#| label: top_populares
+top_populares <- metricas_agregadas_dia37 |>
+  arrange(desc(out_degree)) |>
+  slice(1:5) |>
+  select(handle, out_degree)
+
+top_populares |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Top 20 atores com maior in-degree (likes recebidos) no dia 37"
+  ) 
+```
+
+```{r}
+#| label: top_equilibrados
+top_equilibrados <- metricas_agregadas_dia37 |>
+  arrange(desc(spread)) |>
+  slice(1:5) |>
+  select(handle, in_degree, out_degree, spread)
+
+top_equilibrados |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Top 20 atores com maior in-degree (likes recebidos) no dia 37"
+  ) 
+```
+
+```{r}
+#| label: top_assimetricos
+top_assimetricos <- metricas_agregadas_dia37 |>
+  arrange(desc(saldo)) |>
+  slice(1:5) |>
+  select(handle, in_degree, out_degree, saldo)
+
+top_simetricos |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Top 20 atores com maior in-degree (likes recebidos) no dia 37"
+  ) 
+```
+
+- thales revise
+
+A análise das métricas de interação do dia 37 revela padrões claros de comportamento na rede. Os valores de in_degree, definidos como o total de likes dados por cada ator, evidenciam perfis extremamente ativos. Os destaques são ilhadaslendas.com (10.706 likes), LTA_SUL (10.521 likes) e pain.gg (3.881 likes), indicando contas que interagem intensamente com outros usuários.
+
+Em contraste, o out_degree, entendido como o volume de likes recebidos, apresenta valores significativamente menores. Apenas alguns perfis receberam quantidades expressivas de likes, como pereirawesley.bsky.social (56 likes) e pain.gg (26 likes). Isso sugere uma estrutura de engajamento assimétrica, em que a maioria dos atores distribui muito mais interações do que recebe.
+
+O spread, que reflete a parte recíproca da atividade (interações tanto de ida quanto de volta), confirma essa assimetria. Embora a maior parte dos atores apresente valores baixos, alguns perfis, como pereirawesley.bsky.social, mantêm um nível de reciprocidade mais elevado, indicando trocas mais equilibradas de engajamento.
+
+Por fim, o saldo de interações (likes dados menos likes recebidos) é fortemente positivo para a maioria dos principais atores, revelando que grande parte da atividade consiste em engajamento unilateral. Perfis como ilhadaslendas.com e LTA_SUL apresentam saldos superiores a 10 mil, demonstrando altíssima atividade com baixa reciprocidade.
+
+No conjunto, esses indicadores mostram que o dia 37 foi marcado por alta intensidade de engajamento ativo, mas com baixa redistribuição de atenção, caracterizando uma rede onde poucos recebem likes enquanto muitos distribuem. Esse comportamento reforça a presença de dinâmicas assimétricas típicas de redes sociais, como o predomínio de comportamento de broadcasting ou apoio coletivo mais do que interações bilaterais.
 
 # Discussão
 
