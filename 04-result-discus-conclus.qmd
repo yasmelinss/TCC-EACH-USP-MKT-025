@@ -335,7 +335,7 @@ top_assimetricos <- metricas_agregadas_dia37 |>
   slice(1:5) |>
   select(handle, in_degree, out_degree, saldo)
 
-top_simetricos |>
+top_assimetricos |>
   kable(
     format = "latex",
     booktabs = TRUE,
