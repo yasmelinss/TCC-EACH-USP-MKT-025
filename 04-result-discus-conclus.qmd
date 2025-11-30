@@ -97,7 +97,7 @@ A Figura abaixo apresenta um mapa de calor que descreve a distribuição tempora
 
 
 \vspace{1cm}
-```{r, echo=FALSE, out.width="80%", fig.pos="H", fig-cap: "Mapa de calor das postagens.}
+```{r, echo=FALSE, out.width="80%", fig.pos="H", fig.cap: "Mapa de calor das postagens.}
 knitr::include_graphics("graficos/mapa_de_calor3.png")
 ```
 \vspace{1cm}
@@ -112,7 +112,7 @@ A Figura abaixo apresenta a distribuição temporal desses posts por meio de uma
 
 
 \vspace{1cm}
-```{r, echo=FALSE, out.width="80%", fig.pos="H", fig-cap: "Mapa de calor das postagens.}
+```{r, echo=FALSE, out.width="80%", fig.pos="H", fig.cap: "Mapa de densidade das postagens.}
 knitr::include_graphics("graficos/densidade.png")
 ```
 \vspace{1cm}
@@ -127,11 +127,7 @@ Após o dia 08/10, nota-se um declínio acentuado na densidade das postagens, co
 
 `matriz.like`
 
-(A) Gerais
-A Imagem abaixo mostra
-A Imagem abaixo mostra
-
-
+A matriz de likes constitui a base de dados relacional utilizada para a construção da rede de interações entre os atores. Cada linha dessa matriz representa um evento individual de engajamento, isto é, um like realizado em determinado momento. As três colunas principais são: `data.skeet`, que registra a data e horário da interação; `actor.influencer.num`, qidentifica numericamente o ator que recebeu essa interação, e `actor.influenced.num`, que identifica numericamente o ator que realizou o like.
 
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
@@ -162,9 +158,7 @@ gerais_matriz |>
 
 
 
-TEXTO TESTE
-(B) Graus
-TEXTO TESTE
+Medidas de Grau
 
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
@@ -198,9 +192,8 @@ graus_totais |>
 
 
 
-TEXTO TESTE
-(C) Top 10 atores mais ativos e mais curtidos
-TEXTO TESTE
+
+Top 10 atores mais ativos e mais curtidos
 
 
 
