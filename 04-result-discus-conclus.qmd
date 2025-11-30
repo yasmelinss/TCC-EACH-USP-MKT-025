@@ -58,25 +58,25 @@ descr_pdf |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    caption = "Medidas descritivas dos posts contendo a palavra-chave 'CBLOL'"
+    caption = "Medidas descritivas dos posts contendo a palavra-chave 'CBLOL' - respostas"
   )
 descr2_pdf |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    caption = ""
+    caption = "Medidas descritivas dos posts contendo a palavra-chave 'CBLOL' - reposts"
   )
 descr3_pdf |>
   kable(    
     format = "latex",
     booktabs = TRUE,
-    caption = ""
+    caption = "Medidas descritivas dos posts contendo a palavra-chave 'CBLOL' - likes"
     )
 descr4_pdf |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    caption = ""
+    caption = "Medidas descritivas dos posts contendo a palavra-chave 'CBLOL' - quotes"
   )
 ```
 
@@ -236,7 +236,26 @@ medidas_rede |>
 
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(knitr)
+library(kableExtra)
 
+# carregar a métrica agregada (ou usar o objeto já criado)
+metricas_agregadas_dia37 <- readRDS("Dados/metricas_agregadas_dia37.rds")
+
+# selecionar os 20 primeiros
+top20_dia37 <- metricas_agregadas_dia37 |>
+  arrange(desc(in_degree)) |>
+  slice(1:20) |>
+  select(actor.num, handle, in_degree, out_degree, saldo, spread) 
+
+# tabela horizontal compatível com PDF/LaTeX
+top20_dia37 |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Top 20 atores com maior in-degree (likes recebidos) no dia 37"
+  ) 
 ```
 
 
