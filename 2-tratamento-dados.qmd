@@ -7,7 +7,7 @@ format:
     toc-location: left
     embed-resources: true
 execute: 
-  cache: true
+  cache: refresh
 ---
 
 ```{r}
@@ -102,7 +102,12 @@ all.actors.likes <-
     likes |> distinct(did = from.actor, handle = from.handle),
     by = "did"
   ) |>
-  mutate(num = row_number())
+  mutate(num = row_number()) |>
+    mutate(handle = case_when(did == "did:plc:uk7niqvqdgr74qhwb4vrg3vi" ~ "LTA_SUL",
+        TRUE ~ handle
+      )
+    )
+
 all.actors.likes |> write_rds("Dados/all-actors-likes.rds")
 
 matriz.likes <- 

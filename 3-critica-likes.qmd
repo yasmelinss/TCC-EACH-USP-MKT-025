@@ -122,24 +122,26 @@ Parece ok
 Testando algumas medidas de centralidade em função dos likes
 
 ```{r}
+all.actors.likes <- read_rds("Dados/all-actors-likes.rds")
+
 matriz.likes.20240907.saindo <- 
   matriz.likes.20240907 |> 
-  group_by(from.actor.num) |> 
+  group_by(actor.influencer.num) |> 
   summarise(quantos = sum(quantos)) |> 
-  left_join(all.actors, by = c("from.actor.num" = "num")) |> 
+  left_join(all.actors.likes, by = c("actor.influencer.num" = "num")) |> 
   rename(
-    from.actor = did,
+    actor.influencer = did,
     arestas.saindo = quantos
   )
 matriz.likes.20240907.saindo
 
 matriz.likes.20240907.entrando <- 
   matriz.likes.20240907 |> 
-  group_by(to.actor.num) |> 
+  group_by(actor.influenced.num) |> 
   summarise(quantos = sum(quantos)) |> 
-  left_join(all.actors, by = c("to.actor.num" = "num")) |> 
+  left_join(all.actors.likes, by = c("actor.influenced.num" = "num")) |> 
   rename(
-    to.actor = did,
+    actor.influenced = did,
     arestas.entrando = quantos
   )
 matriz.likes.20240907.entrando
@@ -148,7 +150,7 @@ matriz.likes.20240907.saldo <-
   full_join(
     matriz.likes.20240907.saindo,
     matriz.likes.20240907.entrando,
-    by = c("from.actor.num" = "to.actor.num"),
+    by = c("actor.influencer.num" = "actor.influenced.num"),
     keep = TRUE
   ) |> 
   mutate(
@@ -160,8 +162,8 @@ matriz.likes.20240907.saldo <-
     spread.arestas = arestas.saindo + arestas.entrando - abs(saldo.arestas),
   ) |>
   rename(
-    actor = from.actor,
-    actor.num = from.actor.num
+    actor = actor.influencer,
+    actor.num = actor.influencer.num
   ) |> 
   select(
     actor, 
@@ -169,7 +171,6 @@ matriz.likes.20240907.saldo <-
     arestas.saindo, 
     arestas.entrando,
     saldo.arestas, 
-    spread.arestas
   )
 matriz.likes.20240907.saldo |> 
   view()
