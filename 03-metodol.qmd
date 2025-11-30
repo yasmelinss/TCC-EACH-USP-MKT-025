@@ -37,14 +37,14 @@ O Bluesky é uma rede social de API aberta construída a partir do Protocolo AT,
 
 Em seu artigo sobre abordagens quantitativas para a comparação de padrões comunicativos no Twitter (atual X), @Bruns2012 utilizam uma API de busca através da plataforma *yourTwapperkeeper* para extrair um conjunto de dados de postagens (*tweets*) que contenham palavras-chave ou *hashtags* determinadas pelo operador. No Bluesky, um processo equivalente pode ser realizado através do pacote '{atrrr}' do R para acessar a API da rede e buscar postagens e informações de usuários dentro de um critério estabelecido.
 
-Em nosso presente estudo, a palavra chave ou *query* escolhida para a extração das postagens delimitadas foi CBLOL. Este termo foi escolhido estratégicamente pois considera-se, em primeira análise, o recorte brasileiro que este termo pode inferir nas extrações. Seguidamente, CBOL é a principal liga profissional de esports do jogo League of Legends no Brasil. Organizado pela desenvolvedora Riot Games, o campeonato reúne equipes profissionais que competem em temporadas regulares e fases eliminatórias, com o objetivo de conquistar o título nacional e, em muitos casos, garantir vagas em competições internacionais. Os perfis do CBLOL transmitiram as finais do WORLDS.
+Em nosso presente estudo, a palavra chave ou *query* escolhida para a extração das postagens delimitadas foi CBLOL. Este termo foi escolhido estratégicamente pois considera-se, em primeira análise, o recorte brasileiro que este termo pode inferir nas extrações. Seguidamente, CBOL é a principal liga profissional de esports do jogo League of Legends no Brasil. Organizado pela desenvolvedora Riot Games, o campeonato reúne equipes profissionais que competem em temporadas regulares e fases eliminatórias, com o objetivo de conquistar o título nacional e, em muitos casos, garantir vagas em competições internacionais. Os perfis do CBLOL transmitiram as finais do *Worlds* durante o período de suspensão do X.
 
 -A extração das postagens e likes dos skeets no perído escolhido
+
 ::: callout
-CONFERIR
-- as 5 semanas anteriores à suspensão (26/07/2024 - 30/08/2024);
-- as 5 semanas em que o X esteve indisponível (31/08/2024 - 08/10/2024);
-- as 5 semanas posterior ao retorno da rede (09/10/2024 - 13/11/2024).
+- as 5 semanas anteriores à suspensão (27/07/2024 – 30/08/2024);
+- as 5 semanas em que o X esteve indisponível (31/08/2024 – 08/10/2024);
+- as 5 semanas posterior ao retorno da rede (09/10/2024 – 12/11/2024).
 
 fundamentar o porquê do periodo
 :::
