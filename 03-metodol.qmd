@@ -43,8 +43,8 @@ Em nosso presente estudo, a palavra chave ou *query* escolhida para a extração
 
 ::: callout
 - as 5 semanas anteriores à suspensão (27/07/2024 – 30/08/2024);
-- as 5 semanas em que o X esteve indisponível (31/08/2024 – 08/10/2024);
-- as 5 semanas posterior ao retorno da rede (09/10/2024 – 12/11/2024).
+- as 5 semanas e 3 dias em que o X esteve indisponível (31/08/2024 – 08/10/2024);
+- as 5 semanas posteriores ao retorno da rede (09/10/2024 – 12/11/2024).
 
 fundamentar o porquê do periodo
 :::
