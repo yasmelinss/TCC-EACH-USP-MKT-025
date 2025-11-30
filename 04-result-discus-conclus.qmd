@@ -30,42 +30,61 @@ descr_pdf <- skeets_desc |>
     mediana_respostas  = round(median(reply_count, na.rm = TRUE), 2),
     desvio_respostas   = round(sd(reply_count, na.rm = TRUE), 2),
     maximo_respostas   = round(max(reply_count, na.rm = TRUE), 0),
+  )
+descr2_pdf <- skeets_desc |>
+  summarise(
 
     media_reposts      = round(mean(repost_count, na.rm = TRUE), 2),
     mediana_reposts    = round(median(repost_count, na.rm = TRUE), 2),
     desvio_reposts     = round(sd(repost_count, na.rm = TRUE), 2),
     maximo_reposts     = round(max(repost_count, na.rm = TRUE), 0),
-
+)
+descr3_pdf <- skeets_desc |>
+  summarise(
     media_likes        = round(mean(like_count, na.rm = TRUE), 2),
     mediana_likes      = round(median(like_count, na.rm = TRUE), 2),
     desvio_likes       = round(sd(like_count, na.rm = TRUE), 2),
     maximo_likes       = round(max(like_count, na.rm = TRUE), 0),
-
+)
+descr4_pdf <- skeets_desc |>
+  summarise(
     media_quotes       = round(mean(quote_count, na.rm = TRUE), 2),
     mediana_quotes     = round(median(quote_count, na.rm = TRUE), 2),
     desvio_quotes      = round(sd(quote_count, na.rm = TRUE), 2),
     maximo_quotes      = round(max(quote_count, na.rm = TRUE), 0)
   )
 
-# Tabela no formato PDF (LaTeX)
 descr_pdf |>
-  t() |>
-  as.data.frame() |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    col.names = c("Valor"),
     caption = "Medidas descritivas dos posts contendo a palavra-chave 'CBLOL'"
   )
-
-
+descr2_pdf |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = ""
+  )
+descr3_pdf |>
+  kable(    
+    format = "latex",
+    booktabs = TRUE,
+    caption = ""
+    )
+descr4_pdf |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = ""
+  )
 ```
 
 ### Medidas descritivas — Likes extraidos desses posts
 
 `matriz.like`
 
-Gerais
+(A) Gerais
 
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
@@ -91,15 +110,17 @@ gerais_matriz |>
     booktabs = TRUE,
     col.names = c("Valor"),
     caption = "Descritivas gerais da matriz de likes"
-  )
+  ) |>
+  kableExtra::kable_styling(latex_options = "hold_position")
 
 
 ```
 
-Graus
+(B) Graus
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: medidas-likes-grau
+
 graus_totais <- matriz.likes |>
   summarise(
     media_likes_dados     = round(mean(table(actor.influenced.num)), 2),
@@ -123,12 +144,10 @@ graus_totais |>
     booktabs = TRUE,
     col.names = c("Valor"),
     caption = "Distribuição geral dos likes dados (out-degree) e recebidos (in-degree)"
-  )
+  ) 
 
 ```
 
-
-Outras
 
 (C) Top 10 atores mais ativos e mais curtidos
 
@@ -136,29 +155,47 @@ Outras
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: medidas-likes-top10
 
+dicionario.handles <- read_rds("Dados/dicionario.rds") |>
+  mutate(num = as.character(num))
+
 # top 10 que mais curtiram (out-degree)
 top_out <- matriz.likes |>
-  count(actor.influencer.num, name = "likes_dados") |>
-  arrange(desc(likes_dados)) |>
+  mutate(actor.influencer.num = as.character(actor.influencer.num)) |>
+  count(actor.influencer.num, name = "likes_recebidos") |>
+  left_join(
+    dicionario.handles |> select(num, handle),
+    by = c("actor.influencer.num" = "num")
+  ) |>
+  select(handle, likes_recebidos) |>
+  arrange(desc(likes_recebidos)) |>
   slice(1:10)
 
 # top 10 mais curtidos (in-degree)
 top_in <- matriz.likes |>
-  count(actor.influenced.num, name = "likes_recebidos") |>
-  arrange(desc(likes_recebidos)) |>
+  mutate(actor.influenced.num = as.character(actor.influenced.num)) |>
+  count(actor.influenced.num, name = "likes_dados") |>
+  left_join(
+    dicionario.handles |> select(num, handle),
+    by = c("actor.influenced.num" = "num")
+  ) |>
+  select(handle, likes_dados) |>
+  arrange(desc(likes_dados)) |>
   slice(1:10)
 
 top_out |>
   kable(
-    format = "latex", booktabs = TRUE,
+    format = "latex",
+    booktabs = TRUE,
     caption = "Top 10 atores que mais foram curtidos (out-degree)"
   )
 
 top_in |>
   kable(
-    format = "latex", booktabs = TRUE,
+    format = "latex",
+    booktabs = TRUE,
     caption = "Top 10 atores que mais curtiram (in-degree)"
   )
+
 ```
 
 
@@ -191,12 +228,16 @@ medidas_rede <- tibble::tibble(
 
 medidas_rede |>
   kable(
-    format = "latex", booktabs = TRUE,
+    format = "latex", 
+    booktabs = TRUE,
     caption = "Medidas gerais de estrutura da rede de likes"
   )
 ```
 
 
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+
+```
 
 
 
