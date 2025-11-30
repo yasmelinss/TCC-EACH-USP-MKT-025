@@ -6,7 +6,9 @@
 
 ### Medidas descritivas — Posts da query "CBLOL"
 
-`skeets.longo`
+
+
+Para analisar a dinâmica de produção de conteúdo relacionado ao CBLOL, foram extraídos todos os posts que continham a palavra-chave associada ao campeonato, resultando em um banco de dados composto por skeets publicados ao longo do período 02/08/2024 a 07/10/2024.
 
 
 
@@ -90,13 +92,46 @@ descr4_pdf |>
 
 
 
-- AQUI FICARIA LEGAL COLOCAR A IMAGEM DE DENSIDADE E MAPA DE CALOR
+A Figura abaixo apresenta um mapa de calor que descreve a distribuição temporal das postagens contendo a palavra-chave CBLOL, considerando simultaneamente a variação ao longo dos dias e dos horários. Cada célula do gráfico representa o volume de postagens em uma combinação específica de data e hora, sendo que cores mais claras indicam maior intensidade de atividade, enquanto tons mais escuros e áreas pretas representam baixa ou nenhuma ocorrência de postagens.
+
+
+
+\vspace{1cm}
+```{r, echo=FALSE, out.width="80%", fig.pos="H", fig-cap: "Mapa de calor das postagens.}
+knitr::include_graphics("graficos/mapa_de_calor3.png")
+```
+\vspace{1cm}
+
+
+Observa-se que a atividade não é homogênea ao longo do período analisado. Há dois momentos destacados, delimitados pelas linhas verticais tracejadas em vermelho, que marcam as datas de 30/08/2024 e 08/10/2024 — pontos que correspondem, respectivamente, ao início e ao fim do intervalo de maior concentração de engajamento. Dentro desse intervalo, identifica-se um bloco contínuo de alta densidade de postagens, sugerindo um período de maior mobilização da comunidade em torno do evento.
+
+Um comportamento notável ocorre no dia 07/09, destacado pelo retângulo em verde, onde se observa um pico de atividade concentrado nos horários entre 13h e 19h. Esse evento foi exatamente a final do CBOL, e indica um aumento significativo de produção de conteúdo (*posts*).
+
+
+A Figura abaixo apresenta a distribuição temporal desses posts por meio de uma curva de densidade, a qual estima a frequência relativa de publicações em cada ponto da linha do tempo. A escala horizontal representa as datas, enquanto a vertical indica a intensidade de postagens. A escolha da densidade, em vez de contagens brutas, permite visualizar padrões gerais mesmo em períodos de baixa atividade, suavizando flutuações pontuais.
+
+
+\vspace{1cm}
+```{r, echo=FALSE, out.width="80%", fig.pos="H", fig-cap: "Mapa de calor das postagens.}
+knitr::include_graphics("graficos/densidade.png")
+```
+\vspace{1cm}
+
+
+Após o dia 08/10, nota-se um declínio acentuado na densidade das postagens, com predominância de células escuras e dispersas (mapa de calor), indicando diminuição da frequência de conteúdos relacionados ao tema. A densidade também reduz-se gradativamente após o fim do intervalo competitivo, evidenciando que o engajamento está fortemente vinculado ao calendário oficial da competição.
+
+
+
 
 ### Medidas descritivas — Likes extraidos desses posts
 
 `matriz.like`
 
 (A) Gerais
+A Imagem abaixo mostra
+A Imagem abaixo mostra
+
+
 
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
@@ -291,11 +326,11 @@ top20_dia37 |>
 
 
 
-Para caracterizar o papel de cada ator na rede de interações analisada, foram calculadas quatro métricas derivadas da estrutura direcional do grafo de likes: grau de entrada (in-degree), grau de saída (out-degree), saldo de interações e spread, adotando-se a convenção de que o in-degree representa likes dados (influência recebida) e o out-degree representa likes recebidos (influência dada).
+Para caracterizar o papel de cada ator na rede de interações analisada, foram calculadas quatro métricas derivadas da estrutura direcional do grafo de likes: grau de entrada (in-degree), grau de saída (out-degree), saldo de interações e spread.
 
-O grau de entrada (in-degree) corresponde ao número total de likes dados por cada ator. Em termos de teoria de redes, essa métrica contabiliza as arestas que chegam ao nó, consideradas aqui como ações iniciadas pelo ator. Assim, um in-degree elevado indica perfis altamente ativos na plataforma, que engajam frequentemente com conteúdos de outros atores.
+O grau de entrada (in-degree) corresponde ao número total de likes recebidos por um ator. Em termos de teoria de redes, representa a quantidade de arestas que chegam ao nó. Assim, atores com elevado in-degree são aqueles que concentram maior atenção da comunidade, indicando maior visibilidade ou popularidade. No contexto da análise, um alto in-degree reflete perfis cujo conteúdo atrai significativamente o engajamento dos demais usuários.
 
-O grau de saída (out-degree), por sua vez, representa o total de likes recebidos por um ator, isto é, as arestas que partem do nó. Dessa forma, o out-degree expressa o nível de visibilidade ou popularidade de cada perfil, refletindo o quanto ele atrai atenção e engajamento da comunidade.
+O grau de saída (out-degree) refere-se ao número de likes dados por cada ator, isto é, às arestas que partem do nó. Essa métrica revela o nível de atividade ou participação de um ator nas interações. Valores elevados de out-degree indicam perfis mais engajados com a rede, que circulam e interagem com o conteúdo de outros atores de forma mais intensa.
 
 O saldo de interações, definido como a diferença entre likes dados e likes recebidos (saldo = in-degree − out-degree), possibilita identificar o equilíbrio entre ação e atenção recebida. Valores positivos de saldo indicam perfis mais ativos do que populares, ou seja, que distribuem mais engajamento do que recebem. Valores negativos revelam perfis que recebem mais interações do que produzem, caracterizando atores altamente visíveis na rede.
 
@@ -304,14 +339,15 @@ A métrica spread quantifica a parte das interações que ocorre de forma simét
 No conjunto, essas quatro métricas permitem compreender a dinâmica individual dentro da rede, destacando quem são os atores mais ativos, quem são os mais populares, quem mantém trocas de engajamento mais equilibradas e quem participa de interações assimétricas. Essa análise fornece insights essenciais sobre padrões de circulação de atenção e comportamento social na plataforma durante o período analisado.
 
 
+\vspace{1cm}
 ```{r, echo=FALSE, out.width="80%", fig.pos="H"}
 knitr::include_graphics("Graficos/GRAFOS-14-PERIODO-OUT-500/grafo-periodo5-out.png")
 ```
-
+\vspace{1cm}
 
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-#| label: top_ativos
+#| label: top_populares
 
 top_ativos <- metricas_agregadas_dia37 |>
   arrange(desc(in_degree)) |>
@@ -322,14 +358,18 @@ top_ativos |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    caption = "atores que mais engajam - dia 07/09/2024"
+    caption = "atores mais engajados - dia 07/09/2024"
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
 
 
 
+A análise das métricas de interação do dia 07/09/2024 revela padrões de comportamento na rede. Os valores de in_degree, definidos como o total de likes recebidos por cada ator, evidenciam perfis extremamente populares. Os destaques são ilhadaslendas.com (10.706 likes), LTA_SUL (10.521 likes) e pain.gg (3.881 likes), indicando contas que interagem intensamente com outros usuários.
+
+
+
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-#| label: top_populares
+#| label: top_ativos
 top_populares <- metricas_agregadas_dia37 |>
   arrange(desc(out_degree)) |>
   slice(1:5) |>
@@ -342,6 +382,10 @@ top_populares |>
     caption = "Atores mais populares - dia 07/09/2024"
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
+
+
+
+Em contraste, o out_degree, entendido como o volume de likes dados, apresenta valores significativamente menores. Perfis como mipandy.bsky.social (607 likes), mandscosplayer.vlr.social (395 likes) e dadosdolol.bsky.social (381) são os mais expressivos nesse recorte.
 
 
 
@@ -362,6 +406,10 @@ top_equilibrados |>
 
 
 
+O spread, que reflete a parte recíproca da atividade (interações tanto de ida quanto de volta), confirma essa assimetria. Embora a maior parte dos atores apresente valores baixos, alguns perfis, como dadosdolol.bsky.social, mantêm um nível de reciprocidade mais elevado, indicando trocas mais equilibradas de engajamento.
+
+
+
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: top_assimetricos
 top_assimetricos <- metricas_agregadas_dia37 |>
@@ -378,15 +426,16 @@ top_assimetricos |>
 ```
 
 
-A análise das métricas de interação do dia 37 revela padrões claros de comportamento na rede. Os valores de in_degree, definidos como o total de likes dados por cada ator, evidenciam perfis extremamente ativos. Os destaques são ilhadaslendas.com (10.706 likes), LTA_SUL (10.521 likes) e pain.gg (3.881 likes), indicando contas que interagem intensamente com outros usuários.
-
-Em contraste, o out_degree, entendido como o volume de likes recebidos, apresenta valores significativamente menores. Apenas alguns perfis receberam quantidades expressivas de likes, como pereirawesley.bsky.social (56 likes) e pain.gg (26 likes). Isso sugere uma estrutura de engajamento assimétrica, em que a maioria dos atores distribui muito mais interações do que recebe.
-
-O spread, que reflete a parte recíproca da atividade (interações tanto de ida quanto de volta), confirma essa assimetria. Embora a maior parte dos atores apresente valores baixos, alguns perfis, como pereirawesley.bsky.social, mantêm um nível de reciprocidade mais elevado, indicando trocas mais equilibradas de engajamento.
 
 Por fim, o saldo de interações (likes dados menos likes recebidos) é fortemente positivo para a maioria dos principais atores, revelando que grande parte da atividade consiste em engajamento unilateral. Perfis como ilhadaslendas.com e LTA_SUL apresentam saldos superiores a 10 mil, demonstrando altíssima atividade com baixa reciprocidade.
 
 No conjunto, esses indicadores mostram que o dia 37 foi marcado por alta intensidade de engajamento ativo, mas com baixa redistribuição de atenção, caracterizando uma rede onde poucos recebem likes enquanto muitos distribuem. Esse comportamento reforça a presença de dinâmicas assimétricas típicas de redes sociais, como o predomínio de comportamento de broadcasting ou apoio coletivo mais do que interações bilaterais.
+
+
+# PERIODOS
+
+
+
 
 # Discussão
 
