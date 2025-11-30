@@ -7,7 +7,7 @@ format:
     toc-location: left
     embed-resources: true
 execute: 
-  cache: true
+  cache: refresh
 ---
 
 ```{r}
@@ -19,12 +19,14 @@ library(tidygraph)
 library(ggraph)
 library(igraph)
 library(viridis)
+library(purrr)
+library(patchwork)
 ```
 
 ```{r}
 #| label: carrega-metricas
 
-all.actors.likes <- read_rds("Dados/all-actors-likes-2.rds")
+all.actors.likes <- read_rds("Dados/all-actors-likes.rds")
 matriz.likes <- read_rds("Dados/matriz-likes.rds")
 vetor.matrizes.dias.likes <- readRDS("Dados/vetor-matrizes-dias-likes.rds")
 dia37 <- readRDS(vetor.matrizes.dias.likes[[37]])
@@ -41,8 +43,8 @@ metricas_agregadas_dia37 <- read_rds("Dados/metricas_agregadas_dia37.rds")
 edges_dia37 <- 
   dia37 |>
   rename(
-    from   = actor.influenced.num,
-    to     = actor.influencer.num,
+    from   = actor.influencer.num,
+    to     = actor.influenced.num,
     weight = quantos
   ) |>
   mutate(
@@ -104,108 +106,26 @@ activate(nodes) |>
 as_tibble()
 
 metricas_dia37 |> arrange(desc(grau_in)) |> head(20) |>
-write_rds("Dados/metricas_dia37")
+write_rds("Dados/metricas_dia37.rds")
 
 ```
 
 
-mantendo quem recebeu 5 curtidas por dia
-(nunca uso, mas existe. ggraph(grafo_filtrado, layout = "fr") +)
+mantendo quem recebeu 5+ curtidas por dia
 
 ```{r}
 
 grafo_filtrado <-
 grafo_dia37 |>
 activate(nodes) |>
-filter(grau_in >= 1000)
+filter(grau_in >= 100)
 
 grafo_filtrado
 ```
 
 
 ```{r}
-
-set.seed(123)
-
-ggraph::ggraph(grafo_filtrado, layout = "fr") +
-geom_edge_link(aes(alpha = weight), show.legend = FALSE) +
-geom_node_point(aes(size = grau_in)) +
-geom_node_text(aes(label = handle.x),
-repel = TRUE,
-size = 3) +
-scale_size_continuous(name = "Likes recebidos (grau in)",
-range = c(2, 10)) +
-theme_void() +
-ggtitle("Rede de likes – dia selecionado (alguns atores)")
-
-```
-
-```{r}
-
-set.seed(123)
-
-preto <- ggraph(grafo_filtrado, layout = "fr") +
-  
-  # Arestas suaves e discretas
-  geom_edge_link(
-    aes(alpha = weight),
-    color = "black",
-    width = 0.5,
-    show.legend = FALSE
-  ) +
-  
-  # Nós com cor proporcional ao grau_in
-  geom_node_point(
-    aes(size = grau_in, color = grau_in),
-    alpha = 0.8
-  ) +
-  
-  # Labels com boa visibilidade
-  geom_node_text(
-    aes(label = handle.x),
-    repel = TRUE,
-    size = 3,
-    color = "black"  # mais visível sobre fundo escuro
-  ) +
-  
-  # Gradiente bonito, científico e daltonismo-friendly
-  scale_color_viridis_c(
-    option = "plasma",
-    name = "Likes recebidos"
-  ) +
-  
-  # Tamanho proporcional ao grau
-  scale_size_continuous(
-    range = c(3, 12),
-    name = "Grau (in-degree)"
-  ) +
-  
-  # Tema escuro “clean”
-  theme_void() +
-  theme(
-    plot.background = element_rect(fill = "white", color = NA),
-    legend.position = "right",
-    legend.title = element_text(color = "black", size = 10),
-    legend.text  = element_text(color = "black", size = 8),
-    plot.title   = element_text(color = "black", size = 16, face = "bold")
-  ) +
-  
-  ggtitle("Rede de likes – dia selecionado > 100")
-
-# exportando imagem ----
-ggplot2::ggsave(
-  filename = "img/rede_do_dia.png",
-  plot = preto,
-  width = 10,
-  height = 7,
-  dpi = 300
-)
-
-```
-
-
-```{r}
-# selecionar top 30 nós por grau_in
+# selecionar top 30 nós por grau_in (influencia entrando)
 
 top_nos <- 
   grafo_dia37 |>
@@ -215,7 +135,7 @@ top_nos <-
 
 set.seed(123)
 
-top_influencers <- ggraph(top_nos, layout = "fr") +
+top_influenced <- ggraph(top_nos, layout = "fr") +
   
   # Arestas mais discretas
   geom_edge_link(
@@ -241,11 +161,11 @@ top_influencers <- ggraph(top_nos, layout = "fr") +
   ) +
   # Escalas bonitas
   scale_color_viridis_c(
-    name = "Likes recebidos",
-    option = "inferno"
+    name = "quantidade likes",
+    option = "plasma"
   ) +
   scale_size_continuous(
-    name = "Likes recebidos (grau in)",
+    name = "quantidade likes",
     range = c(4, 14)
   ) +
   theme_void() +
@@ -254,12 +174,12 @@ top_influencers <- ggraph(top_nos, layout = "fr") +
     legend.position = "right",
     plot.title = element_text(color = "black", size = 16, face = "bold")
   ) +
-  ggtitle("Rede de likes – top 30 atores que mais recebem curtida no dia 07/09/2024")
+  ggtitle("Rede de likes – top 30 atores que mais dão curtida | dia 07/09/2024")
 
 # exportando imagem ----
 ggplot2::ggsave(
-  filename = "img/top30out.png",
-  plot = top_influencers,
+  filename = "img/top30in.png",
+  plot = top_influenced,
   width = 10,
   height = 7,
   dpi = 300
@@ -269,9 +189,9 @@ ggplot2::ggsave(
 
 
 ```{r}
-# top 30 por grau_out (quem mais dá like)
+# selecionar top 30 nós por grau_out (influencia saindo)
 
-top_influenced <-
+top_influencer <-
   grafo_dia37 |>
   activate(nodes) |>
   arrange(desc(grau_out)) |>
@@ -279,7 +199,7 @@ top_influenced <-
 
 set.seed(123)
 
-top_influenced <- ggraph(top_influenced, layout = "fr") +
+top_influencer <- ggraph(top_influencer, layout = "fr") +
   
   # Arestas mais discretas
   geom_edge_link(
@@ -306,12 +226,12 @@ top_influenced <- ggraph(top_influenced, layout = "fr") +
   
   # Escalas bonitas
   scale_color_viridis_c(
-    name = "Likes distribuídos",
-    option = "inferno"
+    name = "quantidade likes",
+    option = "plasma"
   ) +
   
   scale_size_continuous(
-    name = "Likes distribuídos (grau out)",
+    name = "quantidade likes",
     range = c(4, 14)
   ) +
   
@@ -323,12 +243,12 @@ top_influenced <- ggraph(top_influenced, layout = "fr") +
     plot.title = element_text(color = "black", size = 16, face = "bold")
   ) +
   
-  ggtitle("Rede de likes – top 30 atores que mais curtem no dia 07/09/2024")
+  ggtitle("Rede de likes – top 30 atores que mais recebem curtida | dia 07/09/2024")
 
 # exportando imagem ----
 ggplot2::ggsave(
   filename = "img/top30out.png",
-  plot = top_influenced,
+  plot = top_influencer,
   width = 10,
   height = 7,
   dpi = 300
@@ -336,93 +256,9 @@ ggplot2::ggsave(
 
 ```
 
-```{r}
-library(viridis)
-
-top_influencers <-
-  grafo_dia37 |>
-  activate(nodes) |>
-  arrange(desc(grau_out)) |>
-  slice(1:30)
-
-set.seed(123)
-
-top_influencers <- ggraph(top_influencers, layout = "fr") +
-  
-  # Arestas mais discretas
-  geom_edge_link(
-    color = "grey60",
-    alpha = 0.3,
-    show.legend = FALSE
-  ) +
-  
-  # Nós coloridos pelo grau_out
-  geom_node_point(
-    aes(size = grau_out, color = grau_out),
-    alpha = 0.8
-  ) +
-  
-  # Labels com repel e cor branca
-  geom_node_text(
-    aes(label = handle.x),
-    repel = TRUE,
-    size = 3,
-    color = "white",
-    bg.color = "black",     # fundo do label
-    bg.r = 0.15             # borda arredondada
-  ) +
-  
-  # Escalas bonitas
-  scale_color_viridis_c(
-    name = "Likes distribuídos",
-    option = "plasma"
-  ) +
-  
-  scale_size_continuous(
-    name = " ",
-    range = c(4, 14)
-  ) +
-  
-  # Tema dark para destacar nós coloridos
-  theme_void() +
-  theme(
-    plot.background = element_rect(fill = "black", color = NA),
-    legend.position = "right",
-    plot.title  = element_text(color = "white", size = 16, face = "bold"),
-#  legend.text  = element_text(color = "white"),
-  legend.title = element_text(color = "white")
-  ) +
-  
-  ggtitle("Rede de likes – top 30 atores que mais curtem")
-
-# exportando imagem ----
-ggplot2::ggsave(
-  filename = "img/top30curtem.png",
-  plot = top_influencers,
-  width = 10,
-  height = 7,
-  dpi = 300
-)
-
-```
+# TODOS os dias
 
 ```{r}
-write_rds(metricas_dia37, "Dados/metricas-dia37.rds")
-```
-
-
-
-
-#TODOS os dias
-
-```{r}
-library(tidyverse)
-library(tidygraph)
-library(ggraph)
-library(viridis)
-library(purrr)
-library(patchwork)
-
 # dicionário de atores (ajuste o nome do arquivo se for outro)
 all.actors.likes <- read_rds("Dados/all-actors-likes.rds")
 
@@ -430,6 +266,7 @@ all.actors.likes <- read_rds("Dados/all-actors-likes.rds")
 vetor.matrizes.dias.likes <- read_rds("Dados/vetor-matrizes-dias-likes.rds")
 
 ```
+
 
 2️⃣ Função que monta o grafo de um dia
 
@@ -441,12 +278,12 @@ monta_grafo_dia <- function(idx) {
   # 1) carregar matriz do dia
   dia <- readRDS(vetor.matrizes.dias.likes[[idx]])
   
-  # 2) edges: quem curte (from) → quem recebe (to)
+  # 2) edges: from influencer to influenced
   edges <- 
     dia |>
     rename(
-      from   = actor.influenced.num,
-      to     = actor.influencer.num,
+      from   = actor.influencer.num,
+      to     = actor.influenced.num,
       weight = quantos
     ) |>
     mutate(
@@ -476,15 +313,113 @@ monta_grafo_dia <- function(idx) {
       grau_in  = centrality_degree(mode = "in"),
       grau_out = centrality_degree(mode = "out")
     )
-  
-  grafo
 }
-
 ```
+
+
+
+# INFLUENCER
 
 3️⃣ Função que gera o gráfico (ggraph) de um dia
 
-Aqui você escolhe já o filtro (ex: só nós com grau_in >= 5) e o estilo.
+```{r}
+
+plota_rede_dia <- function(idx) {
+  g <- 
+    monta_grafo_dia(idx) |>
+    activate(nodes) |>
+    filter(grau_out >= 100)   # filtro opcional
+  
+  # extrair a data a partir do nome do arquivo (ex: "2024-09-07-likes.rds")
+  data_lab <- basename(vetor.matrizes.dias.likes[[idx]]) |>
+    stringr::str_remove("-likes.rds")
+  
+  set.seed(123)
+  
+  p <- 
+    ggraph(g, layout = "fr") +
+    geom_edge_link(
+      aes(alpha = weight),
+      color = "black",
+      show.legend = FALSE
+    ) +
+    geom_node_point(
+      aes(size = grau_out, color = grau_out),
+      alpha = 0.8
+    ) +
+      geom_node_text(
+    aes(label = handle),
+    repel     = TRUE,
+    size      = 2.5,
+    color     = "black",
+    bg.color  = "white",
+    bg.r      = 0.15,
+  ) +
+    geom_node_text(
+      aes(label = handle),
+      repel = TRUE,
+      size = 2.5,
+      color = "black"
+    ) +
+    scale_color_viridis_c(
+      option = "plasma",
+      name   = "quantidade likes"
+    ) +
+    scale_size_continuous(
+      range = c(3, 10),
+      name  = "quantidade likes"
+    ) +
+    theme_void() +
+    theme(
+      plot.background = element_rect(fill = "white", color = NA),
+      legend.position = "none",
+      plot.title = element_text(color = "black", size = 12, face = "bold")
+    ) +
+    ggtitle(paste("Dia", data_lab))
+  
+  p
+}
+```
+
+4️⃣ Gerar gráficos para todos os dias de uma vez
+
+Aqui você cria uma lista de ggplots, um por dia.
+
+```{r}
+
+indices <- seq_along(vetor.matrizes.dias.likes)
+
+plots_todos <- map(indices, plota_rede_dia)
+
+```
+
+
+5️⃣ SALVAR uma imagem por dia
+
+Bom se você quiser escolher manualmente quais incluir no Quarto.
+
+```{r}
+dir.create("img/GRAFOS-OUT", showWarnings = FALSE)
+
+walk2(
+  plots_todos,
+  indices,
+  ~ ggsave(
+      filename = file.path("img/GRAFOS-OUT", paste0("rede-dia-", .y, ".png")),
+      plot     = .x,
+      width    = 8,
+      height   = 6,
+      dpi      = 300
+    )
+)
+
+```
+
+
+
+# INFLUENCED
+
+3️⃣ Função que gera o gráfico (ggraph) de um dia
 
 ```{r}
 
@@ -501,42 +436,40 @@ plota_rede_dia <- function(idx) {
   set.seed(123)
   
   p <- 
-    ggraph(g, layout = "fr") +
-    geom_edge_link(
-      aes(alpha = weight),
-      color = "black",
-      show.legend = FALSE
-    ) +
-    geom_node_point(
-      aes(size = grau_in, color = grau_in),
-      alpha = 0.8
-    ) +
-    geom_node_text(
-      aes(label = handle),
-      repel = TRUE,
-      size = 2.5,
-      color = "black"
-    ) +
-    scale_color_viridis_c(
-      option = "plasma",
-      name   = "Likes recebidos"
-    ) +
-    scale_size_continuous(
-      range = c(3, 10),
-      name  = "Grau in"
-    ) +
-    theme_void() +
-    theme(
-      plot.background = element_rect(fill = "white", color = NA),
-      legend.position = "none",   # sem legenda em cada painel, se for agrupar
-      plot.title = element_text(color = "black", size = 12, face = "bold")
-    ) +
-    ggtitle(paste("Dia", data_lab))
-  
-  p
+  ggraph(g, layout = "fr") +
+  geom_edge_link(
+    aes(alpha = weight),
+    color = "black",
+    show.legend = FALSE
+  ) +
+  geom_node_point(
+    aes(size = grau_in, color = grau_in),
+    alpha = 0.8
+  ) +
+  geom_node_text(
+    aes(label = handle),
+    repel     = TRUE,
+    size      = 2.5,
+    color     = "black",
+    bg.color  = "white",
+    bg.r      = 0.15,
+  ) +
+  scale_color_viridis_c(
+    option = "plasma",
+    name   = "quantidade likes"
+  ) +
+  scale_size_continuous(
+    range = c(3, 10),
+    name  = "quantidade likes"
+  ) +
+  theme_void() +
+  theme(
+    plot.background = element_rect(fill = "white", color = NA),
+    legend.position = "none",
+    plot.title = element_text(color = "black", size = 12, face = "bold")
+  ) +
+  ggtitle(paste("Dia", data_lab))
 }
-
-
 ```
 
 4️⃣ Gerar gráficos para todos os dias de uma vez
@@ -545,25 +478,25 @@ Aqui você cria uma lista de ggplots, um por dia.
 
 ```{r}
 
-indices <- seq_along(vetor.matrizes.dias.likes)
+indices2 <- seq_along(vetor.matrizes.dias.likes)
 
-plots_todos <- map(indices, plota_rede_dia)
+plots_todos2 <- map(indices, plota_rede_dia)
 
 ```
 
-5️⃣ SALVAR: várias figuras separadas ou uma figura agrupada
-🔹 5.1. Salvar uma imagem por dia
+
+5️⃣ SALVAR uma imagem por dia
 
 Bom se você quiser escolher manualmente quais incluir no Quarto.
 
 ```{r}
-dir.create("img/grafos_dias_2", showWarnings = FALSE)
+dir.create("img/GRAFOS-IN", showWarnings = FALSE)
 
 walk2(
-  plots_todos,
-  indices,
+  plots_todos2,
+  indices2,
   ~ ggsave(
-      filename = file.path("img/grafos_dias_2", paste0("rede-dia-", .y, ".png")),
+      filename = file.path("img/GRAFOS-IN", paste0("rede-dia-", .y, ".png")),
       plot     = .x,
       width    = 8,
       height   = 6,
@@ -572,4 +505,3 @@ walk2(
 )
 
 ```
-
