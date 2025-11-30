@@ -1,10 +1,6 @@
 # Resultados
 
-ABAIXO SEGUE
 
-![Grafo de curtidas (likes) - 31/08/2024 a 06/09/2024](Graficos/GRAFOS-14-PERIODO-OUT-500/grafo-periodo5-out.png)
-
-O grafo acima representa 
 # Discussão
 
 
