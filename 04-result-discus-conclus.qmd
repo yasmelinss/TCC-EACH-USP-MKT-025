@@ -8,6 +8,8 @@
 
 `skeets.longo`
 
+
+
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: medidas-skeets
 
@@ -15,6 +17,8 @@ library(tidyverse)
 library(dplyr)
 library(lubridate)
 library(knitr)
+library(kableExtra)
+
 
 skeets.longo <- read_rds("Dados/skeets-longo.rds")
 
@@ -60,26 +64,31 @@ descr_pdf |>
     format = "latex",
     booktabs = TRUE,
     caption = "Medidas descritivas dos posts contendo a palavra-chave 'CBLOL' - respostas"
-  )
+  )|> kableExtra::kable_styling(latex_options = "hold_position")
+
 descr2_pdf |>
   kable(
     format = "latex",
     booktabs = TRUE,
     caption = "Medidas descritivas dos posts contendo a palavra-chave 'CBLOL' - reposts"
-  )
+  ) |> kableExtra::kable_styling(latex_options = "hold_position")
+
 descr3_pdf |>
   kable(    
     format = "latex",
     booktabs = TRUE,
     caption = "Medidas descritivas dos posts contendo a palavra-chave 'CBLOL' - likes"
-    )
+    ) |> kableExtra::kable_styling(latex_options = "hold_position")
+
 descr4_pdf |>
   kable(
     format = "latex",
     booktabs = TRUE,
     caption = "Medidas descritivas dos posts contendo a palavra-chave 'CBLOL' - quotes"
-  )
+  ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
+
+
 
 - AQUI FICARIA LEGAL COLOCAR A IMAGEM DE DENSIDADE E MAPA DE CALOR
 
@@ -113,14 +122,13 @@ gerais_matriz |>
     booktabs = TRUE,
     col.names = c("Valor"),
     caption = "Descritivas gerais da matriz de likes"
-  ) |>
-  kableExtra::kable_styling(latex_options = "hold_position")
-
-
+  ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
 
 
+
 (B) Graus
+
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: medidas-likes-grau
@@ -148,8 +156,7 @@ graus_totais |>
     booktabs = TRUE,
     col.names = c("Valor"),
     caption = "Distribuição geral dos likes dados (out-degree) e recebidos (in-degree)"
-  ) 
-
+  ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
 
 
@@ -191,21 +198,25 @@ top_out |>
     format = "latex",
     booktabs = TRUE,
     caption = "Top 10 atores que mais foram curtidos (out-degree)"
-  )
+  ) |> kableExtra::kable_styling(latex_options = "hold_position")
 
 top_in |>
   kable(
     format = "latex",
     booktabs = TRUE,
     caption = "Top 10 atores que mais curtiram (in-degree)"
-  )
+  ) |> kableExtra::kable_styling(latex_options = "hold_position")
 
 ```
+
+
 
 
 (D) Grau médio, densidade simples e razão entre nós e arestas
 
 ##### Medidas simples de estrutura da rede
+
+
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: medidas-geral
@@ -235,8 +246,10 @@ medidas_rede |>
     format = "latex", 
     booktabs = TRUE,
     caption = "Medidas gerais de estrutura da rede de likes"
-  )
+  ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
+
+
 
 ### GRAFOS
 
@@ -245,11 +258,9 @@ medidas_rede |>
 Analisando o dia 07/09/2024
 
 
+
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: medidas-grafo-37
-library(dplyr)
-library(knitr)
-library(kableExtra)
 
 # carregar a métrica agregada (ou usar o objeto já criado)
 metricas_agregadas_dia37 <- readRDS("Dados/metricas_agregadas_dia37.rds")
@@ -265,9 +276,11 @@ top20_dia37 |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    caption = "Top 20 atores com maior in-degree (likes recebidos) no dia 37"
-  ) 
+    caption = "Top 20 atores com maior in-degree (likes recebidos) no dia 07/09/2024"
+  ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
+
+
 
 Para caracterizar o papel de cada ator na rede de interações analisada, foram calculadas quatro métricas derivadas da estrutura direcional do grafo de likes: grau de entrada (in-degree), grau de saída (out-degree), saldo de interações e spread, adotando-se a convenção de que o in-degree representa likes dados (influência recebida) e o out-degree representa likes recebidos (influência dada).
 
@@ -281,10 +294,22 @@ A métrica spread quantifica a parte das interações que ocorre de forma simét
 
 No conjunto, essas quatro métricas permitem compreender a dinâmica individual dentro da rede, destacando quem são os atores mais ativos, quem são os mais populares, quem mantém trocas de engajamento mais equilibradas e quem participa de interações assimétricas. Essa análise fornece insights essenciais sobre padrões de circulação de atenção e comportamento social na plataforma durante o período analisado.
 
-![Grafo de curtidas (likes) - 31/08/2024 a 06/09/2024](Graficos/GRAFOS-14-PERIODO-OUT-500/grafo-periodo5-out.png)
 
-```{r}
+```{r, echo=FALSE, out.width="80%", fig.pos="H"}
+knitr::include_graphics("Graficos/GRAFOS-14-PERIODO-OUT-500/grafo-periodo5-out.png")
+```
+
+
+
+TEXTO TESTE
+TEXTO TESTE
+TEXTO TESTETEXTO TESTE
+TEXTO TESTE
+
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: top_ativos
+
 top_ativos <- metricas_agregadas_dia37 |>
   arrange(desc(in_degree)) |>
   slice(1:5) |>
@@ -294,11 +319,13 @@ top_ativos |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    caption = "Top 20 atores com maior in-degree (likes recebidos) no dia 37"
+    caption = "atores que mais engajam - dia 07/09/2024"
   ) 
 ```
 
-```{r}
+
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: top_populares
 top_populares <- metricas_agregadas_dia37 |>
   arrange(desc(out_degree)) |>
@@ -309,11 +336,13 @@ top_populares |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    caption = "Top 20 atores com maior in-degree (likes recebidos) no dia 37"
+    caption = "Atores mais populares - dia 07/09/2024"
   ) 
 ```
 
-```{r}
+
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: top_equilibrados
 top_equilibrados <- metricas_agregadas_dia37 |>
   arrange(desc(spread)) |>
@@ -324,11 +353,13 @@ top_equilibrados |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    caption = "Top 20 atores com maior in-degree (likes recebidos) no dia 37"
+    caption = "Atores mais equilibrados - dia 07/09/2024"
   ) 
 ```
 
-```{r}
+
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: top_assimetricos
 top_assimetricos <- metricas_agregadas_dia37 |>
   arrange(desc(saldo)) |>
@@ -339,11 +370,12 @@ top_assimetricos |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    caption = "Top 20 atores com maior in-degree (likes recebidos) no dia 37"
+    caption = "Atores mais assimetricos - dia 07/09/2024"
   ) 
 ```
 
 - thales revise
+
 
 A análise das métricas de interação do dia 37 revela padrões claros de comportamento na rede. Os valores de in_degree, definidos como o total de likes dados por cada ator, evidenciam perfis extremamente ativos. Os destaques são ilhadaslendas.com (10.706 likes), LTA_SUL (10.521 likes) e pain.gg (3.881 likes), indicando contas que interagem intensamente com outros usuários.
 
