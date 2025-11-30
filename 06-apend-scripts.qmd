@@ -1,6 +1,28 @@
 # Apêndices
 
-## Apêndice A -- script de raspagem ????
+## Apêndice A -- Scripts desenvolvidos
+
+\newpage
+
+### Script `1-extracao.qmd`
+
+\newpage
+
+### Script `2-tratamento-dados.qmd`
+
+\pagebreak
+
+### Script `3-critica-likes.qmd`
+
+\pagebreak
+
+### Script `4-metricas-rede.qmd`
+
+\pagebreak
+
+### Script `5-grafos-likes.qmd`
+
+\pagebreak
 
 # Anexos
 
