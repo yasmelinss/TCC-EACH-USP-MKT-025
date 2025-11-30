@@ -127,7 +127,9 @@ gerais_matriz |>
 
 
 
+TEXTO TESTE
 (B) Graus
+TEXTO TESTE
 
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
@@ -160,7 +162,11 @@ graus_totais |>
 ```
 
 
+
+TEXTO TESTE
 (C) Top 10 atores mais ativos e mais curtidos
+TEXTO TESTE
+
 
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
@@ -211,12 +217,13 @@ top_in |>
 
 
 
-
+TEXTO TESTE
+TEXTO TESTE
 (D) Grau médio, densidade simples e razão entre nós e arestas
 
 ##### Medidas simples de estrutura da rede
 
-
+TEXTO TESTE
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: medidas-geral
@@ -251,12 +258,14 @@ medidas_rede |>
 
 
 
+TEXTO TESTE
+TEXTO TESTE
 ### GRAFOS
 
 ### Medidas descritivas - graus 
 
 Analisando o dia 07/09/2024
-
+TEXTO TESTE
 
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
@@ -299,12 +308,6 @@ No conjunto, essas quatro métricas permitem compreender a dinâmica individual 
 knitr::include_graphics("Graficos/GRAFOS-14-PERIODO-OUT-500/grafo-periodo5-out.png")
 ```
 
-
-
-TEXTO TESTE
-TEXTO TESTE
-TEXTO TESTETEXTO TESTE
-TEXTO TESTE
 
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
@@ -373,8 +376,6 @@ top_assimetricos |>
     caption = "Atores mais assimetricos - dia 07/09/2024"
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
-
-- thales revise
 
 
 A análise das métricas de interação do dia 37 revela padrões claros de comportamento na rede. Os valores de in_degree, definidos como o total de likes dados por cada ator, evidenciam perfis extremamente ativos. Os destaques são ilhadaslendas.com (10.706 likes), LTA_SUL (10.521 likes) e pain.gg (3.881 likes), indicando contas que interagem intensamente com outros usuários.
