@@ -94,19 +94,4 @@ Para a obtenção dos dados de redes sociais, a mineração é uma tática comum
 
 @Gandomi2015 explicam a análise de influência social como outra técnica na análise de redes sociais, que agrupa métodos de modelação e avaliação da influência de usuários e conexões em uma rede social. Métodos de análise de influência social são amplamente úteis em esforços de *brand awareness* e adoção de marca, auxiliando no marketing de influência. Adicionalmente, os autores descrevem o método de *previsão de conexões* como a análise de dados passados para tentar prever interações futuras, de forma a levar em consideração a natureza dinâmica e imprevisível das dinâmicas de redes sociais.
 
-:::callout-note
-- workflow de projetos pontuais em ciência de dados
-    - entendimento do problema de negócios
-    - coleta de dados: introduz raspagem em linhas gerais
-    - preparação e limpeza dos dados: tratamento de dados não estruturados  (texto com gírias, emojis, abreviações)
-    - análise exploratória: estatísticas descritivas, frequências, nuvens de palavras
-    - modelagem e outras técnicas de análise: análise de sentimentos, análise de conectividade, classificação, clustering, modelagem de tópicos
-    - comunicação dos resultados: visualizações e interpretação para não especialistas
-- usar
-    - [Brodie, 2023](https://arxiv.org/abs/2306.16177)
-    - [Cao, 2020](https://arxiv.org/abs/2007.03606) 
-    - [R4DS](https://r4ds.hadley.nz/) para workflow de data science
-
-:::
-
 
