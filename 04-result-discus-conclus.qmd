@@ -320,7 +320,7 @@ top_ativos |>
     format = "latex",
     booktabs = TRUE,
     caption = "atores que mais engajam - dia 07/09/2024"
-  ) 
+  ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
 
 
@@ -337,7 +337,7 @@ top_populares |>
     format = "latex",
     booktabs = TRUE,
     caption = "Atores mais populares - dia 07/09/2024"
-  ) 
+  ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
 
 
@@ -354,7 +354,7 @@ top_equilibrados |>
     format = "latex",
     booktabs = TRUE,
     caption = "Atores mais equilibrados - dia 07/09/2024"
-  ) 
+  ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
 
 
@@ -371,7 +371,7 @@ top_assimetricos |>
     format = "latex",
     booktabs = TRUE,
     caption = "Atores mais assimetricos - dia 07/09/2024"
-  ) 
+  ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
 
 - thales revise
