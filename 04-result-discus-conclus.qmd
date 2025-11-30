@@ -81,6 +81,8 @@ descr4_pdf |>
   )
 ```
 
+- AQUI FICARIA LEGAL COLOCAR A IMAGEM DE DENSIDADE E MAPA DE CALOR
+
 ### Medidas descritivas — Likes extraidos desses posts
 
 `matriz.like`
@@ -116,6 +118,7 @@ gerais_matriz |>
 
 
 ```
+
 
 (B) Graus
 
@@ -202,7 +205,7 @@ top_in |>
 
 (D) Grau médio, densidade simples e razão entre nós e arestas
 
-#### Medidas simples de estrutura da rede
+##### Medidas simples de estrutura da rede
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: medidas-geral
@@ -235,6 +238,12 @@ medidas_rede |>
   )
 ```
 
+### GRAFOS
+
+### Medidas descritivas - graus 
+
+Analisando o dia 07/09/2024
+
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 library(dplyr)
@@ -259,17 +268,19 @@ top20_dia37 |>
   ) 
 ```
 
+Para caracterizar o papel de cada ator na rede de interações analisada, foram calculadas quatro métricas derivadas da estrutura direcional do grafo de likes: grau de entrada (in-degree), grau de saída (out-degree), saldo de interações e spread, adotando-se a convenção de que o in-degree representa likes dados (influência recebida) e o out-degree representa likes recebidos (influência dada).
 
+O grau de entrada (in-degree) corresponde ao número total de likes dados por cada ator. Em termos de teoria de redes, essa métrica contabiliza as arestas que chegam ao nó, consideradas aqui como ações iniciadas pelo ator. Assim, um in-degree elevado indica perfis altamente ativos na plataforma, que engajam frequentemente com conteúdos de outros atores.
 
+O grau de saída (out-degree), por sua vez, representa o total de likes recebidos por um ator, isto é, as arestas que partem do nó. Dessa forma, o out-degree expressa o nível de visibilidade ou popularidade de cada perfil, refletindo o quanto ele atrai atenção e engajamento da comunidade.
 
+O saldo de interações, definido como a diferença entre likes dados e likes recebidos (saldo = in-degree − out-degree), possibilita identificar o equilíbrio entre ação e atenção recebida. Valores positivos de saldo indicam perfis mais ativos do que populares, ou seja, que distribuem mais engajamento do que recebem. Valores negativos revelam perfis que recebem mais interações do que produzem, caracterizando atores altamente visíveis na rede.
 
+A métrica spread quantifica a parte das interações que ocorre de forma simétrica ou equilibrada, isto é, a interseção entre likes dados e recebidos. Essa medida capta a reciprocidade nas relações: valores elevados indicam atores que participam de interações mais equilibradas e bilaterais, enquanto valores baixos sugerem relações predominantemente unilaterais (atores que apenas recebem ou apenas distribuem likes).
 
+No conjunto, essas quatro métricas permitem compreender a dinâmica individual dentro da rede, destacando quem são os atores mais ativos, quem são os mais populares, quem mantém trocas de engajamento mais equilibradas e quem participa de interações assimétricas. Essa análise fornece insights essenciais sobre padrões de circulação de atenção e comportamento social na plataforma durante o período analisado.
 
-
-
-
-=======
->>>>>>> 583c0dca052cb2416de3ca516a6e619c8c772234
+![Grafo de curtidas (likes) - 31/08/2024 a 06/09/2024](Graficos/GRAFOS-14-PERIODO-OUT-500/grafo-periodo5-out.png)
 
 # Discussão
 
