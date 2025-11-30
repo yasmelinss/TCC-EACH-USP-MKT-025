@@ -433,6 +433,32 @@ No conjunto, esses indicadores mostram que o dia 37 foi marcado por alta intensi
 
 # PERIODOS
 
+\vspace{1cm}
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+
+# carregar a métrica agregada do período 5
+metricas_agregadas_periodo5 <- readRDS("Dados/metricas_agregadas_periodo5.rds")
+
+# selecionar os 20 primeiros (ordenados por in_degree)
+top20_p5 <- metricas_agregadas_periodo5 |>
+  arrange(desc(in_degree)) |>
+  slice(1:20) |>
+  select(actor.num, handle, in_degree, out_degree, saldo, spread)
+
+# tabela LaTeX
+top20_p5 |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Top 20 atores com maior in-degree (likes dados) no período 5"
+  ) |>
+  kable_styling(latex_options = "hold_position")
+
+```
+\vspace{1cm}
+
+
+
 
 
 
