@@ -1,5 +1,6 @@
 # Resultados
 
+<<<<<<< HEAD
 ## Descritivas
 
 
@@ -267,12 +268,18 @@ top20_dia37 |>
 
 
 
+=======
+>>>>>>> 583c0dca052cb2416de3ca516a6e619c8c772234
 
 # Discussão
+
+
 
 # Conclusão
 
 ## Principais achados
+
+  
 
 ## Limitações e Trabalhos Futuros
 
