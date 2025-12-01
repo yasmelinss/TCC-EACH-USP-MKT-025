@@ -91,7 +91,7 @@ descr4_pdf |>
 
 
 
-A Figura abaixo apresenta um mapa de calor que descreve a distribuição temporal das postagens contendo a palavra-chave CBLOL, considerando simultaneamente a variação ao longo dos dias e dos horários. Cada célula do gráfico representa o volume de postagens em uma combinação específica de data e hora, sendo que cores mais claras indicam maior intensidade de atividade, enquanto tons mais escuros e áreas pretas representam baixa ou nenhuma ocorrência de postagens.
+A Figura abaixo apresenta um mapa de calor que descreve a distribuição temporal das postagens contendo a palavra-chave CBLOL, considerando simultaneamente a variação ao longo dos dias e dos horários. Cada célula do gráfico representa o volume de postagens em uma combinação específica de data e hora, sendo que cores mais claras indicam maior intensidade de atividade, enquanto tons mais escuros e áreas pretas representam baixa ocorrência de postagens e, onde não houve ocorrência, não foram pintadas no gráfico.
 
 
 
@@ -123,6 +123,10 @@ Após o dia 08/10, nota-se um declínio acentuado na densidade das postagens, co
 
 ### Medidas descritivas — Likes extraidos desses posts
 
+<<<<<<< HEAD
+=======
+#### Matriz de likes
+>>>>>>> 5d7261b0c0d064fcbde8599ab8810c71be13adf3
 
 A matriz de likes constitui a base de dados relacional utilizada para a construção da rede de interações entre os atores. Cada linha dessa matriz representa um evento individual de engajamento, isto é, um like realizado em determinado momento. As três colunas principais são: `data.skeet`, que registra a data e horário da interação; `actor.influencer.num`, qidentifica numericamente o ator que recebeu essa interação, e `actor.influenced.num`, que identifica numericamente o ator que realizou o like.
 
@@ -268,7 +272,7 @@ top_in |>
 
 
 
-##### Medidas de estrutura da rede
+#### Medidas de estrutura da rede
 
 As medidas gerais de estrutura da rede têm como objetivo caracterizar, de forma sintética, as propriedades fundamentais da rede de interações por meio de métricas derivadas da teoria dos grafos. No contexto deste estudo, cada nó representa um ator (usuário), e cada aresta representa uma relação de engajamento entre dois atores — especificamente, o ato de um usuário curtir a postagem de outro. As métricas calculadas ajudam a compreender não apenas o tamanho da rede, mas também seu nível de conectividade e a intensidade das interações ocorridas durante o período analisado.
 
