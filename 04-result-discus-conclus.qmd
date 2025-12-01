@@ -8,7 +8,7 @@
 
 
 
-Para analisar a dinâmica de produção de conteúdo relacionado ao CBLOL, foram extraídos todos os posts que continham a palavra-chave associada ao campeonato, resultando em um banco de dados composto por skeets publicados ao longo do período 02/08/2024 a 07/10/2024.
+Para analisar a dinâmica de produção de conteúdo relacionado ao CBLOL, foram extraídos todos os posts que continham a palavra-chave associada ao campeonato, resultando em um banco de dados composto por skeets publicados entre 03/08/2024 a 05/10/2024.
 
 
 
