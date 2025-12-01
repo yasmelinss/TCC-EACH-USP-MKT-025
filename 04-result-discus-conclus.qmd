@@ -556,7 +556,7 @@ knitr::include_graphics("Graficos/grafo-periodo5-out.png")
 
 
 
-Na semana em que o X foi suspenso no Brasil, o grafo de curtidas recebidas (≥500) apresenta uma rede muito mais ativa e estruturada do que no período anterior. A migração repentina de usuários para o Bluesky estimulou a formação rápida de novos polos de engajamento relacionados ao CBLOL.
+Na semana em que o X foi suspenso no Brasil, o grafo de curtidas recebidas apresenta uma rede muito mais ativa e estruturada do que no período anterior. A migração repentina de usuários para o Bluesky estimulou a formação rápida de novos polos de engajamento relacionados ao CBLOL.
 
 Perfis oficiais e de equipes como LTA-SUL e pain.gg aparecem entre os principais nós da rede, recebendo altos volumes de curtidas e concentrando grande parte das interações do período. Também se destacam criadores e comentaristas do cenário competitivo, como alberthlol e tabsLOL, que rapidamente passaram a ocupar posições de relevância na plataforma.
 
