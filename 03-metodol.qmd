@@ -63,4 +63,7 @@ Todo o fluxo de metricas de redes está detalhado no documento 4-metricas-rede.q
 
 ### Análise de Dados em Rede - Visualizações 
 
-- Aqui entra o arquivo 5-grafos-likes
+No quinto arquivo de análise foram construídos e visualizados os grafos direcionados de interações para cada um dos 14 períodos definidos ao longo do tempo. A partir das matrizes de likes agregadas por período, geraram-se, para cada intervalo, objetos de grafo em que os nós representam atores e as arestas representam relações de engajamento por meio de likes.
+
+Todo o fluxo de plotagem de grafos está detalhado no documento 5-grafos-likes.qmd, o qual será anexado como material suplementar ao final deste trabalho.
+
