@@ -42,22 +42,23 @@ Dessa forma, realizou-se a mineração de postagens (chamadas de skeets no Blues
 - as 5 semanas e 3 dias em que o X esteve indisponível (31/08/2024 – 08/10/2024);
 - as 4 semanas posteriores ao retorno da rede (09/10/2024 – 05/11/2024).
 
-
+Todo o fluxo de mineração está detalhado no documento 1-extracao.qmd, o qual será anexado como material suplementar ao final deste trabalho.
 
 ### Tratamento dos dados
 
-- separa-se os dados por likes e skeets e trata cada um
-- com os arquivos de dados, substituimos o nome de cada um com seu respectivo did para facilitar
-- Criando listas de actors (ou didids) relacionados com likes
-- Montando a matriz de likes dados
-- Montando lista de likers envolvidos em skeets
-- Aqui vamos linkar o arquivo 2-tratamento de dados.qmd e anexar em anexo. 
+Inicialmente, os dados foram divididos em dois grandes conjuntos: dados de likes e dados de skeets (postagens). Essa separação foi necessária porque cada conjunto contém estruturas distintas e cumpre funções analíticas específicas dentro do estudo. Enquanto os likes representam relações direcionadas entre atores — permitindo a construção de grafos e métricas de rede — os skeets fornecem informações temporais sobre a produção de conteúdo, essenciais para análises descritivas e temporais.
+
+Após essa separação, realizou-se a padronização da identificação dos usuários. Cada ator presente nos dados foi associado ao seu respectivo identificador único (did), substituindo nomes e rótulos inconsistentes. Essa harmonização foi fundamental para evitar duplicidades e assegurar que as interações fossem corretamente atribuídas aos mesmos indivíduos ao longo dos diferentes arquivos.
+
+Em seguida, foram criadas listas estruturadas de atores envolvendo relações de likes, tanto para quem dá likes quanto para quem os recebe. Essa etapa permitiu mapear todos os actors presentes na rede e identificar quais deles estavam ativos nas interações. A partir dessas listas, foi possível montar a matriz de likes dados, na qual cada linha representa uma interação do tipo “ator A curtiu ator B”, agregando o número de ocorrências dessa relação no banco de dados.
+
+Todo o fluxo de tratamento — incluindo leitura dos arquivos, padronização de identificadores, criação de listas intermediárias e construção das matrizes — está detalhado no documento 2-tratamento-dados.qmd, o qual será anexado como material suplementar ao final deste trabalho. Esse arquivo contém o passo a passo completo das operações realizadas e serve como documentação técnica da preparação dos dados.
 
 ### Análise de Dados em Rede
 
 No presente trabalho, utilizou-se da quantidade de curtidas (*likes*) em postagens (*skeets*) com o termo CBLOL como métrica principal para a propagação de opiniões. Essa escolha é baseada na premissa que curtidas representam um engajamento ativo e singular e que demonstram concordância ou aprovação em relação a um conteúdo pontual, enquanto a métrica de seguidores é indicativa somente de alcance potencial sem garantir engajamento ou influência real. Conforme demonstrado por @Moon2022, o número de seguidores não é sempre proporcional ao engajamento para campanhas de marketing de influência, com uma uma curva de formato U inverso sendo mais representativa da relação entre número de seguidores e engajamento, onde o engajamento é mais alto para influenciadores com um número moderado de seguidores. Adicionalmente, estudos revelam que usuários de redes sociais tendem a engajar mais (em termos de curtidas e *reposts*) conteúdos de contas que seguem menos pessoas, interpretando-as como mais autônomas [@Valsesia2020]. Ademais, embora as curtidas exijam menos esforço de interação do que os comentários [@Moon2022], elas se mostram superiores aos seguidores como métrica de interesse ativo. O número de seguidores frequentemente representa uma audiência passiva, visto que o volume de curtidas em perfis tende a ser significativamente mais baixo [@Avelino2020]. A união destes fatores, portanto, justifica as curtidas como sendo a métrica escolhida como mais apropriada para para mensurar a resposta efetiva do público e a dinâmica de disseminação na rede.
 
-- Aqui entra o arquivo 4-metricas-rede
+Todo o fluxo de metricas de redes está detalhado no documento 4-metricas-rede.qmd, o qual será anexado como material suplementar ao final deste trabalho.
 
 
 ### Análise de Dados em Rede - Visualizações 
