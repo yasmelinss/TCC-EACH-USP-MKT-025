@@ -121,7 +121,7 @@ Em princípio, poderia ser `'cblol'` ou `'"#cblol"'` ou mais algum outro termos 
 #| label: autenticando
 
 auth(
-  user = 'yasmelinss.bsky.social',
+  user = read_lines("login.txt"),
   password = read_lines("senha.txt"),
   overwrite = TRUE
 )
