@@ -516,7 +516,7 @@ Dentre todos os intervalos analisados, o período 5 se destaca como o momento de
 
 \vspace{1cm}
 ```{r, echo=FALSE, out.width="80%", fig.pos="H"}
-knitr::include_graphics("Graficos/periodo10a13.png")
+knitr::include_graphics("Graficos/GRAFOS-14-PERIODO-OUT-500/grafo-periodo5.png")
 ```
 \vspace{1cm}
 
