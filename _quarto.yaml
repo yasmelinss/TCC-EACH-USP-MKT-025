@@ -113,8 +113,8 @@ format:
     ####################
     include-in-header:
       - preamble.tex
-    include-before-body:
-      - capa.tex
+    # include-before-body:
+    #   - capa.tex
     # lof: false
     # lof-title: "Lista de Figuras"
     # lot: false
