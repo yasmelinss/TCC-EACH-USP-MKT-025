@@ -503,7 +503,7 @@ top20_p5 |>
 Grafos do Período 2 ao Período 5
 
 
-\vspace{1cm}
+
 ```{r, echo=FALSE, out.width="80%", fig.pos="H"}
 knitr::include_graphics("Graficos/Periodo2A5.png")
 ```
@@ -514,7 +514,7 @@ knitr::include_graphics("Graficos/Periodo2A5.png")
 Grafos do Período 6 ao Período 9
 
 
-\vspace{1cm}
+
 ```{r, echo=FALSE, out.width="80%", fig.pos="H"}
 knitr::include_graphics("Graficos/periodo6a9.png")
 ```
@@ -525,7 +525,7 @@ knitr::include_graphics("Graficos/periodo6a9.png")
 Grafos do Período 10 ao Período 13
 
 
-\vspace{1cm}
+
 ```{r, echo=FALSE, out.width="80%", fig.pos="H"}
 knitr::include_graphics("Graficos/periodo10a13.png")
 ```
