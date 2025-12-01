@@ -158,7 +158,16 @@ gerais_matriz |>
 \vspace{1cm}
 
 
-Medidas de Grau
+
+As medidas de grau são fundamentais para compreender como as interações se distribuem entre os atores da rede. No contexto deste estudo, o grau corresponde ao número de conexões associadas a cada ator, podendo ser interpretado de duas formas distintas: out-degree: quantidade de likes dados por um ator; in-degree: quantidade de likes recebidos por um ator.
+
+Essas métricas permitem identificar tanto usuários mais ativos na emissão de likes quanto aqueles que atraem maior engajamento da comunidade.
+
+A análise estatística dos graus revela o comportamento global da distribuição de interações. A média indica o volume típico de likes distribuídos ou recebidos, considerando todos os atores da rede. Já a mediana mostra o valor central dessa distribuição, sendo menos influenciada por valores extremos. A discrepância entre média e mediana observada nos dados — com a média maior que a mediana — indica uma distribuição assimétrica, em que poucos atores concentram grande volume de interações, enquanto a maior parte participa de forma limitada.
+
+O desvio-padrão quantifica a variabilidade do grau entre os atores. Valores elevados de desvio sugerem uma rede altamente heterogênea, em que há grande diferença entre usuários muito engajados e usuários com pouca ou nenhuma atividade. Os valores máximos evidenciam a presença de atores com papéis centrais, capazes de mobilizar ou distribuir uma quantidade excepcionalmente alta de likes.
+
+
 
 \vspace{1cm}
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
@@ -234,30 +243,35 @@ top_out |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    caption = "Top 10 atores que mais foram curtidos (out-degree)"
+    caption = "Top 10 atores que mais foram curtidos"
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
 \vspace{1cm}
+
+
 \vspace{1cm}
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 top_in |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    caption = "Top 10 atores que mais curtiram (in-degree)"
+    caption = "Top 10 atores que mais curtiram"
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
 
 ```
 \vspace{1cm}
 
 
-TEXTO TESTE
-TEXTO TESTE
-(D) Grau médio, densidade simples e razão entre nós e arestas
 
-##### Medidas simples de estrutura da rede
 
-TEXTO TESTE
+
+##### Medidas de estrutura da rede
+
+As medidas gerais de estrutura da rede têm como objetivo caracterizar, de forma sintética, as propriedades fundamentais da rede de interações por meio de métricas derivadas da teoria dos grafos. No contexto deste estudo, cada nó representa um ator (usuário), e cada aresta representa uma relação de engajamento entre dois atores — especificamente, o ato de um usuário curtir a postagem de outro. As métricas calculadas ajudam a compreender não apenas o tamanho da rede, mas também seu nível de conectividade e a intensidade das interações ocorridas durante o período analisado.
+
+
+
+
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: medidas-geral
@@ -441,11 +455,7 @@ No conjunto, esses indicadores mostram que o dia 37 foi marcado por alta intensi
 
 ### PERIODOS
 
-Para compreender como a dinâmica das interações evoluiu ao longo do tempo, os dados foram segmentados em 14 períodos consecutivos. Essa divisão temporal foi fundamentada em duas evidências observadas previamente:
-
-(1) a densidade de postagens ao longo do tempo, que revelou picos nítidos de atividade concentrados em semanas específicas, e
-
-(2) o mapa de calor de postagens por dia e hora, que indicou padrões de engajamento intensos em determinadas faixas de dia, especialmente próximas a eventos relevantes do CBLOL.
+Para compreender como a dinâmica das interações evoluiu ao longo do tempo, os dados foram segmentados em 14 períodos consecutivos. Essa divisão temporal foi fundamentada em duas evidências observadas previamente: a densidade de postagens ao longo do tempo, que revelou picos nítidos de atividade concentrados em semanas específicas, e o mapa de calor de postagens por dia e hora, que indicou padrões de engajamento intensos em determinadas faixas de dia, especialmente próximas a eventos relevantes do CBLOL.
 
 
 
@@ -466,7 +476,7 @@ top20_p5 |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    caption = "Top 20 atores do período 5 por likes recebidos"
+    caption = "Top 20 atores do período 5"
   ) |> kable_styling(latex_options = "hold_position")
 
 ```
