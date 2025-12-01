@@ -98,7 +98,7 @@ A Figura abaixo apresenta um mapa de calor que descreve a distribuição tempora
 
 \vspace{1cm}
 ```{r, echo=FALSE, out.width="80%", fig.pos="H"}
-knitr::include_graphics("graficos/mapa_de_calor3.png")
+knitr::include_graphics("Graficos/mapa_de_calor3.png")
 ```
 \vspace{1cm}
 
@@ -113,7 +113,7 @@ A Figura abaixo apresenta a distribuição temporal desses posts por meio de uma
 
 \vspace{1cm}
 ```{r, echo=FALSE, out.width="80%", fig.pos="H"}
-knitr::include_graphics("graficos/densidade.png")
+knitr::include_graphics("Graficos/densidade.png")
 ```
 \vspace{1cm}
 
