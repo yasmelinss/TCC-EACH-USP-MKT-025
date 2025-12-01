@@ -1,6 +1,5 @@
 # Resultados
 
-<<<<<<< HEAD
 ## Descritivas
 
 
@@ -106,7 +105,6 @@ knitr::include_graphics("Graficos/mapa_de_calor3.png")
 Observa-se que a atividade não é homogênea ao longo do período analisado. Há dois momentos destacados, delimitados pelas linhas verticais tracejadas em vermelho, que marcam as datas de 30/08/2024 e 08/10/2024 — pontos que correspondem, respectivamente, ao início e ao fim do intervalo de maior concentração de engajamento. Dentro desse intervalo, identifica-se um bloco contínuo de alta densidade de postagens, sugerindo um período de maior mobilização da comunidade em torno do evento.
 
 Um comportamento notável ocorre no dia 07/09, destacado pelo retângulo em verde, onde se observa um pico de atividade concentrado nos horários entre 13h e 19h. Esse evento foi exatamente a final do CBOL, e indica um aumento significativo de produção de conteúdo (*posts*).
-
 
 A Figura abaixo apresenta a distribuição temporal desses posts por meio de uma curva de densidade, a qual estima a frequência relativa de publicações em cada ponto da linha do tempo. A escala horizontal representa as datas, enquanto a vertical indica a intensidade de postagens. A escolha da densidade, em vez de contagens brutas, permite visualizar padrões gerais mesmo em períodos de baixa atividade, suavizando flutuações pontuais.
 
