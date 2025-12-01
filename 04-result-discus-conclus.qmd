@@ -307,13 +307,14 @@ medidas_rede |>
 
 
 
+
 ### GRAFOS
 
 ### Medidas descritivas - graus 
 
-Analisando o dia 07/09/2024
 
 Para caracterizar o papel de cada ator na rede de interações analisada, foram calculadas quatro métricas derivadas da estrutura direcional do grafo de likes: grau de entrada (in-degree), grau de saída (out-degree), saldo de interações e spread.
+
 
 
 
@@ -355,11 +356,16 @@ A métrica spread quantifica a parte das interações que ocorre de forma simét
 No conjunto, essas quatro métricas permitem compreender a dinâmica individual dentro da rede, destacando quem são os atores mais ativos, quem são os mais populares, quem mantém trocas de engajamento mais equilibradas e quem participa de interações assimétricas. Essa análise fornece insights essenciais sobre padrões de circulação de atenção e comportamento social na plataforma durante o período analisado.
 
 
+
+
 \vspace{1cm}
 ```{r, echo=FALSE, out.width="80%", fig.pos="H"}
 knitr::include_graphics("Graficos/GRAFOS-14-PERIODO-OUT-500/grafo-periodo5-out.png")
 ```
 \vspace{1cm}
+
+
+
 
 \vspace{1cm}
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
@@ -380,7 +386,11 @@ top_ativos |>
 \vspace{1cm}
 
 
+
+
 A análise das métricas de interação do dia 07/09/2024 revela padrões de comportamento na rede. Os valores de in_degree, definidos como o total de likes recebidos por cada ator, evidenciam perfis extremamente populares. Os destaques são ilhadaslendas.com (10.706 likes), LTA_SUL (10.521 likes) e pain.gg (3.881 likes), indicando contas que interagem intensamente com outros usuários.
+
+
 
 
 \vspace{1cm}
@@ -401,7 +411,11 @@ top_populares |>
 \vspace{1cm}
 
 
+
+
 Em contraste, o out_degree, entendido como o volume de likes dados, apresenta valores significativamente menores. Perfis como mipandy.bsky.social (607 likes), mandscosplayer.vlr.social (395 likes) e dadosdolol.bsky.social (381) são os mais expressivos nesse recorte.
+
+
 
 
 \vspace{1cm}
