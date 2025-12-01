@@ -431,7 +431,13 @@ Por fim, o saldo de interações (likes dados menos likes recebidos) é fortemen
 No conjunto, esses indicadores mostram que o dia 37 foi marcado por alta intensidade de engajamento ativo, mas com baixa redistribuição de atenção, caracterizando uma rede onde poucos recebem likes enquanto muitos distribuem. Esse comportamento reforça a presença de dinâmicas assimétricas típicas de redes sociais, como o predomínio de comportamento de broadcasting ou apoio coletivo mais do que interações bilaterais.
 
 
-# PERIODOS
+### PERIODOS
+
+Para compreender como a dinâmica das interações evoluiu ao longo do tempo, os dados foram segmentados em 14 períodos consecutivos. Essa divisão temporal foi fundamentada em duas evidências observadas previamente:
+
+(1) a densidade de postagens ao longo do tempo, que revelou picos nítidos de atividade concentrados em semanas específicas, e
+
+(2) o mapa de calor de postagens por dia e hora, que indicou padrões de engajamento intensos em determinadas faixas de dia, especialmente próximas a eventos relevantes do CBLOL.
 
 \vspace{1cm}
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
@@ -458,7 +464,13 @@ top20_p5 |>
 \vspace{1cm}
 
 
+Na semana em que o X foi suspenso no Brasil, o grafo de curtidas recebidas (≥500) apresenta uma rede muito mais ativa e estruturada do que no período anterior. A migração repentina de usuários para o Bluesky estimulou a formação rápida de novos polos de engajamento relacionados ao CBLOL.
 
+Perfis oficiais e de equipes como LTA-SUL e pain.gg aparecem entre os principais nós da rede, recebendo altos volumes de curtidas e concentrando grande parte das interações do período. Também se destacam criadores e comentaristas do cenário competitivo, como alberthlol e tabsLOL, que rapidamente passaram a ocupar posições de relevância na plataforma.
+
+A presença de perfis associados ao grupo de streamers Ilha das Lendas, reconhecido como um dos hubs de conteúdo mais influentes do público de League of Legends, indica que a migração não se limitou a torcedores. Produtores de conteúdo fundamentais para a mediação das conversas sobre o CBLOL também se deslocaram para o Bluesky, contribuindo para a reestruturação da comunidade.
+
+O grafo evidencia, portanto, que a suspensão do X funcionou como um fator de reorganização das discussões esportivas. A rede se torna mais densa e apresenta múltiplos centros de influência ancorados em equipes oficiais e criadores de conteúdo amplamente reconhecidos pelo público.
 
 
 
