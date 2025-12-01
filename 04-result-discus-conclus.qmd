@@ -171,36 +171,39 @@ O desvio-padrão quantifica a variabilidade do grau entre os atores. Valores ele
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: medidas-likes-grau
 
-graus_totais <- matriz.likes |>
+graus_totais1 <- matriz.likes |>
   summarise(
     media_likes_dados     = round(mean(table(actor.influenced.num)), 2),
     mediana_likes_dados   = round(median(table(actor.influenced.num)), 2),
     desvio_likes_dados    = round(sd(table(actor.influenced.num)), 2),
-    max_likes_dados       = max(table(actor.influenced.num)),
-    min_likes_dados       = min(table(actor.influenced.num)),
-
+    max_likes_dados       = max(table(actor.influenced.num))
+)
+graus_totais2 <- matriz.likes |>
+  summarise(
     media_likes_recebidos   = round(mean(table(actor.influencer.num)), 2),
     mediana_likes_recebidos = round(median(table(actor.influencer.num)), 2),
     desvio_likes_recebidos  = round(sd(table(actor.influencer.num)), 2),
-    max_likes_recebidos     = max(table(actor.influencer.num)),
-    min_likes_recebidos     = min(table(actor.influencer.num))
+    max_likes_recebidos     = max(table(actor.influencer.num))
   )
 
-graus_totais |>
-  t() |>
-  as.data.frame() |>
+graus_totais1 |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    col.names = c("Valor"),
-    caption = "Distribuição geral dos likes dados (out-degree) e recebidos (in-degree)"
+    caption = "Distribuição geral dos likes dados"
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
+
+graus_totais2 |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Distribuição geral dos likes recebidos"
+  ) |> kableExtra::kable_styling(latex_options = "hold_position")
+
 ```
 \vspace{1cm}
 
 
-
-Top 10 atores mais ativos e mais curtidos
 
 
 \vspace{1cm}
@@ -235,6 +238,8 @@ top_in <- matriz.likes |>
   slice(1:10)
 ```
 
+
+
 \vspace{1cm}
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 top_out |>
@@ -245,6 +250,8 @@ top_out |>
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
 \vspace{1cm}
+
+
 
 
 \vspace{1cm}
@@ -258,7 +265,6 @@ top_in |>
 
 ```
 \vspace{1cm}
-
 
 
 
@@ -537,7 +543,7 @@ A observação sequencial dos grafos construídos para cada período revela um p
 
 Esse comportamento é coerente com os resultados obtidos tanto no gráfico de densidade das postagens, que mostra um pico acentuado em torno da data da final, quanto no mapa de calor, que evidencia concentração de atividade em dias e horários específicos. Após a final do CBLOL, os gráficos mostram que a comunidade continua ativa, mas de forma muito menos intensa e distribuída de maneira mais irregular.
 
-Dentre todos os intervalos analisados, o período 5 se destaca como o momento de maior concentração de interações — coincidindo exatamente com a semana da final do CBLOL, realizada em 07/09/2024. Nesse período, notamos redes significativamente mais densas, com atores fortemente conectados e grande volume de likes sendo trocados. A estrutura do grafo desse intervalo revela picos de atividade coletiva e padrões de engajamento que não se repetem com a mesma intensidade nos períodos anteriores ou posteriores.
+Dentre todos os intervalos analisados, o período 5 se destaca como o momento de maior concentração de interações, coincidindo exatamente com a semana da final do CBLOL, realizada em 07/09/2024. Nesse período, notamos redes significativamente mais densas, com atores fortemente conectados e grande volume de likes sendo trocados. A estrutura do grafo desse intervalo revela picos de atividade coletiva e padrões de engajamento que não se repetem com a mesma intensidade nos períodos anteriores ou posteriores.
 
 \vspace{1cm}
 
@@ -550,7 +556,7 @@ knitr::include_graphics("Graficos/grafo-periodo5-out.png")
 
 
 
-Na semana em que o X foi suspenso no Brasil, o grafo de curtidas recebidas (≥500) apresenta uma rede muito mais ativa e estruturada do que no período anterior. A migração repentina de usuários para o Bluesky estimulou a formação rápida de novos polos de engajamento relacionados ao CBLOL.
+Na semana em que o X foi suspenso no Brasil, o grafo de curtidas recebidas apresenta uma rede muito mais ativa e estruturada do que no período anterior. A migração repentina de usuários para o Bluesky estimulou a formação rápida de novos polos de engajamento relacionados ao CBLOL.
 
 Perfis oficiais e de equipes como LTA-SUL e pain.gg aparecem entre os principais nós da rede, recebendo altos volumes de curtidas e concentrando grande parte das interações do período. Também se destacam criadores e comentaristas do cenário competitivo, como alberthlol e tabsLOL, que rapidamente passaram a ocupar posições de relevância na plataforma.
 
