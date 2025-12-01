@@ -380,7 +380,7 @@ top_ativos |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    caption = "atores mais engajados - dia 07/09/2024"
+    caption = "atores mais populares - dia 07/09/2024"
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
 \vspace{1cm}
