@@ -292,16 +292,19 @@ medidas_rede |>
 
 
 
-TEXTO TESTE
-TEXTO TESTE
+
 ### GRAFOS
 
 ### Medidas descritivas - graus 
 
 Analisando o dia 07/09/2024
-TEXTO TESTE
+
+Para caracterizar o papel de cada ator na rede de interações analisada, foram calculadas quatro métricas derivadas da estrutura direcional do grafo de likes: grau de entrada (in-degree), grau de saída (out-degree), saldo de interações e spread.
 
 
+
+
+\vspace{1cm}
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: medidas-grafo-37
 
@@ -322,10 +325,10 @@ top20_dia37 |>
     caption = "Top 20 atores com maior in-degree (likes recebidos) no dia 07/09/2024"
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
+\vspace{1cm}
 
 
 
-Para caracterizar o papel de cada ator na rede de interações analisada, foram calculadas quatro métricas derivadas da estrutura direcional do grafo de likes: grau de entrada (in-degree), grau de saída (out-degree), saldo de interações e spread.
 
 O grau de entrada (in-degree) corresponde ao número total de likes recebidos por um ator. Em termos de teoria de redes, representa a quantidade de arestas que chegam ao nó. Assim, atores com elevado in-degree são aqueles que concentram maior atenção da comunidade, indicando maior visibilidade ou popularidade. No contexto da análise, um alto in-degree reflete perfis cujo conteúdo atrai significativamente o engajamento dos demais usuários.
 
@@ -468,6 +471,9 @@ top20_p5 |>
 
 ```
 \vspace{1cm}
+\vspace{1cm}
+\vspace{1cm}
+
 
 
 Grafos do Período 2 ao Período 5
