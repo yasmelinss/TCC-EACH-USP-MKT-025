@@ -543,7 +543,7 @@ A observação sequencial dos grafos construídos para cada período revela um p
 
 Esse comportamento é coerente com os resultados obtidos tanto no gráfico de densidade das postagens, que mostra um pico acentuado em torno da data da final, quanto no mapa de calor, que evidencia concentração de atividade em dias e horários específicos. Após a final do CBLOL, os gráficos mostram que a comunidade continua ativa, mas de forma muito menos intensa e distribuída de maneira mais irregular.
 
-Dentre todos os intervalos analisados, o período 5 se destaca como o momento de maior concentração de interações — coincidindo exatamente com a semana da final do CBLOL, realizada em 07/09/2024. Nesse período, notamos redes significativamente mais densas, com atores fortemente conectados e grande volume de likes sendo trocados. A estrutura do grafo desse intervalo revela picos de atividade coletiva e padrões de engajamento que não se repetem com a mesma intensidade nos períodos anteriores ou posteriores.
+Dentre todos os intervalos analisados, o período 5 se destaca como o momento de maior concentração de interações, coincidindo exatamente com a semana da final do CBLOL, realizada em 07/09/2024. Nesse período, notamos redes significativamente mais densas, com atores fortemente conectados e grande volume de likes sendo trocados. A estrutura do grafo desse intervalo revela picos de atividade coletiva e padrões de engajamento que não se repetem com a mesma intensidade nos períodos anteriores ou posteriores.
 
 \vspace{1cm}
 
