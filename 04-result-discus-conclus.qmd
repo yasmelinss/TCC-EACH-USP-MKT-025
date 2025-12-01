@@ -446,7 +446,6 @@ Para compreender como a dinâmica das interações evoluiu ao longo do tempo, os
 
 
 
-
 \vspace{1cm}
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 
@@ -464,12 +463,62 @@ top20_p5 |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    caption = "Top 20 atores com maior in-degree (likes dados) no período 5"
+    caption = "Top 20 atores do período 5 por likes recebidos (in_degree)"
   ) |> kable_styling(latex_options = "hold_position")
 
 ```
 \vspace{1cm}
 
+
+Grafos do Período 2 ao Período 5
+
+
+\vspace{1cm}
+```{r, echo=FALSE, out.width="80%", fig.pos="H"}
+knitr::include_graphics("Graficos/Periodo2A5.png")
+```
+\vspace{1cm}
+
+
+
+Grafos do Período 6 ao Período 9
+
+
+\vspace{1cm}
+```{r, echo=FALSE, out.width="80%", fig.pos="H"}
+knitr::include_graphics("Graficos/periodo6a9.png")
+```
+\vspace{1cm}
+
+
+
+Grafos do Período 10 ao Período 13
+
+
+\vspace{1cm}
+```{r, echo=FALSE, out.width="80%", fig.pos="H"}
+knitr::include_graphics("Graficos/periodo10a13.png")
+```
+\vspace{1cm}
+
+
+
+A observação sequencial dos grafos construídos para cada período revela um processo claro de diluição da rede de interações ao longo do tempo. Nos períodos iniciais, especialmente aqueles próximos ao início das fases decisivas do CBLOL, os grafos apresentam maior densidade de conexões, com um número expressivo de arestas e uma concentração notável de atores desempenhando papéis centrais. O volume de likes trocados é maior, os clusters são mais definidos e a estrutura geral da rede se mostra compacta e coesa, refletindo um momento de forte mobilização da comunidade.
+
+À medida que avançamos pelos períodos seguintes, entretanto, a rede perde densidade. O número de interações diminui, as conexões tornam-se mais esparsas e a centralidade de muitos atores enfraquece. Isso pode ser observado visualmente nos grafos: os nós ficam mais afastados, as arestas menos numerosas e a topologia da rede se fragmenta gradualmente. Esta diluição progressiva indica uma queda no engajamento coletivo após o ápice de interesse causado pelos eventos competitivos.
+
+Esse comportamento é coerente com os resultados obtidos tanto no gráfico de densidade das postagens, que mostra um pico acentuado em torno da data da final, quanto no mapa de calor, que evidencia concentração de atividade em dias e horários específicos. Após a final do CBLOL, os gráficos mostram que a comunidade continua ativa, mas de forma muito menos intensa e distribuída de maneira mais irregular.
+
+Dentre todos os intervalos analisados, o período 5 se destaca como o momento de maior concentração de interações — coincidindo exatamente com a semana da final do CBLOL, realizada em 07/09/2024. Nesse período, notamos redes significativamente mais densas, com atores fortemente conectados e grande volume de likes sendo trocados. A estrutura do grafo desse intervalo revela picos de atividade coletiva e padrões de engajamento que não se repetem com a mesma intensidade nos períodos anteriores ou posteriores.
+
+\vspace{1cm}
+
+
+\vspace{1cm}
+```{r, echo=FALSE, out.width="80%", fig.pos="H"}
+knitr::include_graphics("Graficos/periodo10a13.png")
+```
+\vspace{1cm}
 
 
 
