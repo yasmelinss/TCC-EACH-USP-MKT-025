@@ -312,7 +312,7 @@ medidas_rede |>
 
 
 
-### GRAFOS
+### Grafos
 
 ### Medidas descritivas - graus 
 
@@ -471,7 +471,7 @@ Por fim, o saldo de interações (likes dados menos likes recebidos) é fortemen
 No conjunto, esses indicadores mostram que o dia 37 foi marcado por alta intensidade de engajamento ativo, mas com baixa redistribuição de atenção, caracterizando uma rede onde poucos recebem likes enquanto muitos distribuem. Esse comportamento reforça a presença de dinâmicas assimétricas típicas de redes sociais, como o predomínio de comportamento de broadcasting ou apoio coletivo mais do que interações bilaterais.
 
 
-### PERIODOS
+### Períodos
 
 Para compreender como a dinâmica das interações evoluiu ao longo do tempo, os dados foram segmentados em 14 períodos consecutivos. Essa divisão temporal foi fundamentada em duas evidências observadas previamente: a densidade de postagens ao longo do tempo, que revelou picos nítidos de atividade concentrados em semanas específicas, e o mapa de calor de postagens por dia e hora, que indicou padrões de engajamento intensos em determinadas faixas de dia, especialmente próximas a eventos relevantes do CBLOL.
 
@@ -562,7 +562,7 @@ Perfis oficiais e de equipes como LTA-SUL e pain.gg aparecem entre os principais
 
 A presença de perfis associados ao grupo de streamers Ilha das Lendas, reconhecido como um dos hubs de conteúdo mais influentes do público de League of Legends, indica que a migração não se limitou a torcedores. Produtores de conteúdo fundamentais para a mediação das conversas sobre o CBLOL também se deslocaram para o Bluesky, contribuindo para a reestruturação da comunidade.
 
-O grafo evidencia, portanto, que a suspensão do X funcionou como um fator de reorganização das discussões esportivas. A rede se torna mais densa e apresenta múltiplos centros de influência ancorados em equipes oficiais e criadores de conteúdo amplamente reconhecidos pelo público.
+O grafo evidencia, portanto, que a suspensão do X funcionou como um fator de reorganização das discussões esportivas. A rede se torna mais densa e apresenta múltiplos centros de influência ancorados em equipes oficiais e criadores de conteúdo amplamente reconhecidos pelo público.
 
 
 
@@ -574,7 +574,13 @@ O grafo evidencia, portanto, que a suspensão do X funcionou como um fator de re
 
 ## Principais achados
 
-  
+Os resultados da mineração de dados da rede Bluesky revelam uma reconfiguração significativa das dinâmicas de engajamento da comunidade de League of Legends após a suspensão do X, com um aumento expressivo no volume de postagens e interações imediatamente após o acontecimento. Observou-se que perfis oficiais como pain.gg, representantes da LTA Sul e integrantes do coletivo de criadores Ilha das Lendas assumiram de imediato papel de destaque como *hubs* de circulação de conteúdo, reforçando o papel dos criadores e organizações esportivas como mediadores fundamentais na propagação de informações e na manutenção do engajamento comunitário. 
+
+A migração forçada demonstrou a resiliência da comunidade, que manteve a produção e o compartilhamento de análises, reações e conteúdos culturais mesmo diante da ruptura de uma infraestrutura digital amplamente consolidada. Essas atitudes refletem as "políticas de reparo" conceituadas por @Velkova2021, com os membros da comunidade re-estabelecendo suas conexões prévias de forma a reparar o tecido social que foi rompido pela suspensão da plataforma digital em que previamente ocorria. Ainda que o engajamento tenha diminuído gradualmente após o retorno do X e o fim do campeonato Worlds de 2024, este ainda permaneceu acima dos níveis pré-suspensão, indicando que o Bluesky se consolidou como um espaço alternativo de interação. 
+
+Em uma perspectiva mais ampla, o fenômeno analisado dialoga diretamente com os debates sobre a defesa da liberdade na internet por meio de arquiteturas descentralizadas. Como argumentam @Barabas2017, modelos de redes distribuídas de forma descentralizada podem fortalecer a resiliência do ecossistema digital ao reduzir a dependência de plataformas centralizadas e mitigar vulnerabilidades relacionadas à concentração de poder. O comportamento observado no Bluesky durante a suspensão do X ilustra, em escala empírica, essa tese: ao oferecer uma infraestrutura aberta e interoperável, a plataforma permitiu que a comunidade reorganizasse rapidamente seus fluxos comunicativos, preservando práticas sociais e informacionais que, em um ambiente totalmente centralizado, poderiam ter sido permanentemente interrompidas. Nesse sentido, o episódio reforça o valor de iniciativas alinhadas à web descentralizada e evidencia como alternativas abertas podem desempenhar papel crítico na continuidade do debate público e da produção cultural em momentos de instabilidade regulatória ou técnica.
+
+
 
 ## Limitações e Trabalhos Futuros
 
