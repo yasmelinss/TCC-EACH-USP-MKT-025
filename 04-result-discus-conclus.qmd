@@ -123,10 +123,7 @@ Após o dia 08/10, nota-se um declínio acentuado na densidade das postagens, co
 
 ### Medidas descritivas — Likes extraidos desses posts
 
-<<<<<<< HEAD
-=======
 #### Matriz de likes
->>>>>>> 5d7261b0c0d064fcbde8599ab8810c71be13adf3
 
 A matriz de likes constitui a base de dados relacional utilizada para a construção da rede de interações entre os atores. Cada linha dessa matriz representa um evento individual de engajamento, isto é, um like realizado em determinado momento. As três colunas principais são: `data.skeet`, que registra a data e horário da interação; `actor.influencer.num`, qidentifica numericamente o ator que recebeu essa interação, e `actor.influenced.num`, que identifica numericamente o ator que realizou o like.
 
