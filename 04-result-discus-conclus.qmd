@@ -173,36 +173,39 @@ O desvio-padrão quantifica a variabilidade do grau entre os atores. Valores ele
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #| label: medidas-likes-grau
 
-graus_totais <- matriz.likes |>
+graus_totais1 <- matriz.likes |>
   summarise(
     media_likes_dados     = round(mean(table(actor.influenced.num)), 2),
     mediana_likes_dados   = round(median(table(actor.influenced.num)), 2),
     desvio_likes_dados    = round(sd(table(actor.influenced.num)), 2),
-    max_likes_dados       = max(table(actor.influenced.num)),
-    min_likes_dados       = min(table(actor.influenced.num)),
-
+    max_likes_dados       = max(table(actor.influenced.num))
+)
+graus_totais2 <- matriz.likes |>
+  summarise(
     media_likes_recebidos   = round(mean(table(actor.influencer.num)), 2),
     mediana_likes_recebidos = round(median(table(actor.influencer.num)), 2),
     desvio_likes_recebidos  = round(sd(table(actor.influencer.num)), 2),
-    max_likes_recebidos     = max(table(actor.influencer.num)),
-    min_likes_recebidos     = min(table(actor.influencer.num))
+    max_likes_recebidos     = max(table(actor.influencer.num))
   )
 
-graus_totais |>
-  t() |>
-  as.data.frame() |>
+graus_totais1 |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    col.names = c("Valor"),
-    caption = "Distribuição geral dos likes dados (out-degree) e recebidos (in-degree)"
+    caption = "Distribuição geral dos likes dados"
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
+
+graus_totais2 |>
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Distribuição geral dos likes recebidos"
+  ) |> kableExtra::kable_styling(latex_options = "hold_position")
+
 ```
 \vspace{1cm}
 
 
-
-Top 10 atores mais ativos e mais curtidos
 
 
 \vspace{1cm}
@@ -237,6 +240,8 @@ top_in <- matriz.likes |>
   slice(1:10)
 ```
 
+
+
 \vspace{1cm}
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 top_out |>
@@ -247,6 +252,8 @@ top_out |>
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
 \vspace{1cm}
+
+
 
 
 \vspace{1cm}
@@ -260,7 +267,6 @@ top_in |>
 
 ```
 \vspace{1cm}
-
 
 
 
