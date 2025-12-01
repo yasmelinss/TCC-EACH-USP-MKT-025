@@ -463,7 +463,7 @@ top20_p5 |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    caption = "Top 20 atores do período 5 por likes recebidos (in_degree)"
+    caption = "Top 20 atores do período 5 por likes recebidos"
   ) |> kable_styling(latex_options = "hold_position")
 
 ```
@@ -516,7 +516,7 @@ Dentre todos os intervalos analisados, o período 5 se destaca como o momento de
 
 \vspace{1cm}
 ```{r, echo=FALSE, out.width="80%", fig.pos="H"}
-knitr::include_graphics("Graficos/GRAFOS-14-PERIODO-OUT-500/grafo-periodo5.png")
+knitr::include_graphics("Graficos/grafo-periodo5-out.png")
 ```
 \vspace{1cm}
 
