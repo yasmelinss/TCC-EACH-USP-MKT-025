@@ -503,7 +503,7 @@ Grafos do Período 2 ao Período 5
 
 
 ```{r, echo=FALSE, out.width="80%", fig.pos="H"}
-knitr::include_graphics("Graficos/Periodo2A5.png")
+knitr::include_graphics("Graficos/periodo2A5.png")
 ```
 \vspace{1cm}
 
