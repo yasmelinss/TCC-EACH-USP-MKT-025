@@ -123,7 +123,6 @@ Após o dia 08/10, nota-se um declínio acentuado na densidade das postagens, co
 
 ### Medidas descritivas — Likes extraidos desses posts
 
-`matriz.like`
 
 A matriz de likes constitui a base de dados relacional utilizada para a construção da rede de interações entre os atores. Cada linha dessa matriz representa um evento individual de engajamento, isto é, um like realizado em determinado momento. As três colunas principais são: `data.skeet`, que registra a data e horário da interação; `actor.influencer.num`, qidentifica numericamente o ator que recebeu essa interação, e `actor.influenced.num`, que identifica numericamente o ator que realizou o like.
 
@@ -360,11 +359,12 @@ A métrica spread quantifica a parte das interações que ocorre de forma simét
 No conjunto, essas quatro métricas permitem compreender a dinâmica individual dentro da rede, destacando quem são os atores mais ativos, quem são os mais populares, quem mantém trocas de engajamento mais equilibradas e quem participa de interações assimétricas. Essa análise fornece insights essenciais sobre padrões de circulação de atenção e comportamento social na plataforma durante o período analisado.
 
 
-
+A análise das métricas de interação do dia 07/09/2024 revela padrões de comportamento na rede. Os valores de in_degree, definidos como o total de likes recebidos por cada ator, evidenciam perfis extremamente populares. Os destaques são ilhadaslendas.com (10.706 likes), LTA_SUL (10.521 likes) e pain.gg (3.881 likes), indicando contas que interagem intensamente com outros usuários.
 
 \vspace{1cm}
+
 ```{r, echo=FALSE, out.width="80%", fig.pos="H"}
-knitr::include_graphics("Graficos/GRAFOS-14-PERIODO-OUT-500/grafo-periodo5-out.png")
+knitr::include_graphics("Graficos/rede-dia-37-indegree.png")
 ```
 \vspace{1cm}
 
@@ -391,10 +391,14 @@ top_ativos |>
 
 
 
+Em contraste, o out_degree, entendido como o volume de likes dados, apresenta valores significativamente menores. Perfis como mipandy.bsky.social (607 likes), mandscosplayer.vlr.social (395 likes) e dadosdolol.bsky.social (381) são os mais expressivos nesse recorte.
 
-A análise das métricas de interação do dia 07/09/2024 revela padrões de comportamento na rede. Os valores de in_degree, definidos como o total de likes recebidos por cada ator, evidenciam perfis extremamente populares. Os destaques são ilhadaslendas.com (10.706 likes), LTA_SUL (10.521 likes) e pain.gg (3.881 likes), indicando contas que interagem intensamente com outros usuários.
+\vspace{1cm}
 
-
+```{r, echo=FALSE, out.width="80%", fig.pos="H"}
+knitr::include_graphics("Graficos/rede-dia-37-outdegree.png")
+```
+\vspace{1cm}
 
 
 \vspace{1cm}
@@ -409,17 +413,13 @@ top_populares |>
   kable(
     format = "latex",
     booktabs = TRUE,
-    caption = "Atores mais populares - dia 07/09/2024"
+    caption = "Atores mais ativos - dia 07/09/2024"
   ) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
 \vspace{1cm}
 
 
-
-
-Em contraste, o out_degree, entendido como o volume de likes dados, apresenta valores significativamente menores. Perfis como mipandy.bsky.social (607 likes), mandscosplayer.vlr.social (395 likes) e dadosdolol.bsky.social (381) são os mais expressivos nesse recorte.
-
-
+O spread, que reflete a parte recíproca da atividade (interações tanto de ida quanto de volta), confirma essa assimetria. Embora a maior parte dos atores apresente valores baixos, alguns perfis, como dadosdolol.bsky.social, mantêm um nível de reciprocidade mais elevado, indicando trocas mais equilibradas de engajamento.
 
 
 \vspace{1cm}
@@ -441,9 +441,7 @@ top_equilibrados |>
 
 
 
-O spread, que reflete a parte recíproca da atividade (interações tanto de ida quanto de volta), confirma essa assimetria. Embora a maior parte dos atores apresente valores baixos, alguns perfis, como dadosdolol.bsky.social, mantêm um nível de reciprocidade mais elevado, indicando trocas mais equilibradas de engajamento.
-
-
+Por fim, o saldo de interações (likes dados menos likes recebidos) é fortemente positivo para a maioria dos principais atores, revelando que grande parte da atividade consiste em engajamento unilateral. Perfis como ilhadaslendas.com e LTA_SUL apresentam saldos superiores a 10 mil, demonstrando altíssima atividade com baixa reciprocidade.
 
 
 \vspace{1cm}
@@ -465,8 +463,6 @@ top_assimetricos |>
 
 
 
-
-Por fim, o saldo de interações (likes dados menos likes recebidos) é fortemente positivo para a maioria dos principais atores, revelando que grande parte da atividade consiste em engajamento unilateral. Perfis como ilhadaslendas.com e LTA_SUL apresentam saldos superiores a 10 mil, demonstrando altíssima atividade com baixa reciprocidade.
 
 No conjunto, esses indicadores mostram que o dia 37 foi marcado por alta intensidade de engajamento ativo, mas com baixa redistribuição de atenção, caracterizando uma rede onde poucos recebem likes enquanto muitos distribuem. Esse comportamento reforça a presença de dinâmicas assimétricas típicas de redes sociais, como o predomínio de comportamento de broadcasting ou apoio coletivo mais do que interações bilaterais.
 
