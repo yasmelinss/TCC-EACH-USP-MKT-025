@@ -929,4 +929,12 @@ walk(
 length(grafos_periodos)
 length(periodos_idx)
 ```
+```{r}
+
+metricas_p5 <- grafos_periodos$periodo5 |> activate(nodes) |> as_tibble()
+metricas_p5 |> arrange(desc(grau_out)) |> head(20) 
+  
+saveRDS(metricas_p5, "Dados/metricas_periodo5.rds")
+
+```
 
